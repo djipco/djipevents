@@ -7,7 +7,7 @@
  * [Node.js EventEmitter API](https://nodejs.org/api/events.html#events_class_eventemitter) but they
  * are meant to be used in the browser.
  */
-export default class EventEmitter {
+export class EventEmitter {
 
   constructor() {
     this.events = {};
