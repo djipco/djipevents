@@ -4,8 +4,9 @@ const eslint = require("gulp-eslint");
 const ghPages = require("gulp-gh-pages");
 const jsdoc = require("gulp-jsdoc3");
 const minify = require("gulp-minify");
-const release = require("gulp-package-release").release;
+// const release = require("gulp-package-release").release;
 const pkg = require("./package.json");
+var spawn = require("child_process").spawn;
 
 function bundle() {
 
@@ -37,13 +38,16 @@ function lint() {
     .pipe(eslint.failAfterError());
 }
 
-function releaseToNpm() {
+function releaseToNpm(cb) {
   // return release();
-  return release({
-    version: pkg.version,
-    tag: "v" + pkg.version,
-    nextVersion: "1.0.2-SNAPSHOT"
-  });
+  // return release({
+  //   version: pkg.version,
+  //   tag: "v" + pkg.version,
+  //   nextVersion: "1.0.2-SNAPSHOT"
+  // });
+
+  spawn("npm", ["publish"], { stdio: "inherit" }).on("close", cb);
+
 }
 
 const doc = gulp.series(generateDoc, publishDoc);
