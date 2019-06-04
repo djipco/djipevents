@@ -1,0 +1,22 @@
+{
+  "name": "djipevents",
+  "version": "0.0.2",
+  "description": "A modularized event-handling library for the browser based on the Node.js EventEmitter API",
+  "main": "./dist/djipevents.min.js",
+  "author": "Jean-Philippe Côté <jp@djip.co>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "foodoc": "0.0.9",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-jsdoc3": "^2.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-package-release": "^1.0.2",
+    "jsdoc-export-default-interop": "^0.3.1"
+  }
+}

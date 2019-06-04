@@ -1,0 +1,428 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>djipevents.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"MMMM Do YYYY, H:mm:ss","systemName":"DjipEvents","systemSummary":"A modularized event-handling library for the browser based on the Node.js EventEmitter API","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"DjipEvents is (mostly) a refactoring of eventemitter3 by Arnout Kazemier and is released under the MIT license.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"longname, linenum, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true}};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					DjipEvents
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="EventEmitter.html">EventEmitter</a></li>
+											<li><a href="Listener.html">Listener</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">djipevents.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
+ * The `EventEmitter` class provides methods to implement the _observable_ design pattern. It is an
+ * abstract class meant to be extended on (or mixed in) to add methods such as `addListener()`,
+ * `removeListener()`, `emit()`, etc.
+ *
+ * The methods of this class mostly match those of the
+ * [Node.js EventEmitter API](https://nodejs.org/api/events.html#events_class_eventemitter) but they
+ * are meant to be used in the browser.
+ */
+export default class EventEmitter {
+
+  constructor() {
+    this.events = {};
+    this.eventsCount = 0;
+  }
+
+  /**
+   * Adds a listener for a specific event.
+   *
+   * @param {string|Symbol} event The event to listen to
+   * @param {function} callback The callback function (i.e. listener) to execute when the event
+   * occurs
+   * @param {*} [context=this] The context to invoke the callback function in.
+   * @param {Boolean} [once=false] Specify if the listener is a one-time listener.
+   *
+   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   */
+  addListener(event, callback, context, once = false) {
+
+    if (typeof callback !== "function") throw new TypeError("The callback must be a function");
+
+    let listener = new Listener(callback, context || this, once);
+
+    if (!this.events[event]) {
+      this.events[event] = listener;
+      this.eventsCount++;
+    } else if (!this.events[event].callback) {
+      this.events[event].push(listener);
+    } else {
+      this.events[event] = [this.events[event], listener];
+    }
+
+    return this;
+
+  }
+
+  /**
+   * Removes all listeners for a specific event.
+   *
+   * @param {String|Symbol} event The name of the event
+   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   */
+  removeEvent(event) {
+
+    if (--this.eventsCount === 0) {
+      this.events = {};
+    } else {
+      delete this.events[event];
+    }
+
+    return this;
+
+  }
+
+  /**
+   * Returns an array of all the unique events for which the emitter has registered listeners.
+   * @returns {String[]}
+   */
+  eventNames() {
+
+    let names = []
+      , events
+      , name;
+
+    if (this.eventsCount === 0) return names;
+
+    for (name in (events = this.events)) {
+      if (Object.prototype.hasOwnProperty.call(events, name)) {
+        names.push(name);
+      }
+    }
+
+    if (Object.getOwnPropertySymbols) {
+      return names.concat(Object.getOwnPropertySymbols(events));
+    }
+
+    return names;
+
+  };
+
+  /**
+   * Return the listeners registered for a given event.
+   *
+   * @param {(String|Symbol)} event The event name.
+   * @returns {Listener[]} The registered listeners.
+   */
+  listeners(event) {
+
+    let ee = [];
+    let handlers = this.events[event];
+
+    if (!handlers) return [];
+    if (handlers.callback) return [handlers.callback];
+
+    for (let i = 0; i &lt; handlers.length; i++) {
+      ee[i] = handlers[i].callback;
+    }
+
+    return ee;
+
+  };
+
+  /**
+   * Return the number of listeners listening to a given event.
+   *
+   * @param {String|Symbol} event The event name.
+   * @returns {Number} The number of listeners.
+   */
+  listenerCount(event) {
+
+    let listeners = this.events[event];
+
+    if (!listeners) return 0;
+    if (listeners.callback) return 1;
+    return listeners.length;
+
+  };
+
+  /**
+   * Calls each of the listeners registered for a given event.
+   *
+   * @param {String|Symbol} event The event name.
+   * @returns {Boolean} `true` if the event had listeners, else `false`.
+   */
+  emit(event, a1, a2, a3, a4, a5) {
+
+    if (!this.events[event]) return false;
+
+    let listeners = this.events[event]
+      , len = arguments.length
+      , args
+      , i;
+
+    if (listeners.callback) {
+
+      if (listeners.once) this.removeListener(event, listeners.callback, undefined, true);
+
+      switch (len) {
+        case 1: return listeners.callback.call(listeners.context), true;
+        case 2: return listeners.callback.call(listeners.context, a1), true;
+        case 3: return listeners.callback.call(listeners.context, a1, a2), true;
+        case 4: return listeners.callback.call(listeners.context, a1, a2, a3), true;
+        case 5: return listeners.callback.call(listeners.context, a1, a2, a3, a4), true;
+        case 6: return listeners.callback.call(listeners.context, a1, a2, a3, a4, a5), true;
+      }
+
+      for (i = 1, args = new Array(len -1); i &lt; len; i++) {
+        args[i - 1] = arguments[i];
+      }
+
+      listeners.callback.apply(listeners.context, args);
+
+    } else {
+
+      let length = listeners.length
+        , j;
+
+      for (i = 0; i &lt; length; i++) {
+        if (listeners[i].once) this.removeListener(event, listeners[i].callback, undefined, true);
+
+        switch (len) {
+          case 1: listeners[i].callback.call(listeners[i].context); break;
+          case 2: listeners[i].callback.call(listeners[i].context, a1); break;
+          case 3: listeners[i].callback.call(listeners[i].context, a1, a2); break;
+          case 4: listeners[i].callback.call(listeners[i].context, a1, a2, a3); break;
+          default:
+            if (!args) for (j = 1, args = new Array(len -1); j &lt; len; j++) {
+              args[j - 1] = arguments[j];
+            }
+
+            listeners[i].callback.apply(listeners[i].context, args);
+        }
+      }
+
+    }
+
+    return true;
+
+  };
+
+  /**
+   * Add a listener for a given event.
+   *
+   * @param {(String|Symbol)} event The event name.
+   * @param {Function} callback The listener function.
+   * @param {*} [context=this] The context to invoke the listener with.
+   *
+   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   */
+  on(event, callback, context) {
+    return this.addListener(event, callback, context, false);
+  };
+
+  /**
+   * Add a one-time listener for a given event.
+   *
+   * @param {(String|Symbol)} event The event name.
+   * @param {Function} callback The listener function.
+   * @param {*} [context=this] The context to invoke the listener with.
+   *
+   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   */
+  once(event, callback, context) {
+    return this.addListener(event, callback, context, true);
+  };
+
+  /**
+   * Removes the listener(s) of a given event. If a callback function is provided, it will only
+   * remove the listeners that match this function.
+   *
+   * @param {String|Symbol} event The event name.
+   * @param {Function} [callback] Only remove the listeners that match this function.
+   * @param {*} [context] Only remove the listeners that have this context.
+   * @param {Boolean} [once=false] Only remove one-time listeners.
+   *
+   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   */
+  removeListener(event, callback, context, once) {
+
+    let events = [];
+
+    if (!this.events[event]) return this;
+    if (!callback) {
+      this.removeEvent(event);
+      return this;
+    }
+
+    let listeners = this.events[event];
+
+    if (listeners.callback) {
+      if (
+        listeners.callback === callback &amp;&amp;
+        (!once || listeners.once) &amp;&amp;
+        (!context || listeners.context === context)
+      ) {
+        this.removeEvent(event);
+      }
+    } else {
+      for (let i = 0, events = [], length = listeners.length; i &lt; length; i++) {
+        if (
+          listeners[i].callback !== callback ||
+          (once &amp;&amp; !listeners[i].once) ||
+          (context &amp;&amp; listeners[i].context !== context)
+        ) {
+          events.push(listeners[i]);
+        }
+      }
+
+      // Reset the array, or remove it completely if we have no more listeners.
+      if (events.length) this.events[event] = events.length === 1 ? events[0] : events;
+      else this.removeEvent(event);
+    }
+
+    return this;
+
+  }
+
+  /**
+   * Removes the listener(s) of a given event. If a callback function is provided, it will only
+   * remove the listeners that match this function.
+   *
+   * @param {String|Symbol} event The event name.
+   * @param {Function} [callback] Only remove the listeners that match this function.
+   * @param {*} [context] Only remove the listeners that have this context.
+   * @param {Boolean} [once=false] Only remove one-time listeners.
+   *
+   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   */
+  off(event, callback, context, once) {
+    return this.removeListener(event, callback, context, once);
+  }
+
+  /**
+   * Remove all listeners, or those for the specified event (if present).
+   *
+   * @param {(String|Symbol)} [event] The event name.
+   *
+   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   */
+  removeAllListeners(event) {
+
+    if (event) {
+      if (this.events[event]) this.removeEvent(event);
+    } else {
+      this.events = {};
+      this.eventsCount = 0;
+    }
+
+    return this;
+
+  }
+
+}
+
+/**
+ * The `Listener` class represents a single event listener object. Such objects store the callback
+ * (listener) function, the context to execute the function in (often `this`) and whether or not the
+ * callback should only be executed once.
+ */
+export class Listener {
+
+  /**
+   * @param {Function} callback The listener function
+   * @param {*} [context] The context to invoke the listener in
+   * @param {Boolean} [once=false] Whether the callback function should be executed only once
+   */
+  constructor(callback, context, once = false) {
+    this.callback = callback;
+    this.context = context;
+    this.once = once === true || false;
+  }
+
+}
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">DjipEvents is (mostly) a refactoring of eventemitter3 by Arnout Kazemier and is released under the MIT license.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 4th 2019, 13:05:40 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->
