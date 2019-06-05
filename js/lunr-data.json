@@ -89,7 +89,8 @@
           "lt;readonly&gt",
           "member",
           "number",
-          "regist"
+          "regist",
+          "uniqu"
         ],
         "EventEmitter.html#emit": [
           "boolean",
@@ -285,7 +286,7 @@
                       "docs": {
                         "EventEmitter.html#emit": {
                           "ref": "EventEmitter.html#emit",
-                          "tf": 25
+                          "tf": 33.33333333333333
                         }
                       }
                     }
@@ -383,7 +384,7 @@
                 "docs": {
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
-                    "tf": 27.38095238095238
+                    "tf": 2.380952380952381
                   },
                   "EventEmitter.html#on": {
                     "ref": "EventEmitter.html#on",
@@ -418,11 +419,11 @@
                     },
                     "EventEmitter.html#eventCount": {
                       "ref": "EventEmitter.html#eventCount",
-                      "tf": 12.5
+                      "tf": 10
                     },
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
-                      "tf": 29.761904761904763
+                      "tf": 38.09523809523809
                     },
                     "EventEmitter.html#getEventNames": {
                       "ref": "EventEmitter.html#getEventNames",
@@ -757,7 +758,7 @@
                   },
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
-                    "tf": 675
+                    "tf": 683.3333333333334
                   }
                 },
                 "t": {
@@ -968,7 +969,7 @@
                     "docs": {
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 12.5
+                        "tf": 10
                       },
                       "EventEmitter.html#emit": {
                         "ref": "EventEmitter.html#emit",
@@ -1235,7 +1236,7 @@
                     "docs": {
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 12.5
+                        "tf": 10
                       },
                       "EventEmitter.html#emit": {
                         "ref": "EventEmitter.html#emit",
@@ -2187,7 +2188,7 @@
                     "docs": {
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 45.83333333333333
+                        "tf": 43.33333333333333
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
@@ -2210,6 +2211,38 @@
                     "tf": 6.25
                   }
                 }
+              }
+            }
+          }
+        },
+        "u": {
+          "docs": {},
+          "n": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "q": {
+                "docs": {},
+                "u": {
+                  "docs": {
+                    "EventEmitter.html#eventCount": {
+                      "ref": "EventEmitter.html#eventCount",
+                      "tf": 10
+                    },
+                    "EventEmitter.html#getEventNames": {
+                      "ref": "EventEmitter.html#getEventNames",
+                      "tf": 6.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "s": {
+            "docs": {
+              "EventEmitter.html#emit": {
+                "ref": "EventEmitter.html#emit",
+                "tf": 2.380952380952381
               }
             }
           }
@@ -2293,34 +2326,6 @@
                           }
                         }
                       }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "u": {
-          "docs": {},
-          "s": {
-            "docs": {
-              "EventEmitter.html#emit": {
-                "ref": "EventEmitter.html#emit",
-                "tf": 2.380952380952381
-              }
-            }
-          },
-          "n": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "q": {
-                "docs": {},
-                "u": {
-                  "docs": {
-                    "EventEmitter.html#getEventNames": {
-                      "ref": "EventEmitter.html#getEventNames",
-                      "tf": 6.25
                     }
                   }
                 }
@@ -2414,7 +2419,7 @@
           }
         }
       },
-      "length": 167
+      "length": 168
     },
     "corpusTokens": [
       "abstract",
@@ -2583,12 +2588,12 @@
       "name": "eventCount",
       "tags": "EventEmitter#eventCount eventCount",
       "summary": "",
-      "description": "The number of events that have registered listeners"
+      "description": "The number of unique events that have registered listeners"
     },
     "EventEmitter.html#emit": {
       "id": "EventEmitter.html#emit",
       "kind": "function",
-      "title": "emit( event [, data ] ) → {Boolean}",
+      "title": "emit( event ) → {Boolean}",
       "longname": "EventEmitter#emit",
       "name": "emit",
       "tags": "EventEmitter#emit emit",
