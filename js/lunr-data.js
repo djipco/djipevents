@@ -227,23 +227,31 @@ window.lunrData = {
           "removelisten"
         ],
         "Listener.html": [
+          "attach",
+          "be",
           "callback",
           "class",
-          "context",
+          "contextu",
           "event",
-          "execut",
           "function",
+          "inform",
+          "keep",
           "listen",
           "object",
-          "onc",
+          "relev",
           "repres",
           "singl",
-          "store",
-          "such",
-          "whether"
+          "such"
+        ],
+        "Listener.html#remove": [
+          "function",
+          "listen",
+          "listener#remov",
+          "remov",
+          "target"
         ]
       },
-      "length": 16
+      "length": 17
     },
     "tokenStore": {
       "root": {
@@ -442,6 +450,26 @@ window.lunrData = {
                 }
               }
             }
+          },
+          "t": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "h": {
+                    "docs": {
+                      "Listener.html": {
+                        "ref": "Listener.html",
+                        "tf": 2.272727272727273
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "b": {
@@ -507,6 +535,14 @@ window.lunrData = {
                     }
                   }
                 }
+              }
+            }
+          },
+          "e": {
+            "docs": {
+              "Listener.html": {
+                "ref": "Listener.html",
+                "tf": 2.272727272727273
               }
             }
           }
@@ -644,7 +680,7 @@ window.lunrData = {
                     },
                     "Listener.html": {
                       "ref": "Listener.html",
-                      "tf": 2.5
+                      "tf": 4.545454545454546
                     }
                   },
                   "e": {
@@ -1019,23 +1055,6 @@ window.lunrData = {
                   }
                 }
               }
-            },
-            "e": {
-              "docs": {},
-              "c": {
-                "docs": {},
-                "u": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "Listener.html": {
-                        "ref": "Listener.html",
-                        "tf": 5
-                      }
-                    }
-                  }
-                }
-              }
             }
           },
           "a": {
@@ -1086,6 +1105,23 @@ window.lunrData = {
                     "index.html": {
                       "ref": "index.html",
                       "tf": 1300
+                    }
+                  }
+                }
+              }
+            },
+            "f": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "m": {
+                    "docs": {
+                      "Listener.html": {
+                        "ref": "Listener.html",
+                        "tf": 2.272727272727273
+                      }
                     }
                   }
                 }
@@ -1228,7 +1264,11 @@ window.lunrData = {
                       },
                       "Listener.html": {
                         "ref": "Listener.html",
-                        "tf": 1907.5
+                        "tf": 1909.090909090909
+                      },
+                      "Listener.html#remove": {
+                        "ref": "Listener.html#remove",
+                        "tf": 16.666666666666664
                       }
                     },
                     "e": {
@@ -1264,6 +1304,29 @@ window.lunrData = {
                             "EventEmitter.html#removeListener": {
                               "ref": "EventEmitter.html#removeListener",
                               "tf": 4.545454545454546
+                            }
+                          }
+                        },
+                        "#": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "m": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "v": {
+                                    "docs": {
+                                      "Listener.html#remove": {
+                                        "ref": "Listener.html#remove",
+                                        "tf": 1150
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -1474,6 +1537,10 @@ window.lunrData = {
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
                       "tf": 9.090909090909092
+                    },
+                    "Listener.html#remove": {
+                      "ref": "Listener.html#remove",
+                      "tf": 766.6666666666666
                     }
                   },
                   "e": {
@@ -1602,6 +1669,20 @@ window.lunrData = {
                 }
               }
             },
+            "l": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "v": {
+                  "docs": {
+                    "Listener.html": {
+                      "ref": "Listener.html",
+                      "tf": 2.272727272727273
+                    }
+                  }
+                }
+              }
+            },
             "p": {
               "docs": {},
               "r": {
@@ -1612,7 +1693,7 @@ window.lunrData = {
                     "docs": {
                       "Listener.html": {
                         "ref": "Listener.html",
-                        "tf": 2.5
+                        "tf": 2.272727272727273
                       }
                     }
                   }
@@ -1705,7 +1786,7 @@ window.lunrData = {
                     },
                     "Listener.html": {
                       "ref": "Listener.html",
-                      "tf": 112.5
+                      "tf": 112.27272727272727
                     }
                   }
                 }
@@ -1753,7 +1834,7 @@ window.lunrData = {
                           },
                           "Listener.html": {
                             "ref": "Listener.html",
-                            "tf": 5
+                            "tf": 2.272727272727273
                           }
                         }
                       }
@@ -1794,10 +1875,14 @@ window.lunrData = {
                         "EventEmitter.html#removeListener": {
                           "ref": "EventEmitter.html#removeListener",
                           "tf": 16.666666666666664
-                        },
-                        "Listener.html": {
-                          "ref": "Listener.html",
-                          "tf": 2.5
+                        }
+                      },
+                      "u": {
+                        "docs": {
+                          "Listener.html": {
+                            "ref": "Listener.html",
+                            "tf": 2.272727272727273
+                          }
                         }
                       }
                     }
@@ -1838,7 +1923,7 @@ window.lunrData = {
                     "docs": {
                       "Listener.html": {
                         "ref": "Listener.html",
-                        "tf": 5
+                        "tf": 6.8181818181818175
                       }
                     }
                   }
@@ -1870,10 +1955,6 @@ window.lunrData = {
                 "EventEmitter.html#removeListener": {
                   "ref": "EventEmitter.html#removeListener",
                   "tf": 16.666666666666664
-                },
-                "Listener.html": {
-                  "ref": "Listener.html",
-                  "tf": 2.5
                 }
               }
             }
@@ -1967,7 +2048,7 @@ window.lunrData = {
                   },
                   "Listener.html": {
                     "ref": "Listener.html",
-                    "tf": 2.5
+                    "tf": 4.545454545454546
                   }
                 }
               }
@@ -2015,24 +2096,7 @@ window.lunrData = {
                   "docs": {
                     "Listener.html": {
                       "ref": "Listener.html",
-                      "tf": 2.5
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "t": {
-            "docs": {},
-            "o": {
-              "docs": {},
-              "r": {
-                "docs": {},
-                "e": {
-                  "docs": {
-                    "Listener.html": {
-                      "ref": "Listener.html",
-                      "tf": 2.5
+                      "tf": 2.272727272727273
                     }
                   }
                 }
@@ -2072,6 +2136,26 @@ window.lunrData = {
                   "EventEmitter.html#once": {
                     "ref": "EventEmitter.html#once",
                     "tf": 8.333333333333332
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "g": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "Listener.html#remove": {
+                        "ref": "Listener.html#remove",
+                        "tf": 16.666666666666664
+                      }
+                    }
                   }
                 }
               }
@@ -2168,7 +2252,11 @@ window.lunrData = {
                           },
                           "Listener.html": {
                             "ref": "Listener.html",
-                            "tf": 5
+                            "tf": 2.272727272727273
+                          },
+                          "Listener.html#remove": {
+                            "ref": "Listener.html#remove",
+                            "tf": 110
                           }
                         }
                       }
@@ -2179,26 +2267,17 @@ window.lunrData = {
             }
           }
         },
-        "w": {
+        "k": {
           "docs": {},
-          "h": {
+          "e": {
             "docs": {},
             "e": {
               "docs": {},
-              "t": {
-                "docs": {},
-                "h": {
-                  "docs": {},
-                  "e": {
-                    "docs": {},
-                    "r": {
-                      "docs": {
-                        "Listener.html": {
-                          "ref": "Listener.html",
-                          "tf": 2.5
-                        }
-                      }
-                    }
+              "p": {
+                "docs": {
+                  "Listener.html": {
+                    "ref": "Listener.html",
+                    "tf": 2.272727272727273
                   }
                 }
               }
@@ -2206,7 +2285,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 171
+      "length": 177
     },
     "corpusTokens": [
       "abstract",
@@ -2216,13 +2295,16 @@ window.lunrData = {
       "array",
       "array.&lt;listener&gt",
       "array.&lt;string&gt",
+      "attach",
       "base",
+      "be",
       "boolean",
       "browser",
       "call",
       "callback",
       "class",
       "context",
+      "contextu",
       "design",
       "djipev",
       "document",
@@ -2244,7 +2326,6 @@ window.lunrData = {
       "eventemitter#removeev",
       "eventemitter#removelisten",
       "eventnam",
-      "execut",
       "extend",
       "function",
       "given",
@@ -2252,10 +2333,13 @@ window.lunrData = {
       "handl",
       "implement",
       "index",
+      "inform",
+      "keep",
       "librari",
       "list",
       "list:class",
       "listen",
+      "listener#remov",
       "listener(",
       "listenercount",
       "match",
@@ -2275,6 +2359,7 @@ window.lunrData = {
       "provid",
       "readm",
       "regist",
+      "relev",
       "remov",
       "removealllisten",
       "removeev",
@@ -2284,13 +2369,12 @@ window.lunrData = {
       "singl",
       "specif",
       "specifi",
-      "store",
       "such",
+      "target",
       "those",
       "time",
       "uniqu",
-      "us",
-      "whether"
+      "us"
     ],
     "pipeline": [
       "trimmer",
@@ -2461,8 +2545,18 @@ window.lunrData = {
       "name": "Listener",
       "tags": "Listener",
       "summary": "",
-      "description": "The Listener class represents a single event listener object. Such objects store the callback (listener) function, the context to execute the function in (often this) and whether or not the callback should only be executed once.",
+      "description": "The Listener class represents a single event listener object. Such objects keep all relevant contextual information such as the event being listened to, the object the listener was attached to, the callback function and so on.",
       "body": ""
+    },
+    "Listener.html#remove": {
+      "id": "Listener.html#remove",
+      "kind": "function",
+      "title": "remove()",
+      "longname": "Listener#remove",
+      "name": "remove",
+      "tags": "Listener#remove remove",
+      "summary": "",
+      "description": "Removes the listener from its target."
     }
   }
 };
