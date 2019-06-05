@@ -12,7 +12,7 @@
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"MMMM Do YYYY, H:mm:ss","systemName":"DjipEvents","systemSummary":"A modularized event-handling library for the browser based on the Node.js EventEmitter API","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"DjipEvents is (mostly) a refactoring of eventemitter3 by Arnout Kazemier and is released under the MIT license.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"longname, linenum, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true}};
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"MMMM Do YYYY, H:mm:ss","systemName":"DjipEvents","systemSummary":"A modularized event-handling library for the browser","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"DjipEvents is released under the MIT license.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"longname, linenum, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true}};
 			window.DOCLET_TOC_ENABLED = true;
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
@@ -37,6 +37,7 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
+											<li><a href="Event.html">Event</a></li>
 											<li><a href="EventEmitter.html">EventEmitter</a></li>
 											<li><a href="Listener.html">Listener</a></li>
 									</ul>
@@ -73,7 +74,7 @@
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">once</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">once</span> [,&nbsp;<span class="signature-param">data</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
 </dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
@@ -138,6 +139,16 @@
 									<p>Whether the callback function should be executed only once</p>
 							</td>
 						</tr>
+						<tr>
+								<td><code>data</code></td>
+							<td><span class="param-type">Boolean</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>{}</td>
+							<td class="last">
+									<p>Arbitrary data to pass along to the callback function upon
+			execution (as a second parameter)</p>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -161,7 +172,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-328">line 328</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-183">line 183</a></p>
 								</div>
 							</div>
 			
@@ -177,7 +188,7 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title class public">
-			<h4 id="Listener" class="class public"><a href="Listener.html"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">once</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+			<h4 id="Listener" class="class public"><a href="Listener.html"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">once</span> [,&nbsp;<span class="signature-param">data</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
 		</dt>
 <dd class="symbol-details class public">
 	<div class="symbol-details-inner">
@@ -213,7 +224,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-339">line 339</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-195">line 195</a></p>
 								</div>
 							</div>
 			
@@ -233,8 +244,8 @@
 		</div>
 	</div>
 	<footer>
-				<div class="copyright">DjipEvents is (mostly) a refactoring of eventemitter3 by Arnout Kazemier and is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 5th 2019, 10:15:06 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+				<div class="copyright">DjipEvents is released under the MIT license.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 5th 2019, 14:59:16 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
