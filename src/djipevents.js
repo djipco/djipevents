@@ -3,7 +3,7 @@
  * abstract class meant to be extended on (or mixed in) to add methods such as `on()`, `off()`,
  * `emit()`, etc.
  */
-export class EventEmitter {
+export default class EventEmitter {
 
   constructor() {
 
@@ -113,25 +113,28 @@ export class EventEmitter {
 
   /**
    * Executes the callback functions of all `Listener` objects registered for a given event. The
-   * functions are passed an `Event` object as the first parameter and the content of the listener's
-   * `data` property (if any) as a second parameter.
+   * functions are passed the specifid `value` (if present) and the content of the listener's
+   * `data` property (if any).
    *
    * If `suspended` is `true` no callback functions will be executed.
    *
    * @param {String} event The event name.
    */
-  emit(event) {
+  emit(event, value) {
 
     if (!this.events[event]|| this.suspended) return;
 
     this.events[event].forEach(listener => {
 
-      let e = new Event(listener.type, listener.target);
+      if (listener.suspended) return;
 
-      if (!listener.suspended) {
-        listener.callback.call(listener.context, e, listener.data);
-        if (listener.once) listener.remove();
+      if (value) {
+        listener.callback.call(listener.context, value, listener.data);
+      } else {
+        listener.callback.call(listener.context, listener.data);
       }
+
+      if (listener.once) listener.remove();
 
     });
 
@@ -264,40 +267,6 @@ export class Listener {
    */
   remove() {
     this.target.off(this.event, this.callback, this.context, this.once);
-  }
-
-}
-
-/**
- * The `Event` object is the one being emitted when events are triggered.
- */
-export class Event {
-
-  /**
-   * @param {string} type The event type
-   * @param {EventEmitter} target The object that emitted the event
-   */
-  constructor(type, target) {
-
-    /**
-     * The event type
-     * @type {string}
-     */
-    this.type = type;
-
-    /**
-     * The object that emitted the event
-     * @type {EventEmitter}
-     */
-    this.target = target;
-
-    /**
-     * The timestamp when the event was created represented as the number of milliseconds since the
-     * epoch.
-     * @type {number}
-     */
-    this.timeStamp = Date.now();
-
   }
 
 }
