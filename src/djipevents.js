@@ -29,11 +29,14 @@ export class EventEmitter {
 
     if (typeof callback !== "function") throw new TypeError("The callback must be a function");
 
-    let listener = new Listener(callback, context || this, once);
+    let listener = new Listener(event, this, callback, context || this, once);
 
     if (!this.events[event]) {
       this.events[event] = listener;
       this.eventsCount++;
+
+      console.log(this.eventsCount, Object.keys(this.eventsCount).length);
+
     } else if (!this.events[event].callback) {
       this.events[event].push(listener);
     } else {
@@ -58,6 +61,8 @@ export class EventEmitter {
       delete this.events[event];
     }
 
+    console.log(this.eventsCount, Object.keys(this.eventsCount).length);
+
     return this;
 
   }
@@ -71,6 +76,8 @@ export class EventEmitter {
     let names = []
       , events
       , name;
+
+    console.log(this.eventsCount, Object.keys(this.eventsCount).length);
 
     if (this.eventsCount === 0) return names;
 
@@ -296,6 +303,8 @@ export class EventEmitter {
       this.eventsCount = 0;
     }
 
+    console.log(this.eventsCount, Object.keys(this.eventsCount).length);
+
     return this;
 
   }
@@ -303,21 +312,32 @@ export class EventEmitter {
 }
 
 /**
- * The `Listener` class represents a single event listener object. Such objects store the callback
- * (listener) function, the context to execute the function in (often `this`) and whether or not the
- * callback should only be executed once.
+ * The `Listener` class represents a single event listener object. Such objects keep all relevant
+ * contextual information such as the event being listened to, the object the listener was attached
+ * to, the callback function and so on.
  */
 export class Listener {
 
   /**
-   * @param {Function} callback The listener function
-   * @param {*} [context] The context to invoke the listener in
+   * @param {String} event The name of the event being listened to
+   * @param {EventEmitter} target The object the listener was attached to
+   * @param {Function} callback The actual listener function
+   * @param {Object} [context] The context to invoke the listener in
    * @param {Boolean} [once=false] Whether the callback function should be executed only once
    */
-  constructor(callback, context, once = false) {
+  constructor(event, target, callback, context, once = false) {
+    this.event = event;
+    this.target = target;
     this.callback = callback;
     this.context = context;
     this.once = once === true || false;
+  }
+
+  /**
+   * Removes the listener from its target.
+   */
+  remove() {
+    this.target.removeListener(this.event, this.callback, this.context, this.once);
   }
 
 }
