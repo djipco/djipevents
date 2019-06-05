@@ -547,7 +547,7 @@
                   },
                   "EventEmitter.html#once": {
                     "ref": "EventEmitter.html#once",
-                    "tf": 20
+                    "tf": 16.666666666666664
                   },
                   "Listener.html#data": {
                     "ref": "Listener.html#data",
@@ -626,7 +626,7 @@
                     },
                     "EventEmitter.html#once": {
                       "ref": "EventEmitter.html#once",
-                      "tf": 28.333333333333332
+                      "tf": 24.999999999999996
                     },
                     "EventEmitter.html#suspend": {
                       "ref": "EventEmitter.html#suspend",
@@ -1424,7 +1424,7 @@
                       },
                       "EventEmitter.html#once": {
                         "ref": "EventEmitter.html#once",
-                        "tf": 8.333333333333332
+                        "tf": 24.999999999999996
                       },
                       "EventEmitter.html#removeAllListeners": {
                         "ref": "EventEmitter.html#removeAllListeners",
@@ -2299,7 +2299,7 @@
                         },
                         "EventEmitter.html#once": {
                           "ref": "EventEmitter.html#once",
-                          "tf": 20
+                          "tf": 16.666666666666664
                         },
                         "Listener.html#context": {
                           "ref": "Listener.html#context",
@@ -2352,7 +2352,7 @@
                           },
                           "EventEmitter.html#once": {
                             "ref": "EventEmitter.html#once",
-                            "tf": 20
+                            "tf": 16.666666666666664
                           },
                           "EventEmitter.html#suspend": {
                             "ref": "EventEmitter.html#suspend",
@@ -2508,7 +2508,7 @@
                 },
                 "EventEmitter.html#once": {
                   "ref": "EventEmitter.html#once",
-                  "tf": 670
+                  "tf": 666.6666666666666
                 },
                 "Listener.html#once": {
                   "ref": "Listener.html#once",
@@ -3728,7 +3728,7 @@
     "EventEmitter.html#once": {
       "id": "EventEmitter.html#once",
       "kind": "function",
-      "title": "once( event, callback [, context [, data ] ] )",
+      "title": "once( event, callback [, context [, data ] ] ) → {Listener}",
       "longname": "EventEmitter#once",
       "name": "once",
       "tags": "EventEmitter#once once",
