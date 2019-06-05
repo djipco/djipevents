@@ -77,7 +77,20 @@
 export class EventEmitter {
 
   constructor() {
+
+    /**
+     * Object containing properties for all events with registered listeners
+     * @type {{}}
+     * @readonly
+     */
     this.events = {};
+
+    /**
+     * Whether the execution of callbacks is currently suspended or not
+     * @type {boolean}
+     */
+    this.suspended = false;
+
   }
 
   /**
@@ -106,11 +119,18 @@ export class EventEmitter {
   }
 
   /**
-   * Removes all the listeners registered for a specific event.
-   * @param {String} event The name of the event
+   * Returns `true` if the specified event has at least one listener
+   * @param {string} The event name
+   * @returns {boolean}
    */
-  removeEvent(event) {
-    delete this.events[event];
+  hasListener(event) {
+
+    if (this.events[event] &amp;&amp; this.events[event].length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+
   }
 
   /**
@@ -120,7 +140,7 @@ export class EventEmitter {
    */
   get eventNames() {
     return Object.keys(this.events);
-  };
+  }
 
   /**
    * Returns all the `Listener` objects registered for a specific event.
@@ -130,7 +150,27 @@ export class EventEmitter {
    */
   getListeners(event) {
     return this.events[event] || [];
-  };
+  }
+
+  /**
+   * Suspends execution of callbacks for the specified event type
+   * @param event
+   */
+  suspend(event) {
+    this.getListeners(event).forEach(listener => {
+      listener.suspended = true;
+    });
+  }
+
+  /**
+   * Resumes execution of callbacks for the specified event type
+   * @param event
+   */
+  unsuspend(event) {
+    this.getListeners(event).forEach(listener => {
+      listener.suspended = false;
+    });
+  }
 
   /**
    * Returns the number of listeners registered for a given event.
@@ -139,31 +179,34 @@ export class EventEmitter {
    * @returns {Number} The number of listeners registered for the specified event.
    */
   getListenerCount(event) {
-    let listeners = this.events[event] || [];
-    return listeners.length;
-  };
+    return this.getListeners(event).length;
+  }
 
   /**
    * Executes the callback functions of all `Listener` objects registered for a given event. The
    * functions are passed an `Event` object as the first parameter and the content of the listener's
    * `data` property (if any) as a second parameter.
    *
+   * If `suspended` is `true` no callback functions will be executed.
+   *
    * @param {String} event The event name.
-   * @returns {Boolean} Returns `true` if the event had listeners, otherwise it returns `false`
    */
   emit(event) {
 
-    if (!this.events[event]) return false;
+    if (!this.events[event]|| this.suspended) return;
 
     this.events[event].forEach(listener => {
+
       let e = new Event(listener.type, listener.target);
-      listener.callback.call(listener.context, e, listener.data);
-      if (listener.once) listener.remove();
+
+      if (!listener.suspended) {
+        listener.callback.call(listener.context, e, listener.data);
+        if (listener.once) listener.remove();
+      }
+
     });
 
-    return true;
-
-  };
+  }
 
   /**
    * Add a one-time listener for a given event.
@@ -175,10 +218,10 @@ export class EventEmitter {
    */
   once(event, callback, context, data) {
     return this.on(event, callback, context, true, data);
-  };
+  }
 
   /**
-   * Removes all the listeners that match the specified type of event and, if specified, the other
+   * Removes all the listeners that match the specified type of event and, if specified, other
    * criterias.
    *
    * @param {String} event The event name.
@@ -188,7 +231,7 @@ export class EventEmitter {
    */
   off(event, callback, context, once) {
 
-    if (!this.events[event]) return this;
+    if (!this.events[event]) return;
 
     // Find listeners that do not match the criterias (those are the ones we will keep)
     let events = this.events[event].filter(listener => {
@@ -200,28 +243,16 @@ export class EventEmitter {
     if (events.length) {
       this.events[event] = events;
     } else {
-      this.removeEvent(event);
+      delete this.events[event];
     }
 
   }
 
   /**
-   * Removes all listeners, or those for the specified event (if present).
-   *
-   * @param {(String)} [event] The event name.
-   *
-   * @returns {EventEmitter} The `EventEmitter` the method was invoked on (for method chaining).
+   * Removes all listeners
    */
-  removeAllListeners(event) {
-
-    if (event &amp;&amp; this.events[event]) {
-      this.removeEvent(event);
-    } else {
-      this.events = {};
-    }
-
-    return this;
-
+  removeAllListeners() {
+    this.events = {};
   }
 
   /**
@@ -252,12 +283,49 @@ export class Listener {
    * execution (as a second parameter)
    */
   constructor(event, target, callback, context, once, data) {
+
+    /**
+     * The event name
+     * @type {String}
+     */
     this.event = event;
+
+    /**
+     * The object that emitted the event
+     * @type {EventEmitter}
+     */
     this.target = target;
+
+    /**
+     * The callback function
+     * @type {Function}
+     */
     this.callback = callback;
+
+    /**
+     * The context to execute the context function in (a.k.a. the value of `this`)
+     * @type {Object}
+     */
     this.context = context;
+
+    /**
+     * Whether this listener's callback function should only be executed once
+     * @type {boolean}
+     */
     this.once = once == true || false;
+
+    /**
+     * Arbitraty data that is going to be passed as the second parameter of the callback function
+     * @type {Boolean}
+     */
     this.data = data;
+
+    /**
+     * Whether this listener is currently suspended
+     * @type {boolean}
+     */
+    this.suspended = false;
+
   }
 
   /**
@@ -270,14 +338,35 @@ export class Listener {
 }
 
 /**
- *
+ * The `Event` object is the one being emitted when events are triggered.
  */
 export class Event {
 
+  /**
+   * @param {string} type The event type
+   * @param {EventEmitter} target The object that emitted the event
+   */
   constructor(type, target) {
+
+    /**
+     * The event type
+     * @type {string}
+     */
     this.type = type;
+
+    /**
+     * The object that emitted the event
+     * @type {EventEmitter}
+     */
     this.target = target;
+
+    /**
+     * The timestamp when the event was created represented as the number of milliseconds since the
+     * epoch.
+     * @type {number}
+     */
     this.timeStamp = Date.now();
+
   }
 
 }
@@ -288,7 +377,7 @@ export class Event {
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 5th 2019, 15:07:43 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 5th 2019, 15:55:48 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
