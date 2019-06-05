@@ -40,17 +40,13 @@
     "documentStore": {
       "store": {
         "index.html": [
-          "api",
-          "base",
           "browser",
           "djipev",
           "event",
-          "eventemitt",
           "handl",
           "index",
           "librari",
           "modular",
-          "node.j",
           "readm"
         ],
         "global.html": [
@@ -63,12 +59,45 @@
           "list",
           "list:class"
         ],
+        "Event.html": [
+          "be",
+          "class",
+          "emit",
+          "event",
+          "object",
+          "on",
+          "trigger"
+        ],
+        "Event.html#target": [
+          "emit",
+          "event",
+          "event#target",
+          "eventemitt",
+          "member",
+          "object",
+          "target"
+        ],
+        "Event.html#timeStamp": [
+          "creat",
+          "epoch",
+          "event",
+          "event#timestamp",
+          "member",
+          "millisecond",
+          "number",
+          "repres",
+          "timestamp"
+        ],
+        "Event.html#type": [
+          "event",
+          "event#typ",
+          "member",
+          "string",
+          "type"
+        ],
         "EventEmitter.html": [
           "abstract",
           "add",
-          "addlisten",
-          "api",
-          "browser",
           "class",
           "design",
           "emit",
@@ -76,44 +105,24 @@
           "eventemitt",
           "extend",
           "implement",
-          "match",
           "meant",
           "method",
           "mix",
-          "mostli",
-          "node.j",
           "observ",
           "pattern",
           "provid",
-          "removelisten",
-          "such",
-          "those",
-          "us"
+          "such"
         ],
-        "EventEmitter.html#addListener": [
-          "add",
-          "addlisten",
-          "callback",
-          "context",
+        "EventEmitter.html#eventCount": [
           "event",
-          "eventemitt",
-          "eventemitter#addlisten",
-          "function",
+          "eventcount",
+          "eventemitter#eventcount",
           "listen",
-          "onc",
-          "specif"
-        ],
-        "EventEmitter.html#emit": [
-          "boolean",
-          "call",
-          "each",
-          "emit",
-          "event",
-          "eventemitter#emit",
-          "function",
-          "given",
-          "listen",
-          "regist"
+          "lt;readonly&gt",
+          "member",
+          "number",
+          "regist",
+          "uniqu"
         ],
         "EventEmitter.html#eventNames": [
           "array",
@@ -122,64 +131,126 @@
           "event",
           "eventemitter#eventnam",
           "eventnam",
-          "function",
           "listen",
+          "lt;readonly&gt",
+          "member",
+          "name",
           "regist",
-          "return",
           "uniqu"
         ],
-        "EventEmitter.html#listenerCount": [
+        "EventEmitter.html#events": [
+          "contain",
           "event",
-          "eventemitter#listenercount",
-          "function",
-          "given",
+          "eventemitter#ev",
           "listen",
-          "listenercount",
-          "number",
-          "return"
+          "lt;readonly&gt",
+          "member",
+          "object",
+          "properti",
+          "regist"
         ],
-        "EventEmitter.html#listeners": [
-          "array.&lt;listener&gt",
+        "EventEmitter.html#suspended": [
+          "boolean",
+          "callback",
+          "current",
+          "eventemitter#suspend",
+          "execut",
+          "member",
+          "suspend",
+          "whether"
+        ],
+        "EventEmitter.html#emit": [
+          "callback",
+          "content",
+          "data",
+          "emit",
           "event",
-          "eventemitter#listen",
+          "eventemitter#emit",
+          "execut",
+          "first",
           "function",
           "given",
           "listen",
+          "listener'",
+          "object",
+          "paramet",
+          "pass",
+          "properti",
+          "regist",
+          "second",
+          "suspend",
+          "true"
+        ],
+        "EventEmitter.html#getListenerCount": [
+          "event",
+          "eventemitter#getlistenercount",
+          "function",
+          "getlistenercount",
+          "given",
+          "listen",
+          "number",
           "regist",
           "return"
+        ],
+        "EventEmitter.html#getListeners": [
+          "array.&lt;listener&gt",
+          "event",
+          "eventemitter#getlisten",
+          "function",
+          "getlisten",
+          "listen",
+          "object",
+          "regist",
+          "return",
+          "specif"
+        ],
+        "EventEmitter.html#hasListener": [
+          "boolean",
+          "event",
+          "eventemitter#haslisten",
+          "function",
+          "haslisten",
+          "listen",
+          "on",
+          "return",
+          "specifi",
+          "true"
         ],
         "EventEmitter.html#off": [
           "callback",
           "context",
+          "criteria",
           "event",
-          "eventemitt",
           "eventemitter#off",
           "function",
-          "given",
           "listen",
-          "listener(",
           "match",
           "onc",
-          "provid",
-          "remov"
+          "remov",
+          "specifi",
+          "type"
         ],
         "EventEmitter.html#on": [
           "add",
+          "attach",
           "callback",
           "context",
+          "creat",
+          "data",
           "event",
-          "eventemitt",
           "eventemitter#on",
           "function",
-          "given",
-          "listen"
+          "listen",
+          "onc",
+          "return",
+          "specif"
         ],
         "EventEmitter.html#once": [
           "add",
           "callback",
           "context",
+          "data",
           "event",
-          "eventemitt",
           "eventemitter#onc",
           "function",
           "given",
@@ -189,42 +260,32 @@
           "time"
         ],
         "EventEmitter.html#removeAllListeners": [
-          "event",
-          "eventemitt",
           "eventemitter#removealllisten",
           "function",
           "listen",
-          "present",
           "remov",
-          "removealllisten",
-          "specifi",
-          "those"
+          "removealllisten"
         ],
-        "EventEmitter.html#removeEvent": [
-          "event",
-          "eventemitt",
-          "eventemitter#removeev",
-          "function",
-          "listen",
-          "remov",
-          "removeev",
-          "specif"
-        ],
-        "EventEmitter.html#removeListener": [
+        "EventEmitter.html#suspend": [
           "callback",
-          "context",
           "event",
-          "eventemitt",
-          "eventemitter#removelisten",
+          "eventemitter#suspend",
+          "execut",
           "function",
-          "given",
-          "listen",
-          "listener(",
-          "match",
-          "onc",
-          "provid",
-          "remov",
-          "removelisten"
+          "specifi",
+          "suspend",
+          "type"
+        ],
+        "EventEmitter.html#unsuspend": [
+          "callback",
+          "event",
+          "eventemitter#unsuspend",
+          "execut",
+          "function",
+          "resum",
+          "specifi",
+          "type",
+          "unsuspend"
         ],
         "Listener.html": [
           "attach",
@@ -243,6 +304,71 @@
           "singl",
           "such"
         ],
+        "Listener.html#callback": [
+          "callback",
+          "function",
+          "listener#callback",
+          "member"
+        ],
+        "Listener.html#context": [
+          "a.k.a",
+          "context",
+          "execut",
+          "function",
+          "listener#context",
+          "member",
+          "object",
+          "valu"
+        ],
+        "Listener.html#data": [
+          "arbitrati",
+          "boolean",
+          "callback",
+          "data",
+          "function",
+          "go",
+          "listener#data",
+          "member",
+          "paramet",
+          "pass",
+          "second"
+        ],
+        "Listener.html#event": [
+          "event",
+          "listener#ev",
+          "member",
+          "name",
+          "string"
+        ],
+        "Listener.html#once": [
+          "boolean",
+          "callback",
+          "execut",
+          "function",
+          "listener#onc",
+          "listener'",
+          "member",
+          "onc",
+          "whether"
+        ],
+        "Listener.html#suspended": [
+          "boolean",
+          "current",
+          "listen",
+          "listener#suspend",
+          "member",
+          "suspend",
+          "whether"
+        ],
+        "Listener.html#target": [
+          "emit",
+          "event",
+          "eventemitt",
+          "listener#target",
+          "member",
+          "object",
+          "target"
+        ],
         "Listener.html#remove": [
           "function",
           "listen",
@@ -251,243 +377,13 @@
           "target"
         ]
       },
-      "length": 17
+      "length": 31
     },
     "tokenStore": {
       "root": {
         "docs": {},
-        "a": {
-          "docs": {},
-          "p": {
-            "docs": {},
-            "i": {
-              "docs": {
-                "index.html": {
-                  "ref": "index.html",
-                  "tf": 7.777777777777778
-                },
-                "EventEmitter.html": {
-                  "ref": "EventEmitter.html",
-                  "tf": 1.6129032258064515
-                }
-              }
-            }
-          },
-          "b": {
-            "docs": {},
-            "s": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "c": {
-                      "docs": {},
-                      "t": {
-                        "docs": {
-                          "EventEmitter.html": {
-                            "ref": "EventEmitter.html",
-                            "tf": 1.6129032258064515
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "d": {
-            "docs": {},
-            "d": {
-              "docs": {
-                "EventEmitter.html": {
-                  "ref": "EventEmitter.html",
-                  "tf": 1.6129032258064515
-                },
-                "EventEmitter.html#addListener": {
-                  "ref": "EventEmitter.html#addListener",
-                  "tf": 12.5
-                },
-                "EventEmitter.html#on": {
-                  "ref": "EventEmitter.html#on",
-                  "tf": 12.5
-                },
-                "EventEmitter.html#once": {
-                  "ref": "EventEmitter.html#once",
-                  "tf": 8.333333333333332
-                }
-              },
-              "l": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "s": {
-                    "docs": {},
-                    "t": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "n": {
-                          "docs": {
-                            "EventEmitter.html": {
-                              "ref": "EventEmitter.html",
-                              "tf": 1.6129032258064515
-                            },
-                            "EventEmitter.html#addListener": {
-                              "ref": "EventEmitter.html#addListener",
-                              "tf": 666.6666666666666
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "r": {
-            "docs": {},
-            "r": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "y": {
-                  "docs": {
-                    "EventEmitter.html#eventNames": {
-                      "ref": "EventEmitter.html#eventNames",
-                      "tf": 7.142857142857142
-                    }
-                  },
-                  ".": {
-                    "docs": {},
-                    "&": {
-                      "docs": {},
-                      "l": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          ";": {
-                            "docs": {},
-                            "s": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "i": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "g": {
-                                        "docs": {},
-                                        "&": {
-                                          "docs": {},
-                                          "g": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {
-                                                "EventEmitter.html#eventNames": {
-                                                  "ref": "EventEmitter.html#eventNames",
-                                                  "tf": 50
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "l": {
-                              "docs": {},
-                              "i": {
-                                "docs": {},
-                                "s": {
-                                  "docs": {},
-                                  "t": {
-                                    "docs": {},
-                                    "e": {
-                                      "docs": {},
-                                      "n": {
-                                        "docs": {},
-                                        "e": {
-                                          "docs": {},
-                                          "r": {
-                                            "docs": {},
-                                            "&": {
-                                              "docs": {},
-                                              "g": {
-                                                "docs": {},
-                                                "t": {
-                                                  "docs": {
-                                                    "EventEmitter.html#listeners": {
-                                                      "ref": "EventEmitter.html#listeners",
-                                                      "tf": 33.33333333333333
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "t": {
-            "docs": {},
-            "t": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "c": {
-                  "docs": {},
-                  "h": {
-                    "docs": {
-                      "Listener.html": {
-                        "ref": "Listener.html",
-                        "tf": 2.272727272727273
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "b": {
           "docs": {},
-          "a": {
-            "docs": {},
-            "s": {
-              "docs": {},
-              "e": {
-                "docs": {
-                  "index.html": {
-                    "ref": "index.html",
-                    "tf": 7.777777777777778
-                  }
-                }
-              }
-            }
-          },
           "r": {
             "docs": {},
             "o": {
@@ -502,16 +398,24 @@
                       "docs": {
                         "index.html": {
                           "ref": "index.html",
-                          "tf": 7.777777777777778
-                        },
-                        "EventEmitter.html": {
-                          "ref": "EventEmitter.html",
-                          "tf": 1.6129032258064515
+                          "tf": 14
                         }
                       }
                     }
                   }
                 }
+              }
+            }
+          },
+          "e": {
+            "docs": {
+              "Event.html": {
+                "ref": "Event.html",
+                "tf": 7.142857142857142
+              },
+              "Listener.html": {
+                "ref": "Listener.html",
+                "tf": 2.272727272727273
               }
             }
           },
@@ -527,22 +431,30 @@
                     "docs": {},
                     "n": {
                       "docs": {
-                        "EventEmitter.html#emit": {
-                          "ref": "EventEmitter.html#emit",
-                          "tf": 33.33333333333333
+                        "EventEmitter.html#suspended": {
+                          "ref": "EventEmitter.html#suspended",
+                          "tf": 50
+                        },
+                        "EventEmitter.html#hasListener": {
+                          "ref": "EventEmitter.html#hasListener",
+                          "tf": 50
+                        },
+                        "Listener.html#data": {
+                          "ref": "Listener.html#data",
+                          "tf": 50
+                        },
+                        "Listener.html#once": {
+                          "ref": "Listener.html#once",
+                          "tf": 50
+                        },
+                        "Listener.html#suspended": {
+                          "ref": "Listener.html#suspended",
+                          "tf": 50
                         }
                       }
                     }
                   }
                 }
-              }
-            }
-          },
-          "e": {
-            "docs": {
-              "Listener.html": {
-                "ref": "Listener.html",
-                "tf": 2.272727272727273
               }
             }
           }
@@ -611,9 +523,35 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 1.6129032258064515
+                        "tf": 2.7777777777777777
                       }
                     }
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "a": {
+                "docs": {
+                  "EventEmitter.html#emit": {
+                    "ref": "EventEmitter.html#emit",
+                    "tf": 2
+                  },
+                  "EventEmitter.html#on": {
+                    "ref": "EventEmitter.html#on",
+                    "tf": 16.666666666666664
+                  },
+                  "EventEmitter.html#once": {
+                    "ref": "EventEmitter.html#once",
+                    "tf": 16.666666666666664
+                  },
+                  "Listener.html#data": {
+                    "ref": "Listener.html#data",
+                    "tf": 706.25
                   }
                 }
               }
@@ -632,55 +570,149 @@
                   "docs": {
                     "index.html": {
                       "ref": "index.html",
-                      "tf": 7.777777777777778
+                      "tf": 14
                     },
-                    "EventEmitter.html#addListener": {
-                      "ref": "EventEmitter.html#addListener",
-                      "tf": 29.166666666666664
+                    "Event.html": {
+                      "ref": "Event.html",
+                      "tf": 1914.2857142857142
                     },
-                    "EventEmitter.html#emit": {
-                      "ref": "EventEmitter.html#emit",
-                      "tf": 41.66666666666666
+                    "Event.html#target": {
+                      "ref": "Event.html#target",
+                      "tf": 16.666666666666664
+                    },
+                    "Event.html#timeStamp": {
+                      "ref": "Event.html#timeStamp",
+                      "tf": 7.142857142857142
+                    },
+                    "Event.html#type": {
+                      "ref": "Event.html#type",
+                      "tf": 25
+                    },
+                    "EventEmitter.html#eventCount": {
+                      "ref": "EventEmitter.html#eventCount",
+                      "tf": 10
                     },
                     "EventEmitter.html#eventNames": {
                       "ref": "EventEmitter.html#eventNames",
                       "tf": 7.142857142857142
                     },
-                    "EventEmitter.html#listenerCount": {
-                      "ref": "EventEmitter.html#listenerCount",
+                    "EventEmitter.html#events": {
+                      "ref": "EventEmitter.html#events",
+                      "tf": 691.6666666666667
+                    },
+                    "EventEmitter.html#emit": {
+                      "ref": "EventEmitter.html#emit",
+                      "tf": 54
+                    },
+                    "EventEmitter.html#getListenerCount": {
+                      "ref": "EventEmitter.html#getListenerCount",
                       "tf": 41.66666666666666
                     },
-                    "EventEmitter.html#listeners": {
-                      "ref": "EventEmitter.html#listeners",
-                      "tf": 43.33333333333333
+                    "EventEmitter.html#getListeners": {
+                      "ref": "EventEmitter.html#getListeners",
+                      "tf": 41.66666666666666
+                    },
+                    "EventEmitter.html#hasListener": {
+                      "ref": "EventEmitter.html#hasListener",
+                      "tf": 8.333333333333332
                     },
                     "EventEmitter.html#off": {
                       "ref": "EventEmitter.html#off",
-                      "tf": 24.545454545454547
+                      "tf": 31.25
                     },
                     "EventEmitter.html#on": {
                       "ref": "EventEmitter.html#on",
-                      "tf": 37.5
+                      "tf": 27.777777777777775
                     },
                     "EventEmitter.html#once": {
                       "ref": "EventEmitter.html#once",
-                      "tf": 28.333333333333332
+                      "tf": 24.999999999999996
                     },
-                    "EventEmitter.html#removeAllListeners": {
-                      "ref": "EventEmitter.html#removeAllListeners",
-                      "tf": 41.66666666666666
+                    "EventEmitter.html#suspend": {
+                      "ref": "EventEmitter.html#suspend",
+                      "tf": 58.33333333333333
                     },
-                    "EventEmitter.html#removeEvent": {
-                      "ref": "EventEmitter.html#removeEvent",
-                      "tf": 45.83333333333333
-                    },
-                    "EventEmitter.html#removeListener": {
-                      "ref": "EventEmitter.html#removeListener",
-                      "tf": 21.21212121212121
+                    "EventEmitter.html#unsuspend": {
+                      "ref": "EventEmitter.html#unsuspend",
+                      "tf": 58.33333333333333
                     },
                     "Listener.html": {
                       "ref": "Listener.html",
                       "tf": 4.545454545454546
+                    },
+                    "Listener.html#event": {
+                      "ref": "Listener.html#event",
+                      "tf": 725
+                    },
+                    "Listener.html#target": {
+                      "ref": "Listener.html#target",
+                      "tf": 16.666666666666664
+                    }
+                  },
+                  "#": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "g": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "t": {
+                                "docs": {
+                                  "Event.html#target": {
+                                    "ref": "Event.html#target",
+                                    "tf": 1150
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "i": {
+                        "docs": {},
+                        "m": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "m": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {
+                                        "Event.html#timeStamp": {
+                                          "ref": "Event.html#timeStamp",
+                                          "tf": 1150
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "y": {
+                        "docs": {},
+                        "p": {
+                          "docs": {
+                            "Event.html#type": {
+                              "ref": "Event.html#type",
+                              "tf": 1150
+                            }
+                          }
+                        }
+                      }
                     }
                   },
                   "e": {
@@ -693,41 +725,17 @@
                           "docs": {},
                           "t": {
                             "docs": {
-                              "index.html": {
-                                "ref": "index.html",
-                                "tf": 7.777777777777778
+                              "Event.html#target": {
+                                "ref": "Event.html#target",
+                                "tf": 50
                               },
                               "EventEmitter.html": {
                                 "ref": "EventEmitter.html",
-                                "tf": 1903.225806451613
+                                "tf": 1902.7777777777778
                               },
-                              "EventEmitter.html#addListener": {
-                                "ref": "EventEmitter.html#addListener",
-                                "tf": 16.666666666666664
-                              },
-                              "EventEmitter.html#off": {
-                                "ref": "EventEmitter.html#off",
-                                "tf": 20
-                              },
-                              "EventEmitter.html#on": {
-                                "ref": "EventEmitter.html#on",
-                                "tf": 25
-                              },
-                              "EventEmitter.html#once": {
-                                "ref": "EventEmitter.html#once",
-                                "tf": 20
-                              },
-                              "EventEmitter.html#removeAllListeners": {
-                                "ref": "EventEmitter.html#removeAllListeners",
-                                "tf": 33.33333333333333
-                              },
-                              "EventEmitter.html#removeEvent": {
-                                "ref": "EventEmitter.html#removeEvent",
-                                "tf": 33.33333333333333
-                              },
-                              "EventEmitter.html#removeListener": {
-                                "ref": "EventEmitter.html#removeListener",
-                                "tf": 16.666666666666664
+                              "Listener.html#target": {
+                                "ref": "Listener.html#target",
+                                "tf": 50
                               }
                             },
                             "e": {
@@ -736,62 +744,41 @@
                                 "docs": {},
                                 "#": {
                                   "docs": {},
-                                  "a": {
-                                    "docs": {},
-                                    "d": {
-                                      "docs": {},
-                                      "d": {
-                                        "docs": {},
-                                        "l": {
-                                          "docs": {},
-                                          "i": {
-                                            "docs": {},
-                                            "s": {
-                                              "docs": {},
-                                              "t": {
-                                                "docs": {},
-                                                "e": {
-                                                  "docs": {},
-                                                  "n": {
-                                                    "docs": {
-                                                      "EventEmitter.html#addListener": {
-                                                        "ref": "EventEmitter.html#addListener",
-                                                        "tf": 1150
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
                                   "e": {
                                     "docs": {},
-                                    "m": {
-                                      "docs": {},
-                                      "i": {
-                                        "docs": {},
-                                        "t": {
-                                          "docs": {
-                                            "EventEmitter.html#emit": {
-                                              "ref": "EventEmitter.html#emit",
-                                              "tf": 1150
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
                                     "v": {
-                                      "docs": {},
+                                      "docs": {
+                                        "EventEmitter.html#events": {
+                                          "ref": "EventEmitter.html#events",
+                                          "tf": 1150
+                                        }
+                                      },
                                       "e": {
                                         "docs": {},
                                         "n": {
                                           "docs": {},
                                           "t": {
                                             "docs": {},
+                                            "c": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "u": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {
+                                                        "EventEmitter.html#eventCount": {
+                                                          "ref": "EventEmitter.html#eventCount",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
                                             "n": {
                                               "docs": {},
                                               "a": {
@@ -809,46 +796,131 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "m": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {
+                                            "EventEmitter.html#emit": {
+                                              "ref": "EventEmitter.html#emit",
+                                              "tf": 1150
+                                            }
+                                          }
+                                        }
+                                      }
                                     }
                                   },
-                                  "l": {
+                                  "s": {
                                     "docs": {},
-                                    "i": {
+                                    "u": {
                                       "docs": {},
                                       "s": {
                                         "docs": {},
-                                        "t": {
+                                        "p": {
                                           "docs": {},
                                           "e": {
                                             "docs": {},
                                             "n": {
-                                              "docs": {
-                                                "EventEmitter.html#listeners": {
-                                                  "ref": "EventEmitter.html#listeners",
-                                                  "tf": 1150
+                                              "docs": {},
+                                              "d": {
+                                                "docs": {
+                                                  "EventEmitter.html#suspended": {
+                                                    "ref": "EventEmitter.html#suspended",
+                                                    "tf": 1150
+                                                  },
+                                                  "EventEmitter.html#suspend": {
+                                                    "ref": "EventEmitter.html#suspend",
+                                                    "tf": 1150
+                                                  }
                                                 }
-                                              },
-                                              "e": {
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "g": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "l": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "t": {
                                                 "docs": {},
-                                                "r": {
+                                                "e": {
                                                   "docs": {},
-                                                  "c": {
-                                                    "docs": {},
-                                                    "o": {
+                                                  "n": {
+                                                    "docs": {
+                                                      "EventEmitter.html#getListeners": {
+                                                        "ref": "EventEmitter.html#getListeners",
+                                                        "tf": 1150
+                                                      }
+                                                    },
+                                                    "e": {
                                                       "docs": {},
-                                                      "u": {
+                                                      "r": {
                                                         "docs": {},
-                                                        "n": {
+                                                        "c": {
                                                           "docs": {},
-                                                          "t": {
-                                                            "docs": {
-                                                              "EventEmitter.html#listenerCount": {
-                                                                "ref": "EventEmitter.html#listenerCount",
-                                                                "tf": 1150
+                                                          "o": {
+                                                            "docs": {},
+                                                            "u": {
+                                                              "docs": {},
+                                                              "n": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {
+                                                                    "EventEmitter.html#getListenerCount": {
+                                                                      "ref": "EventEmitter.html#getListenerCount",
+                                                                      "tf": 1150
+                                                                    }
+                                                                  }
+                                                                }
                                                               }
                                                             }
                                                           }
                                                         }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "h": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "s": {
+                                        "docs": {},
+                                        "l": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "t": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {
+                                                      "EventEmitter.html#hasListener": {
+                                                        "ref": "EventEmitter.html#hasListener",
+                                                        "tf": 1150
                                                       }
                                                     }
                                                   }
@@ -933,36 +1005,34 @@
                                                     }
                                                   }
                                                 }
-                                              },
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "u": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "s": {
+                                        "docs": {},
+                                        "u": {
+                                          "docs": {},
+                                          "s": {
+                                            "docs": {},
+                                            "p": {
+                                              "docs": {},
                                               "e": {
                                                 "docs": {},
-                                                "v": {
-                                                  "docs": {
-                                                    "EventEmitter.html#removeEvent": {
-                                                      "ref": "EventEmitter.html#removeEvent",
-                                                      "tf": 1150
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "l": {
-                                                "docs": {},
-                                                "i": {
+                                                "n": {
                                                   "docs": {},
-                                                  "s": {
-                                                    "docs": {},
-                                                    "t": {
-                                                      "docs": {},
-                                                      "e": {
-                                                        "docs": {},
-                                                        "n": {
-                                                          "docs": {
-                                                            "EventEmitter.html#removeListener": {
-                                                              "ref": "EventEmitter.html#removeListener",
-                                                              "tf": 1150
-                                                            }
-                                                          }
-                                                        }
+                                                  "d": {
+                                                    "docs": {
+                                                      "EventEmitter.html#unsuspend": {
+                                                        "ref": "EventEmitter.html#unsuspend",
+                                                        "tf": 1150
                                                       }
                                                     }
                                                   }
@@ -982,6 +1052,26 @@
                       }
                     }
                   },
+                  "c": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "u": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "t": {
+                            "docs": {
+                              "EventEmitter.html#eventCount": {
+                                "ref": "EventEmitter.html#eventCount",
+                                "tf": 683.3333333333334
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
                   "n": {
                     "docs": {},
                     "a": {
@@ -990,7 +1080,7 @@
                         "docs": {
                           "EventEmitter.html#eventNames": {
                             "ref": "EventEmitter.html#eventNames",
-                            "tf": 700
+                            "tf": 683.3333333333334
                           }
                         }
                       }
@@ -1006,13 +1096,25 @@
               "docs": {},
               "t": {
                 "docs": {
+                  "Event.html": {
+                    "ref": "Event.html",
+                    "tf": 7.142857142857142
+                  },
+                  "Event.html#target": {
+                    "ref": "Event.html#target",
+                    "tf": 16.666666666666664
+                  },
                   "EventEmitter.html": {
                     "ref": "EventEmitter.html",
-                    "tf": 1.6129032258064515
+                    "tf": 2.7777777777777777
                   },
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
-                    "tf": 683.3333333333334
+                    "tf": 700
+                  },
+                  "Listener.html#target": {
+                    "ref": "Listener.html#target",
+                    "tf": 16.666666666666664
                   }
                 },
                 "t": {
@@ -1026,13 +1128,30 @@
               }
             }
           },
+          "p": {
+            "docs": {},
+            "o": {
+              "docs": {},
+              "c": {
+                "docs": {},
+                "h": {
+                  "docs": {
+                    "Event.html#timeStamp": {
+                      "ref": "Event.html#timeStamp",
+                      "tf": 7.142857142857142
+                    }
+                  }
+                }
+              }
+            }
+          },
           "t": {
             "docs": {},
             "c": {
               "docs": {
                 "EventEmitter.html": {
                   "ref": "EventEmitter.html",
-                  "tf": 1.6129032258064515
+                  "tf": 2.7777777777777777
                 }
               }
             }
@@ -1049,23 +1168,46 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 1.6129032258064515
+                        "tf": 2.7777777777777777
                       }
                     }
                   }
                 }
               }
-            }
-          },
-          "a": {
-            "docs": {},
-            "c": {
+            },
+            "e": {
               "docs": {},
-              "h": {
-                "docs": {
-                  "EventEmitter.html#emit": {
-                    "ref": "EventEmitter.html#emit",
-                    "tf": 8.333333333333332
+              "c": {
+                "docs": {},
+                "u": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "EventEmitter.html#suspended": {
+                        "ref": "EventEmitter.html#suspended",
+                        "tf": 10
+                      },
+                      "EventEmitter.html#emit": {
+                        "ref": "EventEmitter.html#emit",
+                        "tf": 4
+                      },
+                      "EventEmitter.html#suspend": {
+                        "ref": "EventEmitter.html#suspend",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#unsuspend": {
+                        "ref": "EventEmitter.html#unsuspend",
+                        "tf": 8.333333333333332
+                      },
+                      "Listener.html#context": {
+                        "ref": "Listener.html#context",
+                        "tf": 8.333333333333332
+                      },
+                      "Listener.html#once": {
+                        "ref": "Listener.html#once",
+                        "tf": 8.333333333333332
+                      }
+                    }
                   }
                 }
               }
@@ -1084,7 +1226,33 @@
                   "docs": {
                     "index.html": {
                       "ref": "index.html",
-                      "tf": 7.777777777777778
+                      "tf": 14
+                    }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "s": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "n": {
+                          "docs": {
+                            "EventEmitter.html#hasListener": {
+                              "ref": "EventEmitter.html#hasListener",
+                              "tf": 700
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1146,7 +1314,7 @@
                           "docs": {
                             "EventEmitter.html": {
                               "ref": "EventEmitter.html",
-                              "tf": 1.6129032258064515
+                              "tf": 2.7777777777777777
                             }
                           }
                         }
@@ -1174,7 +1342,7 @@
                       "docs": {
                         "index.html": {
                           "ref": "index.html",
-                          "tf": 7.777777777777778
+                          "tf": 14
                         }
                       }
                     }
@@ -1218,53 +1386,57 @@
                   "docs": {},
                   "n": {
                     "docs": {
-                      "EventEmitter.html#addListener": {
-                        "ref": "EventEmitter.html#addListener",
-                        "tf": 12.5
-                      },
-                      "EventEmitter.html#emit": {
-                        "ref": "EventEmitter.html#emit",
-                        "tf": 8.333333333333332
+                      "EventEmitter.html#eventCount": {
+                        "ref": "EventEmitter.html#eventCount",
+                        "tf": 10
                       },
                       "EventEmitter.html#eventNames": {
                         "ref": "EventEmitter.html#eventNames",
                         "tf": 7.142857142857142
                       },
-                      "EventEmitter.html#listenerCount": {
-                        "ref": "EventEmitter.html#listenerCount",
-                        "tf": 16.666666666666664
+                      "EventEmitter.html#events": {
+                        "ref": "EventEmitter.html#events",
+                        "tf": 8.333333333333332
                       },
-                      "EventEmitter.html#listeners": {
-                        "ref": "EventEmitter.html#listeners",
-                        "tf": 693.3333333333334
+                      "EventEmitter.html#emit": {
+                        "ref": "EventEmitter.html#emit",
+                        "tf": 2
+                      },
+                      "EventEmitter.html#getListenerCount": {
+                        "ref": "EventEmitter.html#getListenerCount",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#getListeners": {
+                        "ref": "EventEmitter.html#getListeners",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#hasListener": {
+                        "ref": "EventEmitter.html#hasListener",
+                        "tf": 8.333333333333332
                       },
                       "EventEmitter.html#off": {
                         "ref": "EventEmitter.html#off",
-                        "tf": 4.545454545454546
+                        "tf": 6.25
                       },
                       "EventEmitter.html#on": {
                         "ref": "EventEmitter.html#on",
-                        "tf": 12.5
+                        "tf": 27.777777777777775
                       },
                       "EventEmitter.html#once": {
                         "ref": "EventEmitter.html#once",
-                        "tf": 8.333333333333332
+                        "tf": 24.999999999999996
                       },
                       "EventEmitter.html#removeAllListeners": {
                         "ref": "EventEmitter.html#removeAllListeners",
-                        "tf": 8.333333333333332
-                      },
-                      "EventEmitter.html#removeEvent": {
-                        "ref": "EventEmitter.html#removeEvent",
-                        "tf": 12.5
-                      },
-                      "EventEmitter.html#removeListener": {
-                        "ref": "EventEmitter.html#removeListener",
-                        "tf": 4.545454545454546
+                        "tf": 25
                       },
                       "Listener.html": {
                         "ref": "Listener.html",
                         "tf": 1909.090909090909
+                      },
+                      "Listener.html#suspended": {
+                        "ref": "Listener.html#suspended",
+                        "tf": 12.5
                       },
                       "Listener.html#remove": {
                         "ref": "Listener.html#remove",
@@ -1275,40 +1447,163 @@
                       "docs": {},
                       "r": {
                         "docs": {},
-                        "c": {
-                          "docs": {},
-                          "o": {
-                            "docs": {},
-                            "u": {
-                              "docs": {},
-                              "n": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {
-                                    "EventEmitter.html#listenerCount": {
-                                      "ref": "EventEmitter.html#listenerCount",
-                                      "tf": 683.3333333333334
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "(": {
+                        "'": {
                           "docs": {
-                            "EventEmitter.html#off": {
-                              "ref": "EventEmitter.html#off",
-                              "tf": 4.545454545454546
+                            "EventEmitter.html#emit": {
+                              "ref": "EventEmitter.html#emit",
+                              "tf": 2
                             },
-                            "EventEmitter.html#removeListener": {
-                              "ref": "EventEmitter.html#removeListener",
-                              "tf": 4.545454545454546
+                            "Listener.html#once": {
+                              "ref": "Listener.html#once",
+                              "tf": 8.333333333333332
                             }
                           }
                         },
                         "#": {
                           "docs": {},
+                          "c": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "l": {
+                                  "docs": {},
+                                  "b": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "c": {
+                                        "docs": {},
+                                        "k": {
+                                          "docs": {
+                                            "Listener.html#callback": {
+                                              "ref": "Listener.html#callback",
+                                              "tf": 1150
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "o": {
+                              "docs": {},
+                              "n": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "x": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {
+                                          "Listener.html#context": {
+                                            "ref": "Listener.html#context",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "d": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {
+                                    "Listener.html#data": {
+                                      "ref": "Listener.html#data",
+                                      "tf": 1150
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "e": {
+                            "docs": {},
+                            "v": {
+                              "docs": {
+                                "Listener.html#event": {
+                                  "ref": "Listener.html#event",
+                                  "tf": 1150
+                                }
+                              }
+                            }
+                          },
+                          "o": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "c": {
+                                "docs": {
+                                  "Listener.html#once": {
+                                    "ref": "Listener.html#once",
+                                    "tf": 1150
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "s": {
+                            "docs": {},
+                            "u": {
+                              "docs": {},
+                              "s": {
+                                "docs": {},
+                                "p": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {
+                                          "Listener.html#suspended": {
+                                            "ref": "Listener.html#suspended",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "t": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "r": {
+                                "docs": {},
+                                "g": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {
+                                        "Listener.html#target": {
+                                          "ref": "Listener.html#target",
+                                          "tf": 1150
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
                           "r": {
                             "docs": {},
                             "e": {
@@ -1322,6 +1617,58 @@
                                       "Listener.html#remove": {
                                         "ref": "Listener.html#remove",
                                         "tf": 1150
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "t": {
+            "docs": {},
+            ";": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "d": {
+                      "docs": {},
+                      "o": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "l": {
+                            "docs": {},
+                            "y": {
+                              "docs": {},
+                              "&": {
+                                "docs": {},
+                                "g": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {
+                                      "EventEmitter.html#eventCount": {
+                                        "ref": "EventEmitter.html#eventCount",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "EventEmitter.html#eventNames": {
+                                        "ref": "EventEmitter.html#eventNames",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "EventEmitter.html#events": {
+                                        "ref": "EventEmitter.html#events",
+                                        "tf": 33.33333333333333
                                       }
                                     }
                                   }
@@ -1354,51 +1701,9 @@
                       "docs": {
                         "index.html": {
                           "ref": "index.html",
-                          "tf": 7.777777777777778
+                          "tf": 14
                         }
                       }
-                    }
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "i": {
-                    "docs": {
-                      "EventEmitter.html": {
-                        "ref": "EventEmitter.html",
-                        "tf": 1.6129032258064515
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "t": {
-              "docs": {},
-              "c": {
-                "docs": {},
-                "h": {
-                  "docs": {
-                    "EventEmitter.html": {
-                      "ref": "EventEmitter.html",
-                      "tf": 1.6129032258064515
-                    },
-                    "EventEmitter.html#off": {
-                      "ref": "EventEmitter.html#off",
-                      "tf": 4.545454545454546
-                    },
-                    "EventEmitter.html#removeListener": {
-                      "ref": "EventEmitter.html#removeListener",
-                      "tf": 4.545454545454546
                     }
                   }
                 }
@@ -1407,6 +1712,75 @@
           },
           "e": {
             "docs": {},
+            "m": {
+              "docs": {},
+              "b": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "Event.html#target": {
+                        "ref": "Event.html#target",
+                        "tf": 110
+                      },
+                      "Event.html#timeStamp": {
+                        "ref": "Event.html#timeStamp",
+                        "tf": 110
+                      },
+                      "Event.html#type": {
+                        "ref": "Event.html#type",
+                        "tf": 110
+                      },
+                      "EventEmitter.html#eventCount": {
+                        "ref": "EventEmitter.html#eventCount",
+                        "tf": 110
+                      },
+                      "EventEmitter.html#eventNames": {
+                        "ref": "EventEmitter.html#eventNames",
+                        "tf": 110
+                      },
+                      "EventEmitter.html#events": {
+                        "ref": "EventEmitter.html#events",
+                        "tf": 110
+                      },
+                      "EventEmitter.html#suspended": {
+                        "ref": "EventEmitter.html#suspended",
+                        "tf": 110
+                      },
+                      "Listener.html#callback": {
+                        "ref": "Listener.html#callback",
+                        "tf": 110
+                      },
+                      "Listener.html#context": {
+                        "ref": "Listener.html#context",
+                        "tf": 110
+                      },
+                      "Listener.html#data": {
+                        "ref": "Listener.html#data",
+                        "tf": 110
+                      },
+                      "Listener.html#event": {
+                        "ref": "Listener.html#event",
+                        "tf": 110
+                      },
+                      "Listener.html#once": {
+                        "ref": "Listener.html#once",
+                        "tf": 110
+                      },
+                      "Listener.html#suspended": {
+                        "ref": "Listener.html#suspended",
+                        "tf": 110
+                      },
+                      "Listener.html#target": {
+                        "ref": "Listener.html#target",
+                        "tf": 110
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "a": {
               "docs": {},
               "n": {
@@ -1415,7 +1789,7 @@
                   "docs": {
                     "EventEmitter.html": {
                       "ref": "EventEmitter.html",
-                      "tf": 3.225806451612903
+                      "tf": 2.7777777777777777
                     }
                   }
                 }
@@ -1431,7 +1805,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 4.838709677419355
+                        "tf": 5.555555555555555
                       }
                     }
                   }
@@ -1441,56 +1815,58 @@
           },
           "i": {
             "docs": {},
-            "x": {
-              "docs": {
-                "EventEmitter.html": {
-                  "ref": "EventEmitter.html",
-                  "tf": 1.6129032258064515
-                }
-              }
-            }
-          }
-        },
-        "n": {
-          "docs": {},
-          "o": {
-            "docs": {},
-            "d": {
+            "l": {
               "docs": {},
-              "e": {
+              "l": {
                 "docs": {},
-                ".": {
+                "i": {
                   "docs": {},
-                  "j": {
-                    "docs": {
-                      "index.html": {
-                        "ref": "index.html",
-                        "tf": 7.777777777777778
-                      },
-                      "EventEmitter.html": {
-                        "ref": "EventEmitter.html",
-                        "tf": 1.6129032258064515
+                  "s": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "c": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "n": {
+                            "docs": {},
+                            "d": {
+                              "docs": {
+                                "Event.html#timeStamp": {
+                                  "ref": "Event.html#timeStamp",
+                                  "tf": 7.142857142857142
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
                 }
               }
+            },
+            "x": {
+              "docs": {
+                "EventEmitter.html": {
+                  "ref": "EventEmitter.html",
+                  "tf": 2.7777777777777777
+                }
+              }
             }
           },
-          "u": {
+          "a": {
             "docs": {},
-            "m": {
+            "t": {
               "docs": {},
-              "b": {
+              "c": {
                 "docs": {},
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "EventEmitter.html#listenerCount": {
-                        "ref": "EventEmitter.html#listenerCount",
-                        "tf": 41.66666666666666
-                      }
+                "h": {
+                  "docs": {
+                    "EventEmitter.html#off": {
+                      "ref": "EventEmitter.html#off",
+                      "tf": 6.25
                     }
                   }
                 }
@@ -1516,6 +1892,93 @@
                 }
               }
             },
+            "p": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "s": {
+                    "docs": {
+                      "Event.html#timeStamp": {
+                        "ref": "Event.html#timeStamp",
+                        "tf": 7.142857142857142
+                      },
+                      "Listener.html": {
+                        "ref": "Listener.html",
+                        "tf": 2.272727272727273
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "g": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "EventEmitter.html#eventCount": {
+                        "ref": "EventEmitter.html#eventCount",
+                        "tf": 10
+                      },
+                      "EventEmitter.html#eventNames": {
+                        "ref": "EventEmitter.html#eventNames",
+                        "tf": 7.142857142857142
+                      },
+                      "EventEmitter.html#events": {
+                        "ref": "EventEmitter.html#events",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#emit": {
+                        "ref": "EventEmitter.html#emit",
+                        "tf": 2
+                      },
+                      "EventEmitter.html#getListenerCount": {
+                        "ref": "EventEmitter.html#getListenerCount",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#getListeners": {
+                        "ref": "EventEmitter.html#getListeners",
+                        "tf": 8.333333333333332
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "EventEmitter.html#getListenerCount": {
+                        "ref": "EventEmitter.html#getListenerCount",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#getListeners": {
+                        "ref": "EventEmitter.html#getListeners",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#hasListener": {
+                        "ref": "EventEmitter.html#hasListener",
+                        "tf": 8.333333333333332
+                      },
+                      "EventEmitter.html#on": {
+                        "ref": "EventEmitter.html#on",
+                        "tf": 5.555555555555555
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "m": {
               "docs": {},
               "o": {
@@ -1524,19 +1987,11 @@
                   "docs": {
                     "EventEmitter.html#off": {
                       "ref": "EventEmitter.html#off",
-                      "tf": 9.090909090909092
+                      "tf": 6.25
                     },
                     "EventEmitter.html#removeAllListeners": {
                       "ref": "EventEmitter.html#removeAllListeners",
-                      "tf": 8.333333333333332
-                    },
-                    "EventEmitter.html#removeEvent": {
-                      "ref": "EventEmitter.html#removeEvent",
-                      "tf": 12.5
-                    },
-                    "EventEmitter.html#removeListener": {
-                      "ref": "EventEmitter.html#removeListener",
-                      "tf": 9.090909090909092
+                      "tf": 25
                     },
                     "Listener.html#remove": {
                       "ref": "Listener.html#remove",
@@ -1545,33 +2000,6 @@
                   },
                   "e": {
                     "docs": {},
-                    "l": {
-                      "docs": {},
-                      "i": {
-                        "docs": {},
-                        "s": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "n": {
-                                "docs": {
-                                  "EventEmitter.html": {
-                                    "ref": "EventEmitter.html",
-                                    "tf": 1.6129032258064515
-                                  },
-                                  "EventEmitter.html#removeListener": {
-                                    "ref": "EventEmitter.html#removeListener",
-                                    "tf": 666.6666666666666
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
                     "a": {
                       "docs": {},
                       "l": {
@@ -1592,7 +2020,7 @@
                                       "docs": {
                                         "EventEmitter.html#removeAllListeners": {
                                           "ref": "EventEmitter.html#removeAllListeners",
-                                          "tf": 683.3333333333334
+                                          "tf": 750
                                         }
                                       }
                                     }
@@ -1603,67 +2031,20 @@
                           }
                         }
                       }
-                    },
-                    "e": {
-                      "docs": {},
-                      "v": {
-                        "docs": {
-                          "EventEmitter.html#removeEvent": {
-                            "ref": "EventEmitter.html#removeEvent",
-                            "tf": 683.3333333333334
-                          }
-                        }
-                      }
                     }
                   }
                 }
               }
             },
-            "g": {
-              "docs": {},
-              "i": {
-                "docs": {},
-                "s": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "EventEmitter.html#emit": {
-                        "ref": "EventEmitter.html#emit",
-                        "tf": 8.333333333333332
-                      },
-                      "EventEmitter.html#eventNames": {
-                        "ref": "EventEmitter.html#eventNames",
-                        "tf": 7.142857142857142
-                      },
-                      "EventEmitter.html#listeners": {
-                        "ref": "EventEmitter.html#listeners",
-                        "tf": 10
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "t": {
+            "s": {
               "docs": {},
               "u": {
                 "docs": {},
-                "r": {
-                  "docs": {},
-                  "n": {
-                    "docs": {
-                      "EventEmitter.html#eventNames": {
-                        "ref": "EventEmitter.html#eventNames",
-                        "tf": 7.142857142857142
-                      },
-                      "EventEmitter.html#listenerCount": {
-                        "ref": "EventEmitter.html#listenerCount",
-                        "tf": 8.333333333333332
-                      },
-                      "EventEmitter.html#listeners": {
-                        "ref": "EventEmitter.html#listeners",
-                        "tf": 10
-                      }
+                "m": {
+                  "docs": {
+                    "EventEmitter.html#unsuspend": {
+                      "ref": "EventEmitter.html#unsuspend",
+                      "tf": 8.333333333333332
                     }
                   }
                 }
@@ -1678,23 +2059,6 @@
                     "Listener.html": {
                       "ref": "Listener.html",
                       "tf": 2.272727272727273
-                    }
-                  }
-                }
-              }
-            },
-            "p": {
-              "docs": {},
-              "r": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "s": {
-                    "docs": {
-                      "Listener.html": {
-                        "ref": "Listener.html",
-                        "tf": 2.272727272727273
-                      }
                     }
                   }
                 }
@@ -1734,34 +2098,81 @@
                   "docs": {
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
+                      "tf": 2
+                    },
+                    "EventEmitter.html#getListenerCount": {
+                      "ref": "EventEmitter.html#getListenerCount",
                       "tf": 8.333333333333332
-                    },
-                    "EventEmitter.html#listenerCount": {
-                      "ref": "EventEmitter.html#listenerCount",
-                      "tf": 8.333333333333332
-                    },
-                    "EventEmitter.html#listeners": {
-                      "ref": "EventEmitter.html#listeners",
-                      "tf": 10
-                    },
-                    "EventEmitter.html#off": {
-                      "ref": "EventEmitter.html#off",
-                      "tf": 4.545454545454546
-                    },
-                    "EventEmitter.html#on": {
-                      "ref": "EventEmitter.html#on",
-                      "tf": 12.5
                     },
                     "EventEmitter.html#once": {
                       "ref": "EventEmitter.html#once",
                       "tf": 8.333333333333332
-                    },
-                    "EventEmitter.html#removeListener": {
-                      "ref": "EventEmitter.html#removeListener",
-                      "tf": 4.545454545454546
                     }
                   }
                 }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "s": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "n": {
+                          "docs": {
+                            "EventEmitter.html#getListeners": {
+                              "ref": "EventEmitter.html#getListeners",
+                              "tf": 683.3333333333334
+                            }
+                          },
+                          "e": {
+                            "docs": {},
+                            "r": {
+                              "docs": {},
+                              "c": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "u": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {
+                                          "EventEmitter.html#getListenerCount": {
+                                            "ref": "EventEmitter.html#getListenerCount",
+                                            "tf": 683.3333333333334
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {
+              "Listener.html#data": {
+                "ref": "Listener.html#data",
+                "tf": 6.25
               }
             }
           }
@@ -1780,9 +2191,13 @@
                       "ref": "list_class.html",
                       "tf": 635
                     },
+                    "Event.html": {
+                      "ref": "Event.html",
+                      "tf": 110
+                    },
                     "EventEmitter.html": {
                       "ref": "EventEmitter.html",
-                      "tf": 114.83870967741936
+                      "tf": 115.55555555555556
                     },
                     "Listener.html": {
                       "ref": "Listener.html",
@@ -1793,48 +2208,41 @@
               }
             }
           },
-          "a": {
+          "r": {
             "docs": {},
-            "l": {
+            "e": {
               "docs": {},
-              "l": {
-                "docs": {
-                  "EventEmitter.html#emit": {
-                    "ref": "EventEmitter.html#emit",
-                    "tf": 8.333333333333332
+              "a": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "Event.html#timeStamp": {
+                      "ref": "Event.html#timeStamp",
+                      "tf": 7.142857142857142
+                    },
+                    "EventEmitter.html#on": {
+                      "ref": "EventEmitter.html#on",
+                      "tf": 5.555555555555555
+                    }
                   }
-                },
-                "b": {
+                }
+              }
+            },
+            "i": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "e": {
                   "docs": {},
-                  "a": {
+                  "r": {
                     "docs": {},
-                    "c": {
+                    "i": {
                       "docs": {},
-                      "k": {
+                      "a": {
                         "docs": {
-                          "EventEmitter.html#addListener": {
-                            "ref": "EventEmitter.html#addListener",
-                            "tf": 16.666666666666664
-                          },
                           "EventEmitter.html#off": {
                             "ref": "EventEmitter.html#off",
-                            "tf": 24.545454545454547
-                          },
-                          "EventEmitter.html#on": {
-                            "ref": "EventEmitter.html#on",
-                            "tf": 25
-                          },
-                          "EventEmitter.html#once": {
-                            "ref": "EventEmitter.html#once",
-                            "tf": 20
-                          },
-                          "EventEmitter.html#removeListener": {
-                            "ref": "EventEmitter.html#removeListener",
-                            "tf": 21.21212121212121
-                          },
-                          "Listener.html": {
-                            "ref": "Listener.html",
-                            "tf": 2.272727272727273
+                            "tf": 6.25
                           }
                         }
                       }
@@ -1850,31 +2258,52 @@
               "docs": {},
               "t": {
                 "docs": {},
+                "a": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "EventEmitter.html#events": {
+                          "ref": "EventEmitter.html#events",
+                          "tf": 8.333333333333332
+                        }
+                      }
+                    }
+                  }
+                },
                 "e": {
                   "docs": {},
+                  "n": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "EventEmitter.html#emit": {
+                          "ref": "EventEmitter.html#emit",
+                          "tf": 2
+                        }
+                      }
+                    }
+                  },
                   "x": {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "EventEmitter.html#addListener": {
-                          "ref": "EventEmitter.html#addListener",
-                          "tf": 16.666666666666664
-                        },
                         "EventEmitter.html#off": {
                           "ref": "EventEmitter.html#off",
-                          "tf": 20
+                          "tf": 25
                         },
                         "EventEmitter.html#on": {
                           "ref": "EventEmitter.html#on",
-                          "tf": 25
+                          "tf": 16.666666666666664
                         },
                         "EventEmitter.html#once": {
                           "ref": "EventEmitter.html#once",
-                          "tf": 20
-                        },
-                        "EventEmitter.html#removeListener": {
-                          "ref": "EventEmitter.html#removeListener",
                           "tf": 16.666666666666664
+                        },
+                        "Listener.html#context": {
+                          "ref": "Listener.html#context",
+                          "tf": 716.6666666666666
                         }
                       },
                       "u": {
@@ -1890,12 +2319,150 @@
                 }
               }
             }
+          },
+          "a": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "b": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "k": {
+                        "docs": {
+                          "EventEmitter.html#suspended": {
+                            "ref": "EventEmitter.html#suspended",
+                            "tf": 10
+                          },
+                          "EventEmitter.html#emit": {
+                            "ref": "EventEmitter.html#emit",
+                            "tf": 4
+                          },
+                          "EventEmitter.html#off": {
+                            "ref": "EventEmitter.html#off",
+                            "tf": 25
+                          },
+                          "EventEmitter.html#on": {
+                            "ref": "EventEmitter.html#on",
+                            "tf": 16.666666666666664
+                          },
+                          "EventEmitter.html#once": {
+                            "ref": "EventEmitter.html#once",
+                            "tf": 16.666666666666664
+                          },
+                          "EventEmitter.html#suspend": {
+                            "ref": "EventEmitter.html#suspend",
+                            "tf": 8.333333333333332
+                          },
+                          "EventEmitter.html#unsuspend": {
+                            "ref": "EventEmitter.html#unsuspend",
+                            "tf": 8.333333333333332
+                          },
+                          "Listener.html": {
+                            "ref": "Listener.html",
+                            "tf": 2.272727272727273
+                          },
+                          "Listener.html#callback": {
+                            "ref": "Listener.html#callback",
+                            "tf": 725
+                          },
+                          "Listener.html#data": {
+                            "ref": "Listener.html#data",
+                            "tf": 6.25
+                          },
+                          "Listener.html#once": {
+                            "ref": "Listener.html#once",
+                            "tf": 8.333333333333332
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "u": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "EventEmitter.html#suspended": {
+                          "ref": "EventEmitter.html#suspended",
+                          "tf": 10
+                        },
+                        "Listener.html#suspended": {
+                          "ref": "Listener.html#suspended",
+                          "tf": 12.5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "o": {
           "docs": {},
           "b": {
             "docs": {},
+            "j": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "Event.html": {
+                        "ref": "Event.html",
+                        "tf": 7.142857142857142
+                      },
+                      "Event.html#target": {
+                        "ref": "Event.html#target",
+                        "tf": 16.666666666666664
+                      },
+                      "EventEmitter.html#events": {
+                        "ref": "EventEmitter.html#events",
+                        "tf": 41.66666666666666
+                      },
+                      "EventEmitter.html#emit": {
+                        "ref": "EventEmitter.html#emit",
+                        "tf": 4
+                      },
+                      "EventEmitter.html#getListeners": {
+                        "ref": "EventEmitter.html#getListeners",
+                        "tf": 8.333333333333332
+                      },
+                      "Listener.html": {
+                        "ref": "Listener.html",
+                        "tf": 6.8181818181818175
+                      },
+                      "Listener.html#context": {
+                        "ref": "Listener.html#context",
+                        "tf": 50
+                      },
+                      "Listener.html#target": {
+                        "ref": "Listener.html#target",
+                        "tf": 16.666666666666664
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "s": {
               "docs": {},
               "e": {
@@ -1906,24 +2473,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 1.6129032258064515
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "j": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "c": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "Listener.html": {
-                        "ref": "Listener.html",
-                        "tf": 6.8181818181818175
+                        "tf": 2.7777777777777777
                       }
                     }
                   }
@@ -1933,6 +2483,14 @@
           },
           "n": {
             "docs": {
+              "Event.html": {
+                "ref": "Event.html",
+                "tf": 7.142857142857142
+              },
+              "EventEmitter.html#hasListener": {
+                "ref": "EventEmitter.html#hasListener",
+                "tf": 8.333333333333332
+              },
               "EventEmitter.html#once": {
                 "ref": "EventEmitter.html#once",
                 "tf": 8.333333333333332
@@ -1940,43 +2498,120 @@
             },
             "c": {
               "docs": {
-                "EventEmitter.html#addListener": {
-                  "ref": "EventEmitter.html#addListener",
-                  "tf": 16.666666666666664
-                },
                 "EventEmitter.html#off": {
                   "ref": "EventEmitter.html#off",
-                  "tf": 20
+                  "tf": 25
+                },
+                "EventEmitter.html#on": {
+                  "ref": "EventEmitter.html#on",
+                  "tf": 16.666666666666664
                 },
                 "EventEmitter.html#once": {
                   "ref": "EventEmitter.html#once",
-                  "tf": 670
+                  "tf": 666.6666666666666
                 },
-                "EventEmitter.html#removeListener": {
-                  "ref": "EventEmitter.html#removeListener",
-                  "tf": 16.666666666666664
+                "Listener.html#once": {
+                  "ref": "Listener.html#once",
+                  "tf": 708.3333333333334
                 }
               }
             }
           }
         },
-        "p": {
+        "t": {
           "docs": {},
+          "r": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "g": {
+                "docs": {},
+                "g": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "r": {
+                      "docs": {
+                        "Event.html": {
+                          "ref": "Event.html",
+                          "tf": 7.142857142857142
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "u": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "EventEmitter.html#emit": {
+                    "ref": "EventEmitter.html#emit",
+                    "tf": 2
+                  },
+                  "EventEmitter.html#hasListener": {
+                    "ref": "EventEmitter.html#hasListener",
+                    "tf": 8.333333333333332
+                  }
+                }
+              }
+            }
+          },
           "a": {
             "docs": {},
-            "t": {
+            "r": {
               "docs": {},
-              "t": {
+              "g": {
                 "docs": {},
                 "e": {
                   "docs": {},
-                  "r": {
+                  "t": {
+                    "docs": {
+                      "Event.html#target": {
+                        "ref": "Event.html#target",
+                        "tf": 700
+                      },
+                      "Listener.html#target": {
+                        "ref": "Listener.html#target",
+                        "tf": 700
+                      },
+                      "Listener.html#remove": {
+                        "ref": "Listener.html#remove",
+                        "tf": 16.666666666666664
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "i": {
+            "docs": {},
+            "m": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "EventEmitter.html#once": {
+                    "ref": "EventEmitter.html#once",
+                    "tf": 8.333333333333332
+                  }
+                },
+                "s": {
+                  "docs": {},
+                  "t": {
                     "docs": {},
-                    "n": {
-                      "docs": {
-                        "EventEmitter.html": {
-                          "ref": "EventEmitter.html",
-                          "tf": 1.6129032258064515
+                    "a": {
+                      "docs": {},
+                      "m": {
+                        "docs": {},
+                        "p": {
+                          "docs": {
+                            "Event.html#timeStamp": {
+                              "ref": "Event.html#timeStamp",
+                              "tf": 707.1428571428571
+                            }
+                          }
                         }
                       }
                     }
@@ -1985,49 +2620,76 @@
               }
             }
           },
-          "r": {
+          "y": {
             "docs": {},
-            "o": {
+            "p": {
               "docs": {},
-              "v": {
+              "e": {
+                "docs": {
+                  "Event.html#type": {
+                    "ref": "Event.html#type",
+                    "tf": 725
+                  },
+                  "EventEmitter.html#off": {
+                    "ref": "EventEmitter.html#off",
+                    "tf": 6.25
+                  },
+                  "EventEmitter.html#suspend": {
+                    "ref": "EventEmitter.html#suspend",
+                    "tf": 8.333333333333332
+                  },
+                  "EventEmitter.html#unsuspend": {
+                    "ref": "EventEmitter.html#unsuspend",
+                    "tf": 8.333333333333332
+                  }
+                }
+              }
+            }
+          }
+        },
+        "n": {
+          "docs": {},
+          "u": {
+            "docs": {},
+            "m": {
+              "docs": {},
+              "b": {
                 "docs": {},
-                "i": {
+                "e": {
                   "docs": {},
-                  "d": {
+                  "r": {
                     "docs": {
-                      "EventEmitter.html": {
-                        "ref": "EventEmitter.html",
-                        "tf": 1.6129032258064515
+                      "Event.html#timeStamp": {
+                        "ref": "Event.html#timeStamp",
+                        "tf": 57.14285714285714
                       },
-                      "EventEmitter.html#off": {
-                        "ref": "EventEmitter.html#off",
-                        "tf": 4.545454545454546
+                      "EventEmitter.html#eventCount": {
+                        "ref": "EventEmitter.html#eventCount",
+                        "tf": 43.33333333333333
                       },
-                      "EventEmitter.html#removeListener": {
-                        "ref": "EventEmitter.html#removeListener",
-                        "tf": 4.545454545454546
+                      "EventEmitter.html#getListenerCount": {
+                        "ref": "EventEmitter.html#getListenerCount",
+                        "tf": 41.66666666666666
                       }
                     }
                   }
                 }
               }
-            },
-            "e": {
+            }
+          },
+          "a": {
+            "docs": {},
+            "m": {
               "docs": {},
-              "s": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "n": {
-                    "docs": {},
-                    "t": {
-                      "docs": {
-                        "EventEmitter.html#removeAllListeners": {
-                          "ref": "EventEmitter.html#removeAllListeners",
-                          "tf": 8.333333333333332
-                        }
-                      }
-                    }
+              "e": {
+                "docs": {
+                  "EventEmitter.html#eventNames": {
+                    "ref": "EventEmitter.html#eventNames",
+                    "tf": 7.142857142857142
+                  },
+                  "Listener.html#event": {
+                    "ref": "Listener.html#event",
+                    "tf": 25
                   }
                 }
               }
@@ -2036,6 +2698,30 @@
         },
         "s": {
           "docs": {},
+          "t": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "g": {
+                    "docs": {
+                      "Event.html#type": {
+                        "ref": "Event.html#type",
+                        "tf": 50
+                      },
+                      "Listener.html#event": {
+                        "ref": "Listener.html#event",
+                        "tf": 50
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "u": {
             "docs": {},
             "c": {
@@ -2044,11 +2730,67 @@
                 "docs": {
                   "EventEmitter.html": {
                     "ref": "EventEmitter.html",
-                    "tf": 1.6129032258064515
+                    "tf": 2.7777777777777777
                   },
                   "Listener.html": {
                     "ref": "Listener.html",
                     "tf": 4.545454545454546
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "p": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "d": {
+                      "docs": {
+                        "EventEmitter.html#suspended": {
+                          "ref": "EventEmitter.html#suspended",
+                          "tf": 710
+                        },
+                        "EventEmitter.html#emit": {
+                          "ref": "EventEmitter.html#emit",
+                          "tf": 2
+                        },
+                        "EventEmitter.html#suspend": {
+                          "ref": "EventEmitter.html#suspend",
+                          "tf": 708.3333333333334
+                        },
+                        "Listener.html#suspended": {
+                          "ref": "Listener.html#suspended",
+                          "tf": 712.5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "c": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "d": {
+                    "docs": {
+                      "EventEmitter.html#emit": {
+                        "ref": "EventEmitter.html#emit",
+                        "tf": 2
+                      },
+                      "Listener.html#data": {
+                        "ref": "Listener.html#data",
+                        "tf": 6.25
+                      }
+                    }
                   }
                 }
               }
@@ -2064,19 +2806,31 @@
                   "docs": {},
                   "f": {
                     "docs": {
-                      "EventEmitter.html#addListener": {
-                        "ref": "EventEmitter.html#addListener",
-                        "tf": 12.5
+                      "EventEmitter.html#getListeners": {
+                        "ref": "EventEmitter.html#getListeners",
+                        "tf": 8.333333333333332
                       },
-                      "EventEmitter.html#removeEvent": {
-                        "ref": "EventEmitter.html#removeEvent",
-                        "tf": 12.5
+                      "EventEmitter.html#on": {
+                        "ref": "EventEmitter.html#on",
+                        "tf": 5.555555555555555
                       }
                     },
                     "i": {
                       "docs": {
-                        "EventEmitter.html#removeAllListeners": {
-                          "ref": "EventEmitter.html#removeAllListeners",
+                        "EventEmitter.html#hasListener": {
+                          "ref": "EventEmitter.html#hasListener",
+                          "tf": 8.333333333333332
+                        },
+                        "EventEmitter.html#off": {
+                          "ref": "EventEmitter.html#off",
+                          "tf": 12.5
+                        },
+                        "EventEmitter.html#suspend": {
+                          "ref": "EventEmitter.html#suspend",
+                          "tf": 8.333333333333332
+                        },
+                        "EventEmitter.html#unsuspend": {
+                          "ref": "EventEmitter.html#unsuspend",
                           "tf": 8.333333333333332
                         }
                       }
@@ -2104,56 +2858,324 @@
             }
           }
         },
-        "t": {
+        "a": {
           "docs": {},
-          "h": {
+          "b": {
             "docs": {},
-            "o": {
+            "s": {
               "docs": {},
-              "s": {
+              "t": {
                 "docs": {},
-                "e": {
-                  "docs": {
-                    "EventEmitter.html": {
-                      "ref": "EventEmitter.html",
-                      "tf": 1.6129032258064515
-                    },
-                    "EventEmitter.html#removeAllListeners": {
-                      "ref": "EventEmitter.html#removeAllListeners",
-                      "tf": 8.333333333333332
+                "r": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "t": {
+                        "docs": {
+                          "EventEmitter.html": {
+                            "ref": "EventEmitter.html",
+                            "tf": 2.7777777777777777
+                          }
+                        }
+                      }
                     }
                   }
                 }
               }
             }
           },
-          "i": {
+          "d": {
             "docs": {},
-            "m": {
+            "d": {
+              "docs": {
+                "EventEmitter.html": {
+                  "ref": "EventEmitter.html",
+                  "tf": 2.7777777777777777
+                },
+                "EventEmitter.html#on": {
+                  "ref": "EventEmitter.html#on",
+                  "tf": 5.555555555555555
+                },
+                "EventEmitter.html#once": {
+                  "ref": "EventEmitter.html#once",
+                  "tf": 8.333333333333332
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "r": {
               "docs": {},
-              "e": {
-                "docs": {
-                  "EventEmitter.html#once": {
-                    "ref": "EventEmitter.html#once",
-                    "tf": 8.333333333333332
+              "a": {
+                "docs": {},
+                "y": {
+                  "docs": {
+                    "EventEmitter.html#eventNames": {
+                      "ref": "EventEmitter.html#eventNames",
+                      "tf": 7.142857142857142
+                    }
+                  },
+                  ".": {
+                    "docs": {},
+                    "&": {
+                      "docs": {},
+                      "l": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          ";": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "r": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "g": {
+                                        "docs": {},
+                                        "&": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {
+                                                "EventEmitter.html#eventNames": {
+                                                  "ref": "EventEmitter.html#eventNames",
+                                                  "tf": 33.33333333333333
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "l": {
+                              "docs": {},
+                              "i": {
+                                "docs": {},
+                                "s": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "n": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "&": {
+                                              "docs": {},
+                                              "g": {
+                                                "docs": {},
+                                                "t": {
+                                                  "docs": {
+                                                    "EventEmitter.html#getListeners": {
+                                                      "ref": "EventEmitter.html#getListeners",
+                                                      "tf": 33.33333333333333
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "b": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "a": {
+                      "docs": {},
+                      "t": {
+                        "docs": {},
+                        "i": {
+                          "docs": {
+                            "Listener.html#data": {
+                              "ref": "Listener.html#data",
+                              "tf": 6.25
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
             }
           },
+          "t": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "h": {
+                    "docs": {
+                      "EventEmitter.html#on": {
+                        "ref": "EventEmitter.html#on",
+                        "tf": 5.555555555555555
+                      },
+                      "Listener.html": {
+                        "ref": "Listener.html",
+                        "tf": 2.272727272727273
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          ".": {
+            "docs": {},
+            "k": {
+              "docs": {},
+              ".": {
+                "docs": {},
+                "a": {
+                  "docs": {
+                    "Listener.html#context": {
+                      "ref": "Listener.html#context",
+                      "tf": 8.333333333333332
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "p": {
+          "docs": {},
           "a": {
             "docs": {},
-            "r": {
+            "t": {
               "docs": {},
-              "g": {
+              "t": {
                 "docs": {},
                 "e": {
                   "docs": {},
-                  "t": {
+                  "r": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "EventEmitter.html": {
+                          "ref": "EventEmitter.html",
+                          "tf": 2.7777777777777777
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "m": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "EventEmitter.html#emit": {
+                          "ref": "EventEmitter.html#emit",
+                          "tf": 4
+                        },
+                        "Listener.html#data": {
+                          "ref": "Listener.html#data",
+                          "tf": 6.25
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "s": {
+                "docs": {
+                  "EventEmitter.html#emit": {
+                    "ref": "EventEmitter.html#emit",
+                    "tf": 2
+                  },
+                  "Listener.html#data": {
+                    "ref": "Listener.html#data",
+                    "tf": 6.25
+                  }
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "o": {
+              "docs": {},
+              "v": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "d": {
                     "docs": {
-                      "Listener.html#remove": {
-                        "ref": "Listener.html#remove",
-                        "tf": 16.666666666666664
+                      "EventEmitter.html": {
+                        "ref": "EventEmitter.html",
+                        "tf": 2.7777777777777777
+                      }
+                    }
+                  }
+                }
+              },
+              "p": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "i": {
+                        "docs": {
+                          "EventEmitter.html#events": {
+                            "ref": "EventEmitter.html#events",
+                            "tf": 8.333333333333332
+                          },
+                          "EventEmitter.html#emit": {
+                            "ref": "EventEmitter.html#emit",
+                            "tf": 2
+                          }
+                        }
                       }
                     }
                   }
@@ -2164,14 +3186,6 @@
         },
         "u": {
           "docs": {},
-          "s": {
-            "docs": {
-              "EventEmitter.html": {
-                "ref": "EventEmitter.html",
-                "tf": 1.6129032258064515
-              }
-            }
-          },
           "n": {
             "docs": {},
             "i": {
@@ -2180,9 +3194,73 @@
                 "docs": {},
                 "u": {
                   "docs": {
+                    "EventEmitter.html#eventCount": {
+                      "ref": "EventEmitter.html#eventCount",
+                      "tf": 10
+                    },
                     "EventEmitter.html#eventNames": {
                       "ref": "EventEmitter.html#eventNames",
                       "tf": 7.142857142857142
+                    }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "p": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "d": {
+                          "docs": {
+                            "EventEmitter.html#unsuspend": {
+                              "ref": "EventEmitter.html#unsuspend",
+                              "tf": 700
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "w": {
+          "docs": {},
+          "h": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "h": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "r": {
+                      "docs": {
+                        "EventEmitter.html#suspended": {
+                          "ref": "EventEmitter.html#suspended",
+                          "tf": 10
+                        },
+                        "Listener.html#once": {
+                          "ref": "Listener.html#once",
+                          "tf": 8.333333333333332
+                        },
+                        "Listener.html#suspended": {
+                          "ref": "Listener.html#suspended",
+                          "tf": 12.5
+                        }
+                      }
                     }
                   }
                 }
@@ -2192,6 +3270,23 @@
         },
         "f": {
           "docs": {},
+          "i": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "s": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "EventEmitter.html#emit": {
+                      "ref": "EventEmitter.html#emit",
+                      "tf": 2
+                    }
+                  }
+                }
+              }
+            }
+          },
           "u": {
             "docs": {},
             "n": {
@@ -2206,29 +3301,25 @@
                       "docs": {},
                       "n": {
                         "docs": {
-                          "EventEmitter.html#addListener": {
-                            "ref": "EventEmitter.html#addListener",
-                            "tf": 110
-                          },
                           "EventEmitter.html#emit": {
                             "ref": "EventEmitter.html#emit",
+                            "tf": 116
+                          },
+                          "EventEmitter.html#getListenerCount": {
+                            "ref": "EventEmitter.html#getListenerCount",
                             "tf": 110
                           },
-                          "EventEmitter.html#eventNames": {
-                            "ref": "EventEmitter.html#eventNames",
+                          "EventEmitter.html#getListeners": {
+                            "ref": "EventEmitter.html#getListeners",
                             "tf": 110
                           },
-                          "EventEmitter.html#listenerCount": {
-                            "ref": "EventEmitter.html#listenerCount",
-                            "tf": 110
-                          },
-                          "EventEmitter.html#listeners": {
-                            "ref": "EventEmitter.html#listeners",
+                          "EventEmitter.html#hasListener": {
+                            "ref": "EventEmitter.html#hasListener",
                             "tf": 110
                           },
                           "EventEmitter.html#off": {
                             "ref": "EventEmitter.html#off",
-                            "tf": 119.0909090909091
+                            "tf": 110
                           },
                           "EventEmitter.html#on": {
                             "ref": "EventEmitter.html#on",
@@ -2242,17 +3333,33 @@
                             "ref": "EventEmitter.html#removeAllListeners",
                             "tf": 110
                           },
-                          "EventEmitter.html#removeEvent": {
-                            "ref": "EventEmitter.html#removeEvent",
+                          "EventEmitter.html#suspend": {
+                            "ref": "EventEmitter.html#suspend",
                             "tf": 110
                           },
-                          "EventEmitter.html#removeListener": {
-                            "ref": "EventEmitter.html#removeListener",
-                            "tf": 119.0909090909091
+                          "EventEmitter.html#unsuspend": {
+                            "ref": "EventEmitter.html#unsuspend",
+                            "tf": 110
                           },
                           "Listener.html": {
                             "ref": "Listener.html",
                             "tf": 2.272727272727273
+                          },
+                          "Listener.html#callback": {
+                            "ref": "Listener.html#callback",
+                            "tf": 75
+                          },
+                          "Listener.html#context": {
+                            "ref": "Listener.html#context",
+                            "tf": 8.333333333333332
+                          },
+                          "Listener.html#data": {
+                            "ref": "Listener.html#data",
+                            "tf": 6.25
+                          },
+                          "Listener.html#once": {
+                            "ref": "Listener.html#once",
+                            "tf": 8.333333333333332
                           },
                           "Listener.html#remove": {
                             "ref": "Listener.html#remove",
@@ -2283,54 +3390,87 @@
               }
             }
           }
+        },
+        "v": {
+          "docs": {},
+          "a": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "u": {
+                "docs": {
+                  "Listener.html#context": {
+                    "ref": "Listener.html#context",
+                    "tf": 8.333333333333332
+                  }
+                }
+              }
+            }
+          }
         }
       },
-      "length": 177
+      "length": 275
     },
     "corpusTokens": [
+      "a.k.a",
       "abstract",
       "add",
-      "addlisten",
-      "api",
+      "arbitrati",
       "array",
       "array.&lt;listener&gt",
       "array.&lt;string&gt",
       "attach",
-      "base",
       "be",
       "boolean",
       "browser",
-      "call",
       "callback",
       "class",
+      "contain",
+      "content",
       "context",
       "contextu",
+      "creat",
+      "criteria",
+      "current",
+      "data",
       "design",
       "djipev",
       "document",
-      "each",
       "emit",
       "emitt",
+      "epoch",
       "etc",
       "event",
+      "event#target",
+      "event#timestamp",
+      "event#typ",
+      "eventcount",
       "eventemitt",
-      "eventemitter#addlisten",
       "eventemitter#emit",
+      "eventemitter#ev",
+      "eventemitter#eventcount",
       "eventemitter#eventnam",
-      "eventemitter#listen",
-      "eventemitter#listenercount",
+      "eventemitter#getlisten",
+      "eventemitter#getlistenercount",
+      "eventemitter#haslisten",
       "eventemitter#off",
       "eventemitter#on",
       "eventemitter#onc",
       "eventemitter#removealllisten",
-      "eventemitter#removeev",
-      "eventemitter#removelisten",
+      "eventemitter#suspend",
+      "eventemitter#unsuspend",
       "eventnam",
+      "execut",
       "extend",
+      "first",
       "function",
+      "getlisten",
+      "getlistenercount",
       "given",
       "global",
+      "go",
       "handl",
+      "haslisten",
       "implement",
       "index",
       "inform",
@@ -2339,42 +3479,59 @@
       "list",
       "list:class",
       "listen",
+      "listener#callback",
+      "listener#context",
+      "listener#data",
+      "listener#ev",
+      "listener#onc",
       "listener#remov",
-      "listener(",
-      "listenercount",
+      "listener#suspend",
+      "listener#target",
+      "listener'",
+      "lt;readonly&gt",
       "match",
       "meant",
+      "member",
       "method",
+      "millisecond",
       "mix",
       "modular",
-      "mostli",
-      "node.j",
+      "name",
       "number",
       "object",
       "observ",
       "on",
       "onc",
+      "paramet",
+      "pass",
       "pattern",
-      "present",
+      "properti",
       "provid",
       "readm",
       "regist",
       "relev",
       "remov",
       "removealllisten",
-      "removeev",
-      "removelisten",
       "repres",
+      "resum",
       "return",
+      "second",
       "singl",
       "specif",
       "specifi",
+      "string",
       "such",
+      "suspend",
       "target",
-      "those",
       "time",
+      "timestamp",
+      "trigger",
+      "true",
+      "type",
       "uniqu",
-      "us"
+      "unsuspend",
+      "valu",
+      "whether"
     ],
     "pipeline": [
       "trimmer",
@@ -2390,7 +3547,7 @@
       "longname": "index",
       "name": "DjipEvents",
       "tags": "index",
-      "summary": "A modularized event-handling library for the browser based on the Node.js EventEmitter API",
+      "summary": "A modularized event-handling library for the browser",
       "description": "",
       "body": ""
     },
@@ -2416,6 +3573,47 @@
       "description": "",
       "body": ""
     },
+    "Event.html": {
+      "id": "Event.html",
+      "kind": "class",
+      "title": "Event",
+      "longname": "Event",
+      "name": "Event",
+      "tags": "Event",
+      "summary": "",
+      "description": "The Event object is the one being emitted when events are triggered.",
+      "body": ""
+    },
+    "Event.html#target": {
+      "id": "Event.html#target",
+      "kind": "member",
+      "title": "target :EventEmitter",
+      "longname": "Event#target",
+      "name": "target",
+      "tags": "Event#target target",
+      "summary": "",
+      "description": "The object that emitted the event"
+    },
+    "Event.html#timeStamp": {
+      "id": "Event.html#timeStamp",
+      "kind": "member",
+      "title": "timeStamp :number",
+      "longname": "Event#timeStamp",
+      "name": "timeStamp",
+      "tags": "Event#timeStamp timeStamp",
+      "summary": "",
+      "description": "The timestamp when the event was created represented as the number of milliseconds since the epoch."
+    },
+    "Event.html#type": {
+      "id": "Event.html#type",
+      "kind": "member",
+      "title": "type :string",
+      "longname": "Event#type",
+      "name": "type",
+      "tags": "Event#type type",
+      "summary": "",
+      "description": "The event type"
+    },
     "EventEmitter.html": {
       "id": "EventEmitter.html",
       "kind": "class",
@@ -2424,83 +3622,113 @@
       "name": "EventEmitter",
       "tags": "EventEmitter",
       "summary": "",
-      "description": "The EventEmitter class provides methods to implement the observable design pattern. It is an abstract class meant to be extended on (or mixed in) to add methods such as addListener(), removeListener(), emit(), etc. The methods of this class mostly match those of the Node.js EventEmitter API but they are meant to be used in the browser.",
+      "description": "The EventEmitter class provides methods to implement the observable design pattern. It is an abstract class meant to be extended on (or mixed in) to add methods such as on(), off(), emit(), etc.",
       "body": ""
     },
-    "EventEmitter.html#addListener": {
-      "id": "EventEmitter.html#addListener",
-      "kind": "function",
-      "title": "addListener( event, callback [, context [, once ] ] ) → {EventEmitter}",
-      "longname": "EventEmitter#addListener",
-      "name": "addListener",
-      "tags": "EventEmitter#addListener addListener",
+    "EventEmitter.html#eventCount": {
+      "id": "EventEmitter.html#eventCount",
+      "kind": "member",
+      "title": "&lt;readonly&gt; eventCount :Number",
+      "longname": "EventEmitter#eventCount",
+      "name": "eventCount",
+      "tags": "EventEmitter#eventCount eventCount",
       "summary": "",
-      "description": "Adds a listener for a specific event."
-    },
-    "EventEmitter.html#emit": {
-      "id": "EventEmitter.html#emit",
-      "kind": "function",
-      "title": "emit( event ) → {Boolean}",
-      "longname": "EventEmitter#emit",
-      "name": "emit",
-      "tags": "EventEmitter#emit emit",
-      "summary": "",
-      "description": "Calls each of the listeners registered for a given event."
+      "description": "The number of unique events that have registered listeners"
     },
     "EventEmitter.html#eventNames": {
       "id": "EventEmitter.html#eventNames",
-      "kind": "function",
-      "title": "eventNames() → {Array.&lt;String&gt;}",
+      "kind": "member",
+      "title": "&lt;readonly&gt; eventNames :Array.&lt;String&gt;",
       "longname": "EventEmitter#eventNames",
       "name": "eventNames",
       "tags": "EventEmitter#eventNames eventNames",
       "summary": "",
-      "description": "Returns an array of all the unique events for which the emitter has registered listeners."
+      "description": "An array of all the unique event names for which the emitter has registered listeners."
     },
-    "EventEmitter.html#listenerCount": {
-      "id": "EventEmitter.html#listenerCount",
-      "kind": "function",
-      "title": "listenerCount( event ) → {Number}",
-      "longname": "EventEmitter#listenerCount",
-      "name": "listenerCount",
-      "tags": "EventEmitter#listenerCount listenerCount",
+    "EventEmitter.html#events": {
+      "id": "EventEmitter.html#events",
+      "kind": "member",
+      "title": "&lt;readonly&gt; events :Object",
+      "longname": "EventEmitter#events",
+      "name": "events",
+      "tags": "EventEmitter#events events",
       "summary": "",
-      "description": "Return the number of listeners listening to a given event."
+      "description": "Object containing properties for all events with registered listeners"
     },
-    "EventEmitter.html#listeners": {
-      "id": "EventEmitter.html#listeners",
-      "kind": "function",
-      "title": "listeners( event ) → {Array.&lt;Listener&gt;}",
-      "longname": "EventEmitter#listeners",
-      "name": "listeners",
-      "tags": "EventEmitter#listeners listeners",
+    "EventEmitter.html#suspended": {
+      "id": "EventEmitter.html#suspended",
+      "kind": "member",
+      "title": "suspended :boolean",
+      "longname": "EventEmitter#suspended",
+      "name": "suspended",
+      "tags": "EventEmitter#suspended suspended",
       "summary": "",
-      "description": "Return the listeners registered for a given event."
+      "description": "Whether the execution of callbacks is currently suspended or not"
+    },
+    "EventEmitter.html#emit": {
+      "id": "EventEmitter.html#emit",
+      "kind": "function",
+      "title": "emit( event )",
+      "longname": "EventEmitter#emit",
+      "name": "emit",
+      "tags": "EventEmitter#emit emit",
+      "summary": "",
+      "description": "Executes the callback functions of all Listener objects registered for a given event. The functions are passed an Event object as the first parameter and the content of the listener's data property (if any) as a second parameter. If suspended is true no callback functions will be executed."
+    },
+    "EventEmitter.html#getListenerCount": {
+      "id": "EventEmitter.html#getListenerCount",
+      "kind": "function",
+      "title": "getListenerCount( event ) → {Number}",
+      "longname": "EventEmitter#getListenerCount",
+      "name": "getListenerCount",
+      "tags": "EventEmitter#getListenerCount getListenerCount",
+      "summary": "",
+      "description": "Returns the number of listeners registered for a given event."
+    },
+    "EventEmitter.html#getListeners": {
+      "id": "EventEmitter.html#getListeners",
+      "kind": "function",
+      "title": "getListeners( event ) → {Array.&lt;Listener&gt;}",
+      "longname": "EventEmitter#getListeners",
+      "name": "getListeners",
+      "tags": "EventEmitter#getListeners getListeners",
+      "summary": "",
+      "description": "Returns all the Listener objects registered for a specific event."
+    },
+    "EventEmitter.html#hasListener": {
+      "id": "EventEmitter.html#hasListener",
+      "kind": "function",
+      "title": "hasListener( The ) → {boolean}",
+      "longname": "EventEmitter#hasListener",
+      "name": "hasListener",
+      "tags": "EventEmitter#hasListener hasListener",
+      "summary": "",
+      "description": "Returns true if the specified event has at least one listener"
     },
     "EventEmitter.html#off": {
       "id": "EventEmitter.html#off",
       "kind": "function",
-      "title": "off( event [, callback [, context [, once ] ] ] ) → {EventEmitter}",
+      "title": "off( event [, callback [, context [, once ] ] ] )",
       "longname": "EventEmitter#off",
       "name": "off",
       "tags": "EventEmitter#off off",
       "summary": "",
-      "description": "Removes the listener(s) of a given event. If a callback function is provided, it will only remove the listeners that match this function."
+      "description": "Removes all the listeners that match the specified type of event and, if specified, other criterias."
     },
     "EventEmitter.html#on": {
       "id": "EventEmitter.html#on",
       "kind": "function",
-      "title": "on( event, callback [, context ] ) → {EventEmitter}",
+      "title": "on( event, callback [, context [, once [, data ] ] ] ) → {Listener}",
       "longname": "EventEmitter#on",
       "name": "on",
       "tags": "EventEmitter#on on",
       "summary": "",
-      "description": "Add a listener for a given event."
+      "description": "Adds a listener for a specific event. It returns the Listener that was created and attached to the event."
     },
     "EventEmitter.html#once": {
       "id": "EventEmitter.html#once",
       "kind": "function",
-      "title": "once( event, callback [, context ] ) → {EventEmitter}",
+      "title": "once( event, callback [, context [, data ] ] ) → {Listener}",
       "longname": "EventEmitter#once",
       "name": "once",
       "tags": "EventEmitter#once once",
@@ -2510,32 +3738,32 @@
     "EventEmitter.html#removeAllListeners": {
       "id": "EventEmitter.html#removeAllListeners",
       "kind": "function",
-      "title": "removeAllListeners( [ event ] ) → {EventEmitter}",
+      "title": "removeAllListeners()",
       "longname": "EventEmitter#removeAllListeners",
       "name": "removeAllListeners",
       "tags": "EventEmitter#removeAllListeners removeAllListeners",
       "summary": "",
-      "description": "Remove all listeners, or those for the specified event (if present)."
+      "description": "Removes all listeners"
     },
-    "EventEmitter.html#removeEvent": {
-      "id": "EventEmitter.html#removeEvent",
+    "EventEmitter.html#suspend": {
+      "id": "EventEmitter.html#suspend",
       "kind": "function",
-      "title": "removeEvent( event ) → {EventEmitter}",
-      "longname": "EventEmitter#removeEvent",
-      "name": "removeEvent",
-      "tags": "EventEmitter#removeEvent removeEvent",
+      "title": "suspend( event )",
+      "longname": "EventEmitter#suspend",
+      "name": "suspend",
+      "tags": "EventEmitter#suspend suspend",
       "summary": "",
-      "description": "Removes all listeners for a specific event."
+      "description": "Suspends execution of callbacks for the specified event type"
     },
-    "EventEmitter.html#removeListener": {
-      "id": "EventEmitter.html#removeListener",
+    "EventEmitter.html#unsuspend": {
+      "id": "EventEmitter.html#unsuspend",
       "kind": "function",
-      "title": "removeListener( event [, callback [, context [, once ] ] ] ) → {EventEmitter}",
-      "longname": "EventEmitter#removeListener",
-      "name": "removeListener",
-      "tags": "EventEmitter#removeListener removeListener",
+      "title": "unsuspend( event )",
+      "longname": "EventEmitter#unsuspend",
+      "name": "unsuspend",
+      "tags": "EventEmitter#unsuspend unsuspend",
       "summary": "",
-      "description": "Removes the listener(s) of a given event. If a callback function is provided, it will only remove the listeners that match this function."
+      "description": "Resumes execution of callbacks for the specified event type"
     },
     "Listener.html": {
       "id": "Listener.html",
@@ -2547,6 +3775,76 @@
       "summary": "",
       "description": "The Listener class represents a single event listener object. Such objects keep all relevant contextual information such as the event being listened to, the object the listener was attached to, the callback function and so on.",
       "body": ""
+    },
+    "Listener.html#callback": {
+      "id": "Listener.html#callback",
+      "kind": "member",
+      "title": "callback :function",
+      "longname": "Listener#callback",
+      "name": "callback",
+      "tags": "Listener#callback callback",
+      "summary": "",
+      "description": "The callback function"
+    },
+    "Listener.html#context": {
+      "id": "Listener.html#context",
+      "kind": "member",
+      "title": "context :Object",
+      "longname": "Listener#context",
+      "name": "context",
+      "tags": "Listener#context context",
+      "summary": "",
+      "description": "The context to execute the context function in (a.k.a. the value of this)"
+    },
+    "Listener.html#data": {
+      "id": "Listener.html#data",
+      "kind": "member",
+      "title": "data :Boolean",
+      "longname": "Listener#data",
+      "name": "data",
+      "tags": "Listener#data data",
+      "summary": "",
+      "description": "Arbitraty data that is going to be passed as the second parameter of the callback function"
+    },
+    "Listener.html#event": {
+      "id": "Listener.html#event",
+      "kind": "member",
+      "title": "event :String",
+      "longname": "Listener#event",
+      "name": "event",
+      "tags": "Listener#event event",
+      "summary": "",
+      "description": "The event name"
+    },
+    "Listener.html#once": {
+      "id": "Listener.html#once",
+      "kind": "member",
+      "title": "once :boolean",
+      "longname": "Listener#once",
+      "name": "once",
+      "tags": "Listener#once once",
+      "summary": "",
+      "description": "Whether this listener's callback function should only be executed once"
+    },
+    "Listener.html#suspended": {
+      "id": "Listener.html#suspended",
+      "kind": "member",
+      "title": "suspended :boolean",
+      "longname": "Listener#suspended",
+      "name": "suspended",
+      "tags": "Listener#suspended suspended",
+      "summary": "",
+      "description": "Whether this listener is currently suspended"
+    },
+    "Listener.html#target": {
+      "id": "Listener.html#target",
+      "kind": "member",
+      "title": "target :EventEmitter",
+      "longname": "Listener#target",
+      "name": "target",
+      "tags": "Listener#target target",
+      "summary": "",
+      "description": "The object that emitted the event"
     },
     "Listener.html#remove": {
       "id": "Listener.html#remove",
