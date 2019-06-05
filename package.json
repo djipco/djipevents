@@ -1,6 +1,6 @@
 {
   "name": "djipevents",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A modularized event-handling library for the browser based on the Node.js EventEmitter API",
   "main": "./dist/djipevents.min.js",
   "author": "Jean-Philippe Côté <jp@djip.co>",
