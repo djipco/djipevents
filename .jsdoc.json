@@ -27,8 +27,8 @@
     "dateFormat": "MMMM Do YYYY, H:mm:ss",
 
     "systemName": "DjipEvents",
-    "systemSummary": "A modularized event-handling library for the browser based on the Node.js EventEmitter API",
-    "copyright": "DjipEvents is (mostly) a refactoring of eventemitter3 by Arnout Kazemier and is released under the MIT license.",
+    "systemSummary": "A modularized event-handling library for the browser",
+    "copyright": "DjipEvents is released under the MIT license.",
     "collapseSymbols": true,
 
     "sort": "longname, linenum, version, since"
