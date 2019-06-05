@@ -100,6 +100,7 @@ window.lunrData = {
           "eventemitter#eventnam",
           "eventnam",
           "listen",
+          "lt;readonly&gt",
           "member",
           "name",
           "regist",
@@ -732,7 +733,7 @@ window.lunrData = {
                         "docs": {
                           "EventEmitter.html#eventNames": {
                             "ref": "EventEmitter.html#eventNames",
-                            "tf": 700
+                            "tf": 683.3333333333334
                           }
                         }
                       }
@@ -1082,6 +1083,10 @@ window.lunrData = {
                                     "docs": {
                                       "EventEmitter.html#eventCount": {
                                         "ref": "EventEmitter.html#eventCount",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "EventEmitter.html#eventNames": {
+                                        "ref": "EventEmitter.html#eventNames",
                                         "tf": 33.33333333333333
                                       }
                                     }
@@ -1750,7 +1755,7 @@ window.lunrData = {
                                               "docs": {
                                                 "EventEmitter.html#eventNames": {
                                                   "ref": "EventEmitter.html#eventNames",
-                                                  "tf": 50
+                                                  "tf": 33.33333333333333
                                                 }
                                               }
                                             }
@@ -2354,7 +2359,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 165
+      "length": 166
     },
     "corpusTokens": [
       "abstract",
@@ -2526,7 +2531,7 @@ window.lunrData = {
     "EventEmitter.html#eventNames": {
       "id": "EventEmitter.html#eventNames",
       "kind": "member",
-      "title": "eventNames :Array.&lt;String&gt;",
+      "title": "&lt;readonly&gt; eventNames :Array.&lt;String&gt;",
       "longname": "EventEmitter#eventNames",
       "name": "eventNames",
       "tags": "EventEmitter#eventNames eventNames",
