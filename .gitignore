@@ -4,9 +4,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-### Optional npm cache directory ###################################################################
+### Cachce directories #############################################################################
 .npm
 .yarn-integrity
+.cache
+.publish
 
 ### Optional eslint cache ##########################################################################
 .eslintcache
@@ -49,6 +51,3 @@ $RECYCLE.BIN/
 .circleci
 
 /playground/
-
-### gh-pages cache ################################################################################
-/.publish/

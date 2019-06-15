@@ -2,11 +2,18 @@
   "name": "djipevents",
   "version": "0.3.1",
   "description": "A modularized event-handling library for the browser",
-  "main": "./dist/djipevents.min.js",
+  "main": "./dist/djipevents.js",
   "author": "Jean-Philippe Côté <jp@djip.co>",
   "license": "MIT",
+  "scripts": {
+    "dev": "parcel ./src/djipevents.js",
+    "build": "parcel build ./src/djipevents.js"
+  },
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "foodoc": "0.0.9",
@@ -16,6 +23,7 @@
     "gulp-gh-pages": "^0.5.4",
     "gulp-jsdoc3": "^2.0.0",
     "gulp-minify": "^3.1.0",
-    "jsdoc-export-default-interop": "^0.3.1"
+    "jsdoc-export-default-interop": "^0.3.1",
+    "parcel-bundler": "^1.12.3"
   }
 }
