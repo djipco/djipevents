@@ -128,7 +128,7 @@ export default class EventEmitter {
 
       if (listener.suspended) return;
 
-      if (value) {
+      if (value !== undefined) {
         listener.callback.call(listener.context, value, listener.data);
       } else {
         listener.callback.call(listener.context, listener.data);
