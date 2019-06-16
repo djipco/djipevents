@@ -1,7 +1,7 @@
 {
   "name": "djipevents",
   "version": "0.3.3",
-  "description": "A modularized event-handling library for the browser",
+  "description": "An event-handling library for the browser and Node.js",
   "main": "dist/djipevents.cjs.min.js",
   "module": "dist/djipevents.esm.min.js",
   "author": "Jean-Philippe Côté <jp@djip.co>",
@@ -10,8 +10,7 @@
     "build-all": "npm run build-cjs && npm run build-esm && npm run build-iife",
     "build-cjs": "BABEL_ENV=cjs rollup --config",
     "build-esm": "BABEL_ENV=esm rollup --config",
-    "build-iife": "BABEL_ENV=iife rollup --config",
-    "rollup-watch": "BABEL_ENV=esm rollup --config --watch"
+    "build-iife": "BABEL_ENV=iife rollup --config"
   },
   "dependencies": {},
   "devDependencies": {
