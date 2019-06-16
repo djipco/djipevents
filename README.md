@@ -19,7 +19,7 @@ using it, go right ahead!
 ES6 module in browser:
 
 ```javascript
-import EventEmitter from "node_modules/djipevents/dist/djipevents.esm.min.js";
+import {EventEmitter} from "node_modules/djipevents/dist/djipevents.esm.min.js";
 ```
 
 Global in browser:
@@ -31,7 +31,7 @@ Global in browser:
 Node.js:
 
 ```javascript
-const EventEmitter = require('djipevents');
+const EventEmitter = require("djipevents").EventEmitter;
 ```
 
 ## API Reference
