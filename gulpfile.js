@@ -1,19 +1,8 @@
 const gulp = require("gulp");
-const concat = require("gulp-concat");
 const eslint = require("gulp-eslint");
 const ghPages = require("gulp-gh-pages");
 const jsdoc = require("gulp-jsdoc3");
-const minify = require("gulp-minify");
 const spawn = require("child_process").spawn;
-
-function bundle() {
-
-  return gulp.src(["./src/*.js"])                       // fetch source files
-    .pipe(concat("djipevents.js"))                     // concatenate them
-    .pipe(minify({ext: { min:".min.js" } } ))      // minify
-    .pipe(gulp.dest("./dist"));                         // write to disk
-
-}
 
 function generateDoc(cb) {
 
@@ -41,9 +30,7 @@ function releaseToNpm(cb) {
 }
 
 const doc = gulp.series(generateDoc, publishDoc);
-const build = gulp.series(lint, bundle, generateDoc, publishDoc);
 
 exports.lint = lint;
 exports.doc = doc;
-exports.build = build;
 exports.release = releaseToNpm;
