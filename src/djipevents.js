@@ -1,21 +1,24 @@
 /**
- * The `EventEmitter` class provides methods to implement the _observable_ design pattern. It is an
- * abstract class meant to be extended on (or mixed in) to add methods such as `on()`, `off()`,
- * `emit()`, etc.
+ * The `EventEmitter` class provides methods to implement the _observable_ design pattern. This
+ * pattern allows one to _register_ a function to execute when a specific event is triggered by the
+ * emitter.
+ *
+ * It is a mostly abstract class meant to be extended by (or mixed into) other objects.
  */
 export default class EventEmitter {
 
   constructor() {
 
     /**
-     * Object containing properties for all events with registered listeners
-     * @type {{}}
+     * Object containing a named property for all the events with at least one registered listener
+     * @type {Object}
      * @readonly
      */
     this.events = {};
 
     /**
-     * Whether the execution of callbacks is currently suspended or not
+     * Whether or not the execution of function callbacks is currently suspended for this whole
+     * emitter
      * @type {boolean}
      */
     this.suspended = false;
@@ -28,17 +31,27 @@ export default class EventEmitter {
    *
    * @param {String} event The event to listen to
    * @param {Function} callback The callback function to execute when the event occurs
-   * @param {Object} [context] The context to invoke the callback function in.
-   * @param {Boolean} [once=false] Whether the listener should only be executed once
-   * @param {{}} [data] Arbitrary data to pass on to the callback function upon execution
+   * @param {Object} [options={}]
+   * @param {Object} [options.context=this] The context to invoke the callback function in.
+   * @param {boolean} [options.times=Infinity] The number of times after which the callback should
+   * automatically be removed.
+   * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
    *
    * @returns {Listener}
    */
-  on(event, callback, context, once, data) {
+  on(event, callback, options = {}) {
 
     if (typeof callback !== "function") throw new TypeError("The callback must be a function");
 
-    let listener = new Listener(event, this, callback, context, once, data);
+    // Define default options and merge declared options into them
+    const defaults = {
+      context: this,
+      times: Infinity,
+      data: undefined
+    };
+    options = Object.assign({}, defaults, options);
+
+    const listener = new Listener(event, this, callback, options);
 
     if (!this.events[event]) this.events[event] = [];
     this.events[event].push(listener);
@@ -48,23 +61,20 @@ export default class EventEmitter {
   }
 
   /**
-   * Returns `true` if the specified event has at least one listener
+   * Returns `true` if the specified event has at least one registered listener
+   *
    * @param {string} The event name
    * @returns {boolean}
    */
   hasListener(event) {
-
-    if (this.events[event] && this.events[event].length > 0) {
-      return true;
-    } else {
-      return false;
-    }
-
+    return (this.events[event] && this.events[event].length > 0) ? true : false;
   }
 
   /**
-   * An array of all the unique event names for which the emitter has registered listeners.
-   * @type {String[]}
+   * An array of all the unique event names for which the emitter has at least one registered
+   * listener.
+   *
+   * @type {string[]}
    * @readonly
    */
   get eventNames() {
@@ -72,9 +82,9 @@ export default class EventEmitter {
   }
 
   /**
-   * Returns all the `Listener` objects registered for a specific event.
+   * Returns an array of all the `Listener` objects registered for a specific event.
    *
-   * @param {(String)} event The event name.
+   * @param {string} event The event name.
    * @returns {Listener[]} An array of `Listener` objects
    */
   getListeners(event) {
@@ -82,8 +92,9 @@ export default class EventEmitter {
   }
 
   /**
-   * Suspends execution of callbacks for the specified event type
-   * @param event
+   * Suspends execution of all callbacks for the specified event type
+   *
+   * @param {string} event The event to suspend
    */
   suspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -92,8 +103,8 @@ export default class EventEmitter {
   }
 
   /**
-   * Resumes execution of callbacks for the specified event type
-   * @param event
+   * Resumes execution of all callbacks for the specified event type
+   * @param {string} event
    */
   unsuspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -116,62 +127,75 @@ export default class EventEmitter {
    * functions are passed the specifid `value` (if present) and the content of the listener's
    * `data` property (if any).
    *
-   * If `suspended` is `true` no callback functions will be executed.
+   * If the `suspended` property of the `EventEmitter` or of the `Listener` is `true`, the callback
+   * functions will not be executed.
    *
    * @param {String} event The event name.
    */
   emit(event, value) {
 
+    // This is the global suspension check
     if (!this.events[event]|| this.suspended) return;
 
     this.events[event].forEach(listener => {
 
+      // This is the per-listener suspension check
       if (listener.suspended) return;
 
-      if (value !== undefined) {
-        listener.callback.call(listener.context, value, listener.data);
-      } else {
-        listener.callback.call(listener.context, listener.data);
+      if (listener.times > 0) {
+
+        if (value !== undefined) {
+          listener.callback.call(listener.context, value, listener.data);
+        } else {
+          listener.callback.call(listener.context, listener.data);
+        }
+
       }
 
-      if (listener.once) listener.remove();
+      if (--listener.times < 1) listener.remove();
 
     });
 
   }
 
   /**
-   * Add a one-time listener for a given event.
+   * Add a one-time listener for a specific event. It returns the `Listener` that was created and
+   * attached to the event.
    *
-   * @param {(String)} event The event name.
-   * @param {Function} callback The listener function.
-   * @param {*} [context] The context to invoke the listener with.
-   * @param {*} [data] Arbitrary data to pass along to the callback function upon execution
+   * @param {string} event The event to listen to
+   * @param {Function} callback The callback function to execute when the event occurs
+   * @param {Object} [options={}]
+   * @param {Object} [options.context=this] The context to invoke the callback function in (a.k.a.
+   * the value of `this`).
+   * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution (as
+   * the second parameter)
    *
    * @returns {Listener}
    */
-  once(event, callback, context, data) {
-    return this.on(event, callback, context, true, data);
+  once(event, callback, options = {}) {
+    options.times = 1;
+    return this.on(event, callback, options);
   }
 
   /**
-   * Removes all the listeners that match the specified type of event and, if specified, other
-   * criterias.
+   * Removes all the listeners that match the specified type of event and, optionnally, the
+   * specified callback and the other options.
    *
-   * @param {String} event The event name.
-   * @param {Function} [callback] Only remove the listeners that match this function.
-   * @param {*} [context] Only remove the listeners that have this context.
-   * @param {Boolean} [once=false] Only remove one-time listeners.
+   * @param {string} event The event name.
+   * @param {Function} [callback] Only remove the listeners that match this exact callback function.
+   * @param {*} [context] Only remove the listeners that have this exact context.
+   * @param {number} [times] Only remove the listener if it has exactly that many remaining times to
+   * be executed.
    */
-  off(event, callback, context, once) {
+  off(event, callback, options = {}) {
 
     if (!this.events[event]) return;
 
     // Find listeners that do not match the criterias (those are the ones we will keep)
     let events = this.events[event].filter(listener => {
       return (callback && listener.callback !== callback) ||
-        (once && !listener.once) ||
-        (context && context !== listener.context);
+        (options.times && options.times !== listener.times) ||
+        (options.context && options.context !== listener.context);
     });
 
     if (events.length) {
@@ -191,7 +215,8 @@ export default class EventEmitter {
 
   /**
    * The number of unique events that have registered listeners
-   * @type {Number}
+   *
+   * @type {number}
    * @readonly
    */
   get eventCount() {
@@ -208,24 +233,35 @@ export default class EventEmitter {
 export class Listener {
 
   /**
-   * @param {String} event The name of the event being listened to
-   * @param {EventEmitter} target The object the listener was attached to
-   * @param {Function} callback The actual listener function
-   * @param {Object} [context] The context to invoke the listener in
-   * @param {Boolean} [once=false] Whether the callback function should be executed only once
-   * @param {Boolean} [data={}] Arbitrary data to pass along to the callback function upon
-   * execution (as a second parameter)
+   * @param {string} event The name of the event being listened to
+   * @param {EventEmitter} target The `EventEmitter` object that the listener is attached to
+   * @param {Function} callback The function to call when the listener is triggered
+   * @param {Object} [options={}]
+   * @param {Object} [options.context=this] The context to invoke the listener in (a.k.a. the value
+   * of `this` inside the callback function.
+   * @param {number} [options.times=Infinity] The remaining number of times after which the
+   * callback should automatically be removed.
+   * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
+   * execution (as the second parameter)
    */
-  constructor(event, target, callback, context, once, data) {
+  constructor(event, target, callback, options = {}) {
+
+    // Define default options and merge declared options into them,
+    const defaults = {
+      context: this,
+      times: Infinity,
+      data: undefined
+    };
+    options = Object.assign({}, defaults, options);
 
     /**
      * The event name
-     * @type {String}
+     * @type {string}
      */
     this.event = event;
 
     /**
-     * The object that emitted the event
+     * The object that the event is attached to (or that emitted the event)
      * @type {EventEmitter}
      */
     this.target = target;
@@ -237,22 +273,23 @@ export class Listener {
     this.callback = callback;
 
     /**
-     * The context to execute the context function in (a.k.a. the value of `this`)
+     * The context to execute the context function in (a.k.a. the value of `this` inside the
+     * callback function)
      * @type {Object}
      */
-    this.context = context;
+    this.context = options.context;
 
     /**
-     * Whether this listener's callback function should only be executed once
-     * @type {boolean}
+     * The remaining number of times after which the callback should automatically be removed.
+     * @type {number}
      */
-    this.once = once == true || false;
+    this.times = options.times;
 
     /**
      * Arbitraty data that is going to be passed as the second parameter of the callback function
-     * @type {Boolean}
+     * @type {*}
      */
-    this.data = data;
+    this.data = options.data;
 
     /**
      * Whether this listener is currently suspended
@@ -266,7 +303,7 @@ export class Listener {
    * Removes the listener from its target.
    */
   remove() {
-    this.target.off(this.event, this.callback, this.context, this.once);
+    this.target.off(this.event, this.callback, {context: this.context, times: this.times});
   }
 
 }
