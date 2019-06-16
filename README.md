@@ -21,11 +21,11 @@ ES6 module in browser:
 ```javascript
 import {EventEmitter} from "node_modules/djipevents/dist/djipevents.esm.min.js";
 ```
-
-Global in browser:
+``
+Global namespace (`djipevents`) for legacy browser support:
 
 ```html
-<script src="node_modules/djipevents/dist/djipevents.iife.min.js">
+<script src="node_modules/djipevents/dist/djipevents.iife.min.js"
 ```
 
 Node.js:
