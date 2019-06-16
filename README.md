@@ -6,9 +6,9 @@ by (or mixed into) other objects.
  
 It is currently available in 3 flavors:
 
-    * **CommonJS**: ES5 syntax for Node.js
-    * **ESM**: ES6 module syntax for modern browsers
-    * **IIFE**: ES5 syntax for legacy browser support (via `<script>` tag)
+  * **CommonJS**: ES5 syntax for Node.js
+  * **ESM**: ES6 module syntax for modern browsers
+  * **IIFE**: ES5 syntax for legacy browser support (via `<script>` tag)
 
 This library is being primarily used in my own projects ([DjipAV](https://github.com/djipco/djipav), 
 for example) and I do not necessarily intend on providing support for it. However, if you feel like 
