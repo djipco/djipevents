@@ -73,7 +73,7 @@
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">once</span> [,&nbsp;<span class="signature-param">data</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">options</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
 </dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
@@ -95,7 +95,7 @@
 					<tbody>
 						<tr>
 								<td><code>event</code></td>
-							<td><span class="param-type">String</span></td>
+							<td><span class="param-type">string</span></td>
 								<td class="attributes"></td>
 								<td></td>
 							<td class="last">
@@ -108,7 +108,7 @@
 								<td class="attributes"></td>
 								<td></td>
 							<td class="last">
-									<p>The object the listener was attached to</p>
+									<p>The <code>EventEmitter</code> object that the listener is attached to</p>
 							</td>
 						</tr>
 						<tr>
@@ -117,35 +117,58 @@
 								<td class="attributes"></td>
 								<td></td>
 							<td class="last">
-									<p>The actual listener function</p>
+									<p>The function to call when the listener is triggered</p>
 							</td>
 						</tr>
 						<tr>
-								<td><code>context</code></td>
+								<td><code>options</code></td>
 							<td><span class="param-type">Object</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td></td>
-							<td class="last">
-									<p>The context to invoke the listener in</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>once</code></td>
-							<td><span class="param-type">Boolean</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>false</td>
-							<td class="last">
-									<p>Whether the callback function should be executed only once</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>data</code></td>
-							<td><span class="param-type">Boolean</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 								<td>{}</td>
 							<td class="last">
-									<p>Arbitrary data to pass along to the callback function upon
-			execution (as a second parameter)</p>
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+													<th>Default</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>context</code></td>
+													<td><span class="param-type">Object</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>this</td>
+													<td class="last">
+															<p>The context to invoke the listener in (a.k.a. the value
+									of <code>this</code> inside the callback function.</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>times</code></td>
+													<td><span class="param-type">number</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>Infinity</td>
+													<td class="last">
+															<p>The remaining number of times after which the
+									callback should automatically be removed.</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>data</code></td>
+													<td><span class="param-type">*</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>{}</td>
+													<td class="last">
+															<p>Arbitrary data to pass along to the callback function upon
+									execution (as the second parameter)</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 							</td>
 						</tr>
 					</tbody>
@@ -171,7 +194,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-219">line 219</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-247">line 247</a></p>
 								</div>
 							</div>
 			
@@ -187,7 +210,7 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title class public">
-			<h4 id="Listener" class="class public"><a href="Listener.html"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">once</span> [,&nbsp;<span class="signature-param">data</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+			<h4 id="Listener" class="class public"><a href="Listener.html"><span class="signature-new">new&nbsp;</span><span class="name">Listener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">target</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">options</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
 		</dt>
 <dd class="symbol-details class public">
 	<div class="symbol-details-inner">
@@ -230,7 +253,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-237">line 237</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-273">line 273</a></p>
 								</div>
 							</div>
 			
@@ -246,7 +269,8 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The context to execute the context function in (a.k.a. the value of <code>this</code>)</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The context to execute the context function in (a.k.a. the value of <code>this</code> inside the
+			callback function)</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -274,7 +298,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-243">line 243</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-280">line 280</a></p>
 								</div>
 							</div>
 			
@@ -286,7 +310,7 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="data" class="member public"><span class="name">data</span><span class="signature-type"> :Boolean</span></h4>
+			<h4 id="data" class="member public"><span class="name">data</span><span class="signature-type"> :*</span></h4>
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -297,7 +321,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">Boolean</span></div>
+									<div class="form-control-static type-names"><span class="param-type">*</span></div>
 								</div>
 							</div>
 			
@@ -318,7 +342,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-255">line 255</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-292">line 292</a></p>
 								</div>
 							</div>
 			
@@ -330,7 +354,7 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="event" class="member public"><span class="name">event</span><span class="signature-type"> :String</span></h4>
+			<h4 id="event" class="member public"><span class="name">event</span><span class="signature-type"> :string</span></h4>
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -341,7 +365,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">String</span></div>
+									<div class="form-control-static type-names"><span class="param-type">string</span></div>
 								</div>
 							</div>
 			
@@ -362,51 +386,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-225">line 225</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="once" class="member public"><span class="name">once</span><span class="signature-type"> :boolean</span></h4>
-		</dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Whether this listener's callback function should only be executed once</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-249">line 249</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-261">line 261</a></p>
 								</div>
 							</div>
 			
@@ -450,7 +430,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-261">line 261</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-298">line 298</a></p>
 								</div>
 							</div>
 			
@@ -466,7 +446,7 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The object that emitted the event</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The object that the event is attached to (or that emitted the event)</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -494,7 +474,51 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-231">line 231</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-267">line 267</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="times" class="member public"><span class="name">times</span><span class="signature-type"> :number</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The remaining number of times after which the callback should automatically be removed.</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-286">line 286</a></p>
 								</div>
 							</div>
 			
@@ -534,7 +558,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-268">line 268</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-305">line 305</a></p>
 								</div>
 							</div>
 			
@@ -555,7 +579,7 @@
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 15th 2019, 21:50:33 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 16th 2019, 17:32:51 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
