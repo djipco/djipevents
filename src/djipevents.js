@@ -5,7 +5,7 @@
  *
  * It is a mostly abstract class meant to be extended by (or mixed into) other objects.
  */
-export default class EventEmitter {
+export class EventEmitter {
 
   constructor() {
 
