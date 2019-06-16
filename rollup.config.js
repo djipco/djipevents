@@ -32,7 +32,7 @@ const esm = {
 const cjs = {
   input: "src/djipevents.js",
   output: {
-    format: "es",
+    format: "cjs",
     file: "dist/djipevents.cjs.min.js"
   },
   plugins: [
