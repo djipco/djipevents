@@ -42,6 +42,7 @@ You can also use the CDN version:
 <script src="https://cdn.jsdelivr.net/npm/djipevents/dist/djipevents.iife.min.js"></script>
 
 ```
+Beware that, in production, you should probably target a specific version of the library.
 
 ### CommonJS format (Node.js)
 
