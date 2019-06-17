@@ -132,7 +132,9 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The number of unique events that have registered listeners</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The number of unique events that have registered listeners</p>
+			<p>Note: this excludes global events registered with <code>EventEmitter.ANY_EVENT</code> because they are not
+			tied to a specific event.</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -160,7 +162,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-255">line 255</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-273">line 273</a></p>
 								</div>
 							</div>
 			
@@ -177,7 +179,9 @@
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>An array of all the unique event names for which the emitter has at least one registered
-			listener.</p></div>
+			listener.</p>
+			<p>Note: this excludes global events registered with <code>EventEmitter.ANY_EVENT</code> because they are not
+			tied to a specific event.</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -205,7 +209,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-96">line 96</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-109">line 109</a></p>
 								</div>
 							</div>
 			
@@ -318,7 +322,9 @@
 			<code>data</code> property (if any).</p>
 			<p>If the <code>suspended</code> property of the <code>EventEmitter</code> or of the <code>Listener</code> is <code>true</code>, the callback
 			functions will not be executed.</p>
-			<p>This function returns an array containing the return values of each of the callbacks.</p></div>
+			<p>This function returns an array containing the return values of each of the callbacks.</p>
+			<p>It should be noted that the regular listeners are triggered first followed by the global
+			listeners (added with <code>EventEmitter.ANY_EVENT</code>).</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -369,7 +375,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-155">line 155</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-184">line 184</a></p>
 								</div>
 							</div>
 			
@@ -381,11 +387,13 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="getListenerCount" class="function public"><span class="name">getListenerCount</span><span class="signature-params">( <span class="signature-param">event</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Number}</span></h4>
+			<h4 id="getListenerCount" class="function public"><span class="name">getListenerCount</span><span class="signature-params">( <span class="signature-param">event</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns the number of listeners registered for a given event.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns the number of listeners registered for a given event.</p>
+			<p>Note: to get the number of global listeners added with <code>EventEmitter.ANY_EVENT</code>, use
+			<code>EventEmitter.ANY_EVENT</code> as the parameter.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -399,9 +407,9 @@
 					<tbody>
 						<tr>
 								<td><code>event</code></td>
-							<td><span class="param-type">String</span></td>
+							<td><span class="param-type">string</span> | <span class="param-type">Symbol</span></td>
 							<td class="last">
-									<p>The event name.</p>
+									<p>The event</p>
 							</td>
 						</tr>
 					</tbody>
@@ -409,7 +417,7 @@
 			</div>
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">Number</span></label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
 									<div class="form-control-static returns-description"><p>The number of listeners registered for the specified event.</p></div>
 								</div>
@@ -435,7 +443,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-137">line 137</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-163">line 163</a></p>
 								</div>
 							</div>
 			
@@ -451,7 +459,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns an array of all the <code>Listener</code> objects registered for a specific event.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns an array of all the <code>Listener</code> objects that will be triggered for a specific event.</p>
+			<p>Note: to retrieve global listeners added with <code>EventEmitter.ANY_EVENT</code>, use
+			<code>EventEmitter.ANY_EVENT</code> as the parameter.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -465,7 +475,7 @@
 					<tbody>
 						<tr>
 								<td><code>event</code></td>
-							<td><span class="param-type">string</span></td>
+							<td><span class="param-type">string</span> | <span class="param-type">Symbol</span></td>
 							<td class="last">
 									<p>The event name.</p>
 							</td>
@@ -501,7 +511,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-106">line 106</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-122">line 122</a></p>
 								</div>
 							</div>
 			
@@ -517,7 +527,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns <code>true</code> if the specified event has at least one registered listener</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns <code>true</code> if the specified event has at least one registered listener.</p>
+			<p>Note: to check for global listeners added with <code>EventEmitter.ANY_EVENT</code>, use
+			<code>EventEmitter.ANY_EVENT</code> as the parameter.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -531,9 +543,9 @@
 					<tbody>
 						<tr>
 								<td><code>The</code></td>
-							<td><span class="param-type">string</span></td>
+							<td><span class="param-type">string</span> | <span class="param-type">Symbol</span></td>
 							<td class="last">
-									<p>event name</p>
+									<p>event name (or symbol)</p>
 							</td>
 						</tr>
 					</tbody>
@@ -567,7 +579,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-85">line 85</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-95">line 95</a></p>
 								</div>
 							</div>
 			
@@ -579,12 +591,14 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="off" class="function public"><span class="name">off</span><span class="signature-params">( <span class="signature-param">event</span> [,&nbsp;<span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">times</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+			<h4 id="off" class="function public"><span class="name">off</span><span class="signature-params">( <span class="signature-param">event</span> [,&nbsp;<span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">context</span> [,&nbsp;<span class="signature-param">count</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Removes all the listeners that match the specified type of event and, optionnally, the
-			specified callback and the other options.</p></div>
+			specified callback and the other options.</p>
+			<p>Note: to remove global listeners added with <code>EventEmitter.ANY_EVENT</code>, use
+			<code>EventEmitter.ANY_EVENT</code> as the first parameter.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -622,7 +636,7 @@
 							</td>
 						</tr>
 						<tr>
-								<td><code>times</code></td>
+								<td><code>count</code></td>
 							<td><span class="param-type">number</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
@@ -653,7 +667,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-223">line 223</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-238">line 238</a></p>
 								</div>
 							</div>
 			
@@ -669,8 +683,10 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Adds a listener for a specific event. It returns the <code>Listener</code> that was created and attached
-			to the event.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Adds a listener for the specified event. It returns the <code>Listener</code> object that was created and
+			attached to the event.</p>
+			<p>To attach a global listener that will be triggered for any events, use <code>EventEmitter.ANY_EVENT</code>
+			as the first parameter.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -686,7 +702,7 @@
 					<tbody>
 						<tr>
 								<td><code>event</code></td>
-							<td><span class="param-type">String</span></td>
+							<td><span class="param-type">String</span> | <span class="param-type">Symbol</span></td>
 								<td class="attributes"></td>
 								<td></td>
 							<td class="last">
@@ -749,7 +765,7 @@
 													</td>
 												</tr>
 												<tr>
-														<td><code>times</code></td>
+														<td><code>count</code></td>
 													<td><span class="param-type">boolean</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
 														<td>Infinity</td>
@@ -802,148 +818,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-46">line 46</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="once" class="function public"><span class="name">once</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">options</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="Listener.html">Listener</a>}</span></h4>
-		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Add a one-time listener for a specific event. It returns the <code>Listener</code> that was created and
-			attached to the event.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-							<th>Default</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>event</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes"></td>
-								<td></td>
-							<td class="last">
-									<p>The event to listen to</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-								<td class="attributes"></td>
-								<td></td>
-							<td class="last">
-									<p>The callback function to execute when the event occurs</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>options</code></td>
-							<td><span class="param-type">Object</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>{}</td>
-							<td class="last">
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-													<th>Default</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>context</code></td>
-													<td><span class="param-type">Object</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-														<td>this</td>
-													<td class="last">
-															<p>The context to invoke the callback function in (a.k.a.
-									the value of <code>this</code>).</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>duration</code></td>
-													<td><span class="param-type">number</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-														<td>Infinity</td>
-													<td class="last">
-															<p>The number of milliseconds before the listener
-									automatically expires.</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>prepend</code></td>
-													<td><span class="param-type">boolean</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-														<td>false</td>
-													<td class="last">
-															<p>Whether the listener should be added at the beginning
-									of the listeners array</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>data</code></td>
-													<td><span class="param-type">*</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-														<td></td>
-													<td class="last">
-															<p>Arbitrary data to pass on to the callback function upon execution (as
-									the second parameter)</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="Listener.html">Listener</a></span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-208">line 208</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-49">line 49</a></p>
 								</div>
 							</div>
 			
@@ -980,7 +855,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-245">line 245</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-260">line 260</a></p>
 								</div>
 							</div>
 			
@@ -996,7 +871,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Suspends execution of all callbacks for the specified event type</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Suspends execution of all callbacks for the specified event type.</p>
+			<p>Note: to suspend global listeners added with <code>EventEmitter.ANY_EVENT</code>, use
+			<code>EventEmitter.ANY_EVENT</code> as the parameter.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -1010,7 +887,7 @@
 					<tbody>
 						<tr>
 								<td><code>event</code></td>
-							<td><span class="param-type">string</span></td>
+							<td><span class="param-type">string</span> | <span class="param-type">symbol</span></td>
 							<td class="last">
 									<p>The event to suspend</p>
 							</td>
@@ -1038,7 +915,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-115">line 115</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-134">line 134</a></p>
 								</div>
 							</div>
 			
@@ -1054,7 +931,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Resumes execution of all callbacks for the specified event type</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Resumes execution of all callbacks for the specified event type</p>
+			<p>Note: to resume execution for global listeners added with <code>EventEmitter.ANY_EVENT</code>, use
+			<code>EventEmitter.ANY_EVENT</code> as the parameter.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -1068,8 +947,9 @@
 					<tbody>
 						<tr>
 								<td><code>event</code></td>
-							<td><span class="param-type">string</span></td>
+							<td><span class="param-type">string</span> | <span class="param-type">Symbol</span></td>
 							<td class="last">
+									<p>The event to resume</p>
 							</td>
 						</tr>
 					</tbody>
@@ -1095,7 +975,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-125">line 125</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-148">line 148</a></p>
 								</div>
 							</div>
 			
@@ -1116,7 +996,7 @@
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 16th 2019, 21:20:14 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 17th 2019, 0:11:59 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
