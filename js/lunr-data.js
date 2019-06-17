@@ -243,8 +243,6 @@ window.lunrData = {
         "EventEmitter.html#off": [
           "ad",
           "callback",
-          "context",
-          "count",
           "event",
           "eventemitter#off",
           "eventemitter.any_ev",
@@ -464,7 +462,7 @@ window.lunrData = {
                         },
                         "EventEmitter.html#hasListener": {
                           "ref": "EventEmitter.html#hasListener",
-                          "tf": 50
+                          "tf": 33.33333333333333
                         },
                         "Listener.html#suspended": {
                           "ref": "Listener.html#suspended",
@@ -621,11 +619,11 @@ window.lunrData = {
                     },
                     "EventEmitter.html#hasListener": {
                       "ref": "EventEmitter.html#hasListener",
-                      "tf": 3.125
+                      "tf": 36.45833333333333
                     },
                     "EventEmitter.html#off": {
                       "ref": "EventEmitter.html#off",
-                      "tf": 27.5
+                      "tf": 35.83333333333333
                     },
                     "EventEmitter.html#on": {
                       "ref": "EventEmitter.html#on",
@@ -1242,7 +1240,7 @@ window.lunrData = {
                           "docs": {
                             "EventEmitter.html#hasListener": {
                               "ref": "EventEmitter.html#hasListener",
-                              "tf": 700
+                              "tf": 683.3333333333334
                             }
                           }
                         }
@@ -2272,10 +2270,6 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "EventEmitter.html#off": {
-                          "ref": "EventEmitter.html#off",
-                          "tf": 25
-                        },
                         "Listener.html#context": {
                           "ref": "Listener.html#context",
                           "tf": 711.1111111111111
@@ -2300,10 +2294,6 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "EventEmitter.html#off": {
-                      "ref": "EventEmitter.html#off",
-                      "tf": 25
-                    },
                     "Listener.html#count": {
                       "ref": "Listener.html#count",
                       "tf": 700
@@ -2337,7 +2327,7 @@ window.lunrData = {
                           },
                           "EventEmitter.html#off": {
                             "ref": "EventEmitter.html#off",
-                            "tf": 27.5
+                            "tf": 35.83333333333333
                           },
                           "EventEmitter.html#on": {
                             "ref": "EventEmitter.html#on",
@@ -3106,7 +3096,7 @@ window.lunrData = {
                     "docs": {
                       "EventEmitter.html#off": {
                         "ref": "EventEmitter.html#off",
-                        "tf": 2.5
+                        "tf": 35.83333333333333
                       },
                       "EventEmitter.html#on": {
                         "ref": "EventEmitter.html#on",
@@ -3737,7 +3727,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 324
+      "length": 322
     },
     "corpusTokens": [
       "a.k.a",
@@ -3997,7 +3987,7 @@ window.lunrData = {
     "EventEmitter.html#hasListener": {
       "id": "EventEmitter.html#hasListener",
       "kind": "function",
-      "title": "hasListener( The ) → {boolean}",
+      "title": "hasListener( event ) → {boolean}",
       "longname": "EventEmitter#hasListener",
       "name": "hasListener",
       "tags": "EventEmitter#hasListener hasListener",
@@ -4007,7 +3997,7 @@ window.lunrData = {
     "EventEmitter.html#off": {
       "id": "EventEmitter.html#off",
       "kind": "function",
-      "title": "off( event [, callback [, context [, count ] ] ] )",
+      "title": "off( event [, callback [, options ] ] )",
       "longname": "EventEmitter#off",
       "name": "off",
       "tags": "EventEmitter#off off",
