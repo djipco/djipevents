@@ -27,7 +27,7 @@
     "dateFormat": "MMMM Do YYYY, H:mm:ss",
 
     "systemName": "DjipEvents",
-    "systemSummary": "A modularized event-handling library for the browser",
+    "systemSummary": "An event-handling library for the browser and Node.js",
     "copyright": "DjipEvents is released under the MIT license.",
     "collapseSymbols": true,
 
