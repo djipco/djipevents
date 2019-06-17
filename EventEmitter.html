@@ -160,7 +160,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-222">line 222</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-244">line 244</a></p>
 								</div>
 							</div>
 			
@@ -205,7 +205,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-80">line 80</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-88">line 88</a></p>
 								</div>
 							</div>
 			
@@ -317,7 +317,8 @@
 			functions are passed the specifid <code>value</code> (if present) and the content of the listener's
 			<code>data</code> property (if any).</p>
 			<p>If the <code>suspended</code> property of the <code>EventEmitter</code> or of the <code>Listener</code> is <code>true</code>, the callback
-			functions will not be executed.</p></div>
+			functions will not be executed.</p>
+			<p>This function returns an array containing the return values of each of the callbacks.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -339,7 +340,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -359,7 +368,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-135">line 135</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-146">line 146</a></p>
 								</div>
 							</div>
 			
@@ -425,7 +434,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-121">line 121</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-129">line 129</a></p>
 								</div>
 							</div>
 			
@@ -491,7 +500,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-90">line 90</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-98">line 98</a></p>
 								</div>
 							</div>
 			
@@ -557,7 +566,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-69">line 69</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-77">line 77</a></p>
 								</div>
 							</div>
 			
@@ -643,7 +652,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-190">line 190</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-212">line 212</a></p>
 								</div>
 							</div>
 			
@@ -719,6 +728,16 @@
 													</td>
 												</tr>
 												<tr>
+														<td><code>prepend</code></td>
+													<td><span class="param-type">boolean</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>false</td>
+													<td class="last">
+															<p>Whether the listener should be added at the beginning
+									of the listeners array</p>
+													</td>
+												</tr>
+												<tr>
 														<td><code>times</code></td>
 													<td><span class="param-type">boolean</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
@@ -772,7 +791,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-42">line 42</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-44">line 44</a></p>
 								</div>
 							</div>
 			
@@ -849,6 +868,16 @@
 													</td>
 												</tr>
 												<tr>
+														<td><code>prepend</code></td>
+													<td><span class="param-type">boolean</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>false</td>
+													<td class="last">
+															<p>Whether the listener should be added at the beginning
+									of the listeners array</p>
+													</td>
+												</tr>
+												<tr>
 														<td><code>data</code></td>
 													<td><span class="param-type">*</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
@@ -893,7 +922,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-175">line 175</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-197">line 197</a></p>
 								</div>
 							</div>
 			
@@ -930,7 +959,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-212">line 212</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-234">line 234</a></p>
 								</div>
 							</div>
 			
@@ -988,7 +1017,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-99">line 99</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-107">line 107</a></p>
 								</div>
 							</div>
 			
@@ -1045,7 +1074,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-109">line 109</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-117">line 117</a></p>
 								</div>
 							</div>
 			
@@ -1066,7 +1095,7 @@
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 16th 2019, 19:58:44 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 16th 2019, 20:39:03 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
