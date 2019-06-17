@@ -33,7 +33,14 @@ This is mostly for legacy-browser support. It might be easier for some as it is 
 approach:
 
 ```html
-<script src="node_modules/djipevents/dist/djipevents.iife.min.js"
+<script src="node_modules/djipevents/dist/djipevents.iife.min.js"></script>
+```
+
+You can also use the CDN version:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/djipevents/dist/djipevents.iife.min.js"></script>
+
 ```
 
 ### CommonJS format (Node.js)
@@ -45,6 +52,17 @@ library in a Node.js environment would be for cross-compatibility:
 ```javascript
 const EventEmitter = require("djipevents").EventEmitter;
 ```
+
+## Key features
+
+This library is nothing special but it does have some interesting features not necessarily found in 
+the browser's `EventTarget` or in Node.js' `EventEmitter`:
+
+  * Listeners can trigger an arbitrary number of times with the `times` option;
+  * Listeners can be set to expire with the `duration` option;
+  * The `emit()` method returns an array containing the return value of all callback functions;
+  * Listeners can be prepended to the list of listeners;
+  * A custom context can be assigned via the `context` option;
 
 ## API Reference
 
