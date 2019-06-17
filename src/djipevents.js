@@ -348,8 +348,24 @@ export class Listener {
    * callback should automatically be removed.
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
    * execution (as the second parameter)
+   *
+   * @throws {TypeError} The 'event' parameter must be a string of a symbol.
+   * @throws {ReferenceError} The 'target' parameter is mandatory.
+   * @throws {TypeError} The 'callback' must be a function.
    */
   constructor(event, target, callback, options = {}) {
+
+    if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
+      throw new TypeError("The 'event' parameter must be a string of a symbol.");
+    }
+
+    if (!target) {
+      throw new ReferenceError("The 'target' parameter is mandatory.");
+    }
+
+    if (typeof callback !== "function") {
+      throw new TypeError("The 'callback' must be a function.");
+    }
 
     // Define default options and merge declared options into them,
     const defaults = {
