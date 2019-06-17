@@ -28,6 +28,22 @@ export class EventEmitter {
   }
 
   /**
+   * The callback function receives 0, 1 or 2 parameters depending on circumstances. If no specific
+   * value is passed to `emit()`, the callback is executed without any parameters. If `emit()` is
+   * called with a specific value, this value is passed along to the callback function(s). If the
+   * `data` option was specified when the listener was added, this `data` will be passed along to
+   * the callback function(s). This allows us to easily pass data from where the listener is added
+   * to where it is executed.
+   *
+   * The value of `this` in the callbnack function(s) will be set to the `context` option (if it was
+   * specified). By using the `context` parameter, it is no longer necessary to bind the function.
+   *
+   * @callback EventEmitter~callback
+   * @param {*} [value] The value passed to `emit()`
+   * @param {*} [data] The data passed in the `options` when the listener was added
+   */
+
+  /**
    * Adds a listener for the specified event. It returns the `Listener` object that was created and
    * attached to the event.
    *
@@ -35,7 +51,7 @@ export class EventEmitter {
    * as the first parameter.
    *
    * @param {String|Symbol} event The event to listen to
-   * @param {Function} callback The callback function to execute when the event occurs
+   * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in.
    * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
@@ -55,10 +71,10 @@ export class EventEmitter {
     // Define default options and merge declared options into them
     const defaults = {
       context: this,
-      duration: Infinity,
+      count: Infinity,
       data: undefined,
-      prepend: false,
-      count: Infinity
+      duration: Infinity,
+      prepend: false
     };
     options = Object.assign({}, defaults, options);
 
@@ -81,6 +97,12 @@ export class EventEmitter {
 
   }
 
+  /**
+   * Identifier to use when trying to add or remove a listener that should be triggered when any
+   * events occur.
+   *
+   * @type {Symbol}
+   */
   static get ANY_EVENT() {
     return Symbol.for("Any event");
   }
@@ -179,7 +201,8 @@ export class EventEmitter {
    * It should be noted that the regular listeners are triggered first followed by the global
    * listeners (added with `EventEmitter.ANY_EVENT`).
    *
-   * @param {String} event The event name.
+   * @param {string|Symbol} event The event
+   * @param {*} event An arbitrary value to pass along to the callback functions
    * @returns {Array} An array containing the return value of each of the executed listener
    * functions
    */
@@ -234,7 +257,8 @@ export class EventEmitter {
    * callback to match or one or more of the additional options.
    *
    * @param {string} [event] The event name.
-   * @param {Function} [callback] Only remove the listeners that match this exact callback function.
+   * @param {EventEmitter~callback} [callback] Only remove the listeners that match this exact
+   * callback function.
    * @param {Object} [options={}]
    * @param {*} [options.context] Only remove the listeners that have this exact context.
    * @param {number} [options.count] Only remove the listener if it has exactly that many remaining
@@ -290,7 +314,7 @@ export class Listener {
   /**
    * @param {string|Symbol} event The event being listened to
    * @param {EventEmitter} target The `EventEmitter` object that the listener is attached to
-   * @param {Function} callback The function to call when the listener is triggered
+   * @param {EventEmitter~callback} callback The function to call when the listener is triggered
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the listener in (a.k.a. the value
    * of `this` inside the callback function.
