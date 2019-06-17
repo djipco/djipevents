@@ -98,6 +98,30 @@ export class EventEmitter {
   }
 
   /**
+   * Adds a one-time listener for the specified event. It returns the `Listener` object that was
+   * created and attached to the event.
+   *
+   * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
+   * as the first parameter.
+   *
+   * @param {String|Symbol} event The event to listen to
+   * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
+   * @param {Object} [options={}]
+   * @param {Object} [options.context=this] The context to invoke the callback function in.
+   * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
+   * of the listeners array
+   * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
+   * automatically expires.
+   * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
+   *
+   * @returns {Listener}
+   */
+  once(event, callback, options = {}) {
+    options.count = 1;
+    return this.on(event, callback, options);
+  }
+
+  /**
    * Identifier to use when trying to add or remove a listener that should be triggered when any
    * events occur.
    *
