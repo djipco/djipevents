@@ -58,11 +58,12 @@ const EventEmitter = require("djipevents").EventEmitter;
 This library is nothing special but it does have some interesting features not necessarily found in 
 the browser's `EventTarget` or in Node.js' `EventEmitter`:
 
-  * Listeners can trigger an arbitrary number of times with the `times` option;
+  * Listeners can trigger an arbitrary number of times with the `count` option;
   * Listeners can be set to expire with the `duration` option;
   * The `emit()` method returns an array containing the return value of all callback functions;
   * Listeners can be prepended to the list of listeners;
   * A custom context can be assigned via the `context` option;
+  * It is possible to listen to all events by using `EventEmitter.ANY_EVENT` as the event
 
 ## API Reference
 
