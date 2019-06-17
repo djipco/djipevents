@@ -1,0 +1,157 @@
+<!-- start:readme.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>DjipEvents</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"MMMM Do YYYY, H:mm:ss","systemName":"DjipEvents","systemSummary":"An event-handling library for the browser and Node.js","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"DjipEvents is released under the MIT license.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"longname, linenum, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true}};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					DjipEvents
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="EventEmitter.html">EventEmitter</a></li>
+											<li><a href="Listener.html">Listener</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">readme</span>
+				<h1><span class="name">DjipEvents</span></h1>
+				<div class="summary"><p>An event-handling library for the browser and Node.js</p></div>			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+		<section class="readme-section">
+			<article><h1>DjipEvents</h1>
+<p>DjipEvents is an event-handling library that can be used in the browser and in Node.js. It features
+methods to register, trigger and delete events. It is a mostly abstract class meant to be extended
+by (or mixed into) other objects.</p>
+<p>It is currently available in 3 flavors:</p>
+<ul>
+<li><strong>CommonJS</strong>: ES5 syntax for Node.js</li>
+<li><strong>ESM</strong>: ES6 module syntax for modern browsers</li>
+<li><strong>IIFE</strong>: ES5 syntax for legacy browser support (via <code>&lt;script&gt;</code> tag)</li>
+</ul>
+<p>This library is being primarily used in my own projects (<a href="https://github.com/djipco/djipav">DjipAV</a>,
+for example) and I do not necessarily intend on providing support for it. However, if you feel like
+using it, go right ahead!</p>
+<h2>Importing into project</h2>
+<h3>ES6 module syntax</h3>
+<p>This is for use in modern browsers that support the ECMAScript 6 syntax for module imports and
+exports:</p>
+<pre class="prettyprint source lang-javascript"><code>import {EventEmitter} from &quot;node_modules/djipevents/dist/djipevents.esm.min.js&quot;;
+</code></pre>
+<p>Note that the library (purposely) does not provide a default export. This means you have to use
+curly quotes when importing.</p>
+<h3>Object in global namespace (djipevents)</h3>
+<p>This is mostly for legacy-browser support. It might be easier for some as it is a very common
+approach:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;node_modules/djipevents/dist/djipevents.iife.min.js&quot;>&lt;/script>
+</code></pre>
+<p>You can also use the CDN version:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/djipevents/dist/djipevents.iife.min.js&quot;>&lt;/script>
+
+</code></pre>
+<h3>CommonJS format (Node.js)</h3>
+<p>CommonJS is the standard in the Node.js world. As far as I can tell, this library should work in
+Node.js. Since Node.js already has its own <code>EventEmitter</code> object, I guess the only point to use this
+library in a Node.js environment would be for cross-compatibility:</p>
+<pre class="prettyprint source lang-javascript"><code>const EventEmitter = require(&quot;djipevents&quot;).EventEmitter;
+</code></pre>
+<h2>Key features</h2>
+<p>This library is nothing special but it does have some interesting features not necessarily found in
+the browser's <code>EventTarget</code> or in Node.js' <code>EventEmitter</code>:</p>
+<ul>
+<li>Listeners can trigger an arbitrary number of times with the <code>count</code> option;</li>
+<li>Listeners can be set to expire with the <code>duration</code> option;</li>
+<li>The <code>emit()</code> method returns an array containing the return value of all callback functions;</li>
+<li>Listeners can be prepended to the list of listeners;</li>
+<li>A custom context can be assigned via the <code>context</code> option;</li>
+<li>It is possible to listen to all events by using <code>EventEmitter.ANY_EVENT</code></li>
+</ul>
+<h2>API Reference</h2>
+<p>This library is quite straightforward and I did not take time to create usage examples. However, I
+did take some time to create a complete <a href="https://djipco.github.io/djipevents/">API Reference</a> which
+should be enough for most to get started.</p></article>
+		</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">DjipEvents is released under the MIT license.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on June 17th 2019, 0:35:41 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>
+<!-- end:readme.hbs -->

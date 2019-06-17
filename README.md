@@ -63,7 +63,7 @@ the browser's `EventTarget` or in Node.js' `EventEmitter`:
   * The `emit()` method returns an array containing the return value of all callback functions;
   * Listeners can be prepended to the list of listeners;
   * A custom context can be assigned via the `context` option;
-  * It is possible to listen to all events by using `EventEmitter.ANY_EVENT` as the event
+  * It is possible to listen to all events by using `EventEmitter.ANY_EVENT`
 
 ## API Reference
 
