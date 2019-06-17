@@ -8,7 +8,8 @@ const iife = {
     format: "iife",
     file: "dist/djipevents.iife.min.js",
     exports: "named",
-    name: "djipevents"
+    name: "djipevents",
+    sourcemap: true
   },
   plugins: [
     babel(),
@@ -21,7 +22,8 @@ const esm = {
   input: "src/djipevents.js",
   output: {
     format: "es",
-    file: "dist/djipevents.esm.min.js"
+    file: "dist/djipevents.esm.min.js",
+    sourcemap: true
   },
   plugins: [
     terser()
@@ -33,7 +35,8 @@ const cjs = {
   input: "src/djipevents.js",
   output: {
     format: "cjs",
-    file: "dist/djipevents.cjs.min.js"
+    file: "dist/djipevents.cjs.min.js",
+    sourcemap: true
   },
   plugins: [
     babel(),
