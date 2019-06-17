@@ -8,14 +8,23 @@ describe("Listener", function() {
 
     it("should throw when mandatory parameters are not present or of wrong type", function(done) {
 
-      let f1 = () => new Listener();
-      expect(f1).to.throw(TypeError);
+      let f1a = () => new Listener();
+      expect(f1a).to.throw(TypeError);
+
+      let f1b = () => new Listener(123);
+      expect(f1b).to.throw(TypeError);
+
+      let f1c = () => new Listener({});
+      expect(f1c).to.throw(TypeError);
 
       let f2 = () => new Listener("test");
       expect(f2).to.throw(ReferenceError);
 
-      let f3 = () => new Listener("test", new EventEmitter());
-      expect(f3).to.throw(TypeError);
+      let f3a = () => new Listener("test", new EventEmitter());
+      expect(f3a).to.throw(TypeError);
+
+      let f3b = () => new Listener("test", new EventEmitter(), {});
+      expect(f3b).to.throw(TypeError);
 
       let f4 = () => new Listener("test", new EventEmitter(), () => {});
       expect(f4).to.not.throw(TypeError);
