@@ -26,10 +26,13 @@ export class EventEmitter {
   }
 
   /**
-   * Adds a listener for a specific event. It returns the `Listener` that was created and attached
-   * to the event.
+   * Adds a listener for the specified event. It returns the `Listener` object that was created and
+   * attached to the event.
    *
-   * @param {String} event The event to listen to
+   * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
+   * as the first parameter.
+   *
+   * @param {String|Symbol} event The event to listen to
    * @param {Function} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in.
@@ -37,7 +40,7 @@ export class EventEmitter {
    * of the listeners array
    * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
    * automatically expires.
-   * @param {boolean} [options.times=Infinity] The number of times after which the callback should
+   * @param {boolean} [options.count=Infinity] The number of times after which the callback should
    * automatically be removed.
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
    *
@@ -53,13 +56,13 @@ export class EventEmitter {
       duration: Infinity,
       data: undefined,
       prepend: false,
-      times: Infinity
+      count: Infinity
     };
     options = Object.assign({}, defaults, options);
 
     const listener = new Listener(event, this, callback, options);
 
-    // Make sure it is deleted if a duration is supplied
+    // Make sure it is eventually deleted if a duration is supplied
     if (options.duration !== Infinity) {
       setTimeout(() => listener.remove(), options.duration);
     }
@@ -76,10 +79,17 @@ export class EventEmitter {
 
   }
 
+  static get ANY_EVENT() {
+    return Symbol.for("Any event");
+  }
+
   /**
-   * Returns `true` if the specified event has at least one registered listener
+   * Returns `true` if the specified event has at least one registered listener.
    *
-   * @param {string} The event name
+   * Note: to check for global listeners added with `EventEmitter.ANY_EVENT`, use
+   * `EventEmitter.ANY_EVENT` as the parameter.
+   *
+   * @param {string|Symbol} The event name (or symbol)
    * @returns {boolean}
    */
   hasListener(event) {
@@ -90,6 +100,9 @@ export class EventEmitter {
    * An array of all the unique event names for which the emitter has at least one registered
    * listener.
    *
+   * Note: this excludes global events registered with `EventEmitter.ANY_EVENT` because they are not
+   * tied to a specific event.
+   *
    * @type {string[]}
    * @readonly
    */
@@ -98,9 +111,12 @@ export class EventEmitter {
   }
 
   /**
-   * Returns an array of all the `Listener` objects registered for a specific event.
+   * Returns an array of all the `Listener` objects that will be triggered for a specific event.
    *
-   * @param {string} event The event name.
+   * Note: to retrieve global listeners added with `EventEmitter.ANY_EVENT`, use
+   * `EventEmitter.ANY_EVENT` as the parameter.
+   *
+   * @param {string|Symbol} event The event name.
    * @returns {Listener[]} An array of `Listener` objects
    */
   getListeners(event) {
@@ -108,9 +124,12 @@ export class EventEmitter {
   }
 
   /**
-   * Suspends execution of all callbacks for the specified event type
+   * Suspends execution of all callbacks for the specified event type.
    *
-   * @param {string} event The event to suspend
+   * Note: to suspend global listeners added with `EventEmitter.ANY_EVENT`, use
+   * `EventEmitter.ANY_EVENT` as the parameter.
+   *
+   * @param {string|symbol} event The event to suspend
    */
   suspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -120,7 +139,11 @@ export class EventEmitter {
 
   /**
    * Resumes execution of all callbacks for the specified event type
-   * @param {string} event
+   *
+   * Note: to resume execution for global listeners added with `EventEmitter.ANY_EVENT`, use
+   * `EventEmitter.ANY_EVENT` as the parameter.
+   *
+   * @param {string|Symbol} event The event to resume
    */
   unsuspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -131,8 +154,11 @@ export class EventEmitter {
   /**
    * Returns the number of listeners registered for a given event.
    *
-   * @param {String} event The event name.
-   * @returns {Number} The number of listeners registered for the specified event.
+   * Note: to get the number of global listeners added with `EventEmitter.ANY_EVENT`, use
+   * `EventEmitter.ANY_EVENT` as the parameter.
+   *
+   * @param {string|Symbol} event The event
+   * @returns {number} The number of listeners registered for the specified event.
    */
   getListenerCount(event) {
     return this.getListeners(event).length;
@@ -148,6 +174,9 @@ export class EventEmitter {
    *
    * This function returns an array containing the return values of each of the callbacks.
    *
+   * It should be noted that the regular listeners are triggered first followed by the global
+   * listeners (added with `EventEmitter.ANY_EVENT`).
+   *
    * @param {String} event The event name.
    * @returns {Array} An array containing the return value of each of the executed listener
    * functions
@@ -160,12 +189,18 @@ export class EventEmitter {
     // We will collect return values for all listeners here
     let results = [];
 
-    this.events[event].forEach(listener => {
+
+    // We must make sure that we do not have undefined otherwise concat() will add an undefined
+    // entry in the array.
+    let events = this.events[EventEmitter.ANY_EVENT] || [];
+    if (this.events[event]) events = events.concat(this.events[event]);
+
+    events.forEach(listener => {
 
       // This is the per-listener suspension check
       if (listener.suspended) return;
 
-      if (listener.times > 0) {
+      if (listener.count > 0) {
 
         if (value !== undefined) {
           results.push(
@@ -179,7 +214,7 @@ export class EventEmitter {
 
       }
 
-      if (--listener.times < 1) listener.remove();
+      if (--listener.count < 1) listener.remove();
 
     });
 
@@ -188,36 +223,16 @@ export class EventEmitter {
   }
 
   /**
-   * Add a one-time listener for a specific event. It returns the `Listener` that was created and
-   * attached to the event.
-   *
-   * @param {string} event The event to listen to
-   * @param {Function} callback The callback function to execute when the event occurs
-   * @param {Object} [options={}]
-   * @param {Object} [options.context=this] The context to invoke the callback function in (a.k.a.
-   * the value of `this`).
-   * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
-   * automatically expires.
-   * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
-   * of the listeners array
-   * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution (as
-   * the second parameter)
-   *
-   * @returns {Listener}
-   */
-  once(event, callback, options = {}) {
-    options.times = 1;
-    return this.on(event, callback, options);
-  }
-
-  /**
    * Removes all the listeners that match the specified type of event and, optionnally, the
    * specified callback and the other options.
+   *
+   * Note: to remove global listeners added with `EventEmitter.ANY_EVENT`, use
+   * `EventEmitter.ANY_EVENT` as the first parameter.
    *
    * @param {string} event The event name.
    * @param {Function} [callback] Only remove the listeners that match this exact callback function.
    * @param {*} [context] Only remove the listeners that have this exact context.
-   * @param {number} [times] Only remove the listener if it has exactly that many remaining times to
+   * @param {number} [count] Only remove the listener if it has exactly that many remaining times to
    * be executed.
    */
   off(event, callback, options = {}) {
@@ -227,7 +242,7 @@ export class EventEmitter {
     // Find listeners that do not match the criterias (those are the ones we will keep)
     let events = this.events[event].filter(listener => {
       return (callback && listener.callback !== callback) ||
-        (options.times && options.times !== listener.times) ||
+        (options.count && options.count !== listener.count) ||
         (options.context && options.context !== listener.context);
     });
 
@@ -249,6 +264,9 @@ export class EventEmitter {
   /**
    * The number of unique events that have registered listeners
    *
+   * Note: this excludes global events registered with `EventEmitter.ANY_EVENT` because they are not
+   * tied to a specific event.
+   *
    * @type {number}
    * @readonly
    */
@@ -266,13 +284,13 @@ export class EventEmitter {
 export class Listener {
 
   /**
-   * @param {string} event The name of the event being listened to
+   * @param {string|Symbol} event The event being listened to
    * @param {EventEmitter} target The `EventEmitter` object that the listener is attached to
    * @param {Function} callback The function to call when the listener is triggered
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the listener in (a.k.a. the value
    * of `this` inside the callback function.
-   * @param {number} [options.times=Infinity] The remaining number of times after which the
+   * @param {number} [options.count=Infinity] The remaining number of times after which the
    * callback should automatically be removed.
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
    * execution (as the second parameter)
@@ -282,7 +300,7 @@ export class Listener {
     // Define default options and merge declared options into them,
     const defaults = {
       context: this,
-      times: Infinity,
+      count: Infinity,
       data: undefined
     };
     options = Object.assign({}, defaults, options);
@@ -316,7 +334,7 @@ export class Listener {
      * The remaining number of times after which the callback should automatically be removed.
      * @type {number}
      */
-    this.times = options.times;
+    this.count = options.count;
 
     /**
      * Arbitraty data that is going to be passed as the second parameter of the callback function
@@ -336,7 +354,7 @@ export class Listener {
    * Removes the listener from its target.
    */
   remove() {
-    this.target.off(this.event, this.callback, {context: this.context, times: this.times});
+    this.target.off(this.event, this.callback, {context: this.context, count: this.count});
   }
 
 }
