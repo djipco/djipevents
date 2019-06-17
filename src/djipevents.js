@@ -33,6 +33,8 @@ export class EventEmitter {
    * @param {Function} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in.
+   * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
+   * of the listeners array
    * @param {boolean} [options.times=Infinity] The number of times after which the callback should
    * automatically be removed.
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
@@ -46,15 +48,21 @@ export class EventEmitter {
     // Define default options and merge declared options into them
     const defaults = {
       context: this,
-      times: Infinity,
-      data: undefined
+      data: undefined,
+      prepend: false,
+      times: Infinity
     };
     options = Object.assign({}, defaults, options);
 
     const listener = new Listener(event, this, callback, options);
 
     if (!this.events[event]) this.events[event] = [];
-    this.events[event].push(listener);
+
+    if (options.prepend) {
+      this.events[event].unshift(listener);
+    } else {
+      this.events[event].push(listener);
+    }
 
     return listener;
 
@@ -130,12 +138,19 @@ export class EventEmitter {
    * If the `suspended` property of the `EventEmitter` or of the `Listener` is `true`, the callback
    * functions will not be executed.
    *
+   * This function returns an array containing the return values of each of the callbacks.
+   *
    * @param {String} event The event name.
+   * @returns {Array} An array containing the return value of each of the executed listener
+   * functions
    */
   emit(event, value) {
 
     // This is the global suspension check
     if (!this.events[event]|| this.suspended) return;
+
+    // We will collect return values for all listeners here
+    let results = [];
 
     this.events[event].forEach(listener => {
 
@@ -145,9 +160,13 @@ export class EventEmitter {
       if (listener.times > 0) {
 
         if (value !== undefined) {
-          listener.callback.call(listener.context, value, listener.data);
+          results.push(
+            listener.callback.call(listener.context, value, listener.data)
+          );
         } else {
-          listener.callback.call(listener.context, listener.data);
+          results.push(
+            listener.callback.call(listener.context, listener.data)
+          );
         }
 
       }
@@ -155,6 +174,8 @@ export class EventEmitter {
       if (--listener.times < 1) listener.remove();
 
     });
+
+    return results;
 
   }
 
@@ -167,6 +188,8 @@ export class EventEmitter {
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in (a.k.a.
    * the value of `this`).
+   * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
+   * of the listeners array
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution (as
    * the second parameter)
    *
