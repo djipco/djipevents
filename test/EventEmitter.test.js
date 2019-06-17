@@ -1,4 +1,4 @@
-import EventEmitter from "../src/djipevents.js";
+import {EventEmitter} from "../src/djipevents.js";
 
 // console.log("getListenerCount() reports the correct number of listeners");
 // let ee = new EventEmitter();
@@ -97,3 +97,50 @@ import EventEmitter from "../src/djipevents.js";
 // ee.emit("test");
 // ee.unsuspend("test");
 // ee.emit("test");
+
+// console.log("the result of the listener functions is properly collected");
+// let ee = new EventEmitter();
+// let listener1 = ee.on("test", () => "Hello, ");
+// let listener2 = ee.on("test", () => "World!");
+// let results = ee.emit("test");
+// console.log(results);
+
+// console.log("prepemd works");
+// let ee = new EventEmitter();
+// let listener1 = ee.on("test", () => console.log("A"));
+// let listener2 = ee.on("test", () => console.log("B"));
+// let listener3 = ee.on("test", () => console.log("C"), {prepend: true});
+// let results = ee.emit("test");
+
+// console.log("prepemd works with once");
+// let ee = new EventEmitter();
+// let listener1 = ee.once("test", () => console.log("A"));
+// let listener2 = ee.once("test", () => console.log("B"));
+// let listener3 = ee.once("test", () => console.log("C"), {prepend: true});
+// let results = ee.emit("test");
+
+// console.log("duration works");
+// let ee = new EventEmitter();
+// let listener1a = ee.on("test", () => console.log("A"), {duration: 2000});
+// let listener1b = ee.on("test", () => console.log("A"), {duration: 2000});
+// let listener2 = ee.on("test", () => console.log("B"), {duration: 3000});
+// console.log(ee.getListeners("test"));
+// setTimeout(() => {
+//   console.log(ee.getListeners("test"));
+//   ee.emit("test");
+//   console.log(ee.getListeners("test"));
+// }, 2500);
+// setTimeout(() => {
+//   console.log(ee.getListeners("test"));
+// }, 3500);
+
+// console.log("duration works even when removed");
+// let ee = new EventEmitter();
+// let listener1a = ee.on("test", () => console.log("A"), {duration: 2000});
+// console.log(ee.getListeners("test"));
+// listener1a.remove();
+// console.log(ee.getListeners("test"));
+// setTimeout(() => {
+//   console.log(ee.getListeners("test"));
+// }, 2500);
+
