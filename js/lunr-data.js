@@ -336,6 +336,15 @@ window.lunrData = {
           "unsuspend",
           "us"
         ],
+        "EventEmitter.html#~eventCallback": [
+          "callback",
+          "eventcallback",
+          "eventemitter~eventcallback",
+          "responsecod",
+          "responsemessag",
+          "testo",
+          "typedef"
+        ],
         "Listener.html": [
           "attach",
           "be",
@@ -428,7 +437,7 @@ window.lunrData = {
           "target"
         ]
       },
-      "length": 26
+      "length": 27
     },
     "tokenStore": {
       "root": {
@@ -1028,6 +1037,53 @@ window.lunrData = {
                                       }
                                     }
                                   }
+                                },
+                                "~": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "v": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "c": {
+                                              "docs": {},
+                                              "a": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "b": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "c": {
+                                                          "docs": {},
+                                                          "k": {
+                                                            "docs": {
+                                                              "EventEmitter.html#~eventCallback": {
+                                                                "ref": "EventEmitter.html#~eventCallback",
+                                                                "tf": 1300
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -1049,6 +1105,32 @@ window.lunrData = {
                               "EventEmitter.html#eventCount": {
                                 "ref": "EventEmitter.html#eventCount",
                                 "tf": 683.3333333333334
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "a": {
+                      "docs": {},
+                      "l": {
+                        "docs": {},
+                        "l": {
+                          "docs": {},
+                          "b": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "c": {
+                                "docs": {},
+                                "k": {
+                                  "docs": {
+                                    "EventEmitter.html#~eventCallback": {
+                                      "ref": "EventEmitter.html#~eventCallback",
+                                      "tf": 533.3333333333334
+                                    }
+                                  }
+                                }
                               }
                             }
                           }
@@ -2034,6 +2116,58 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "p": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "s": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "c": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "d": {
+                              "docs": {
+                                "EventEmitter.html#~eventCallback": {
+                                  "ref": "EventEmitter.html#~eventCallback",
+                                  "tf": 33.33333333333333
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "m": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "s": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "g": {
+                                    "docs": {
+                                      "EventEmitter.html#~eventCallback": {
+                                        "ref": "EventEmitter.html#~eventCallback",
+                                        "tf": 33.33333333333333
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             },
             "l": {
@@ -2380,6 +2514,10 @@ window.lunrData = {
                           "EventEmitter.html#unsuspend": {
                             "ref": "EventEmitter.html#unsuspend",
                             "tf": 3.125
+                          },
+                          "EventEmitter.html#~eventCallback": {
+                            "ref": "EventEmitter.html#~eventCallback",
+                            "tf": 25
                           },
                           "Listener.html": {
                             "ref": "Listener.html",
@@ -3692,6 +3830,37 @@ window.lunrData = {
                     "ref": "EventEmitter.html#unsuspend",
                     "tf": 3.125
                   }
+                },
+                "d": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "f": {
+                      "docs": {
+                        "EventEmitter.html#~eventCallback": {
+                          "ref": "EventEmitter.html#~eventCallback",
+                          "tf": 110
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "s": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "o": {
+                  "docs": {
+                    "EventEmitter.html#~eventCallback": {
+                      "ref": "EventEmitter.html#~eventCallback",
+                      "tf": 25
+                    }
+                  }
                 }
               }
             }
@@ -3890,7 +4059,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 336
+      "length": 343
     },
     "corpusTokens": [
       "a.k.a",
@@ -3929,6 +4098,7 @@ window.lunrData = {
       "emit",
       "emitt",
       "event",
+      "eventcallback",
       "eventcount",
       "eventemitt",
       "eventemitter#emit",
@@ -3943,6 +4113,7 @@ window.lunrData = {
       "eventemitter#suspend",
       "eventemitter#unsuspend",
       "eventemitter.any_ev",
+      "eventemitter~eventcallback",
       "eventnam",
       "exclud",
       "execut",
@@ -4009,6 +4180,8 @@ window.lunrData = {
       "remain",
       "remov",
       "repres",
+      "responsecod",
+      "responsemessag",
       "resum",
       "retriev",
       "return",
@@ -4022,12 +4195,14 @@ window.lunrData = {
       "suspend",
       "symbol",
       "target",
+      "testo",
       "ti",
       "time",
       "tri",
       "trigger",
       "true",
       "type",
+      "typedef",
       "uniqu",
       "unsuspend",
       "us",
@@ -4215,6 +4390,16 @@ window.lunrData = {
       "tags": "EventEmitter#unsuspend unsuspend",
       "summary": "",
       "description": "Resumes execution of all callbacks for the specified event type Note: to resume execution for global listeners added with EventEmitter.ANY_EVENT, use EventEmitter.ANY_EVENT as the parameter."
+    },
+    "EventEmitter.html#~eventCallback": {
+      "id": "EventEmitter.html#~eventCallback",
+      "kind": "typedef",
+      "title": "eventCallback( responseCode, responseMessage )",
+      "longname": "EventEmitter~eventCallback",
+      "name": "eventCallback",
+      "tags": "EventEmitter~eventCallback",
+      "summary": "",
+      "description": "Testos callback"
     },
     "Listener.html": {
       "id": "Listener.html",
