@@ -89,7 +89,7 @@ export class EventEmitter {
    * Note: to check for global listeners added with `EventEmitter.ANY_EVENT`, use
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
-   * @param {string|Symbol} The event name (or symbol)
+   * @param {string|Symbol} event The event to check
    * @returns {boolean}
    */
   hasListener(event) {
@@ -223,19 +223,28 @@ export class EventEmitter {
   }
 
   /**
-   * Removes all the listeners that match the specified type of event and, optionnally, the
-   * specified callback and the other options.
+   * Removes all the listeners that match the specified criterias. If no parameters are passed, all
+   * listeners will be removed. If only the `event` parameter is passed, all listeners for that
+   * event will be removed. You can remove global listeners by using `EventEmitter.ANY_EVENT` as the
+   * first parameter.
    *
-   * Note: to remove global listeners added with `EventEmitter.ANY_EVENT`, use
-   * `EventEmitter.ANY_EVENT` as the first parameter.
+   * To use more granular options, you must at least define the `event`. Then, you can specify the
+   * callback to match or one or more of the additional options.
    *
-   * @param {string} event The event name.
+   * @param {string} [event] The event name.
    * @param {Function} [callback] Only remove the listeners that match this exact callback function.
-   * @param {*} [context] Only remove the listeners that have this exact context.
-   * @param {number} [count] Only remove the listener if it has exactly that many remaining times to
-   * be executed.
+   * @param {Object} [options={}]
+   * @param {*} [options.context] Only remove the listeners that have this exact context.
+   * @param {number} [options.count] Only remove the listener if it has exactly that many remaining
+   * times to be executed.
    */
   off(event, callback, options = {}) {
+
+    // Remove all listeners
+    if (!event) {
+      this.events = {};
+      return;
+    }
 
     if (!this.events[event]) return;
 
@@ -252,13 +261,6 @@ export class EventEmitter {
       delete this.events[event];
     }
 
-  }
-
-  /**
-   * Removes all listeners
-   */
-  removeAllListeners() {
-    this.events = {};
   }
 
   /**
