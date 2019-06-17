@@ -1,4 +1,4 @@
-import {EventEmitter} from "../src/djipevents.js";
+// import {EventEmitter} from "../src/djipevents.js";
 
 // console.log("getListenerCount() reports the correct number of listeners");
 // let ee = new EventEmitter();
@@ -144,3 +144,53 @@ import {EventEmitter} from "../src/djipevents.js";
 //   console.log(ee.getListeners("test"));
 // }, 2500);
 
+// console.log("EventEmitter.ANY_EVENT works");
+// let ee = new EventEmitter();
+// let listener1 = ee.on(EventEmitter.ANY_EVENT, () => console.log("A1"));
+// let listener1b = ee.on(EventEmitter.ANY_EVENT, () => console.log("A2"));
+// let listener2 = ee.on("test", () => console.log("B"));
+// let listener3 = ee.on("test", () => console.log("C"));
+// let listener4 = ee.on("prout", () => console.log("d"));
+// let listener5 = ee.on("allo", () => console.log("e"));
+// console.log(ee.getListenerCount(EventEmitter.ANY_EVENT));
+
+// console.log("haslistener works with any");
+// let ee = new EventEmitter();
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("A1"));
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("e"));
+// console.log(ee.hasListener(EventEmitter.ANY_EVENT));
+
+// console.log("eventnames ignores doAny symbols");
+// let ee = new EventEmitter();
+// let listener1 = ee.on(EventEmitter.ANY_EVENT, () => console.log("A1"));
+// let listener5 = ee.on("test", () => console.log("e"));
+// console.log(ee.eventNames);
+
+// console.log("getlisteners works with symbols");
+// let ee = new EventEmitter();
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("A1"));
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("e"));
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("egg"));
+// ee.getListeners(EventEmitter.ANY_EVENT).forEach(l => console.log(l));
+
+// console.log("emit works with doAny");
+// let ee = new EventEmitter();
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("A"));
+// ee.on("test", () => console.log("A"));
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("C"));
+// ee.on("test", () => console.log("D"));
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("E"));
+// ee.emit("test");
+
+// console.log("off works with EventEmitter.ANY_EVENT");
+// let ee = new EventEmitter();
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("A"));
+// // ee.off(EventEmitter.ANY_EVENT);
+// ee.on("test", () => console.log("B"));
+// ee.off("test");
+// ee.on(EventEmitter.ANY_EVENT, () => console.log("C"));
+// // ee.off(EventEmitter.ANY_EVENT);
+// ee.on("test", () => console.log("D"));
+// // ee.off("test");
+// ee.emit("test");
+// console.log(ee.events);
