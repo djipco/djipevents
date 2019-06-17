@@ -35,6 +35,8 @@ export class EventEmitter {
    * @param {Object} [options.context=this] The context to invoke the callback function in.
    * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
    * of the listeners array
+   * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
+   * automatically expires.
    * @param {boolean} [options.times=Infinity] The number of times after which the callback should
    * automatically be removed.
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
@@ -48,6 +50,7 @@ export class EventEmitter {
     // Define default options and merge declared options into them
     const defaults = {
       context: this,
+      duration: Infinity,
       data: undefined,
       prepend: false,
       times: Infinity
@@ -55,6 +58,11 @@ export class EventEmitter {
     options = Object.assign({}, defaults, options);
 
     const listener = new Listener(event, this, callback, options);
+
+    // Make sure it is deleted if a duration is supplied
+    if (options.duration !== Infinity) {
+      setTimeout(() => listener.remove(), options.duration);
+    }
 
     if (!this.events[event]) this.events[event] = [];
 
@@ -188,6 +196,8 @@ export class EventEmitter {
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in (a.k.a.
    * the value of `this`).
+   * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
+   * automatically expires.
    * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
    * of the listeners array
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution (as
