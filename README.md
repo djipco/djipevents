@@ -18,7 +18,7 @@ using it, go right ahead!
 
 ### ES6 module syntax
 
-This is for use in modern browsers that respect the ECMAScript 6 syntax for module imports and 
+This is for use in modern browsers that support the ECMAScript 6 syntax for module imports and 
 exports:
 
 ```javascript
@@ -27,7 +27,7 @@ import {EventEmitter} from "node_modules/djipevents/dist/djipevents.esm.min.js";
 Note that the library (purposely) does not provide a default export. This means you have to use 
 curly quotes when importing.
 
-### `djipevents` object in the global namespace
+### Object in global namespace (djipevents)
 
 This is mostly for legacy-browser support. It might be easier for some as it is a very common 
 approach:
