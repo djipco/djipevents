@@ -9,7 +9,7 @@ function generateDoc(cb) {
   let config = require("./.jsdoc.json");
 
   return gulp
-    .src(["README.md", "./src/**/*.js"], {read: false})
+    .src(["README.md", "./src/*.js"], {read: false})
     .pipe(jsdoc(config, cb));
 
 }
