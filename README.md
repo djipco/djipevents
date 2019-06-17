@@ -16,19 +16,31 @@ using it, go right ahead!
 
 ## Importing into project
 
-ES6 module in browser:
+### ES6 module syntax
+
+This is for use in modern browsers that respect the ECMAScript 6 syntax for module imports and 
+exports:
 
 ```javascript
 import {EventEmitter} from "node_modules/djipevents/dist/djipevents.esm.min.js";
 ```
-``
-Global namespace (`djipevents`) for legacy browser support:
+Note that the library (purposely) does not provide a default export. This means you have to use 
+curly quotes when importing.
+
+### `djipevents` object in the global namespace
+
+This is mostly for legacy-browser support. It might be easier for some as it is a very common 
+approach:
 
 ```html
 <script src="node_modules/djipevents/dist/djipevents.iife.min.js"
 ```
 
-Node.js:
+### CommonJS format (Node.js)
+
+CommonJS is the standard in the Node.js world. As far as I can tell, this library should work in 
+Node.js. Since Node.js already has its own `EventEmitter` object, I guess the only point to use this
+library in a Node.js environment would be for cross-compatibility: 
 
 ```javascript
 const EventEmitter = require("djipevents").EventEmitter;
