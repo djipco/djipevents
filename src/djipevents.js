@@ -137,10 +137,11 @@ export class EventEmitter {
   /**
    * Returns an array of all the `Listener` objects that will be triggered for a specific event.
    *
-   * Note: to retrieve global listeners added with `EventEmitter.ANY_EVENT`, use
+   * Please note that global events (those added with `EventEmitter.ANY_EVENT`) are not returned for
+   * "regular" events. To get the list of global listeners, specifically use
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
-   * @param {string|Symbol} event The event name.
+   * @param {string|Symbol} event The event to get listeners for
    * @returns {Listener[]} An array of `Listener` objects
    */
   getListeners(event) {
@@ -176,10 +177,11 @@ export class EventEmitter {
   }
 
   /**
-   * Returns the number of listeners registered for a given event.
+   * Returns the number of listeners registered for a specific event.
    *
-   * Note: to get the number of global listeners added with `EventEmitter.ANY_EVENT`, use
-   * `EventEmitter.ANY_EVENT` as the parameter.
+   * Please note that global events (those added with `EventEmitter.ANY_EVENT`) do not count
+   * towards the count for a "regular" event. To get the number of global listeners, specifically
+   * use `EventEmitter.ANY_EVENT` as the parameter.
    *
    * @param {string|Symbol} event The event
    * @returns {number} The number of listeners registered for the specified event.
