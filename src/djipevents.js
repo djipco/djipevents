@@ -10,11 +10,13 @@ export class EventEmitter {
   constructor() {
 
     /**
-     * Object containing a named property for all the events with at least one registered listener
+     * An object containing a property for each event with at least one registered listener. Each
+     * event property contains an array of all the `Listener` objects registered for the event.
+     *
      * @type {Object}
      * @readonly
      */
-    this.events = {};
+    this.map = {};
 
     /**
      * Whether or not the execution of function callbacks is currently suspended for this whole
@@ -67,12 +69,12 @@ export class EventEmitter {
       setTimeout(() => listener.remove(), options.duration);
     }
 
-    if (!this.events[event]) this.events[event] = [];
+    if (!this.map[event]) this.map[event] = [];
 
     if (options.prepend) {
-      this.events[event].unshift(listener);
+      this.map[event].unshift(listener);
     } else {
-      this.events[event].push(listener);
+      this.map[event].push(listener);
     }
 
     return listener;
@@ -93,7 +95,7 @@ export class EventEmitter {
    * @returns {boolean}
    */
   hasListener(event) {
-    return (this.events[event] && this.events[event].length > 0) ? true : false;
+    return (this.map[event] && this.map[event].length > 0) ? true : false;
   }
 
   /**
@@ -107,7 +109,7 @@ export class EventEmitter {
    * @readonly
    */
   get eventNames() {
-    return Object.keys(this.events);
+    return Object.keys(this.map);
   }
 
   /**
@@ -120,7 +122,7 @@ export class EventEmitter {
    * @returns {Listener[]} An array of `Listener` objects
    */
   getListeners(event) {
-    return this.events[event] || [];
+    return this.map[event] || [];
   }
 
   /**
@@ -184,7 +186,7 @@ export class EventEmitter {
   emit(event, value) {
 
     // This is the global suspension check
-    if (!this.events[event]|| this.suspended) return;
+    if (!this.map[event]|| this.suspended) return;
 
     // We will collect return values for all listeners here
     let results = [];
@@ -192,8 +194,8 @@ export class EventEmitter {
 
     // We must make sure that we do not have undefined otherwise concat() will add an undefined
     // entry in the array.
-    let events = this.events[EventEmitter.ANY_EVENT] || [];
-    if (this.events[event]) events = events.concat(this.events[event]);
+    let events = this.map[EventEmitter.ANY_EVENT] || [];
+    if (this.map[event]) events = events.concat(this.map[event]);
 
     events.forEach(listener => {
 
@@ -242,23 +244,23 @@ export class EventEmitter {
 
     // Remove all listeners
     if (!event) {
-      this.events = {};
+      this.map = {};
       return;
     }
 
-    if (!this.events[event]) return;
+    if (!this.map[event]) return;
 
     // Find listeners that do not match the criterias (those are the ones we will keep)
-    let events = this.events[event].filter(listener => {
+    let events = this.map[event].filter(listener => {
       return (callback && listener.callback !== callback) ||
         (options.count && options.count !== listener.count) ||
         (options.context && options.context !== listener.context);
     });
 
     if (events.length) {
-      this.events[event] = events;
+      this.map[event] = events;
     } else {
-      delete this.events[event];
+      delete this.map[event];
     }
 
   }
@@ -273,7 +275,7 @@ export class EventEmitter {
    * @readonly
    */
   get eventCount() {
-    return Object.keys(this.events).length;
+    return Object.keys(this.map).length;
   }
 
 }
