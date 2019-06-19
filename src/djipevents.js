@@ -184,10 +184,14 @@ export class EventEmitter {
   }
 
   /**
-   * Suspends execution of all callbacks for the specified event type.
+   * Suspends execution of all callbacks registered for the specified event type. To suspend
+   * listeners added with `EventEmitter.ANY_EVENT`, simply use `EventEmitter.ANY_EVENT` as the
+   * parameter. Beware that this does not suspend all events, it only suspends the callbacks that
+   * were attached with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive at first, it
+   * does provides flexibility. It is always possible to suspend **all** events, by setting the
+   * `suspended` property of the `EventEmitter` to true.
    *
-   * Note: to suspend global listeners added with `EventEmitter.ANY_EVENT`, use
-   * `EventEmitter.ANY_EVENT` as the parameter.
+   * @todo DOES NOT MAKES SENSE!!!
    *
    * @param {string|symbol} event The event to suspend
    */
@@ -198,10 +202,14 @@ export class EventEmitter {
   }
 
   /**
-   * Resumes execution of all callbacks for the specified event type
+   * Resumes execution of all callbacks registered for the specified event type. To resume
+   * listeners suspended with `EventEmitter.ANY_EVENT`, simply use `EventEmitter.ANY_EVENT` as the
+   * parameter. Beware that this does not resume all events, it only resumes the callbacks that
+   * were suspended with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive at first,
+   * it does provides flexibility. It is always possible to suspend and resume **all** events, by
+   * using the `suspended` property of the `EventEmitter`.
    *
-   * Note: to resume execution for global listeners added with `EventEmitter.ANY_EVENT`, use
-   * `EventEmitter.ANY_EVENT` as the parameter.
+   * @todo DOES NOT MAKES SENSE!!!
    *
    * @param {string|Symbol} event The event to resume
    */
@@ -245,11 +253,16 @@ export class EventEmitter {
    * functions
    *
    * @throws {TypeError} The 'event' parameter must be a string or a symbol.
+   * @throws {TypeError} The 'event' parameter cannot be `EventEmitter.ANY_EVENT`.
    */
   emit(event, value) {
 
     if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
       throw new TypeError("The 'event' parameter must be a string or a symbol.");
+    }
+
+    if (event === EventEmitter.ANY_EVENT) {
+      throw new TypeError("The 'event' parameter cannot be `EventEmitter.ANY_EVENT`.");
     }
 
     // This is the global suspension check
