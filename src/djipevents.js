@@ -421,7 +421,7 @@ export class Listener {
      * The remaining number of times after which the callback should automatically be removed.
      * @type {number}
      */
-    this.count = options.count;
+    this.count = parseInt(options.count) >= 1 ? parseInt(options.count) : Infinity;
 
     /**
      * Arbitraty data that is going to be passed as the second parameter of the callback function
