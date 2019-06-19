@@ -191,13 +191,17 @@ export class EventEmitter {
   }
 
   /**
-   * Suspends execution of all callbacks registered for the specified event type.
+   * Suspends execution of all callbacks functions registered for the specified event type.
    *
-   * Note: to suspend all listeners, you can use `EventEmitter.ANY_EVENT` as the parameter. This
-   * sets the `suspended` property of all `Listener` objects to `true`. An easier way to suspend
-   * all is to set the `suspended` property of the `EventEmitter` to `true`.
+   * You can suspend execution of callbacks registered with `EventEmitter.ANY_EVENT` by passing
+   * `EventEmitter.ANY_EVENT` to `suspend()`. Beware that this will not suspend all callbacks but
+   * only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive, it
+   * allows the selective suspension of global listeners while leaving other callbacks alone. If you
+   * truly want to suspends all callbacks for a specific `EventEmitter`, simply set its `suspended`
+   * property to `true`.
    *
-   * @param {string} event The event to suspend
+   * @param {string|EventEmitter.ANY_EVENT} event The event for which to suspend execution of all
+   * callback functions.
    */
   suspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -206,8 +210,15 @@ export class EventEmitter {
   }
 
   /**
+   * Resumes execution of all suspended callback functions registered for the specified event type.
    *
-   * @param {string} event The event to resume
+   * You can resume execution of callbacks registered with `EventEmitter.ANY_EVENT` by passing
+   * `EventEmitter.ANY_EVENT` to `unsuspend()`. Beware that this will not resume all callbacks but
+   * only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive, it
+   * allows the selective unsuspension of global listeners while leaving other callbacks alone.
+   *
+   * @param {string|EventEmitter.ANY_EVENT} event The event for which to resume execution of all
+   * callback functions.
    */
   unsuspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -257,17 +268,18 @@ export class EventEmitter {
     }
 
     // This is the global suspension check
-    if (!this.map[event]|| this.suspended) return;
+    if (this.suspended) return;
 
     // We will collect return values for all listeners here
     let results = [];
 
     // We must make sure that we do not have undefined otherwise concat() will add an undefined
     // entry in the array.
-    let events = this.map[EventEmitter.ANY_EVENT] || [];
-    if (this.map[event]) events = events.concat(this.map[event]);
+    let listeners = this.map[EventEmitter.ANY_EVENT] || [];
 
-    events.forEach(listener => {
+    if (this.map[event]) listeners = listeners.concat(this.map[event]);
+
+    listeners.forEach(listener => {
 
       // This is the per-listener suspension check
       if (listener.suspended) return;
