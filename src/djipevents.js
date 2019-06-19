@@ -67,10 +67,17 @@ export class EventEmitter {
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
    *
    * @returns {Listener}
+   *
+   * @throws {TypeError} The 'event' parameter must be a string or a symbol.
+   * @throws {TypeError} The callback must be a function.
    */
   on(event, callback, options = {}) {
 
-    if (typeof callback !== "function") throw new TypeError("The callback must be a function");
+    if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
+      throw new TypeError("The 'event' parameter must be a string or a symbol.");
+    }
+
+    if (typeof callback !== "function") throw new TypeError("The callback must be a function.");
 
     // Define default options and merge declared options into them
     const defaults = {
