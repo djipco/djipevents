@@ -54,7 +54,7 @@ export class EventEmitter {
    * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
    * as the first parameter.
    *
-   * @param {String|Symbol} event The event to listen to
+   * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in.
@@ -68,13 +68,17 @@ export class EventEmitter {
    *
    * @returns {Listener}
    *
-   * @throws {TypeError} The 'event' parameter must be a string or a symbol.
+   * @throws {TypeError} The 'event' parameter must be a string or EventEmitter.ANY_EVENT.
    * @throws {TypeError} The callback must be a function.
    */
   on(event, callback, options = {}) {
 
-    if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
-      throw new TypeError("The 'event' parameter must be a string or a symbol.");
+    if (
+      typeof event !== "string" &&
+      !(event instanceof String) &&
+      event !== EventEmitter.ANY_EVENT
+    ) {
+      throw new TypeError("The 'event' parameter must be a string or EventEmitter.ANY_EVENT.");
     }
 
     if (typeof callback !== "function") throw new TypeError("The callback must be a function.");
@@ -115,7 +119,7 @@ export class EventEmitter {
    * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
    * as the first parameter.
    *
-   * @param {String|Symbol} event The event to listen to
+   * @param {String|EventEmitter.ANY_EVENT} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in.
@@ -126,6 +130,9 @@ export class EventEmitter {
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
    *
    * @returns {Listener}
+   *
+   * @throws {TypeError} The 'event' parameter must be a string or EventEmitter.ANY_EVENT.
+   * @throws {TypeError} The callback must be a function.
    */
   once(event, callback, options = {}) {
     options.count = 1;
@@ -148,7 +155,7 @@ export class EventEmitter {
    * Note: to check for global listeners added with `EventEmitter.ANY_EVENT`, use
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
-   * @param {string|Symbol} event The event to check
+   * @param {string|EventEmitter.ANY_EVENT} event The event to check
    * @returns {boolean}
    */
   hasListener(event) {
@@ -176,7 +183,7 @@ export class EventEmitter {
    * "regular" events. To get the list of global listeners, specifically use
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
-   * @param {string|Symbol} event The event to get listeners for
+   * @param {string|EventEmitter.ANY_EVENT} event The event to get listeners for
    * @returns {Listener[]} An array of `Listener` objects
    */
   getListeners(event) {
@@ -184,16 +191,13 @@ export class EventEmitter {
   }
 
   /**
-   * Suspends execution of all callbacks registered for the specified event type. To suspend
-   * listeners added with `EventEmitter.ANY_EVENT`, simply use `EventEmitter.ANY_EVENT` as the
-   * parameter. Beware that this does not suspend all events, it only suspends the callbacks that
-   * were attached with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive at first, it
-   * does provides flexibility. It is always possible to suspend **all** events, by setting the
-   * `suspended` property of the `EventEmitter` to true.
+   * Suspends execution of all callbacks registered for the specified event type.
    *
-   * @todo DOES NOT MAKES SENSE!!!
+   * Note: to suspend all listeners, you can use `EventEmitter.ANY_EVENT` as the parameter. This
+   * sets the `suspended` property of all `Listener` objects to `true`. An easier way to suspend
+   * all is to set the `suspended` property of the `EventEmitter` to `true`.
    *
-   * @param {string|symbol} event The event to suspend
+   * @param {string} event The event to suspend
    */
   suspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -202,16 +206,8 @@ export class EventEmitter {
   }
 
   /**
-   * Resumes execution of all callbacks registered for the specified event type. To resume
-   * listeners suspended with `EventEmitter.ANY_EVENT`, simply use `EventEmitter.ANY_EVENT` as the
-   * parameter. Beware that this does not resume all events, it only resumes the callbacks that
-   * were suspended with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive at first,
-   * it does provides flexibility. It is always possible to suspend and resume **all** events, by
-   * using the `suspended` property of the `EventEmitter`.
    *
-   * @todo DOES NOT MAKES SENSE!!!
-   *
-   * @param {string|Symbol} event The event to resume
+   * @param {string} event The event to resume
    */
   unsuspend(event) {
     this.getListeners(event).forEach(listener => {
@@ -226,7 +222,7 @@ export class EventEmitter {
    * towards the count for a "regular" event. To get the number of global listeners, specifically
    * use `EventEmitter.ANY_EVENT` as the parameter.
    *
-   * @param {string|Symbol} event The event
+   * @param {string|EventEmitter.ANY_EVENT} event The event
    * @returns {number} The number of listeners registered for the specified event.
    */
   getListenerCount(event) {
@@ -246,23 +242,18 @@ export class EventEmitter {
    * It should be noted that the regular listeners are triggered first followed by the global
    * listeners (added with `EventEmitter.ANY_EVENT`).
    *
-   * @param {string|Symbol} event The event
+   * @param {string} event The event
    * @param {*} value An arbitrary value to pass along to the callback functions
    *
    * @returns {Array} An array containing the return value of each of the executed listener
    * functions
    *
-   * @throws {TypeError} The 'event' parameter must be a string or a symbol.
-   * @throws {TypeError} The 'event' parameter cannot be `EventEmitter.ANY_EVENT`.
+   * @throws {TypeError} The 'event' parameter must be a string.
    */
   emit(event, value) {
 
-    if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
-      throw new TypeError("The 'event' parameter must be a string or a symbol.");
-    }
-
-    if (event === EventEmitter.ANY_EVENT) {
-      throw new TypeError("The 'event' parameter cannot be `EventEmitter.ANY_EVENT`.");
+    if (typeof event !== "string" && !(event instanceof String)) {
+      throw new TypeError("The 'event' parameter must be a string.");
     }
 
     // This is the global suspension check
@@ -368,7 +359,7 @@ export class EventEmitter {
 export class Listener {
 
   /**
-   * @param {string|Symbol} event The event being listened to
+   * @param {string|EventEmitter.ANY_EVENT} event The event being listened to
    * @param {EventEmitter} target The `EventEmitter` object that the listener is attached to
    * @param {EventEmitter~callback} callback The function to call when the listener is triggered
    * @param {Object} [options={}]
@@ -379,14 +370,18 @@ export class Listener {
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
    * execution (as the second parameter)
    *
-   * @throws {TypeError} The 'event' parameter must be a string or a symbol.
+   * @throws {TypeError} The 'event' parameter must be a string or a EventEmitter.ANY_EVENT.
    * @throws {ReferenceError} The 'target' parameter is mandatory.
    * @throws {TypeError} The 'callback' must be a function.
    */
   constructor(event, target, callback, options = {}) {
 
-    if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
-      throw new TypeError("The 'event' parameter must be a string or a symbol.");
+    if (
+      typeof event !== "string" &&
+      !(event instanceof String) &&
+      event !== EventEmitter.ANY_EVENT
+    ) {
+      throw new TypeError("The 'event' parameter must be a string or a EventEmitter.ANY_EVENT.");
     }
 
     if (!target) {
