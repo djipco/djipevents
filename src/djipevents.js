@@ -52,7 +52,8 @@ export class EventEmitter {
    * attached to the event.
    *
    * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
-   * as the first parameter.
+   * as the first parameter. Note that a global listener will also be triggered by non-registered
+   * events. For example, this will trigger global listeners: `myEmitter.emit('bogus')`.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
@@ -267,7 +268,6 @@ export class EventEmitter {
       throw new TypeError("The 'event' parameter must be a string.");
     }
 
-    // This is the global suspension check
     if (this.suspended) return;
 
     // We will collect return values for all listeners here
