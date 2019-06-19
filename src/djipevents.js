@@ -7,7 +7,11 @@
  */
 export class EventEmitter {
 
-  constructor() {
+  /**
+   * @param {boolean} [suspended=false] Whether the `EventEmitter` is initially in a suspended
+   * state (i.e. not executing callbacks).
+   */
+  constructor(suspended = false) {
 
     /**
      * An object containing a property for each event with at least one registered listener. Each
@@ -23,7 +27,7 @@ export class EventEmitter {
      * emitter
      * @type {boolean}
      */
-    this.suspended = false;
+    this.suspended = suspended == true ? true : false;
 
   }
 
@@ -228,18 +232,24 @@ export class EventEmitter {
    * listeners (added with `EventEmitter.ANY_EVENT`).
    *
    * @param {string|Symbol} event The event
-   * @param {*} event An arbitrary value to pass along to the callback functions
+   * @param {*} value An arbitrary value to pass along to the callback functions
+   *
    * @returns {Array} An array containing the return value of each of the executed listener
    * functions
+   *
+   * @throws {TypeError} The 'event' parameter must be a string or a symbol.
    */
   emit(event, value) {
+
+    if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
+      throw new TypeError("The 'event' parameter must be a string or a symbol.");
+    }
 
     // This is the global suspension check
     if (!this.map[event]|| this.suspended) return;
 
     // We will collect return values for all listeners here
     let results = [];
-
 
     // We must make sure that we do not have undefined otherwise concat() will add an undefined
     // entry in the array.
@@ -349,14 +359,14 @@ export class Listener {
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
    * execution (as the second parameter)
    *
-   * @throws {TypeError} The 'event' parameter must be a string of a symbol.
+   * @throws {TypeError} The 'event' parameter must be a string or a symbol.
    * @throws {ReferenceError} The 'target' parameter is mandatory.
    * @throws {TypeError} The 'callback' must be a function.
    */
   constructor(event, target, callback, options = {}) {
 
     if (typeof event !== "string" && !(event instanceof String) && typeof event !== "symbol") {
-      throw new TypeError("The 'event' parameter must be a string of a symbol.");
+      throw new TypeError("The 'event' parameter must be a string or a symbol.");
     }
 
     if (!target) {
