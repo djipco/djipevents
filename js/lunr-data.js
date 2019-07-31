@@ -840,7 +840,7 @@ window.lunrData = {
                     },
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
-                      "tf": 26.11111111111111
+                      "tf": 34.44444444444444
                     },
                     "EventEmitter.html#getListenerCount": {
                       "ref": "EventEmitter.html#getListenerCount",
@@ -1388,7 +1388,7 @@ window.lunrData = {
                 "docs": {
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
-                    "tf": 675
+                    "tf": 683.3333333333334
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
@@ -3357,7 +3357,7 @@ window.lunrData = {
                     },
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
-                      "tf": 26.11111111111111
+                      "tf": 1.1111111111111112
                     },
                     "EventEmitter.html#getListeners": {
                       "ref": "EventEmitter.html#getListeners",
@@ -5058,7 +5058,7 @@ window.lunrData = {
                 "docs": {
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
-                    "tf": 27.22222222222222
+                    "tf": 35.55555555555555
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
@@ -5397,7 +5397,7 @@ window.lunrData = {
     "EventEmitter.html#emit": {
       "id": "EventEmitter.html#emit",
       "kind": "function",
-      "title": "emit( event, value ) → {Array}",
+      "title": "emit( event, value )",
       "longname": "EventEmitter#emit",
       "name": "emit",
       "tags": "EventEmitter#emit emit",
