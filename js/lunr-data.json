@@ -840,7 +840,7 @@
                     },
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
-                      "tf": 34.44444444444444
+                      "tf": 26.11111111111111
                     },
                     "EventEmitter.html#getListenerCount": {
                       "ref": "EventEmitter.html#getListenerCount",
@@ -1388,7 +1388,7 @@
                 "docs": {
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
-                    "tf": 683.3333333333334
+                    "tf": 675
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
@@ -3357,7 +3357,7 @@
                     },
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
-                      "tf": 1.1111111111111112
+                      "tf": 26.11111111111111
                     },
                     "EventEmitter.html#getListeners": {
                       "ref": "EventEmitter.html#getListeners",
@@ -5058,7 +5058,7 @@
                 "docs": {
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
-                    "tf": 35.55555555555555
+                    "tf": 27.22222222222222
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
@@ -5397,7 +5397,7 @@
     "EventEmitter.html#emit": {
       "id": "EventEmitter.html#emit",
       "kind": "function",
-      "title": "emit( event, value )",
+      "title": "emit( event, value ) → {Array}",
       "longname": "EventEmitter#emit",
       "name": "emit",
       "tags": "EventEmitter#emit emit",
