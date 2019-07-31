@@ -4,9 +4,58 @@ const sinon = require("sinon");
 
 describe("EventEmitter", function() {
 
+  describe("constructor", function() {
+
+    it("should set the correct status for 'suspended'", function (done) {
+
+      [undefined, false, 0].forEach(value => {
+        let ee = new EventEmitter(value);
+        expect(ee.suspended).to.be.false;
+      });
+
+      [true, 1].forEach(value => {
+        let ee = new EventEmitter(value);
+        expect(ee.suspended).to.be.true;
+      });
+
+      done();
+
+    });
+
+  });
+
   describe("emit()", function() {
 
-    it("should trigger the callback the right number of times");
+    it("should throw on invalid event parameter", function (done) {
+
+      let ee = new EventEmitter();
+
+      [EventEmitter.ANY_EVENT, undefined, null, Infinity, 123, {}].forEach(value => {
+        let f = () => ee.emit(value);
+        expect(f).to.throw(TypeError);
+      });
+
+      done();
+
+    });
+
+    it("should trigger the callback the right number of times", function (done) {
+
+      let ee = new EventEmitter();
+      let spy = sinon.spy();
+      ee.on("test", spy, {count: 3});
+
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+
+      expect(spy.calledThrice).to.be.true;
+      expect(ee.getListenerCount("test")).to.equal(0);
+
+      done();
+
+    });
 
     it("should execute the callback using the right value for 'this'", function(done) {
 
@@ -20,7 +69,32 @@ describe("EventEmitter", function() {
 
     });
 
-    it("to complete");
+    it("should not execute callbacks when EventEmitter's 'suspended' is true");
+
+    it("should not execute callbacks when Listener's 'suspended' is true");
+
+    it("should return the correct values");
+
+    it("should pass on the value and data to the callback");
+
+    it("should fire callbacks added via EventEmitter.ANY_EVENT", function(done) {
+
+      let spy1 = sinon.spy();
+      let spy2 = sinon.spy();
+
+      let ee = new EventEmitter();
+      ee.on("test", () => {});
+      ee.on(EventEmitter.ANY_EVENT, spy1);
+      ee.on(EventEmitter.ANY_EVENT, spy2);
+
+      ee.emit("test");
+
+      expect(spy1.calledOnce).to.be.true;
+      expect(spy2.calledOnce).to.be.true;
+
+      done();
+
+    });
 
   });
 
@@ -164,19 +238,235 @@ describe("EventEmitter", function() {
 
   describe("on()", function() {
 
-    it("to do");
+    it("should throw when mandatory parameters are not present or of wrong type", function(done) {
+
+      let ee = new EventEmitter();
+
+      let f1 = () => ee.on();
+      expect(f1).to.throw(TypeError);
+
+      let f2 = () => ee.on("test");
+      expect(f2).to.throw(TypeError);
+
+      let f3 = () => ee.on("test", () => {});
+      expect(f3).to.not.throw();
+
+      done();
+
+    });
+
+    it("should set default options correctly", function(done) {
+
+      let ee = new EventEmitter();
+      let l = ee.on("test", () => {});
+
+      expect(l.context).to.equal(ee);
+      expect(l.count).to.equal(Infinity);
+      expect(l.data).to.be.undefined;
+
+      let listeners = ee.getListeners("test");
+      expect(listeners[listeners.length - 1]).to.equal(l);
+
+      done();
+
+    });
+
+    it("should obey specified 'duration' parameter", function(done) {
+
+      let ee = new EventEmitter();
+      let cb = sinon.spy();
+      ee.on("test", cb, {duration: 50});
+
+      ee.emit("test");
+
+      setTimeout(() => {
+        ee.emit("test");
+        expect(cb.calledOnce).to.be.true;
+        done();
+      }, 100);
+
+    });
+
+    it("should obey specified 'prepend' parameter", function(done) {
+
+      let ee = new EventEmitter();
+
+      ee.on("test", () => {});
+      let l2 = ee.on("test", () => {}, {prepend: true});
+      ee.on("test", () => {});
+
+      let listeners = ee.getListeners("test");
+      expect(listeners[0]).to.equal(l2);
+
+      done();
+
+    });
+
+    it("should obey specified 'count' parameter", function(done) {
+
+      let ee = new EventEmitter();
+      let spy = sinon.spy();
+
+      ee.on("test", spy, {count: 3});
+
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+
+      expect(spy.calledThrice).to.be.true;
+      expect(ee.getListenerCount("test")).to.equal(0);
+
+      done();
+
+    });
+
+    it("should default to Infinity when invalid 'count' parameter is specified", function(done) {
+
+      [-1, 0, undefined, null, {}, -Infinity].forEach(value => {
+        let ee = new EventEmitter();
+        let l = ee.on("test", () => {}, {count: value});
+        expect(l.count).to.equal(Infinity);
+      });
+
+      done();
+
+    });
+
+    it("should set other options correctly", function(done) {
+
+      let evt1 = "test";
+      let cb = () => {};
+      let ctx = {};
+      let count = 12;
+      let data = {};
+
+      let ee = new EventEmitter();
+      let l = ee.on(evt1, cb, {
+        context: ctx,
+        data: data,
+        count: count
+      });
+
+      expect(l.event).to.equal(evt1);
+      expect(l.callback).to.equal(cb);
+      expect(l.context).to.equal(ctx);
+      expect(l.count).to.equal(count);
+      expect(l.data).to.equal(data);
+
+      done();
+
+    });
+
+  });
+
+  describe("once()", function() {
+
+    it("should only execute callback once", function(done) {
+
+      let ee = new EventEmitter();
+      let spy = sinon.spy();
+
+      ee.once("test", spy);
+
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+
+      expect(spy.calledOnce).to.be.true;
+      expect(ee.getListenerCount("test")).to.equal(0);
+
+      done();
+
+    });
 
   });
 
   describe("suspend()", function() {
 
-    it("to do");
+    it("should suspend callback execution for regular events", function(done) {
+
+      let spy = sinon.spy();
+
+      let ee = new EventEmitter();
+      ee.on("test", spy);
+
+      ee.emit("test");
+      expect(spy.calledOnce).to.be.true;
+      ee.suspend("test");
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+      expect(spy.calledOnce).to.be.true;
+
+      done();
+
+    });
+
+    it("should suspend callback execution for EventEmitter.ANY_EVENT", function(done) {
+
+      let spy = sinon.spy();
+
+      let ee = new EventEmitter();
+      ee.on(EventEmitter.ANY_EVENT, spy);
+
+      ee.emit("test");
+      expect(spy.calledOnce).to.be.true;
+      ee.suspend(EventEmitter.ANY_EVENT);
+      ee.emit("test");
+      ee.emit("test");
+      ee.emit("test");
+      expect(spy.calledOnce).to.be.true;
+
+      done();
+
+    });
 
   });
 
   describe("unsuspend()", function() {
 
-    it("to do");
+    it("should resume callback execution for regular events", function(done) {
+
+      let spy = sinon.spy();
+
+      let ee = new EventEmitter();
+      ee.on("test", spy);
+
+      ee.emit("test");
+      expect(spy.calledOnce).to.be.true;
+      ee.suspend("test");
+      ee.emit("test");
+      ee.emit("test");
+      ee.unsuspend("test");
+      ee.emit("test");
+      expect(spy.calledTwice).to.be.true;
+
+      done();
+
+    });
+
+    it("should resume callback execution for EventEmitter.ANY_EVENT", function(done) {
+
+      let spy = sinon.spy();
+
+      let ee = new EventEmitter();
+      ee.on(EventEmitter.ANY_EVENT, spy);
+
+      ee.emit("test");
+      expect(spy.calledOnce).to.be.true;
+      ee.suspend(EventEmitter.ANY_EVENT);
+      ee.emit("test");
+      ee.emit("test");
+      ee.unsuspend(EventEmitter.ANY_EVENT);
+      ee.emit("test");
+      expect(spy.calledTwice).to.be.true;
+
+      done();
+
+    });
+
 
   });
 
