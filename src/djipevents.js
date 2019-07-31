@@ -39,8 +39,9 @@ export class EventEmitter {
    * the callback function(s). This allows us to easily pass data from where the listener is added
    * to where it is executed.
    *
-   * The value of `this` in the callbnack function(s) will be set to the `context` option (if it was
-   * specified). By using the `context` parameter, it is no longer necessary to bind the function.
+   * The value of `this` in the callback function(s) is set to the `context` option passed to the
+   * `addListener()` method (if specified). By using the `context` option, it is no longer
+   * necessary to explicitely bind the function.
    *
    * @callback EventEmitter~callback
    * @param {*} [value] The value passed to `emit()`
@@ -55,6 +56,9 @@ export class EventEmitter {
    * as the first parameter. Note that a global listener will also be triggered by non-registered
    * events. For example, this will trigger global listeners: `myEmitter.emit('bogus')`.
    *
+   * Note that, while it is also possible to use the `on()` method to achieve the exact same result,
+   * using `addListener()` is the recommended way.
+   *
    * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
@@ -67,12 +71,12 @@ export class EventEmitter {
    * automatically be removed.
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
    *
-   * @returns {Listener}
+   * @returns {Listener} The newly created `Listener` object.
    *
-   * @throws {TypeError} The 'event' parameter must be a string or EventEmitter.ANY_EVENT.
-   * @throws {TypeError} The callback must be a function.
+   * @throws {TypeError} The `event` parameter must be a string or `EventEmitter.ANY_EVENT`.
+   * @throws {TypeError} The `callback` parameter must be a function.
    */
-  on(event, callback, options = {}) {
+  addListener(event, callback, options = {}) {
 
     if (
       typeof event !== "string" &&
@@ -114,6 +118,14 @@ export class EventEmitter {
   }
 
   /**
+   * @private
+   * @deprecated
+   */
+  on(event, callback, options = {}) {
+    return this.addListener(event, callback, options);
+  }
+
+  /**
    * Adds a one-time listener for the specified event. It returns the `Listener` object that was
    * created and attached to the event.
    *
@@ -132,8 +144,8 @@ export class EventEmitter {
    *
    * @returns {Listener}
    *
-   * @throws {TypeError} The 'event' parameter must be a string or EventEmitter.ANY_EVENT.
-   * @throws {TypeError} The callback must be a function.
+   * @throws {TypeError} The `event` parameter must be a string or EventEmitter.ANY_EVENT.
+   * @throws {TypeError} The `callback` parameter must be a function.
    */
   once(event, callback, options = {}) {
     options.count = 1;
@@ -196,10 +208,10 @@ export class EventEmitter {
    *
    * You can suspend execution of callbacks registered with `EventEmitter.ANY_EVENT` by passing
    * `EventEmitter.ANY_EVENT` to `suspend()`. Beware that this will not suspend all callbacks but
-   * only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive, it
-   * allows the selective suspension of global listeners while leaving other callbacks alone. If you
-   * truly want to suspends all callbacks for a specific `EventEmitter`, simply set its `suspended`
-   * property to `true`.
+   * only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive at
+   * first glance, it allows the selective suspension of global listeners while leaving other
+   * liseners alone. If you truly want to suspends all callbacks for a specific `EventEmitter`,
+   * simply set its `suspended` property to `true`.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event for which to suspend execution of all
    * callback functions.
@@ -243,8 +255,8 @@ export class EventEmitter {
 
   /**
    * Executes the callback functions of all `Listener` objects registered for a given event. The
-   * functions are passed the specifid `value` (if present) and the content of the listener's
-   * `data` property (if any).
+   * functions are passed the specified `value` (if present) as the first parameter and the content
+   * of the listener's `data` property (if any).
    *
    * If the `suspended` property of the `EventEmitter` or of the `Listener` is `true`, the callback
    * functions will not be executed.
@@ -255,12 +267,12 @@ export class EventEmitter {
    * listeners (added with `EventEmitter.ANY_EVENT`).
    *
    * @param {string} event The event
-   * @param {*} value An arbitrary value to pass along to the callback functions
+   * @param {*} value Arbitrary data to pass along to the callback functions
    *
    * @returns {Array} An array containing the return value of each of the executed listener
    * functions
    *
-   * @throws {TypeError} The 'event' parameter must be a string.
+   * @throws {TypeError} The `event` parameter must be a string.
    */
   emit(event, value) {
 
@@ -270,7 +282,7 @@ export class EventEmitter {
 
     if (this.suspended) return;
 
-    // We will collect return values for all listeners here
+    // We collect return values for all listeners here
     let results = [];
 
     // We must make sure that we do not have undefined otherwise concat() will add an undefined
@@ -315,6 +327,9 @@ export class EventEmitter {
    * To use more granular options, you must at least define the `event`. Then, you can specify the
    * callback to match or one or more of the additional options.
    *
+   * Note that, while it is also possible to use the `off()` method to achieve the exact same
+   * result, using `removeListener()` is the recommended way.
+   *
    * @param {string} [event] The event name.
    * @param {EventEmitter~callback} [callback] Only remove the listeners that match this exact
    * callback function.
@@ -323,7 +338,7 @@ export class EventEmitter {
    * @param {number} [options.count] Only remove the listener if it has exactly that many remaining
    * times to be executed.
    */
-  off(event, callback, options = {}) {
+  removeListener(event, callback, options = {}) {
 
     // Remove all listeners
     if (!event) {
@@ -346,6 +361,14 @@ export class EventEmitter {
       delete this.map[event];
     }
 
+  }
+
+  /**
+   * @private
+   * @deprecated
+   */
+  off(event, callback, options = {}) {
+    return this.removeListener(event, callback, options);
   }
 
   /**
@@ -382,9 +405,9 @@ export class Listener {
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
    * execution (as the second parameter)
    *
-   * @throws {TypeError} The 'event' parameter must be a string or a EventEmitter.ANY_EVENT.
-   * @throws {ReferenceError} The 'target' parameter is mandatory.
-   * @throws {TypeError} The 'callback' must be a function.
+   * @throws {TypeError} The `event` parameter must be a string or `EventEmitter.ANY_EVENT`.
+   * @throws {ReferenceError} The `target` parameter is mandatory.
+   * @throws {TypeError} The `callback` must be a function.
    */
   constructor(event, target, callback, options = {}) {
 
@@ -393,7 +416,7 @@ export class Listener {
       !(event instanceof String) &&
       event !== EventEmitter.ANY_EVENT
     ) {
-      throw new TypeError("The 'event' parameter must be a string or a EventEmitter.ANY_EVENT.");
+      throw new TypeError("The 'event' parameter must be a string or EventEmitter.ANY_EVENT.");
     }
 
     if (!target) {
