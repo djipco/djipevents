@@ -425,12 +425,12 @@
           "1",
           "2",
           "ad",
+          "addlisten",
           "allow",
           "along",
           "bind",
           "call",
           "callback",
-          "callbnack",
           "circumst",
           "context",
           "data",
@@ -443,6 +443,7 @@
           "function(",
           "listen",
           "longer",
+          "method",
           "necessari",
           "option",
           "paramet",
@@ -556,7 +557,7 @@
           "docs": {
             "EventEmitter.html#~callback": {
               "ref": "EventEmitter.html#~callback",
-              "tf": 0.8771929824561403
+              "tf": 0.8333333333333334
             }
           }
         },
@@ -564,7 +565,7 @@
           "docs": {
             "EventEmitter.html#~callback": {
               "ref": "EventEmitter.html#~callback",
-              "tf": 0.8771929824561403
+              "tf": 0.8333333333333334
             }
           }
         },
@@ -572,7 +573,7 @@
           "docs": {
             "EventEmitter.html#~callback": {
               "ref": "EventEmitter.html#~callback",
-              "tf": 0.8771929824561403
+              "tf": 0.8333333333333334
             }
           }
         },
@@ -667,7 +668,7 @@
                 "docs": {
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
-                    "tf": 0.8771929824561403
+                    "tf": 0.8333333333333334
                   }
                 }
               }
@@ -769,7 +770,7 @@
                     "docs": {
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 0.8771929824561403
+                        "tf": 0.8333333333333334
                       }
                     }
                   }
@@ -789,7 +790,7 @@
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
-                    "tf": 35.964912280701746
+                    "tf": 35.83333333333333
                   },
                   "Listener.html#data": {
                     "ref": "Listener.html#data",
@@ -1392,7 +1393,7 @@
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
-                    "tf": 1.7543859649122806
+                    "tf": 1.6666666666666667
                   },
                   "Listener.html#target": {
                     "ref": "Listener.html#target",
@@ -1450,7 +1451,7 @@
                       },
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 1.7543859649122806
+                        "tf": 1.6666666666666667
                       },
                       "Listener.html#context": {
                         "ref": "Listener.html#context",
@@ -1559,7 +1560,7 @@
                     "docs": {
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 0.8771929824561403
+                        "tf": 0.8333333333333334
                       }
                     }
                   }
@@ -1859,7 +1860,7 @@
                       },
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 1.7543859649122806
+                        "tf": 1.6666666666666667
                       },
                       "Listener.html": {
                         "ref": "Listener.html",
@@ -2184,7 +2185,7 @@
                     "docs": {
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 0.8771929824561403
+                        "tf": 0.8333333333333334
                       }
                     }
                   }
@@ -2326,7 +2327,7 @@
                           "docs": {
                             "EventEmitter.html#~callback": {
                               "ref": "EventEmitter.html#~callback",
-                              "tf": 0.8771929824561403
+                              "tf": 0.8333333333333334
                             }
                           }
                         }
@@ -2537,7 +2538,7 @@
                     "docs": {
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 0.8771929824561403
+                        "tf": 0.8333333333333334
                       }
                     }
                   }
@@ -2900,7 +2901,7 @@
                       "docs": {
                         "EventEmitter.html#~callback": {
                           "ref": "EventEmitter.html#~callback",
-                          "tf": 1.7543859649122806
+                          "tf": 1.6666666666666667
                         },
                         "Listener.html#context": {
                           "ref": "Listener.html#context",
@@ -2962,7 +2963,7 @@
                 "docs": {
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
-                    "tf": 0.8771929824561403
+                    "tf": 0.8333333333333334
                   }
                 },
                 "b": {
@@ -3003,7 +3004,7 @@
                           },
                           "EventEmitter.html#~callback": {
                             "ref": "EventEmitter.html#~callback",
-                            "tf": 536.8421052631579
+                            "tf": 537.5
                           },
                           "Listener.html": {
                             "ref": "Listener.html",
@@ -3024,23 +3025,6 @@
                           "Listener.html#data": {
                             "ref": "Listener.html#data",
                             "tf": 6.25
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "n": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "c": {
-                        "docs": {},
-                        "k": {
-                          "docs": {
-                            "EventEmitter.html#~callback": {
-                              "ref": "EventEmitter.html#~callback",
-                              "tf": 0.8771929824561403
-                            }
                           }
                         }
                       }
@@ -3154,7 +3138,7 @@
                         "docs": {
                           "EventEmitter.html#~callback": {
                             "ref": "EventEmitter.html#~callback",
-                            "tf": 0.8771929824561403
+                            "tf": 0.8333333333333334
                           }
                         }
                       }
@@ -3215,7 +3199,7 @@
                     },
                     "EventEmitter.html#~callback": {
                       "ref": "EventEmitter.html#~callback",
-                      "tf": 0.8771929824561403
+                      "tf": 0.8333333333333334
                     }
                   }
                 }
@@ -3238,7 +3222,7 @@
                   "docs": {
                     "EventEmitter.html#~callback": {
                       "ref": "EventEmitter.html#~callback",
-                      "tf": 1.7543859649122806
+                      "tf": 1.6666666666666667
                     }
                   }
                 }
@@ -3265,7 +3249,7 @@
               },
               "EventEmitter.html#~callback": {
                 "ref": "EventEmitter.html#~callback",
-                "tf": 1.7543859649122806
+                "tf": 1.6666666666666667
               }
             },
             "d": {
@@ -3298,6 +3282,10 @@
                             "EventEmitter.html#addListener": {
                               "ref": "EventEmitter.html#addListener",
                               "tf": 671.1627906976744
+                            },
+                            "EventEmitter.html#~callback": {
+                              "ref": "EventEmitter.html#~callback",
+                              "tf": 0.8333333333333334
                             }
                           }
                         }
@@ -3638,7 +3626,7 @@
                           },
                           "EventEmitter.html#~callback": {
                             "ref": "EventEmitter.html#~callback",
-                            "tf": 1.7543859649122806
+                            "tf": 1.6666666666666667
                           },
                           "Listener.html": {
                             "ref": "Listener.html",
@@ -3665,7 +3653,7 @@
                           "docs": {
                             "EventEmitter.html#~callback": {
                               "ref": "EventEmitter.html#~callback",
-                              "tf": 2.631578947368421
+                              "tf": 2.5
                             }
                           }
                         }
@@ -3767,6 +3755,10 @@
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
                         "tf": 1.0638297872340425
+                      },
+                      "EventEmitter.html#~callback": {
+                        "ref": "EventEmitter.html#~callback",
+                        "tf": 0.8333333333333334
                       }
                     }
                   }
@@ -4113,7 +4105,7 @@
                       },
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 1.7543859649122806
+                        "tf": 2.5
                       }
                     }
                   }
@@ -4186,7 +4178,7 @@
                         },
                         "EventEmitter.html#~callback": {
                           "ref": "EventEmitter.html#~callback",
-                          "tf": 2.631578947368421
+                          "tf": 1.6666666666666667
                         },
                         "Listener.html#data": {
                           "ref": "Listener.html#data",
@@ -4220,7 +4212,7 @@
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
-                    "tf": 3.508771929824561
+                    "tf": 4.166666666666666
                   },
                   "Listener.html#data": {
                     "ref": "Listener.html#data",
@@ -4385,7 +4377,7 @@
                       },
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
-                        "tf": 1.7543859649122806
+                        "tf": 1.6666666666666667
                       }
                     },
                     "i": {
@@ -4420,7 +4412,7 @@
                         },
                         "EventEmitter.html#~callback": {
                           "ref": "EventEmitter.html#~callback",
-                          "tf": 1.7543859649122806
+                          "tf": 1.6666666666666667
                         }
                       }
                     }
@@ -4571,7 +4563,7 @@
                 },
                 "EventEmitter.html#~callback": {
                   "ref": "EventEmitter.html#~callback",
-                  "tf": 0.8771929824561403
+                  "tf": 0.8333333333333334
                 }
               }
             },
@@ -4895,7 +4887,7 @@
               },
               "EventEmitter.html#~callback": {
                 "ref": "EventEmitter.html#~callback",
-                "tf": 0.8771929824561403
+                "tf": 0.8333333333333334
               }
             }
           },
@@ -5038,7 +5030,7 @@
                       "docs": {
                         "EventEmitter.html#~callback": {
                           "ref": "EventEmitter.html#~callback",
-                          "tf": 0.8771929824561403
+                          "tf": 0.8333333333333334
                         }
                       }
                     }
@@ -5062,7 +5054,7 @@
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
-                    "tf": 36.84210526315789
+                    "tf": 36.666666666666664
                   },
                   "Listener.html#context": {
                     "ref": "Listener.html#context",
@@ -5091,7 +5083,7 @@
           }
         }
       },
-      "length": 452
+      "length": 453
     },
     "corpusTokens": [
       "0",
@@ -5121,7 +5113,6 @@
       "browser",
       "call",
       "callback",
-      "callbnack",
       "check",
       "circumst",
       "class",
@@ -5482,7 +5473,7 @@
       "name": "callback",
       "tags": "EventEmitter~callback",
       "summary": "",
-      "description": "The callback function receives 0, 1 or 2 parameters depending on circumstances. If no specific value is passed to emit(), the callback is executed without any parameters. If emit() is called with a specific value, this value is passed along to the callback function(s). If the data option was specified when the listener was added, this data will be passed along to the callback function(s). This allows us to easily pass data from where the listener is added to where it is executed. The value of this in the callbnack function(s) will be set to the context option (if it was specified). By using the context parameter, it is no longer necessary to bind the function."
+      "description": "The callback function receives 0, 1 or 2 parameters depending on circumstances. If no specific value is passed to emit(), the callback is executed without any parameters. If emit() is called with a specific value, this value is passed along to the callback function(s). If the data option was specified when the listener was added, this data will be passed along to the callback function(s). This allows us to easily pass data from where the listener is added to where it is executed. The value of this in the callback function(s) is set to the context option passed to the addListener() method (if it was specified). By using the context option, it is no longer necessary to bind the function."
     },
     "Listener.html": {
       "id": "Listener.html",
