@@ -76,11 +76,11 @@ is meant to be that way. That does not mean the library is not as powerful as ot
 functionalities are less glaringly obvious than with some other libraries but are still there. For
 example:
 
-    * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
-    same by calling `removeListener()` with not arguments.
+  * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
+  same by calling `removeListener()` with not arguments.
 
-    * There is no `prependListener()` method either. Just use the `addListener()` with the `prepend` 
-    option.
+  * There is no `prependListener()` method either. Just use the `addListener()` with the `prepend` 
+  option.
 
 ## API Reference
 
