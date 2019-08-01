@@ -56,7 +56,7 @@ const EventEmitter = require("djipevents").EventEmitter;
 
 ## Key features
 
-This library is nothing extraodrdinary but it does have some interesting features not necessarily 
+This library is nothing extraordinary but it does have some interesting features not necessarily 
 found in the browser's `EventTarget` or in Node.js' `EventEmitter`:
 
   * Listeners can be set to trigger an arbitrary number of times with the `count` option;
@@ -65,6 +65,23 @@ found in the browser's `EventTarget` or in Node.js' `EventEmitter`:
   * Listeners can also be prepended to the list of listeners (default is to append);
   * A custom value for `this` in the callback can be assigned via the `context` option;
   * It is possible to listen to all events by using `EventEmitter.ANY_EVENT`.
+  * You can pass data to the callback by using the `data` option of `addListener()`. You can also 
+  pass data to the callback by using the second parameter of the `emit()` method.
+  * The `Listener` object returned by `addListener()` has a `remove()` method that allows you to 
+  easily remove the listener.
+  
+### Hidden goodies
+  
+As you can see in the reference, the [API](https://djipco.github.io/djipevents/) is quite lean. It 
+is meant to be that way. That does not mean the library is not as powerful as others. Some of the 
+functionalities are less glaringly obvious than with some other libraries but are still there. For
+example:
+
+    * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
+    same by calling `removeListener()` with not arguments.
+
+    * There is no `prependListener()` method either. Just use the `addListener()` with the `prepend` 
+    option.
 
 ## API Reference
 
