@@ -167,7 +167,6 @@ window.lunrData = {
           "whole"
         ],
         "EventEmitter.html#addListener": [
-          "achiev",
           "add",
           "addlisten",
           "attach",
@@ -176,29 +175,22 @@ window.lunrData = {
           "event",
           "eventemitter#addlisten",
           "eventemitter.any_ev",
-          "exact",
           "exampl",
           "first",
           "function",
           "global",
           "listen",
-          "method",
           "myemitter.emit('bogu",
           "non",
           "note",
           "object",
           "option",
           "paramet",
-          "possibl",
-          "recommend",
           "regist",
-          "result",
           "return",
-          "same",
           "specifi",
           "trigger",
-          "us",
-          "way"
+          "us"
         ],
         "EventEmitter.html#emit": [
           "ad",
@@ -825,7 +817,7 @@ window.lunrData = {
                     },
                     "EventEmitter.html#addListener": {
                       "ref": "EventEmitter.html#addListener",
-                      "tf": 24.651162790697676
+                      "tf": 26.451612903225808
                     },
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
@@ -927,7 +919,7 @@ window.lunrData = {
                                                 },
                                                 "EventEmitter.html#addListener": {
                                                   "ref": "EventEmitter.html#addListener",
-                                                  "tf": 1.1627906976744187
+                                                  "tf": 1.6129032258064515
                                                 },
                                                 "EventEmitter.html#emit": {
                                                   "ref": "EventEmitter.html#emit",
@@ -1472,21 +1464,6 @@ window.lunrData = {
             },
             "a": {
               "docs": {},
-              "c": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "EventEmitter.html#addListener": {
-                      "ref": "EventEmitter.html#addListener",
-                      "tf": 1.1627906976744187
-                    },
-                    "EventEmitter.html#removeListener": {
-                      "ref": "EventEmitter.html#removeListener",
-                      "tf": 1.0638297872340425
-                    }
-                  }
-                }
-              },
               "m": {
                 "docs": {},
                 "p": {
@@ -1495,8 +1472,19 @@ window.lunrData = {
                     "docs": {
                       "EventEmitter.html#addListener": {
                         "ref": "EventEmitter.html#addListener",
-                        "tf": 1.1627906976744187
+                        "tf": 1.6129032258064515
                       }
+                    }
+                  }
+                }
+              },
+              "c": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "EventEmitter.html#removeListener": {
+                      "ref": "EventEmitter.html#removeListener",
+                      "tf": 1.0638297872340425
                     }
                   }
                 }
@@ -1817,7 +1805,7 @@ window.lunrData = {
                       },
                       "EventEmitter.html#addListener": {
                         "ref": "EventEmitter.html#addListener",
-                        "tf": 25.813953488372093
+                        "tf": 28.064516129032256
                       },
                       "EventEmitter.html#emit": {
                         "ref": "EventEmitter.html#emit",
@@ -2236,7 +2224,7 @@ window.lunrData = {
                   },
                   "EventEmitter.html#addListener": {
                     "ref": "EventEmitter.html#addListener",
-                    "tf": 2.3255813953488373
+                    "tf": 1.6129032258064515
                   },
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
@@ -2265,7 +2253,7 @@ window.lunrData = {
               "docs": {
                 "EventEmitter.html#addListener": {
                   "ref": "EventEmitter.html#addListener",
-                  "tf": 1.1627906976744187
+                  "tf": 1.6129032258064515
                 }
               }
             }
@@ -2394,7 +2382,7 @@ window.lunrData = {
                       },
                       "EventEmitter.html#addListener": {
                         "ref": "EventEmitter.html#addListener",
-                        "tf": 1.1627906976744187
+                        "tf": 1.6129032258064515
                       },
                       "EventEmitter.html#emit": {
                         "ref": "EventEmitter.html#emit",
@@ -2516,6 +2504,39 @@ window.lunrData = {
                 }
               }
             },
+            "t": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "EventEmitter.html#addListener": {
+                        "ref": "EventEmitter.html#addListener",
+                        "tf": 1.6129032258064515
+                      },
+                      "EventEmitter.html#emit": {
+                        "ref": "EventEmitter.html#emit",
+                        "tf": 2.2222222222222223
+                      },
+                      "EventEmitter.html#getListenerCount": {
+                        "ref": "EventEmitter.html#getListenerCount",
+                        "tf": 1.9230769230769231
+                      },
+                      "EventEmitter.html#getListeners": {
+                        "ref": "EventEmitter.html#getListeners",
+                        "tf": 4.166666666666666
+                      },
+                      "EventEmitter.html#hasListener": {
+                        "ref": "EventEmitter.html#hasListener",
+                        "tf": 3.125
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "c": {
               "docs": {},
               "o": {
@@ -2530,10 +2551,6 @@ window.lunrData = {
                         "docs": {},
                         "d": {
                           "docs": {
-                            "EventEmitter.html#addListener": {
-                              "ref": "EventEmitter.html#addListener",
-                              "tf": 1.1627906976744187
-                            },
                             "EventEmitter.html#removeListener": {
                               "ref": "EventEmitter.html#removeListener",
                               "tf": 1.0638297872340425
@@ -2568,10 +2585,6 @@ window.lunrData = {
                   "docs": {},
                   "t": {
                     "docs": {
-                      "EventEmitter.html#addListener": {
-                        "ref": "EventEmitter.html#addListener",
-                        "tf": 1.1627906976744187
-                      },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
                         "tf": 1.0638297872340425
@@ -2584,39 +2597,6 @@ window.lunrData = {
                     "EventEmitter.html#unsuspend": {
                       "ref": "EventEmitter.html#unsuspend",
                       "tf": 4.411764705882353
-                    }
-                  }
-                }
-              }
-            },
-            "t": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "n": {
-                    "docs": {
-                      "EventEmitter.html#addListener": {
-                        "ref": "EventEmitter.html#addListener",
-                        "tf": 1.1627906976744187
-                      },
-                      "EventEmitter.html#emit": {
-                        "ref": "EventEmitter.html#emit",
-                        "tf": 2.2222222222222223
-                      },
-                      "EventEmitter.html#getListenerCount": {
-                        "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 1.9230769230769231
-                      },
-                      "EventEmitter.html#getListeners": {
-                        "ref": "EventEmitter.html#getListeners",
-                        "tf": 4.166666666666666
-                      },
-                      "EventEmitter.html#hasListener": {
-                        "ref": "EventEmitter.html#hasListener",
-                        "tf": 3.125
-                      }
                     }
                   }
                 }
@@ -2681,7 +2661,7 @@ window.lunrData = {
                       },
                       "EventEmitter.html#addListener": {
                         "ref": "EventEmitter.html#addListener",
-                        "tf": 3.488372093023256
+                        "tf": 4.838709677419355
                       },
                       "EventEmitter.html#emit": {
                         "ref": "EventEmitter.html#emit",
@@ -3074,7 +3054,7 @@ window.lunrData = {
                   "docs": {
                     "EventEmitter.html#addListener": {
                       "ref": "EventEmitter.html#addListener",
-                      "tf": 1.1627906976744187
+                      "tf": 1.6129032258064515
                     }
                   }
                 }
@@ -3259,7 +3239,7 @@ window.lunrData = {
                 },
                 "EventEmitter.html#addListener": {
                   "ref": "EventEmitter.html#addListener",
-                  "tf": 1.1627906976744187
+                  "tf": 1.6129032258064515
                 }
               },
               "l": {
@@ -3276,7 +3256,7 @@ window.lunrData = {
                           "docs": {
                             "EventEmitter.html#addListener": {
                               "ref": "EventEmitter.html#addListener",
-                              "tf": 671.1627906976744
+                              "tf": 670
                             },
                             "EventEmitter.html#~callback": {
                               "ref": "EventEmitter.html#~callback",
@@ -3462,30 +3442,6 @@ window.lunrData = {
               }
             }
           },
-          "c": {
-            "docs": {},
-            "h": {
-              "docs": {},
-              "i": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "v": {
-                    "docs": {
-                      "EventEmitter.html#addListener": {
-                        "ref": "EventEmitter.html#addListener",
-                        "tf": 1.1627906976744187
-                      },
-                      "EventEmitter.html#removeListener": {
-                        "ref": "EventEmitter.html#removeListener",
-                        "tf": 1.0638297872340425
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "t": {
             "docs": {},
             "t": {
@@ -3498,7 +3454,7 @@ window.lunrData = {
                     "docs": {
                       "EventEmitter.html#addListener": {
                         "ref": "EventEmitter.html#addListener",
-                        "tf": 2.3255813953488373
+                        "tf": 3.225806451612903
                       },
                       "Listener.html": {
                         "ref": "Listener.html",
@@ -3507,6 +3463,26 @@ window.lunrData = {
                       "Listener.html#target": {
                         "ref": "Listener.html#target",
                         "tf": 10
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "c": {
+            "docs": {},
+            "h": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "v": {
+                    "docs": {
+                      "EventEmitter.html#removeListener": {
+                        "ref": "EventEmitter.html#removeListener",
+                        "tf": 1.0638297872340425
                       }
                     }
                   }
@@ -3665,7 +3641,7 @@ window.lunrData = {
                   "docs": {
                     "EventEmitter.html#addListener": {
                       "ref": "EventEmitter.html#addListener",
-                      "tf": 1.1627906976744187
+                      "tf": 1.6129032258064515
                     },
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
@@ -3734,10 +3710,6 @@ window.lunrData = {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
                         "tf": 2
-                      },
-                      "EventEmitter.html#addListener": {
-                        "ref": "EventEmitter.html#addListener",
-                        "tf": 1.1627906976744187
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
@@ -3925,7 +3897,7 @@ window.lunrData = {
                                                 "docs": {
                                                   "EventEmitter.html#addListener": {
                                                     "ref": "EventEmitter.html#addListener",
-                                                    "tf": 1.1627906976744187
+                                                    "tf": 1.6129032258064515
                                                   }
                                                 }
                                               }
@@ -3970,7 +3942,7 @@ window.lunrData = {
                       },
                       "EventEmitter.html#addListener": {
                         "ref": "EventEmitter.html#addListener",
-                        "tf": 1.1627906976744187
+                        "tf": 1.6129032258064515
                       },
                       "EventEmitter.html#emit": {
                         "ref": "EventEmitter.html#emit",
@@ -4121,7 +4093,7 @@ window.lunrData = {
                       "docs": {
                         "EventEmitter.html#addListener": {
                           "ref": "EventEmitter.html#addListener",
-                          "tf": 1.1627906976744187
+                          "tf": 1.6129032258064515
                         },
                         "EventEmitter.html#emit": {
                           "ref": "EventEmitter.html#emit",
@@ -4257,33 +4229,6 @@ window.lunrData = {
               }
             }
           },
-          "o": {
-            "docs": {},
-            "s": {
-              "docs": {},
-              "s": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "b": {
-                    "docs": {},
-                    "l": {
-                      "docs": {
-                        "EventEmitter.html#addListener": {
-                          "ref": "EventEmitter.html#addListener",
-                          "tf": 1.1627906976744187
-                        },
-                        "EventEmitter.html#removeListener": {
-                          "ref": "EventEmitter.html#removeListener",
-                          "tf": 1.0638297872340425
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "l": {
             "docs": {},
             "e": {
@@ -4299,6 +4244,29 @@ window.lunrData = {
                     "EventEmitter.html#getListeners": {
                       "ref": "EventEmitter.html#getListeners",
                       "tf": 2.083333333333333
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "s": {
+              "docs": {},
+              "s": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "b": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "EventEmitter.html#removeListener": {
+                          "ref": "EventEmitter.html#removeListener",
+                          "tf": 1.0638297872340425
+                        }
+                      }
                     }
                   }
                 }
@@ -4351,7 +4319,7 @@ window.lunrData = {
                       "docs": {
                         "EventEmitter.html#addListener": {
                           "ref": "EventEmitter.html#addListener",
-                          "tf": 1.1627906976744187
+                          "tf": 1.6129032258064515
                         },
                         "EventEmitter.html#emit": {
                           "ref": "EventEmitter.html#emit",
@@ -4468,10 +4436,6 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "EventEmitter.html#addListener": {
-                    "ref": "EventEmitter.html#addListener",
-                    "tf": 1.1627906976744187
-                  },
                   "EventEmitter.html#removeListener": {
                     "ref": "EventEmitter.html#removeListener",
                     "tf": 1.0638297872340425
@@ -4632,7 +4596,7 @@ window.lunrData = {
                         },
                         "EventEmitter.html#addListener": {
                           "ref": "EventEmitter.html#addListener",
-                          "tf": 3.488372093023256
+                          "tf": 4.838709677419355
                         },
                         "EventEmitter.html#emit": {
                           "ref": "EventEmitter.html#emit",
@@ -4822,7 +4786,7 @@ window.lunrData = {
               },
               "EventEmitter.html#addListener": {
                 "ref": "EventEmitter.html#addListener",
-                "tf": 3.488372093023256
+                "tf": 1.6129032258064515
               },
               "EventEmitter.html#getListenerCount": {
                 "ref": "EventEmitter.html#getListenerCount",
@@ -4949,10 +4913,6 @@ window.lunrData = {
             "docs": {},
             "y": {
               "docs": {
-                "EventEmitter.html#addListener": {
-                  "ref": "EventEmitter.html#addListener",
-                  "tf": 1.1627906976744187
-                },
                 "EventEmitter.html#removeListener": {
                   "ref": "EventEmitter.html#removeListener",
                   "tf": 1.0638297872340425
@@ -5038,7 +4998,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 441
+      "length": 433
     },
     "corpusTokens": [
       "0",
@@ -5338,7 +5298,7 @@ window.lunrData = {
       "name": "addListener",
       "tags": "EventEmitter#addListener addListener",
       "summary": "",
-      "description": "Adds a listener for the specified event. It returns the Listener object that was created and attached to the event. To attach a global listener that will be triggered for any events, use EventEmitter.ANY_EVENT as the first parameter. Note that a global listener will also be triggered by non-registered events. For example, this will trigger global listeners: myEmitter.emit('bogus'). Note that, while it is also possible to use the on() method to achieve the exact same result, using addListener() is the recommended way."
+      "description": "Adds a listener for the specified event. It returns the Listener object that was created and attached to the event. To attach a global listener that will be triggered for any events, use EventEmitter.ANY_EVENT as the first parameter. Note that a global listener will also be triggered by non-registered events. For example, this will trigger global listeners: myEmitter.emit('bogus')."
     },
     "EventEmitter.html#emit": {
       "id": "EventEmitter.html#emit",
