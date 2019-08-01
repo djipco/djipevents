@@ -46,9 +46,9 @@ Beware that, in production, you should probably target a specific version of the
 
 ### CommonJS format (Node.js)
 
-CommonJS is the standard in the Node.js world. As far as I can tell, this library should work in 
-Node.js. Since Node.js already has its own `EventEmitter` object, I guess the only point to use this
-library in a Node.js environment would be for cross-compatibility: 
+CommonJS is the standard in the Node.js world. Since Node.js already has its own `EventEmitter` 
+object, I guess the only point to use this library in a Node.js environment would be for 
+cross-compatibility: 
 
 ```javascript
 const EventEmitter = require("djipevents").EventEmitter;
@@ -77,7 +77,7 @@ functionalities are less glaringly obvious than with some other libraries but ar
 example:
 
   * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
-  same by calling `removeListener()` with not arguments.
+  same by calling `removeListener()` with no arguments.
 
   * There is no `prependListener()` method either. Just use the `addListener()` with the `prepend` 
   option.
