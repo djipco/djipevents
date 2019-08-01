@@ -302,29 +302,6 @@
           "true",
           "us"
         ],
-        "EventEmitter.html#once": [
-          "add",
-          "attach",
-          "callback",
-          "creat",
-          "event",
-          "eventemitter#onc",
-          "eventemitter.any_ev",
-          "first",
-          "function",
-          "global",
-          "listen",
-          "object",
-          "on",
-          "onc",
-          "option",
-          "paramet",
-          "return",
-          "specifi",
-          "time",
-          "trigger",
-          "us"
-        ],
         "EventEmitter.html#removeListener": [
           "achiev",
           "addit",
@@ -560,7 +537,7 @@
           "target"
         ]
       },
-      "length": 29
+      "length": 28
     },
     "tokenStore": {
       "root": {
@@ -866,10 +843,6 @@
                       "ref": "EventEmitter.html#hasListener",
                       "tf": 36.45833333333333
                     },
-                    "EventEmitter.html#once": {
-                      "ref": "EventEmitter.html#once",
-                      "tf": 27.142857142857142
-                    },
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
                       "tf": 28.19148936170213
@@ -971,10 +944,6 @@
                                                 "EventEmitter.html#hasListener": {
                                                   "ref": "EventEmitter.html#hasListener",
                                                   "tf": 6.25
-                                                },
-                                                "EventEmitter.html#once": {
-                                                  "ref": "EventEmitter.html#once",
-                                                  "tf": 2.380952380952381
                                                 },
                                                 "EventEmitter.html#removeListener": {
                                                   "ref": "EventEmitter.html#removeListener",
@@ -1222,20 +1191,6 @@
                                                 }
                                               }
                                             }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "o": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "c": {
-                                        "docs": {
-                                          "EventEmitter.html#once": {
-                                            "ref": "EventEmitter.html#once",
-                                            "tf": 1150
                                           }
                                         }
                                       }
@@ -1879,10 +1834,6 @@
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
                         "tf": 6.25
-                      },
-                      "EventEmitter.html#once": {
-                        "ref": "EventEmitter.html#once",
-                        "tf": 27.142857142857142
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
@@ -2665,10 +2616,6 @@
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
                         "tf": 3.125
-                      },
-                      "EventEmitter.html#once": {
-                        "ref": "EventEmitter.html#once",
-                        "tf": 2.380952380952381
                       }
                     }
                   }
@@ -2751,10 +2698,6 @@
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
                         "tf": 3.125
-                      },
-                      "EventEmitter.html#once": {
-                        "ref": "EventEmitter.html#once",
-                        "tf": 2.380952380952381
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
@@ -3050,10 +2993,6 @@
                             "ref": "EventEmitter.html#emit",
                             "tf": 3.3333333333333335
                           },
-                          "EventEmitter.html#once": {
-                            "ref": "EventEmitter.html#once",
-                            "tf": 20
-                          },
                           "EventEmitter.html#removeListener": {
                             "ref": "EventEmitter.html#removeListener",
                             "tf": 26.06382978723404
@@ -3136,10 +3075,6 @@
                     "EventEmitter.html#addListener": {
                       "ref": "EventEmitter.html#addListener",
                       "tf": 1.1627906976744187
-                    },
-                    "EventEmitter.html#once": {
-                      "ref": "EventEmitter.html#once",
-                      "tf": 2.380952380952381
                     }
                   }
                 }
@@ -3325,10 +3260,6 @@
                 "EventEmitter.html#addListener": {
                   "ref": "EventEmitter.html#addListener",
                   "tf": 1.1627906976744187
-                },
-                "EventEmitter.html#once": {
-                  "ref": "EventEmitter.html#once",
-                  "tf": 2.380952380952381
                 }
               },
               "l": {
@@ -3569,10 +3500,6 @@
                         "ref": "EventEmitter.html#addListener",
                         "tf": 2.3255813953488373
                       },
-                      "EventEmitter.html#once": {
-                        "ref": "EventEmitter.html#once",
-                        "tf": 4.761904761904762
-                      },
                       "Listener.html": {
                         "ref": "Listener.html",
                         "tf": 2.272727272727273
@@ -3672,10 +3599,6 @@
                             "ref": "EventEmitter.html#hasListener",
                             "tf": 110
                           },
-                          "EventEmitter.html#once": {
-                            "ref": "EventEmitter.html#once",
-                            "tf": 110
-                          },
                           "EventEmitter.html#removeListener": {
                             "ref": "EventEmitter.html#removeListener",
                             "tf": 110
@@ -3747,10 +3670,6 @@
                     "EventEmitter.html#emit": {
                       "ref": "EventEmitter.html#emit",
                       "tf": 2.2222222222222223
-                    },
-                    "EventEmitter.html#once": {
-                      "ref": "EventEmitter.html#once",
-                      "tf": 2.380952380952381
                     },
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
@@ -4061,10 +3980,6 @@
                         "ref": "EventEmitter.html#getListeners",
                         "tf": 2.083333333333333
                       },
-                      "EventEmitter.html#once": {
-                        "ref": "EventEmitter.html#once",
-                        "tf": 2.380952380952381
-                      },
                       "Listener.html": {
                         "ref": "Listener.html",
                         "tf": 6.8181818181818175
@@ -4118,21 +4033,9 @@
                 "ref": "EventEmitter.html#hasListener",
                 "tf": 3.125
               },
-              "EventEmitter.html#once": {
-                "ref": "EventEmitter.html#once",
-                "tf": 2.380952380952381
-              },
               "EventEmitter.html#removeListener": {
                 "ref": "EventEmitter.html#removeListener",
                 "tf": 1.0638297872340425
-              }
-            },
-            "c": {
-              "docs": {
-                "EventEmitter.html#once": {
-                  "ref": "EventEmitter.html#once",
-                  "tf": 670
-                }
               }
             }
           },
@@ -4165,10 +4068,6 @@
                     "docs": {
                       "EventEmitter.html#addListener": {
                         "ref": "EventEmitter.html#addListener",
-                        "tf": 20
-                      },
-                      "EventEmitter.html#once": {
-                        "ref": "EventEmitter.html#once",
                         "tf": 20
                       },
                       "EventEmitter.html#removeListener": {
@@ -4239,10 +4138,6 @@
                         "EventEmitter.html#hasListener": {
                           "ref": "EventEmitter.html#hasListener",
                           "tf": 3.125
-                        },
-                        "EventEmitter.html#once": {
-                          "ref": "EventEmitter.html#once",
-                          "tf": 2.380952380952381
                         },
                         "EventEmitter.html#removeListener": {
                           "ref": "EventEmitter.html#removeListener",
@@ -4465,10 +4360,6 @@
                         "EventEmitter.html#hasListener": {
                           "ref": "EventEmitter.html#hasListener",
                           "tf": 3.125
-                        },
-                        "EventEmitter.html#once": {
-                          "ref": "EventEmitter.html#once",
-                          "tf": 2.380952380952381
                         },
                         "EventEmitter.html#removeListener": {
                           "ref": "EventEmitter.html#removeListener",
@@ -4750,10 +4641,6 @@
                         "EventEmitter.html#getListeners": {
                           "ref": "EventEmitter.html#getListeners",
                           "tf": 2.083333333333333
-                        },
-                        "EventEmitter.html#once": {
-                          "ref": "EventEmitter.html#once",
-                          "tf": 2.380952380952381
                         }
                       }
                     }
@@ -4807,10 +4694,6 @@
               "docs": {},
               "e": {
                 "docs": {
-                  "EventEmitter.html#once": {
-                    "ref": "EventEmitter.html#once",
-                    "tf": 2.380952380952381
-                  },
                   "Listener.html#count": {
                     "ref": "Listener.html#count",
                     "tf": 10
@@ -4952,10 +4835,6 @@
               "EventEmitter.html#hasListener": {
                 "ref": "EventEmitter.html#hasListener",
                 "tf": 3.125
-              },
-              "EventEmitter.html#once": {
-                "ref": "EventEmitter.html#once",
-                "tf": 2.380952380952381
               },
               "EventEmitter.html#removeListener": {
                 "ref": "EventEmitter.html#removeListener",
@@ -5159,7 +5038,7 @@
           }
         }
       },
-      "length": 462
+      "length": 441
     },
     "corpusTokens": [
       "0",
@@ -5222,7 +5101,6 @@
       "eventemitter#getlistenercount",
       "eventemitter#haslisten",
       "eventemitter#map",
-      "eventemitter#onc",
       "eventemitter#removelisten",
       "eventemitter#suspend",
       "eventemitter#unsuspend",
@@ -5293,7 +5171,6 @@
       "observ",
       "occur",
       "on",
-      "onc",
       "option",
       "paramet",
       "pass",
@@ -5502,16 +5379,6 @@
       "tags": "EventEmitter#hasListener hasListener",
       "summary": "",
       "description": "Returns true if the specified event has at least one registered listener. Note: to check for global listeners added with EventEmitter.ANY_EVENT, use EventEmitter.ANY_EVENT as the parameter."
-    },
-    "EventEmitter.html#once": {
-      "id": "EventEmitter.html#once",
-      "kind": "function",
-      "title": "once( event, callback [, options ] ) → {Listener}",
-      "longname": "EventEmitter#once",
-      "name": "once",
-      "tags": "EventEmitter#once once",
-      "summary": "",
-      "description": "Adds a one-time listener for the specified event. It returns the Listener object that was created and attached to the event. To attach a global listener that will be triggered for any events, use EventEmitter.ANY_EVENT as the first parameter."
     },
     "EventEmitter.html#removeListener": {
       "id": "EventEmitter.html#removeListener",
