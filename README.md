@@ -39,7 +39,7 @@ approach:
 You can also use the CDN version:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/djipevents@latest/dist/djipevents.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/djipevents/dist/djipevents.iife.min.js"></script>
 
 ```
 Beware that, in production, you should probably target a specific version of the library:
@@ -76,10 +76,10 @@ found in the browser's `EventTarget` or in Node.js' `EventEmitter`:
   
 ### Hidden goodies
   
-As you can see in the reference, the [API](https://djipco.github.io/djipevents/) is quite lean. It 
-is meant to be that way. That does not mean the library is not as powerful as others. Some of the 
-functionalities are less glaringly obvious than with some other libraries but are still there. For
-example:
+As you can see in the reference, the [API](https://djipco.github.io/djipevents/EventEmitter.html) is 
+quite lean. It is meant to be that way. That does not mean the library is not as powerful as others. 
+Some of the functionalities are less glaringly obvious than with some other libraries but are still 
+there. For example:
 
   * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
   same by calling `removeListener()` with no arguments.
@@ -90,5 +90,5 @@ example:
 ## API Reference
 
 This library is quite straightforward and I did not take time to create usage examples. However, I 
-did take some time to create a complete [API Reference](https://djipco.github.io/djipevents/) which
-should be enough for most to get started.
+did take some time to create a complete **[API Reference](https://djipco.github.io/djipevents/)** 
+which should be enough for most to get started.
