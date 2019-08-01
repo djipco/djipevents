@@ -77,15 +77,21 @@ found in the browser's `EventTarget` or in Node.js' `EventEmitter`:
 ### Hidden goodies
   
 As you can see in the reference, the [API](https://djipco.github.io/djipevents/EventEmitter.html) is 
-quite lean. It is meant to be that way. That does not mean the library is not as powerful as others. 
-Some of the functionalities are less glaringly obvious than with some other libraries but are still 
-there. For example:
+quite lean. It is meant to be that way. That does not mean the library is less powerful than others. 
+Some of the functionalities are just less glaringly obvious than with some other libraries. For 
+example:
 
   * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
   same by calling `removeListener()` with no arguments.
+  
+  * There is no `once()` method. Just use the `addListener()` method with the `remaining` option.
 
-  * There is no `prependListener()` method either. Just use the `addListener()` with the `prepend` 
-  option.
+  * There is no `prependListener()` method. Just use `addListener()` with the `prepend` option.
+
+There are no `on()` and `off()` methods either. You might be wondering why. To me, `on()`, `off()` 
+and `once()` only look good for a brief moment. Once you start extending or mixing in this library, 
+you realize that identifiers such as `on` and `off` are collide-prone and do not really describe 
+what the library is doing.
 
 ## API Reference
 
