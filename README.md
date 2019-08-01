@@ -1,8 +1,8 @@
 # DjipEvents
 
-DjipEvents is an event-handling library that can be used in the browser and in Node.js. It features
-methods to register, trigger and delete events. It is a mostly abstract class meant to be extended 
-by (or mixed into) other objects. 
+DjipEvents is an event-handling library that can be used in the browser and in 
+[Node.js](https://nodejs.org). It features methods to register, trigger and delete events. It is a 
+mostly abstract class meant to be extended by (or mixed into) other objects. 
  
 It is currently available in 3 flavors:
 
@@ -39,10 +39,15 @@ approach:
 You can also use the CDN version:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/djipevents/dist/djipevents.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/djipevents@latest/dist/djipevents.iife.min.js"></script>
 
 ```
-Beware that, in production, you should probably target a specific version of the library.
+Beware that, in production, you should probably target a specific version of the library:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/djipevents@0.9.4/dist/djipevents.iife.min.js"></script>
+
+```
 
 ### CommonJS format (Node.js)
 
