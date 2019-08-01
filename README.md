@@ -62,7 +62,6 @@ found in the browser's `EventTarget` or in Node.js' `EventEmitter`:
   * Listeners can be set to trigger an arbitrary number of times with the `count` option;
   * Listeners can be set to expire with the `duration` option;
   * The `emit()` method returns an array containing the return value of all callback functions;
-  * Listeners can also be prepended to the list of listeners (default is to append);
   * A custom value for `this` in the callback can be assigned via the `context` option;
   * It is possible to listen to all events by using `EventEmitter.ANY_EVENT`.
   * You can pass data to the callback by using the `data` option of `addListener()`. You can also 
