@@ -96,5 +96,6 @@ what the library is doing.
 ## API Reference
 
 This library is quite straightforward and I did not take time to create usage examples. However, I 
-did take some time to create a complete **[API Reference](https://djipco.github.io/djipevents/)** 
-which should be enough for most to get started.
+did take some time to create a complete 
+**[API Reference](https://djipco.github.io/djipevents/EventEmitter.html)** which should be enough 
+for most to get started.
