@@ -308,6 +308,8 @@ export class EventEmitter {
           );
         }
 
+        listener.count++;
+
       }
 
       if (--listener.remaining < 1) listener.remove();
@@ -465,6 +467,12 @@ export class Listener {
      * @type {number}
      */
     this.remaining = parseInt(options.remaining) >= 1 ? parseInt(options.remaining) : Infinity;
+
+    /**
+     * The number of times the listener function was executed
+     * @type {number}
+     */
+    this.count = 0;
 
     /**
      * Arbitraty data that is going to be passed as the second parameter of the callback function
