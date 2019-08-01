@@ -52,7 +52,7 @@ Beware that, in production, you should probably target a specific version of the
 ### CommonJS format (Node.js)
 
 CommonJS is the standard in the Node.js world. Even though Node.js already offers its own 
-`EventEmitter` object, you can still use this **djipevents** if you prefer: 
+`EventEmitter` object, you can still use **djipevents** if you prefer its API: 
 
 ```javascript
 const EventEmitter = require("djipevents").EventEmitter;
