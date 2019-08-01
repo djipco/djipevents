@@ -75,6 +75,8 @@ describe("EventEmitter", function() {
 
     it("should return the correct values");
 
+    it("should pass along all the arguments to the callback functions");
+
     it("should pass on the value and data to the callback");
 
     it("should fire callbacks added via EventEmitter.ANY_EVENT", function(done) {

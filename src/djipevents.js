@@ -56,9 +56,6 @@ export class EventEmitter {
    * as the first parameter. Note that a global listener will also be triggered by non-registered
    * events. For example, this will trigger global listeners: `myEmitter.emit('bogus')`.
    *
-   * Note that, while it is also possible to use the `on()` method to achieve the exact same result,
-   * using `addListener()` is the recommended way.
-   *
    * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
@@ -237,8 +234,9 @@ export class EventEmitter {
 
   /**
    * Executes the callback functions of all `Listener` objects registered for a given event. The
-   * functions are passed the specified `value` (if present) as the first parameter and the content
-   * of the listener's `data` property (if any).
+   * functions are passed all the additional arguments specified when calling `emit()` (if any). The
+   * last argument passed to the callback function is the content of the listener's `data` property
+   * (if present).
    *
    * If the `suspended` property of the `EventEmitter` or of the `Listener` is `true`, the callback
    * functions will not be executed.
@@ -249,14 +247,14 @@ export class EventEmitter {
    * listeners (added with `EventEmitter.ANY_EVENT`).
    *
    * @param {string} event The event
-   * @param {*} value Arbitrary data to pass along to the callback functions
+   * @param {...*} args Arbitrary number of arguments to pass along to the callback functions
    *
    * @returns {Array} An array containing the return value of each of the executed listener
    * functions
    *
    * @throws {TypeError} The `event` parameter must be a string.
    */
-  emit(event, value) {
+  emit(event, ...args) {
 
     if (typeof event !== "string" && !(event instanceof String)) {
       throw new TypeError("The 'event' parameter must be a string.");
@@ -279,19 +277,8 @@ export class EventEmitter {
       if (listener.suspended) return;
 
       if (listener.remaining > 0) {
-
-        if (value !== undefined) {
-          results.push(
-            listener.callback.call(listener.context, value, listener.data)
-          );
-        } else {
-          results.push(
-            listener.callback.call(listener.context, listener.data)
-          );
-        }
-
+        results.push(listener.callback.call(listener.context, ...args, listener.data));
         listener.count++;
-
       }
 
       if (--listener.remaining < 1) listener.remove();
