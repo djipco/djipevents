@@ -252,6 +252,7 @@
           "pleas",
           "regist",
           "regular",
+          "remain",
           "return",
           "specif",
           "those",
@@ -493,17 +494,6 @@
           "object",
           "valu"
         ],
-        "Listener.html#count": [
-          "automat",
-          "callback",
-          "count",
-          "listener#count",
-          "member",
-          "number",
-          "remain",
-          "remov",
-          "time"
-        ],
         "Listener.html#data": [
           "arbitrati",
           "callback",
@@ -522,6 +512,16 @@
           "member",
           "name",
           "string"
+        ],
+        "Listener.html#remaining": [
+          "automat",
+          "callback",
+          "listener#remain",
+          "member",
+          "number",
+          "remain",
+          "remov",
+          "time"
         ],
         "Listener.html#suspended": [
           "boolean",
@@ -846,7 +846,7 @@
                     },
                     "EventEmitter.html#getListenerCount": {
                       "ref": "EventEmitter.html#getListenerCount",
-                      "tf": 39.33333333333333
+                      "tf": 39.102564102564095
                     },
                     "EventEmitter.html#getListeners": {
                       "ref": "EventEmitter.html#getListeners",
@@ -952,7 +952,7 @@
                                                 },
                                                 "EventEmitter.html#getListenerCount": {
                                                   "ref": "EventEmitter.html#getListenerCount",
-                                                  "tf": 4
+                                                  "tf": 3.8461538461538463
                                                 },
                                                 "EventEmitter.html#getListeners": {
                                                   "ref": "EventEmitter.html#getListeners",
@@ -1856,7 +1856,7 @@
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 4
+                        "tf": 3.8461538461538463
                       },
                       "EventEmitter.html#getListeners": {
                         "ref": "EventEmitter.html#getListeners",
@@ -1962,20 +1962,6 @@
                                     }
                                   }
                                 }
-                              },
-                              "u": {
-                                "docs": {},
-                                "n": {
-                                  "docs": {},
-                                  "t": {
-                                    "docs": {
-                                      "Listener.html#count": {
-                                        "ref": "Listener.html#count",
-                                        "tf": 1150
-                                      }
-                                    }
-                                  }
-                                }
                               }
                             }
                           },
@@ -2003,6 +1989,40 @@
                                 "Listener.html#event": {
                                   "ref": "Listener.html#event",
                                   "tf": 1150
+                                }
+                              }
+                            }
+                          },
+                          "r": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "m": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {
+                                        "Listener.html#remaining": {
+                                          "ref": "Listener.html#remaining",
+                                          "tf": 1150
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "o": {
+                                  "docs": {},
+                                  "v": {
+                                    "docs": {
+                                      "Listener.html#remove": {
+                                        "ref": "Listener.html#remove",
+                                        "tf": 1150
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -2049,26 +2069,6 @@
                                           "ref": "Listener.html#target",
                                           "tf": 1150
                                         }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "r": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "m": {
-                                "docs": {},
-                                "o": {
-                                  "docs": {},
-                                  "v": {
-                                    "docs": {
-                                      "Listener.html#remove": {
-                                        "ref": "Listener.html#remove",
-                                        "tf": 1150
                                       }
                                     }
                                   }
@@ -2261,7 +2261,7 @@
                   },
                   "EventEmitter.html#getListenerCount": {
                     "ref": "EventEmitter.html#getListenerCount",
-                    "tf": 2
+                    "tf": 1.9230769230769231
                   },
                   "EventEmitter.html#getListeners": {
                     "ref": "EventEmitter.html#getListeners",
@@ -2303,10 +2303,10 @@
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 37.33333333333333
+                        "tf": 39.102564102564095
                       },
-                      "Listener.html#count": {
-                        "ref": "Listener.html#count",
+                      "Listener.html#remaining": {
+                        "ref": "Listener.html#remaining",
                         "tf": 58.33333333333333
                       }
                     }
@@ -2415,7 +2415,7 @@
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 2
+                        "tf": 1.9230769230769231
                       },
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
@@ -2447,7 +2447,7 @@
                         },
                         "EventEmitter.html#getListenerCount": {
                           "ref": "EventEmitter.html#getListenerCount",
-                          "tf": 2
+                          "tf": 1.9230769230769231
                         },
                         "EventEmitter.html#getListeners": {
                           "ref": "EventEmitter.html#getListeners",
@@ -2473,8 +2473,8 @@
                       "ref": "EventEmitter.html#removeListener",
                       "tf": 4.25531914893617
                     },
-                    "Listener.html#count": {
-                      "ref": "Listener.html#count",
+                    "Listener.html#remaining": {
+                      "ref": "Listener.html#remaining",
                       "tf": 8.333333333333332
                     },
                     "Listener.html#remove": {
@@ -2516,9 +2516,13 @@
                   "docs": {},
                   "n": {
                     "docs": {
-                      "Listener.html#count": {
-                        "ref": "Listener.html#count",
-                        "tf": 8.333333333333332
+                      "EventEmitter.html#getListenerCount": {
+                        "ref": "EventEmitter.html#getListenerCount",
+                        "tf": 1.9230769230769231
+                      },
+                      "Listener.html#remaining": {
+                        "ref": "Listener.html#remaining",
+                        "tf": 708.3333333333334
                       }
                     }
                   }
@@ -2616,7 +2620,7 @@
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 2
+                        "tf": 1.9230769230769231
                       },
                       "EventEmitter.html#getListeners": {
                         "ref": "EventEmitter.html#getListeners",
@@ -2702,7 +2706,7 @@
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 4
+                        "tf": 3.8461538461538463
                       },
                       "EventEmitter.html#getListeners": {
                         "ref": "EventEmitter.html#getListeners",
@@ -2953,11 +2957,7 @@
                   "docs": {
                     "EventEmitter.html#getListenerCount": {
                       "ref": "EventEmitter.html#getListenerCount",
-                      "tf": 4
-                    },
-                    "Listener.html#count": {
-                      "ref": "Listener.html#count",
-                      "tf": 700
+                      "tf": 1.9230769230769231
                     }
                   },
                   "e": {
@@ -3042,13 +3042,13 @@
                             "ref": "Listener.html#context",
                             "tf": 5.555555555555555
                           },
-                          "Listener.html#count": {
-                            "ref": "Listener.html#count",
-                            "tf": 8.333333333333332
-                          },
                           "Listener.html#data": {
                             "ref": "Listener.html#data",
                             "tf": 6.25
+                          },
+                          "Listener.html#remaining": {
+                            "ref": "Listener.html#remaining",
+                            "tf": 8.333333333333332
                           }
                         }
                       }
@@ -3261,7 +3261,7 @@
               },
               "EventEmitter.html#getListenerCount": {
                 "ref": "EventEmitter.html#getListenerCount",
-                "tf": 2
+                "tf": 1.9230769230769231
               },
               "EventEmitter.html#getListeners": {
                 "ref": "EventEmitter.html#getListeners",
@@ -3576,8 +3576,8 @@
                     "docs": {},
                     "t": {
                       "docs": {
-                        "Listener.html#count": {
-                          "ref": "Listener.html#count",
+                        "Listener.html#remaining": {
+                          "ref": "Listener.html#remaining",
                           "tf": 8.333333333333332
                         }
                       }
@@ -3825,16 +3825,16 @@
                         "ref": "Listener.html#context",
                         "tf": 110
                       },
-                      "Listener.html#count": {
-                        "ref": "Listener.html#count",
-                        "tf": 110
-                      },
                       "Listener.html#data": {
                         "ref": "Listener.html#data",
                         "tf": 110
                       },
                       "Listener.html#event": {
                         "ref": "Listener.html#event",
+                        "tf": 110
+                      },
+                      "Listener.html#remaining": {
+                        "ref": "Listener.html#remaining",
                         "tf": 110
                       },
                       "Listener.html#suspended": {
@@ -4182,7 +4182,7 @@
                         },
                         "EventEmitter.html#getListenerCount": {
                           "ref": "EventEmitter.html#getListenerCount",
-                          "tf": 2
+                          "tf": 1.9230769230769231
                         },
                         "EventEmitter.html#getListeners": {
                           "ref": "EventEmitter.html#getListeners",
@@ -4351,7 +4351,7 @@
                   "docs": {
                     "EventEmitter.html#getListenerCount": {
                       "ref": "EventEmitter.html#getListenerCount",
-                      "tf": 2
+                      "tf": 1.9230769230769231
                     },
                     "EventEmitter.html#getListeners": {
                       "ref": "EventEmitter.html#getListeners",
@@ -4389,7 +4389,7 @@
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 4
+                        "tf": 3.8461538461538463
                       },
                       "EventEmitter.html#getListeners": {
                         "ref": "EventEmitter.html#getListeners",
@@ -4763,8 +4763,8 @@
                     "ref": "EventEmitter.html#once",
                     "tf": 2.380952380952381
                   },
-                  "Listener.html#count": {
-                    "ref": "Listener.html#count",
+                  "Listener.html#remaining": {
+                    "ref": "Listener.html#remaining",
                     "tf": 8.333333333333332
                   }
                 }
@@ -4781,7 +4781,7 @@
                   "docs": {
                     "EventEmitter.html#getListenerCount": {
                       "ref": "EventEmitter.html#getListenerCount",
-                      "tf": 2
+                      "tf": 1.9230769230769231
                     },
                     "EventEmitter.html#getListeners": {
                       "ref": "EventEmitter.html#getListeners",
@@ -4812,7 +4812,7 @@
                     "docs": {
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
-                        "tf": 2
+                        "tf": 1.9230769230769231
                       }
                     }
                   }
@@ -4891,7 +4891,7 @@
               },
               "EventEmitter.html#getListenerCount": {
                 "ref": "EventEmitter.html#getListenerCount",
-                "tf": 2
+                "tf": 1.9230769230769231
               },
               "EventEmitter.html#getListeners": {
                 "ref": "EventEmitter.html#getListeners",
@@ -5211,9 +5211,9 @@
       "listen",
       "listener#callback",
       "listener#context",
-      "listener#count",
       "listener#data",
       "listener#ev",
+      "listener#remain",
       "listener#remov",
       "listener#suspend",
       "listener#target",
@@ -5428,7 +5428,7 @@
       "name": "getListenerCount",
       "tags": "EventEmitter#getListenerCount getListenerCount",
       "summary": "",
-      "description": "Returns the number of listeners registered for a specific event. Please note that global events (those added with EventEmitter.ANY_EVENT) do not count towards the count for a \"regular\" event. To get the number of global listeners, specifically use EventEmitter.ANY_EVENT as the parameter."
+      "description": "Returns the number of listeners registered for a specific event. Please note that global events (those added with EventEmitter.ANY_EVENT) do not count towards the remaining number for a \"regular\" event. To get the number of global listeners, specifically use EventEmitter.ANY_EVENT as the parameter."
     },
     "EventEmitter.html#getListeners": {
       "id": "EventEmitter.html#getListeners",
@@ -5531,16 +5531,6 @@
       "summary": "",
       "description": "The context to execute the context function in (a.k.a. the value of this inside the callback function)"
     },
-    "Listener.html#count": {
-      "id": "Listener.html#count",
-      "kind": "member",
-      "title": "count :number",
-      "longname": "Listener#count",
-      "name": "count",
-      "tags": "Listener#count count",
-      "summary": "",
-      "description": "The remaining number of times after which the callback should automatically be removed."
-    },
     "Listener.html#data": {
       "id": "Listener.html#data",
       "kind": "member",
@@ -5560,6 +5550,16 @@
       "tags": "Listener#event event",
       "summary": "",
       "description": "The event name"
+    },
+    "Listener.html#remaining": {
+      "id": "Listener.html#remaining",
+      "kind": "member",
+      "title": "remaining :number",
+      "longname": "Listener#remaining",
+      "name": "remaining",
+      "tags": "Listener#remaining remaining",
+      "summary": "",
+      "description": "The remaining number of times after which the callback should automatically be removed."
     },
     "Listener.html#suspended": {
       "id": "Listener.html#suspended",
