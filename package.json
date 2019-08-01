@@ -1,6 +1,6 @@
 {
   "name": "djipevents",
-  "version": "0.9.1",
+  "version": "0.9.4",
   "description": "An event-handling library for the browser and Node.js",
   "main": "dist/djipevents.cjs.min.js",
   "module": "dist/djipevents.esm.min.js",
