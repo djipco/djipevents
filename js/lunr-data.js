@@ -398,6 +398,7 @@ window.lunrData = {
           "ad",
           "addit",
           "addlisten",
+          "arg",
           "argument",
           "associ",
           "bind",
@@ -3442,6 +3443,10 @@ window.lunrData = {
                 "EventEmitter.html#emit": {
                   "ref": "EventEmitter.html#emit",
                   "tf": 25
+                },
+                "EventEmitter.html#~callback": {
+                  "ref": "EventEmitter.html#~callback",
+                  "tf": 33.33333333333333
                 }
               },
               "u": {
@@ -5062,7 +5067,7 @@ window.lunrData = {
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
-                    "tf": 34.06862745098039
+                    "tf": 0.7352941176470588
                   },
                   "Listener.html#context": {
                     "ref": "Listener.html#context",
@@ -5122,7 +5127,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 449
+      "length": 450
     },
     "corpusTokens": [
       "a.k.a",
@@ -5502,7 +5507,7 @@ window.lunrData = {
     "EventEmitter.html#~callback": {
       "id": "EventEmitter.html#~callback",
       "kind": "typedef",
-      "title": "callback( [ ...value [, data ] ] )",
+      "title": "callback( [ ...args [, data ] ] )",
       "longname": "EventEmitter~callback",
       "name": "callback",
       "tags": "EventEmitter~callback",
