@@ -51,9 +51,8 @@ Beware that, in production, you should probably target a specific version of the
 
 ### CommonJS format (Node.js)
 
-CommonJS is the standard in the Node.js world. Since Node.js already has its own `EventEmitter` 
-object, I guess the only point to use this library in a Node.js environment would be for 
-cross-compatibility: 
+CommonJS is the standard in the Node.js world. Even though Node.js already offers its own 
+`EventEmitter` object, you can still use this **djipevents** if you prefer: 
 
 ```javascript
 const EventEmitter = require("djipevents").EventEmitter;
