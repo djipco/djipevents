@@ -146,16 +146,37 @@ export class EventEmitter {
   }
 
   /**
-   * Returns `true` if the specified event has at least one registered listener.
+   * Returns `true` if the specified event has at least one registered listener. If no event is
+   * specified, the method returns true if any event has at least one listener registered (this
+   * includes listeners set to listen to any events).
    *
    * Note: to check for global listeners added with `EventEmitter.ANY_EVENT`, use
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event to check
+   * @param {string|EventEmitter.ANY_EVENT} [event] The event to check
    * @returns {boolean}
    */
   hasListener(event) {
-    return (this.map[event] && this.map[event].length > 0) ? true : false;
+
+    if (event === undefined) {
+
+      // Check for ANY_EVENT
+      if (this.map[EventEmitter.ANY_EVENT] && this.map[EventEmitter.ANY_EVENT].length > 0) {
+        return true;
+      }
+
+      // Check for any regular events
+      return Object.entries(this.map).some(([, value]) => {
+        return value.length > 0;
+      });
+
+    } else {
+
+      // Check for specific event
+      return (this.map[event] && this.map[event].length > 0) ? true : false;
+
+    }
+
   }
 
   /**

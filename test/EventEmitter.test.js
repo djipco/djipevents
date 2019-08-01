@@ -233,12 +233,31 @@ describe("EventEmitter", function() {
       ee.addListener("test3", () => {});
       ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
-      expect(ee.hasListener(undefined)).to.be.false;
-      expect(ee.hasListener(null)).to.be.false;
+      // expect(ee.hasListener(undefined)).to.be.false;
+      // expect(ee.hasListener(null)).to.be.false;
       expect(ee.hasListener("test1")).to.be.true;
       expect(ee.hasListener("test2")).to.be.true;
       expect(ee.hasListener("test3")).to.be.true;
       expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
+
+      done();
+
+    });
+
+    it("should check if any listener is registered when no argument is provided", function(done) {
+
+      let ee = new EventEmitter();
+      let listener1 = ee.addListener("test", () => {});
+      expect(ee.hasListener()).to.be.true;
+
+      listener1.remove();
+      expect(ee.hasListener()).to.be.false;
+
+      let listener2 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      expect(ee.hasListener()).to.be.true;
+
+      listener2.remove();
+      expect(ee.hasListener()).to.be.false;
 
       done();
 
