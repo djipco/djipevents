@@ -37,7 +37,7 @@ describe("Listener", function() {
 
       let l1 = new Listener("test", new EventEmitter(), () => {});
       expect(l1.context).to.equal(l1);
-      expect(l1.count).to.equal(Infinity);
+      expect(l1.remaining).to.equal(Infinity);
       expect(l1.data).to.be.undefined;
 
       done();
@@ -50,21 +50,21 @@ describe("Listener", function() {
       let target = new EventEmitter();
       let f = () => {};
       let ctx = {};
-      let count = 23;
+      let remaining = 23;
       let data = {};
 
       let l1 = new Listener(
         evt1,
         target,
         f,
-        {context: ctx, count: count, data: data}
+        {context: ctx, remaining: remaining, data: data}
       );
 
       expect(l1.event).to.equal(evt1);
       expect(l1.target).to.equal(target);
       expect(l1.callback).to.equal(f);
       expect(l1.context).to.equal(ctx);
-      expect(l1.count).to.equal(count);
+      expect(l1.remaining).to.equal(remaining);
       expect(l1.data).to.equal(data);
 
       let evt2 = EventEmitter.ANY_EVENT;
@@ -73,7 +73,7 @@ describe("Listener", function() {
         evt2,
         target,
         f,
-        {context: ctx, count: count, data: data}
+        {context: ctx, remaining: remaining, data: data}
       );
 
       expect(l2.event).to.equal(evt2);

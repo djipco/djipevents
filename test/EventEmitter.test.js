@@ -43,7 +43,7 @@ describe("EventEmitter", function() {
 
       let ee = new EventEmitter();
       let spy = sinon.spy();
-      ee.on("test", spy, {count: 3});
+      ee.on("test", spy, {remaining: 3});
 
       ee.emit("test");
       ee.emit("test");
@@ -261,7 +261,7 @@ describe("EventEmitter", function() {
       let l = ee.on("test", () => {});
 
       expect(l.context).to.equal(ee);
-      expect(l.count).to.equal(Infinity);
+      expect(l.remaining).to.equal(Infinity);
       expect(l.data).to.be.undefined;
 
       let listeners = ee.getListeners("test");
@@ -302,12 +302,12 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should obey specified 'count' parameter", function(done) {
+    it("should obey specified 'remaining' parameter", function(done) {
 
       let ee = new EventEmitter();
       let spy = sinon.spy();
 
-      ee.on("test", spy, {count: 3});
+      ee.on("test", spy, {remaining: 3});
 
       ee.emit("test");
       ee.emit("test");
@@ -321,12 +321,12 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should default to Infinity when invalid 'count' parameter is specified", function(done) {
+    it("should default to Infinity when the 'remaining' parameter is invalid", function(done) {
 
       [-1, 0, undefined, null, {}, -Infinity].forEach(value => {
         let ee = new EventEmitter();
-        let l = ee.on("test", () => {}, {count: value});
-        expect(l.count).to.equal(Infinity);
+        let l = ee.on("test", () => {}, {remaining: value});
+        expect(l.remaining).to.equal(Infinity);
       });
 
       done();
@@ -338,20 +338,20 @@ describe("EventEmitter", function() {
       let evt1 = "test";
       let cb = () => {};
       let ctx = {};
-      let count = 12;
+      let remaining = 12;
       let data = {};
 
       let ee = new EventEmitter();
       let l = ee.on(evt1, cb, {
         context: ctx,
         data: data,
-        count: count
+        remaining: remaining
       });
 
       expect(l.event).to.equal(evt1);
       expect(l.callback).to.equal(cb);
       expect(l.context).to.equal(ctx);
-      expect(l.count).to.equal(count);
+      expect(l.remaining).to.equal(remaining);
       expect(l.data).to.equal(data);
 
       done();
