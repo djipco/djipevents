@@ -32,20 +32,23 @@ export class EventEmitter {
   }
 
   /**
-   * The callback function receives 0, 1 or 2 parameters depending on circumstances. If no specific
-   * value is passed to `emit()`, the callback is executed without any parameters. If `emit()` is
-   * called with a specific value, this value is passed along to the callback function(s). If the
-   * `data` option was specified when the listener was added, this `data` will be passed along to
-   * the callback function(s). This allows us to easily pass data from where the listener is added
-   * to where it is executed.
+   * The callback function is executed when the associated event is triggered via `emit()`. The
+   * `emit()` method relays all arguments it received to the callback functions (except the first
+   * one). Since `emit()` can be passed a variable number of arguments, it is up to the developer to
+   * make sure the arguments match those of the associated callback. In addition, the callback
+   * receives (as its last argument) the content of the listener's `data` property. This makes it
+   * easy to pass data from where the listener is added to where the listener is executed.
    *
-   * The value of `this` in the callback function(s) is set to the `context` option passed to the
-   * `addListener()` method (if specified). By using the `context` option, it is no longer
+   * The value of `this` inside the callback function(s) is set to the `context` option passed to
+   * the `addListener()` method (if specified). By using the `context` option, it is no longer
    * necessary to explicitely bind the function.
    *
    * @callback EventEmitter~callback
-   * @param {*} [value] The value passed to `emit()`
-   * @param {*} [data] The data passed in the `options` when the listener was added
+   * @param {...*} [args] A variable number of arguments matching the ones that were passed to the
+   * `emit()` method (except, the first one)
+   * @param {*} [data] The data present in the `Listener` object's `data` property. This data can be
+   * specified in the `options` of `addListener()` or added manually to the `Listener` by modifying
+   * its `data` property.
    */
 
   /**
@@ -66,7 +69,8 @@ export class EventEmitter {
    * automatically expires.
    * @param {boolean} [options.remaining=Infinity] The number of times after which the callback
    * should automatically be removed.
-   * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
+   * @param {*} [options.data] Arbitrary data that will be stored in the listener's `data` property
+   * and will be passed along to the callback function upon execution (as its last argument).
    *
    * @returns {Listener} The newly created `Listener` object.
    *
@@ -85,7 +89,7 @@ export class EventEmitter {
 
     if (typeof callback !== "function") throw new TypeError("The callback must be a function.");
 
-    // Define default options and merge declared options into them
+    // Define default options and merge explicitely declared options into them
     const defaults = {
       context: this,
       remaining: Infinity,
