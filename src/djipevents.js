@@ -67,8 +67,8 @@ export class EventEmitter {
    * of the listeners array
    * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
    * automatically expires.
-   * @param {boolean} [options.count=Infinity] The number of times after which the callback should
-   * automatically be removed.
+   * @param {boolean} [options.remaining=Infinity] The number of times after which the callback
+   * should automatically be removed.
    * @param {*} [options.data] Arbitrary data to pass on to the callback function upon execution
    *
    * @returns {Listener} The newly created `Listener` object.
@@ -91,7 +91,7 @@ export class EventEmitter {
     // Define default options and merge declared options into them
     const defaults = {
       context: this,
-      count: Infinity,
+      remaining: Infinity,
       data: undefined,
       duration: Infinity,
       prepend: false
@@ -148,7 +148,7 @@ export class EventEmitter {
    * @throws {TypeError} The `callback` parameter must be a function.
    */
   once(event, callback, options = {}) {
-    options.count = 1;
+    options.remaining = 1;
     return this.on(event, callback, options);
   }
 
@@ -243,8 +243,8 @@ export class EventEmitter {
    * Returns the number of listeners registered for a specific event.
    *
    * Please note that global events (those added with `EventEmitter.ANY_EVENT`) do not count
-   * towards the count for a "regular" event. To get the number of global listeners, specifically
-   * use `EventEmitter.ANY_EVENT` as the parameter.
+   * towards the remaining number for a "regular" event. To get the number of global listeners,
+   * specifically use `EventEmitter.ANY_EVENT` as the parameter.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event
    * @returns {number} The number of listeners registered for the specified event.
@@ -296,7 +296,7 @@ export class EventEmitter {
       // This is the per-listener suspension check
       if (listener.suspended) return;
 
-      if (listener.count > 0) {
+      if (listener.remaining > 0) {
 
         if (value !== undefined) {
           results.push(
@@ -310,7 +310,7 @@ export class EventEmitter {
 
       }
 
-      if (--listener.count < 1) listener.remove();
+      if (--listener.remaining < 1) listener.remove();
 
     });
 
@@ -335,8 +335,8 @@ export class EventEmitter {
    * callback function.
    * @param {Object} [options={}]
    * @param {*} [options.context] Only remove the listeners that have this exact context.
-   * @param {number} [options.count] Only remove the listener if it has exactly that many remaining
-   * times to be executed.
+   * @param {number} [options.remaining] Only remove the listener if it has exactly that many
+   * remaining times to be executed.
    */
   removeListener(event, callback, options = {}) {
 
@@ -351,7 +351,7 @@ export class EventEmitter {
     // Find listeners that do not match the criterias (those are the ones we will keep)
     let events = this.map[event].filter(listener => {
       return (callback && listener.callback !== callback) ||
-        (options.count && options.count !== listener.count) ||
+        (options.remaining && options.remaining !== listener.remaining) ||
         (options.context && options.context !== listener.context);
     });
 
@@ -400,7 +400,7 @@ export class Listener {
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the listener in (a.k.a. the value
    * of `this` inside the callback function.
-   * @param {number} [options.count=Infinity] The remaining number of times after which the
+   * @param {number} [options.remaining=Infinity] The remaining number of times after which the
    * callback should automatically be removed.
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
    * execution (as the second parameter)
@@ -430,7 +430,7 @@ export class Listener {
     // Define default options and merge declared options into them,
     const defaults = {
       context: this,
-      count: Infinity,
+      remaining: Infinity,
       data: undefined
     };
     options = Object.assign({}, defaults, options);
@@ -464,7 +464,7 @@ export class Listener {
      * The remaining number of times after which the callback should automatically be removed.
      * @type {number}
      */
-    this.count = parseInt(options.count) >= 1 ? parseInt(options.count) : Infinity;
+    this.remaining = parseInt(options.remaining) >= 1 ? parseInt(options.remaining) : Infinity;
 
     /**
      * Arbitraty data that is going to be passed as the second parameter of the callback function
@@ -484,7 +484,11 @@ export class Listener {
    * Removes the listener from its target.
    */
   remove() {
-    this.target.off(this.event, this.callback, {context: this.context, count: this.count});
+    this.target.removeListener(
+      this.event,
+      this.callback,
+      {context: this.context, remaining: this.remaining}
+    );
   }
 
 }
