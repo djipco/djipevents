@@ -96,6 +96,20 @@ describe("EventEmitter", function() {
 
     });
 
+    it("should properly increment the 'count' property of the listener object", function(done) {
+
+      let spy = sinon.spy();
+      let ee = new EventEmitter();
+      let listener = ee.on("test", spy);
+      for (let i = 0; i < 42; i++) ee.emit("test");
+
+      setTimeout(() => {
+        expect(spy.callCount).to.equal(listener.count);
+        done();
+      }, 25);
+
+    });
+
   });
 
   describe("eventCount", function() {
