@@ -43,7 +43,7 @@ describe("EventEmitter", function() {
 
       let ee = new EventEmitter();
       let spy = sinon.spy();
-      ee.on("test", spy, {remaining: 3});
+      ee.addListener("test", spy, {remaining: 3});
 
       ee.emit("test");
       ee.emit("test");
@@ -61,7 +61,7 @@ describe("EventEmitter", function() {
 
       let ee = new EventEmitter();
       let obj = {};
-      ee.on("test", function() {
+      ee.addListener("test", function() {
         expect(this).to.equal(obj);
         done();
       }, {context: obj});
@@ -83,9 +83,9 @@ describe("EventEmitter", function() {
       let spy2 = sinon.spy();
 
       let ee = new EventEmitter();
-      ee.on("test", () => {});
-      ee.on(EventEmitter.ANY_EVENT, spy1);
-      ee.on(EventEmitter.ANY_EVENT, spy2);
+      ee.addListener("test", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, spy1);
+      ee.addListener(EventEmitter.ANY_EVENT, spy2);
 
       ee.emit("test");
 
@@ -100,7 +100,7 @@ describe("EventEmitter", function() {
 
       let spy = sinon.spy();
       let ee = new EventEmitter();
-      let listener = ee.on("test", spy);
+      let listener = ee.addListener("test", spy);
       for (let i = 0; i < 42; i++) ee.emit("test");
 
       setTimeout(() => {
@@ -117,11 +117,11 @@ describe("EventEmitter", function() {
     it("should return correct number of unique events (excluding global events)", function(done) {
 
       let ee = new EventEmitter();
-      ee.on("test1", () => {});
-      ee.on("test1", () => {});
-      ee.on("test2", () => {});
-      ee.on(EventEmitter.ANY_EVENT, () => {});
-      ee.on(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener("test1", () => {});
+      ee.addListener("test1", () => {});
+      ee.addListener("test2", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
       expect(ee.eventCount).to.equal(2);
 
@@ -136,11 +136,11 @@ describe("EventEmitter", function() {
     it("should return an array with unique event names (excluding global events)", function(done) {
 
       let ee = new EventEmitter();
-      ee.on(EventEmitter.ANY_EVENT, () => {});
-      ee.on("test1", () => {});
-      ee.on("test1", () => {});
-      ee.on("test2", () => {});
-      ee.on(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener("test1", () => {});
+      ee.addListener("test1", () => {});
+      ee.addListener("test2", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
       expect(ee.eventNames[0]).to.equal("test1");
       expect(ee.eventNames[1]).to.equal("test2");
@@ -156,15 +156,15 @@ describe("EventEmitter", function() {
 
     it("should report the correct number of listeners for regular events", function() {
       let ee = new EventEmitter();
-      for (let i = 0; i < 12; i++) ee.on("test", () => {});
-      for (let i = 0; i < 23; i++) ee.on(EventEmitter.ANY_EVENT, () => {});
+      for (let i = 0; i < 12; i++) ee.addListener("test", () => {});
+      for (let i = 0; i < 23; i++) ee.addListener(EventEmitter.ANY_EVENT, () => {});
       expect(ee.getListenerCount("test")).to.equal(12);
     });
 
     it("should report the correct number of listeners for global events", function() {
       let ee = new EventEmitter();
-      for (let i = 0; i < 12; i++) ee.on("test", () => {});
-      for (let i = 0; i < 23; i++) ee.on(EventEmitter.ANY_EVENT, () => {});
+      for (let i = 0; i < 12; i++) ee.addListener("test", () => {});
+      for (let i = 0; i < 23; i++) ee.addListener(EventEmitter.ANY_EVENT, () => {});
       expect(ee.getListenerCount(EventEmitter.ANY_EVENT)).to.equal(23);
     });
 
@@ -182,11 +182,11 @@ describe("EventEmitter", function() {
 
     it("should report the correct listeners for regular events", function(done) {
       let ee = new EventEmitter();
-      let listener1 = ee.on("test", () => {});
-      let listener2 = ee.on("test", () => {});
-      ee.on(EventEmitter.ANY_EVENT, () => {});
-      let listener3 = ee.on("test", () => {});
-      let listener4 = ee.on("test", () => {}, {prepend: true});
+      let listener1 = ee.addListener("test", () => {});
+      let listener2 = ee.addListener("test", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      let listener3 = ee.addListener("test", () => {});
+      let listener4 = ee.addListener("test", () => {}, {prepend: true});
       expect(ee.getListeners("test")[0]).to.equal(listener4);
       expect(ee.getListeners("test")[1]).to.equal(listener1);
       expect(ee.getListeners("test")[2]).to.equal(listener2);
@@ -196,11 +196,11 @@ describe("EventEmitter", function() {
 
     it("should report the correct global listeners", function(done) {
       let ee = new EventEmitter();
-      let listener1 = ee.on(EventEmitter.ANY_EVENT, () => {});
-      let listener2 = ee.on(EventEmitter.ANY_EVENT, () => {});
-      ee.on("test", () => {});
-      let listener3 = ee.on(EventEmitter.ANY_EVENT, () => {});
-      let listener4 = ee.on(EventEmitter.ANY_EVENT, () => {}, {prepend: true});
+      let listener1 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      let listener2 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener("test", () => {});
+      let listener3 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      let listener4 = ee.addListener(EventEmitter.ANY_EVENT, () => {}, {prepend: true});
       expect(ee.getListeners(EventEmitter.ANY_EVENT)[0]).to.equal(listener4);
       expect(ee.getListeners(EventEmitter.ANY_EVENT)[1]).to.equal(listener1);
       expect(ee.getListeners(EventEmitter.ANY_EVENT)[2]).to.equal(listener2);
@@ -225,11 +225,11 @@ describe("EventEmitter", function() {
     it("should report the correct boolean value", function(done) {
 
       let ee = new EventEmitter();
-      ee.on("test1", () => {});
-      ee.on("test2", () => {});
-      ee.on("test3", () => {});
-      ee.on("test3", () => {});
-      ee.on(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener("test1", () => {});
+      ee.addListener("test2", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
       expect(ee.hasListener(undefined)).to.be.false;
       expect(ee.hasListener(null)).to.be.false;
@@ -256,13 +256,13 @@ describe("EventEmitter", function() {
 
       let ee = new EventEmitter();
 
-      let f1 = () => ee.on();
+      let f1 = () => ee.addListener();
       expect(f1).to.throw(TypeError);
 
-      let f2 = () => ee.on("test");
+      let f2 = () => ee.addListener("test");
       expect(f2).to.throw(TypeError);
 
-      let f3 = () => ee.on("test", () => {});
+      let f3 = () => ee.addListener("test", () => {});
       expect(f3).to.not.throw();
 
       done();
@@ -272,7 +272,7 @@ describe("EventEmitter", function() {
     it("should set default options correctly", function(done) {
 
       let ee = new EventEmitter();
-      let l = ee.on("test", () => {});
+      let l = ee.addListener("test", () => {});
 
       expect(l.context).to.equal(ee);
       expect(l.remaining).to.equal(Infinity);
@@ -289,7 +289,7 @@ describe("EventEmitter", function() {
 
       let ee = new EventEmitter();
       let cb = sinon.spy();
-      ee.on("test", cb, {duration: 50});
+      ee.addListener("test", cb, {duration: 50});
 
       ee.emit("test");
 
@@ -305,9 +305,9 @@ describe("EventEmitter", function() {
 
       let ee = new EventEmitter();
 
-      ee.on("test", () => {});
-      let l2 = ee.on("test", () => {}, {prepend: true});
-      ee.on("test", () => {});
+      ee.addListener("test", () => {});
+      let l2 = ee.addListener("test", () => {}, {prepend: true});
+      ee.addListener("test", () => {});
 
       let listeners = ee.getListeners("test");
       expect(listeners[0]).to.equal(l2);
@@ -321,7 +321,7 @@ describe("EventEmitter", function() {
       let ee = new EventEmitter();
       let spy = sinon.spy();
 
-      ee.on("test", spy, {remaining: 3});
+      ee.addListener("test", spy, {remaining: 3});
 
       ee.emit("test");
       ee.emit("test");
@@ -339,7 +339,7 @@ describe("EventEmitter", function() {
 
       [-1, 0, undefined, null, {}, -Infinity].forEach(value => {
         let ee = new EventEmitter();
-        let l = ee.on("test", () => {}, {remaining: value});
+        let l = ee.addListener("test", () => {}, {remaining: value});
         expect(l.remaining).to.equal(Infinity);
       });
 
@@ -356,7 +356,7 @@ describe("EventEmitter", function() {
       let data = {};
 
       let ee = new EventEmitter();
-      let l = ee.on(evt1, cb, {
+      let l = ee.addListener(evt1, cb, {
         context: ctx,
         data: data,
         remaining: remaining
@@ -381,7 +381,7 @@ describe("EventEmitter", function() {
       let ee = new EventEmitter();
       let spy = sinon.spy();
 
-      ee.once("test", spy);
+      ee.addListener("test", spy, {remaining: 1});
 
       ee.emit("test");
       ee.emit("test");
@@ -404,7 +404,7 @@ describe("EventEmitter", function() {
       let spy = sinon.spy();
 
       let ee = new EventEmitter();
-      ee.on("test", spy);
+      ee.addListener("test", spy);
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
@@ -423,7 +423,7 @@ describe("EventEmitter", function() {
       let spy = sinon.spy();
 
       let ee = new EventEmitter();
-      ee.on(EventEmitter.ANY_EVENT, spy);
+      ee.addListener(EventEmitter.ANY_EVENT, spy);
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
@@ -446,7 +446,7 @@ describe("EventEmitter", function() {
       let spy = sinon.spy();
 
       let ee = new EventEmitter();
-      ee.on("test", spy);
+      ee.addListener("test", spy);
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
@@ -466,7 +466,7 @@ describe("EventEmitter", function() {
       let spy = sinon.spy();
 
       let ee = new EventEmitter();
-      ee.on(EventEmitter.ANY_EVENT, spy);
+      ee.addListener(EventEmitter.ANY_EVENT, spy);
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
@@ -489,9 +489,9 @@ describe("EventEmitter", function() {
     it("should correctly suspend events", function(done) {
 
       let ee = new EventEmitter();
-      let listener1 = ee.on("test1", () => {});
-      let listener2 = ee.on("test2", () => {});
-      let listener3 = ee.on(EventEmitter.ANY_EVENT, () => {});
+      let listener1 = ee.addListener("test1", () => {});
+      let listener2 = ee.addListener("test2", () => {});
+      let listener3 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
       let spy1 = sinon.spy(listener1, "callback");
       let spy2 = sinon.spy(listener2, "callback");
@@ -522,7 +522,7 @@ describe("EventEmitter", function() {
 
 // console.log("times is respected");
 // let ee = new EventEmitter();
-// ee.on("test", () => console.log("Exec!"), {times: 2});
+// ee.addListener("test", () => console.log("Exec!"), {times: 2});
 // ee.emit("test");
 // ee.emit("test");
 // ee.emit("test");
@@ -530,9 +530,9 @@ describe("EventEmitter", function() {
 
 // console.log("right names");
 // let ee = new EventEmitter();
-// ee.on("test1", () => {});
-// ee.on("test2", () => {});
-// ee.on("test3", () => {});
+// ee.addListener("test1", () => {});
+// ee.addListener("test2", () => {});
+// ee.addListener("test3", () => {});
 // console.log(ee.eventNames);
 
 // console.log("right names when empty");

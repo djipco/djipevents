@@ -90,14 +90,14 @@ describe("Listener", function() {
 
       let ee = new EventEmitter();
 
-      let listener1 = ee.on("test", () => {});
-      ee.on("test", () => {});
-      ee.on("test", () => {});
+      let listener1 = ee.addListener("test", () => {});
+      ee.addListener("test", () => {});
+      ee.addListener("test", () => {});
       listener1.remove();
 
-      let listener2 = ee.on(EventEmitter.ANY_EVENT, () => {});
-      ee.on(EventEmitter.ANY_EVENT, () => {});
-      ee.on(EventEmitter.ANY_EVENT, () => {});
+      let listener2 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
       listener2.remove();
 
       expect(ee.getListenerCount("test")).to.equal(2);
