@@ -89,22 +89,7 @@ export class EventEmitter {
 
     if (typeof callback !== "function") throw new TypeError("The callback must be a function.");
 
-    // Define default options and merge explicitely declared options into them
-    const defaults = {
-      context: this,
-      remaining: Infinity,
-      data: undefined,
-      duration: Infinity,
-      prepend: false
-    };
-    options = Object.assign({}, defaults, options);
-
     const listener = new Listener(event, this, callback, options);
-
-    // Make sure it is eventually deleted if a duration is supplied
-    if (options.duration !== Infinity) {
-      setTimeout(() => listener.remove(), options.duration);
-    }
 
     if (!this.map[event]) this.map[event] = [];
 
@@ -147,10 +132,10 @@ export class EventEmitter {
 
   /**
    * Returns `true` if the specified event has at least one registered listener. If no event is
-   * specified, the method returns true if any event has at least one listener registered (this
-   * includes listeners set to listen to any events).
+   * specified, the method returns `true` if any event has at least one listener registered (this
+   * includes global listeners registered to `EventEmitter.ANY_EVENT`).
    *
-   * Note: to check for global listeners added with `EventEmitter.ANY_EVENT`, use
+   * Note: to specifically check for global listeners added with `EventEmitter.ANY_EVENT`, use
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
    * @param {string|EventEmitter.ANY_EVENT} [event] The event to check
@@ -287,7 +272,7 @@ export class EventEmitter {
 
     if (this.suspended) return;
 
-    // We collect return values for all listeners here
+    // We collect return values from all listeners here
     let results = [];
 
     // We must make sure that we do not have undefined otherwise concat() will add an undefined
@@ -394,8 +379,8 @@ export class Listener {
    * @param {EventEmitter} target The `EventEmitter` object that the listener is attached to
    * @param {EventEmitter~callback} callback The function to call when the listener is triggered
    * @param {Object} [options={}]
-   * @param {Object} [options.context=this] The context to invoke the listener in (a.k.a. the value
-   * of `this` inside the callback function.
+   * @param {Object} [options.context=target] The context to invoke the listener in (a.k.a. the
+   * value of `this` inside the callback function).
    * @param {number} [options.remaining=Infinity] The remaining number of times after which the
    * callback should automatically be removed.
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
@@ -424,12 +409,17 @@ export class Listener {
     }
 
     // Define default options and merge declared options into them,
-    const defaults = {
-      context: this,
+    options = Object.assign({
+      context: target,
       remaining: Infinity,
-      data: undefined
-    };
-    options = Object.assign({}, defaults, options);
+      data: undefined,
+      duration: Infinity,
+    }, options);
+
+    // Make sure it is eventually deleted if a duration is supplied
+    if (options.duration !== Infinity) {
+      setTimeout(() => this.remove(), options.duration);
+    }
 
     /**
      * The event name
