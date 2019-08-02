@@ -4,7 +4,7 @@ DjipEvents is an event-handling library that can be used in the browser and in
 [Node.js](https://nodejs.org). It features methods to register, trigger and delete events. It is a 
 mostly abstract class meant to be extended by (or mixed into) other objects. 
  
-It is currently available in 3 flavors:
+It is currently available in 3 flavours:
 
   * **CommonJS**: ES5 syntax for Node.js
   * **ESM**: ES6 module syntax for modern browsers
