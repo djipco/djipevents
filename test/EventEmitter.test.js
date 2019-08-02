@@ -265,13 +265,13 @@ describe("EventEmitter", function() {
 
   });
 
-  describe("off()", function() {
+  describe("removeListener()", function() {
 
     it("to do");
 
   });
 
-  describe("on()", function() {
+  describe("addListener()", function() {
 
     it("should throw when mandatory parameters are not present or of wrong type", function(done) {
 

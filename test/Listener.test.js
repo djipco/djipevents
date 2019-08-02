@@ -35,8 +35,9 @@ describe("Listener", function() {
 
     it("should set default options correctly", function(done) {
 
-      let l1 = new Listener("test", new EventEmitter(), () => {});
-      expect(l1.context).to.equal(l1);
+      let ee = new EventEmitter();
+      let l1 = new Listener("test", ee, () => {});
+      expect(l1.context).to.equal(ee);
       expect(l1.remaining).to.equal(Infinity);
       expect(l1.data).to.be.undefined;
 
