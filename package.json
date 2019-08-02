@@ -1,7 +1,7 @@
 {
   "name": "djipevents",
   "version": "0.9.6",
-  "description": "An event-handling library for the browser and Node.js",
+  "description": "A clean event-handling library for the browser and Node.js.",
   "main": "dist/djipevents.cjs.min.js",
   "module": "dist/djipevents.esm.min.js",
   "author": "Jean-Philippe Côté <jp@djip.co>",
@@ -13,6 +13,21 @@
     "build-iife": "BABEL_ENV=iife rollup --config",
     "test": "mocha ./test/index.js --exit"
   },
+  "keywords": [
+    "addEventListener",
+    "addListener",
+    "dispatch",
+    "EventDispatcher",
+    "EventEmitter",
+    "EventTarget",
+    "emit",
+    "emitter",
+    "event",
+    "events",
+    "listener",
+    "publish",
+    "subscribe"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.4.4",
