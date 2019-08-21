@@ -90,8 +90,8 @@ example:
 
 There are no `on()` and `off()` methods either. You might be wondering why. To me, `on()`, `off()` 
 and `once()` only look good for a brief moment. Once you start extending or mixing in this library, 
-you realize that identifiers such as `on` and `off` are collide-prone and do not really describe 
-what the library is doing.
+you realize that identifiers such as `on` and `off` are collision-prone and do not really describe 
+what the library is actually doing.
 
 ## API Reference
 
