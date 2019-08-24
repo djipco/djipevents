@@ -69,8 +69,9 @@ found in the browser's `EventTarget` or in Node.js' `EventEmitter`:
   * The `emit()` method returns an array containing the return value of all callback functions;
   * A custom value for `this` in the callback can be assigned via the `context` option;
   * It is possible to listen to all events by using `EventEmitter.ANY_EVENT`.
-  * You can pass data to the callback by using the `data` option of `addListener()`. You can also 
-  pass data to the callback by using the second parameter of the `emit()` method.
+  * You can pass an arbitrary number of arguments to the callback function by specifying additional
+   parameters to the `emit()` method. You can pass additional arguments to the callback by using the 
+   `args` option of `addListener()`. 
   * The `Listener` object returned by `addListener()` has a `remove()` method that allows you to 
   easily remove the listener.
   
