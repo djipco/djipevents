@@ -75,7 +75,76 @@ describe("EventEmitter", function() {
 
     it("should return the correct values");
 
-    it("should pass along all the arguments to the callback functions");
+    it("should relay args passed when adding the listener to callback function ", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let args = ["a", "b", "c"];
+      let cb = function() { return arguments; };
+      ee.addListener("test", cb,{args: args});
+
+      // Act
+      let result = ee.emit("test");
+
+      // Assert
+      expect(result[0][0]).to.equal(args[0]);
+      expect(result[0][1]).to.equal(args[1]);
+      expect(result[0][2]).to.equal(args[2]);
+
+    });
+
+    it("should relay args passed to emit() to callback function", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let arg1 = "y";
+      let arg2 = "z";
+      let cb = function() { return arguments; };
+      ee.addListener("test", cb);
+
+      // Act
+      let result = ee.emit("test", arg1, arg2);
+
+      // Assert
+      expect(result[0][0]).to.equal(arg1);
+      expect(result[0][1]).to.equal(arg2);
+
+    });
+
+    it("should relay args from addListener() and from emit() to callback function", function() {
+
+      // Arrange
+      let ee1 = new EventEmitter();
+      let ee2 = new EventEmitter();
+      let ee3 = new EventEmitter();
+      let args = ["a", "b", "c"];
+      let arg1 = "y";
+      let arg2 = "z";
+      let cb = function() { return arguments; };
+
+      // Act
+      ee1.addListener("test", cb, {args: args});
+      let result1 = ee1.emit("test", arg1, arg2);
+      ee2.addListener("test", cb);
+      let result2 = ee2.emit("test", arg1, arg2);
+      ee3.addListener("test", cb, {args: args});
+      let result3 = ee3.emit("test");
+
+      // Assert
+      expect(result1[0][0]).to.equal(arg1);
+      expect(result1[0][1]).to.equal(arg2);
+      expect(result1[0][2]).to.equal(args[0]);
+      expect(result1[0][3]).to.equal(args[1]);
+      expect(result1[0][4]).to.equal(args[2]);
+
+      expect(result2[0][0]).to.equal(arg1);
+      expect(result2[0][1]).to.equal(arg2);
+
+      expect(result3[0][0]).to.equal(args[0]);
+      expect(result3[0][1]).to.equal(args[1]);
+      expect(result3[0][2]).to.equal(args[2]);
+
+    });
 
     it("should pass on the value and data to the callback");
 
@@ -363,31 +432,6 @@ describe("EventEmitter", function() {
         let l = ee.addListener("test", () => {}, {remaining: value});
         expect(l.remaining).to.equal(Infinity);
       });
-
-      done();
-
-    });
-
-    it("should set other options correctly", function(done) {
-
-      let evt1 = "test";
-      let cb = () => {};
-      let ctx = {};
-      let remaining = 12;
-      let data = {};
-
-      let ee = new EventEmitter();
-      let l = ee.addListener(evt1, cb, {
-        context: ctx,
-        data: data,
-        remaining: remaining
-      });
-
-      expect(l.event).to.equal(evt1);
-      expect(l.callback).to.equal(cb);
-      expect(l.context).to.equal(ctx);
-      expect(l.remaining).to.equal(remaining);
-      expect(l.data).to.equal(data);
 
       done();
 

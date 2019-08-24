@@ -1,6 +1,6 @@
 /**
  * The `EventEmitter` class provides methods to implement the _observable_ design pattern. This
- * pattern allows one to _register_ a function to execute when a specific event is triggered by the
+ * pattern allows one to _register_ a function to execute when a specific event is _emitted_ by the
  * emitter.
  *
  * It is a mostly abstract class meant to be extended by (or mixed into) other objects.
@@ -52,8 +52,8 @@ export class EventEmitter {
    */
 
   /**
-   * Adds a listener for the specified event. It returns the `Listener` object that was created and
-   * attached to the event.
+   * Adds a listener for the specified event. It returns the [**Listener**]{@link Listener} object
+   * that was created and attached to the event.
    *
    * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
    * as the first parameter. Note that a global listener will also be triggered by non-registered
@@ -69,10 +69,12 @@ export class EventEmitter {
    * automatically expires.
    * @param {boolean} [options.remaining=Infinity] The number of times after which the callback
    * should automatically be removed.
-   * @param {*} [options.data] Arbitrary data that will be stored in the listener's `data` property
-   * and will be passed along to the callback function upon execution (as its last argument).
+   * @param {array} [options.args] An array of arguments which will be passed to the callback
+   * function (as separate arguments). The array is stored in the [**args**]{@link Listener#args}
+   * property of the [**Listener**]{@link Listener} object and can be retrieved or modified as
+   * desired.
    *
-   * @returns {Listener} The newly created `Listener` object.
+   * @returns {Listener} The newly created [**Listener**]{@link Listener} object.
    *
    * @throws {TypeError} The `event` parameter must be a string or `EventEmitter.ANY_EVENT`.
    * @throws {TypeError} The `callback` parameter must be a function.
@@ -243,10 +245,17 @@ export class EventEmitter {
   }
 
   /**
-   * Executes the callback functions of all `Listener` objects registered for a given event. The
-   * functions are passed all the additional arguments specified when calling `emit()` (if any). The
-   * last argument passed to the callback function is the content of the listener's `data` property
-   * (if present).
+   * Executes the callback functions of all the `Listener` objects registered for a given event. The
+   * callback functions are passed the additional arguments specifed for `emit()` (if any) followed
+   * by the arguments present in the `args` property of the `Listener` (if any). For example:
+   *
+   * ```javascript
+   * let myEmitter = new EventEmitter();
+   * myEmitter.addListener("test", fn, {args: ["a", "b", "c"]});
+   * myEmitter.emit("test", "y", "z");
+   * ```
+   *
+   * In this example, the function will be called as such:  `fn("y", "z", "a", "b", "c");`
    *
    * If the `suspended` property of the `EventEmitter` or of the `Listener` is `true`, the callback
    * functions will not be executed.
@@ -278,7 +287,6 @@ export class EventEmitter {
     // We must make sure that we do not have undefined otherwise concat() will add an undefined
     // entry in the array.
     let listeners = this.map[EventEmitter.ANY_EVENT] || [];
-
     if (this.map[event]) listeners = listeners.concat(this.map[event]);
 
     listeners.forEach(listener => {
@@ -286,8 +294,11 @@ export class EventEmitter {
       // This is the per-listener suspension check
       if (listener.suspended) return;
 
+      let params = [...args];
+      if (Array.isArray(listener.args)) params = params.concat(listener.args);
+
       if (listener.remaining > 0) {
-        results.push(listener.callback.call(listener.context, ...args, listener.data));
+        results.push(listener.callback.apply(listener.context, params));
         listener.count++;
       }
 
@@ -385,6 +396,9 @@ export class Listener {
    * callback should automatically be removed.
    * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
    * execution (as the second parameter)
+   * @param {array} [options.args] An array of arguments that will be passed to the callback
+   * function upon execution (as separate arguments). The array is stored in the `args` property and
+   * can be retrieved or modified as desired.
    *
    * @throws {TypeError} The `event` parameter must be a string or `EventEmitter.ANY_EVENT`.
    * @throws {ReferenceError} The `target` parameter is mandatory.
@@ -408,11 +422,14 @@ export class Listener {
       throw new TypeError("The 'callback' must be a function.");
     }
 
+    // Convert single value args to array
+    if (options.args !== undefined && !Array.isArray(options.args)) options.args = [options.args];
+
     // Define default options and merge declared options into them,
     options = Object.assign({
       context: target,
       remaining: Infinity,
-      data: undefined,
+      args: undefined,
       duration: Infinity,
     }, options);
 
@@ -459,10 +476,10 @@ export class Listener {
     this.count = 0;
 
     /**
-     * Arbitraty data that is going to be passed as the second parameter of the callback function
-     * @type {*}
+     * Arguments to pass to the callback function upon execution
+     * @type {array}
      */
-    this.data = options.data;
+    this.args = options.args;
 
     /**
      * Whether this listener is currently suspended
