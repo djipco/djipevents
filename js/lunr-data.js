@@ -64,6 +64,7 @@ window.lunrData = {
           "allow",
           "class",
           "design",
+          "emit",
           "emitt",
           "event",
           "eventemitt",
@@ -81,8 +82,7 @@ window.lunrData = {
           "pattern",
           "provid",
           "regist",
-          "specif",
-          "trigger"
+          "specif"
         ],
         "EventEmitter.html#.ANY_EVENT": [
           "add",
@@ -1353,6 +1353,10 @@ window.lunrData = {
               "docs": {},
               "t": {
                 "docs": {
+                  "EventEmitter.html": {
+                    "ref": "EventEmitter.html",
+                    "tf": 2
+                  },
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
                     "tf": 675.7462686567164
@@ -4794,10 +4798,6 @@ window.lunrData = {
                     "docs": {},
                     "r": {
                       "docs": {
-                        "EventEmitter.html": {
-                          "ref": "EventEmitter.html",
-                          "tf": 2
-                        },
                         "EventEmitter.html#.ANY_EVENT": {
                           "ref": "EventEmitter.html#.ANY_EVENT",
                           "tf": 5.555555555555555
@@ -5510,7 +5510,7 @@ window.lunrData = {
       "name": "EventEmitter",
       "tags": "EventEmitter",
       "summary": "",
-      "description": "The EventEmitter class provides methods to implement the observable design pattern. This pattern allows one to register a function to execute when a specific event is triggered by the emitter. It is a mostly abstract class meant to be extended by (or mixed into) other objects.",
+      "description": "The EventEmitter class provides methods to implement the observable design pattern. This pattern allows one to register a function to execute when a specific event is emitted by the emitter. It is a mostly abstract class meant to be extended by (or mixed into) other objects.",
       "body": ""
     },
     "EventEmitter.html#.ANY_EVENT": {
