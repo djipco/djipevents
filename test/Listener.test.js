@@ -33,22 +33,6 @@ describe("Listener", function() {
 
     });
 
-    // it("should set args properly", function() {
-    //
-    //   // Arrange
-    //   let ee = new EventEmitter();
-    //
-    //   // Act
-    //   let l1 = ee.addListener("test", () => {}, {args: "abc"});
-    //   // let l2 = ee.addListener("test", () => {});
-    //
-    //   // Assert
-    //   expect(l1.args).to.be.an("array");
-    //   // expect(l1.args.length).to.equal(1);
-    //   // expect(l2.args).to.be.undefined;
-    //
-    // });
-
     it("should set default options correctly", function() {
 
       // Arrange
@@ -126,6 +110,27 @@ describe("Listener", function() {
       // Assert
       expect(l.arguments).to.be.an("array");
       expect(l.arguments.length).to.equal(1);
+
+    });
+
+    it("should set arguments properly", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Act
+      let l = ee.addListener(
+        "test",
+        () => {},
+        {arguments: ["a", "b", "c"]}
+      );
+
+      // Assert
+      expect(l.arguments).to.be.an("array");
+      expect(l.arguments.length).to.equal(3);
+      expect(l.arguments[0]).to.equal("a");
+      expect(l.arguments[1]).to.equal("b");
+      expect(l.arguments[2]).to.equal("c");
 
     });
 
