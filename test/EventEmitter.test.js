@@ -6,19 +6,29 @@ describe("EventEmitter", function() {
 
   describe("constructor", function() {
 
-    it("should set the correct status for 'suspended'", function (done) {
+    it("should set 'suspended' property to boolean, no matter the input", function () {
 
-      [undefined, false, 0].forEach(value => {
-        let ee = new EventEmitter(value);
-        expect(ee.suspended).to.be.false;
-      });
+      // Arrange
+      let falsy = [undefined, false, 0, null];
+      let truthy = [true, 1];
 
-      [true, 1].forEach(value => {
-        let ee = new EventEmitter(value);
-        expect(ee.suspended).to.be.true;
-      });
+      // Act
+      let result1 = falsy.map(value => new EventEmitter(value).suspended);
+      let result2 = truthy.map(value => new EventEmitter(value).suspended);
 
-      done();
+      // Assert
+      expect(result1).to.all.include(false).and.not.include(true);
+      expect(result2).to.all.include(true).and.not.include(false);
+
+    });
+
+    it("should set 'map' property to empty object, always", function () {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Act & Assert
+      expect(ee.map).to.be.a("object").and.be.empty;
 
     });
 
@@ -26,41 +36,44 @@ describe("EventEmitter", function() {
 
   describe("emit()", function() {
 
-    it("should throw on invalid event parameter", function (done) {
+    it("should throw TypeError when an invalid event is specified", function () {
 
+      // Arrange
       let ee = new EventEmitter();
+      let values = [EventEmitter.ANY_EVENT, undefined, null, Infinity, 123, {}, []];
 
-      [EventEmitter.ANY_EVENT, undefined, null, Infinity, 123, {}].forEach(value => {
-        let f = () => ee.emit(value);
-        expect(f).to.throw(TypeError);
-      });
+      // Act
+      let functions = values.map(value => () => ee.emit(value));
 
-      done();
+      // Assert
+      functions.forEach(f => expect(f).to.throw(TypeError));
 
     });
 
-    it("should trigger the callback the right number of times", function (done) {
+    it("should trigger the callback the right number of times", function () {
 
+      // Arrange
       let ee = new EventEmitter();
       let spy = sinon.spy();
-      ee.addListener("test", spy, {remaining: 3});
+      let times = 3;
+      ee.addListener("test", spy, {remaining: times});
 
-      ee.emit("test");
-      ee.emit("test");
-      ee.emit("test");
-      ee.emit("test");
+      // Act
+      for (var i = 0; i < times + 1; i++) ee.emit("test");
 
+      // Assert
       expect(spy.calledThrice).to.be.true;
       expect(ee.getListenerCount("test")).to.equal(0);
-
-      done();
 
     });
 
     it("should execute the callback using the right value for 'this'", function(done) {
 
+      // Arrange
       let ee = new EventEmitter();
       let obj = {};
+
+      // Act & Assert
       ee.addListener("test", function() {
         expect(this).to.equal(obj);
         done();
@@ -68,12 +81,6 @@ describe("EventEmitter", function() {
       ee.emit("test");
 
     });
-
-    it("should not execute callbacks when EventEmitter's 'suspended' is true");
-
-    it("should not execute callbacks when Listener's 'suspended' is true");
-
-    it("should return the correct values");
 
     it("should relay args passed when adding the listener to callback function ", function() {
 
@@ -146,38 +153,89 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should pass on the value and data to the callback");
+    it("should fire callbacks added via EventEmitter.ANY_EVENT", function() {
 
-    it("should fire callbacks added via EventEmitter.ANY_EVENT", function(done) {
-
+      // Arrange
+      let ee = new EventEmitter();
       let spy1 = sinon.spy();
       let spy2 = sinon.spy();
-
-      let ee = new EventEmitter();
       ee.addListener("test", () => {});
       ee.addListener(EventEmitter.ANY_EVENT, spy1);
       ee.addListener(EventEmitter.ANY_EVENT, spy2);
 
+      // Act
       ee.emit("test");
 
+      // Assert
       expect(spy1.calledOnce).to.be.true;
       expect(spy2.calledOnce).to.be.true;
 
-      done();
+    });
+
+    it("should properly increment the 'count' property of the listener object", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let spy = sinon.spy();
+      let listener = ee.addListener("test", spy);
+
+      // Act
+      for (let i = 0; i < 42; i++) ee.emit("test");
+
+      // Assert
+      expect(spy.callCount).to.equal(listener.count);
 
     });
 
-    it("should properly increment the 'count' property of the listener object", function(done) {
+    it("should not execute callbacks when EventEmitter's 'suspended' is true", function () {
 
+      // Arrange
+      let ee = new EventEmitter(true);
       let spy = sinon.spy();
-      let ee = new EventEmitter();
-      let listener = ee.addListener("test", spy);
+      ee.addListener("test", spy);
+      ee.addListener(EventEmitter.ANY_EVENT, spy);
+
+      // Act
       for (let i = 0; i < 42; i++) ee.emit("test");
 
-      setTimeout(() => {
-        expect(spy.callCount).to.equal(listener.count);
-        done();
-      }, 25);
+      // Assert
+      expect(spy.callCount).to.equal(0);
+
+    });
+
+    it("should not execute callbacks when Listener's 'suspended' is true", function () {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let spy = sinon.spy();
+      let l1 = ee.addListener("test", spy);
+      let l2 = ee.addListener(EventEmitter.ANY_EVENT, spy);
+      l1.suspended = true;
+      l2.suspended = true;
+
+      // Act
+      for (let i = 0; i < 42; i++) ee.emit("test");
+
+      // Assert
+      expect(spy.callCount).to.equal(0);
+
+    });
+
+    it("should return the correct values as gathered from all callbacks", function () {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let cb1 = () => 123;
+      let cb2 = () => "abc";
+      ee.addListener("test", cb1);
+      ee.addListener("test", cb2);
+
+      // Act
+      let results = ee.emit("test");
+
+      // Assert
+      expect(results[0]).to.equal(123);
+      expect(results[1]).to.equal("abc");
 
     });
 
@@ -185,18 +243,20 @@ describe("EventEmitter", function() {
 
   describe("eventCount", function() {
 
-    it("should return correct number of unique events (excluding global events)", function(done) {
+    it("should return correct number of unique events (excluding global events)", function() {
 
+      // Arrange
       let ee = new EventEmitter();
+
+      // Act
       ee.addListener("test1", () => {});
       ee.addListener("test1", () => {});
       ee.addListener("test2", () => {});
       ee.addListener(EventEmitter.ANY_EVENT, () => {});
       ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
+      // Assert
       expect(ee.eventCount).to.equal(2);
-
-      done();
 
     });
 
@@ -204,20 +264,22 @@ describe("EventEmitter", function() {
 
   describe("eventNames", function() {
 
-    it("should return an array with unique event names (excluding global events)", function(done) {
+    it("should return an array with unique event names (excluding global events)", function() {
 
+      // Arrange
       let ee = new EventEmitter();
+
+      // Act
       ee.addListener(EventEmitter.ANY_EVENT, () => {});
       ee.addListener("test1", () => {});
       ee.addListener("test1", () => {});
       ee.addListener("test2", () => {});
       ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
+      // Assert
       expect(ee.eventNames[0]).to.equal("test1");
       expect(ee.eventNames[1]).to.equal("test2");
       expect(ee.eventNames[2]).to.be.undefined;
-
-      done();
 
     });
 
@@ -226,109 +288,153 @@ describe("EventEmitter", function() {
   describe("getListenerCount()", function() {
 
     it("should report the correct number of listeners for regular events", function() {
+
+      // Arrange
       let ee = new EventEmitter();
-      for (let i = 0; i < 12; i++) ee.addListener("test", () => {});
+      let times = 12;
+
+      // Act
+      for (let i = 0; i < times; i++) ee.addListener("test", () => {});
       for (let i = 0; i < 23; i++) ee.addListener(EventEmitter.ANY_EVENT, () => {});
-      expect(ee.getListenerCount("test")).to.equal(12);
+
+      // Assert
+      expect(ee.getListenerCount("test")).to.equal(times);
+
     });
 
-    it("should report the correct number of listeners for global events", function() {
+    it("should report the correct number of listeners for ANY_EVENT", function() {
+
+      // Arrange
       let ee = new EventEmitter();
+      let times = 23;
+
+      // Act
       for (let i = 0; i < 12; i++) ee.addListener("test", () => {});
-      for (let i = 0; i < 23; i++) ee.addListener(EventEmitter.ANY_EVENT, () => {});
-      expect(ee.getListenerCount(EventEmitter.ANY_EVENT)).to.equal(23);
+      for (let i = 0; i < times; i++) ee.addListener(EventEmitter.ANY_EVENT, () => {});
+
+      // Assert
+      expect(ee.getListenerCount(EventEmitter.ANY_EVENT)).to.equal(times);
+
     });
 
-    it("should report 0 for unknown or invalid events", function(done) {
+    it("should report 0 for unknown or invalid events", function() {
+
+      // Arrange
       let ee = new EventEmitter();
-      expect(ee.getListenerCount(undefined)).to.equal(0);
-      expect(ee.getListenerCount({})).to.equal(0);
-      expect(ee.getListenerCount(null)).to.equal(0);
-      done();
+      let values = [undefined, {}, null, "bogus", Infinity, EventEmitter.ANY_EVENT];
+
+      // Act
+      let functions = values.map(value => () => ee.getListenerCount(value));
+
+      // Assert
+      functions.forEach(f => expect(f()).to.equal(0));
+
     });
 
   });
 
   describe("getListeners()", function() {
 
-    it("should report the correct listeners for regular events", function(done) {
+    it("should report the correct listeners, in the right order, for regular events", function() {
+
+      // Arrange
       let ee = new EventEmitter();
+
+      // Act
       let listener1 = ee.addListener("test", () => {});
       let listener2 = ee.addListener("test", () => {});
       ee.addListener(EventEmitter.ANY_EVENT, () => {});
       let listener3 = ee.addListener("test", () => {});
       let listener4 = ee.addListener("test", () => {}, {prepend: true});
+
+      // Assert
       expect(ee.getListeners("test")[0]).to.equal(listener4);
       expect(ee.getListeners("test")[1]).to.equal(listener1);
       expect(ee.getListeners("test")[2]).to.equal(listener2);
       expect(ee.getListeners("test")[3]).to.equal(listener3);
-      done();
+
     });
 
-    it("should report the correct global listeners", function(done) {
+    it("should report the correct ANY_EVENT listeners, in the right order", function() {
+
+      // Arrange
       let ee = new EventEmitter();
+
+      // Act
       let listener1 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
       let listener2 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
       ee.addListener("test", () => {});
       let listener3 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
       let listener4 = ee.addListener(EventEmitter.ANY_EVENT, () => {}, {prepend: true});
+
+      // Assert
       expect(ee.getListeners(EventEmitter.ANY_EVENT)[0]).to.equal(listener4);
       expect(ee.getListeners(EventEmitter.ANY_EVENT)[1]).to.equal(listener1);
       expect(ee.getListeners(EventEmitter.ANY_EVENT)[2]).to.equal(listener2);
       expect(ee.getListeners(EventEmitter.ANY_EVENT)[3]).to.equal(listener3);
-      done();
+
     });
 
-    it("should return empty array for unknow or invalid events", function(done) {
+    it("should return empty array for unregistered or invalid events", function() {
+
+      // Arrange
       let ee = new EventEmitter();
-      expect(ee.getListeners(undefined).length).to.equal(0);
-      expect(ee.getListeners(null).length).to.equal(0);
-      expect(ee.getListeners({}).length).to.equal(0);
-      expect(ee.getListeners(EventEmitter.ANY_EVENT).length).to.equal(0);
-      expect(ee.getListeners("test").length).to.equal(0);
-      done();
+      ee.addListener("test", () => {});
+      let values = [undefined, null, {}, EventEmitter.ANY_EVENT, "bogus"];
+
+      // Act
+      let functions = values.map(value => () => ee.getListeners(value));
+
+      // Assert
+      functions.forEach(f => expect(f().length).to.equal(0));
+
     });
 
   });
 
   describe("hasListener()", function() {
 
-    it("should report the correct boolean value", function(done) {
+    it("should report true if no param is passed & at least 1 listener is registered", function() {
 
+      // Arrange
       let ee = new EventEmitter();
+
+      // Act
+      ee.addListener("test", () => {});
+
+      // Assert
+      expect(ee.hasListener()).to.be.true;
+
+    });
+
+    it("should report false if no param is passed and no listeners are registered", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Assert
+      expect(ee.hasListener()).to.be.false;
+
+    });
+
+    it("should report the correct boolean value", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Act
       ee.addListener("test1", () => {});
       ee.addListener("test2", () => {});
       ee.addListener("test3", () => {});
       ee.addListener("test3", () => {});
       ee.addListener(EventEmitter.ANY_EVENT, () => {});
 
-      // expect(ee.hasListener(undefined)).to.be.false;
-      // expect(ee.hasListener(null)).to.be.false;
+      // Assert
+      expect(ee.hasListener(null)).to.be.false;
       expect(ee.hasListener("test1")).to.be.true;
       expect(ee.hasListener("test2")).to.be.true;
       expect(ee.hasListener("test3")).to.be.true;
       expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
-
-      done();
-
-    });
-
-    it("should check if any listener is registered when no argument is provided", function(done) {
-
-      let ee = new EventEmitter();
-      let listener1 = ee.addListener("test", () => {});
-      expect(ee.hasListener()).to.be.true;
-
-      listener1.remove();
-      expect(ee.hasListener()).to.be.false;
-
-      let listener2 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
-      expect(ee.hasListener()).to.be.true;
-
-      listener2.remove();
-      expect(ee.hasListener()).to.be.false;
-
-      done();
 
     });
 
