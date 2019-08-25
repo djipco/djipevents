@@ -442,7 +442,145 @@ describe("EventEmitter", function() {
 
   describe("removeListener()", function() {
 
-    it("to do");
+    it("should remove all listeners when no parameter is passed (including ANY_EVENT)", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      ee.addListener("test1", () => {});
+      ee.addListener("test2", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
+
+      // Act
+      ee.removeListener();
+
+      // Assert
+      expect(ee.hasListener("test1")).to.be.false;
+      expect(ee.hasListener("test2")).to.be.false;
+      expect(ee.hasListener("test3")).to.be.false;
+      expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.false;
+      expect(ee.getListenerCount()).to.equal(0);
+
+    });
+
+    it("should remove specified regular listeners", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      ee.addListener("test1", () => {});
+      ee.addListener("test2", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
+
+      // Act
+      ee.removeListener("test1");
+
+      // Assert
+      expect(ee.hasListener("test1")).to.be.false;
+      expect(ee.hasListener("test2")).to.be.true;
+      expect(ee.hasListener("test3")).to.be.true;
+      expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
+
+    });
+
+    it("should remove EventEmitter.ANY_EVENT listeners when specified", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      ee.addListener("test1", () => {});
+      ee.addListener("test2", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener("test3", () => {});
+      ee.addListener(EventEmitter.ANY_EVENT, () => {});
+
+      // Act
+      ee.removeListener(EventEmitter.ANY_EVENT);
+
+      // Assert
+      expect(ee.hasListener("test1")).to.be.true;
+      expect(ee.hasListener("test2")).to.be.true;
+      expect(ee.hasListener("test3")).to.be.true;
+      expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.false;
+
+    });
+
+    it("should remove listeners matching the specified event and callback", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let cb = () => {};
+      ee.addListener("test1", cb);
+      ee.addListener("test2", cb);
+      ee.addListener("test3", cb);
+      ee.addListener("test3", cb);
+      ee.addListener(EventEmitter.ANY_EVENT, cb);
+
+      // Act
+      ee.removeListener("test3", cb);
+
+      // Assert
+      expect(ee.hasListener("test1")).to.be.true;
+      expect(ee.hasListener("test2")).to.be.true;
+      expect(ee.hasListener("test3")).to.be.false;
+      expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
+      expect(ee.eventCount).to.equal(2);
+
+    });
+
+    it("should remove listeners matching the specified event and remaining count", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let cb = () => {};
+      ee.addListener("test1", cb, {remaining: 5});
+      ee.addListener("test2", cb);
+      ee.addListener("test3", cb, {remaining: 5});
+      ee.addListener("test3", cb);
+      ee.addListener(EventEmitter.ANY_EVENT, cb);
+
+      // Act
+      ee.emit("test1");
+      ee.emit("test3");
+      ee.removeListener("test1", cb, {remaining: 4});
+      ee.removeListener("test3", undefined, {remaining: 4});
+
+      // Assert
+      expect(ee.hasListener("test1")).to.be.false;
+      expect(ee.hasListener("test2")).to.be.true;
+      expect(ee.hasListener("test3")).to.be.true;
+      expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
+      expect(ee.getListenerCount("test1")).to.equal(0);
+      expect(ee.getListenerCount("test3")).to.equal(1);
+
+    });
+
+    it("should remove listeners matching the specified event and context", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let cb = () => {};
+      let ctx = {};
+      ee.addListener("test1", cb, {context: ctx});
+      ee.addListener("test2", cb);
+      ee.addListener("test3", cb, {context: ctx});
+      ee.addListener("test3", cb);
+      ee.addListener(EventEmitter.ANY_EVENT, cb);
+
+      // Act
+      ee.removeListener("test1", cb, {context: ctx});
+      ee.removeListener("test3", undefined, {context: ctx});
+
+      // Assert
+      expect(ee.hasListener("test1")).to.be.false;
+      expect(ee.hasListener("test2")).to.be.true;
+      expect(ee.hasListener("test3")).to.be.true;
+      expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
+      expect(ee.getListenerCount("test1")).to.equal(0);
+      expect(ee.getListenerCount("test3")).to.equal(1);
+
+    });
 
   });
 
