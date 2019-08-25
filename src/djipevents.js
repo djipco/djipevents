@@ -106,23 +106,6 @@ export class EventEmitter {
   }
 
   /**
-   * @private
-   * @deprecated
-   */
-  on(event, callback, options = {}) {
-    return this.addListener(event, callback, options);
-  }
-
-  /**
-   * @private
-   * @deprecated
-   */
-  once(event, callback, options = {}) {
-    options.remaining = 1;
-    return this.addListener(event, callback, options);
-  }
-
-  /**
    * Identifier to use when trying to add or remove a listener that should be triggered when any
    * events occur.
    *
@@ -356,14 +339,6 @@ export class EventEmitter {
   }
 
   /**
-   * @private
-   * @deprecated
-   */
-  off(event, callback, options = {}) {
-    return this.removeListener(event, callback, options);
-  }
-
-  /**
    * The number of unique events that have registered listeners
    *
    * Note: this excludes global events registered with `EventEmitter.ANY_EVENT` because they are not
@@ -394,8 +369,6 @@ export class Listener {
    * value of `this` inside the callback function).
    * @param {number} [options.remaining=Infinity] The remaining number of times after which the
    * callback should automatically be removed.
-   * @param {*} [options.data={}] Arbitrary data to pass along to the callback function upon
-   * execution (as the second parameter)
    * @param {array} [options.args] An array of arguments that will be passed to the callback
    * function upon execution (as separate arguments). The array is stored in the `args` property and
    * can be retrieved or modified as desired.
