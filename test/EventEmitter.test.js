@@ -82,13 +82,13 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should relay args passed when adding the listener to callback function ", function() {
+    it("should relay arguments passed when adding the listener to callback function ", function() {
 
       // Arrange
       let ee = new EventEmitter();
       let args = ["a", "b", "c"];
       let cb = function() { return arguments; };
-      ee.addListener("test", cb,{args: args});
+      ee.addListener("test", cb,{arguments: args});
 
       // Act
       let result = ee.emit("test");
@@ -130,11 +130,11 @@ describe("EventEmitter", function() {
       let cb = function() { return arguments; };
 
       // Act
-      ee1.addListener("test", cb, {args: args});
+      ee1.addListener("test", cb, {arguments: args});
       let result1 = ee1.emit("test", arg1, arg2);
       ee2.addListener("test", cb);
       let result2 = ee2.emit("test", arg1, arg2);
-      ee3.addListener("test", cb, {args: args});
+      ee3.addListener("test", cb, {arguments: args});
       let result3 = ee3.emit("test");
 
       // Assert

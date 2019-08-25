@@ -69,10 +69,9 @@ export class EventEmitter {
    * automatically expires.
    * @param {boolean} [options.remaining=Infinity] The number of times after which the callback
    * should automatically be removed.
-   * @param {array} [options.args] An array of arguments which will be passed to the callback
-   * function (as separate arguments). The array is stored in the [**args**]{@link Listener#args}
-   * property of the [**Listener**]{@link Listener} object and can be retrieved or modified as
-   * desired.
+   * @param {array} [options.arguments] An array of arguments which will be passed separately to the
+   * callback function. This array is stored in the [**args**]{@link Listener#arguments} property of
+   * the [**Listener**]{@link Listener} object and can be retrieved or modified as desired.
    *
    * @returns {Listener} The newly created [**Listener**]{@link Listener} object.
    *
@@ -230,15 +229,16 @@ export class EventEmitter {
   /**
    * Executes the callback functions of all the `Listener` objects registered for a given event. The
    * callback functions are passed the additional arguments specifed for `emit()` (if any) followed
-   * by the arguments present in the `args` property of the `Listener` (if any). For example:
+   * by the arguments present in the `arguments` property of the `Listener` object (if any). For
+   * example:
    *
    * ```javascript
    * let myEmitter = new EventEmitter();
-   * myEmitter.addListener("test", fn, {args: ["a", "b", "c"]});
+   * myEmitter.addListener("test", fn, {arguments: ["a", "b", "c"]});
    * myEmitter.emit("test", "y", "z");
    * ```
    *
-   * In this example, the function will be called as such:  `fn("y", "z", "a", "b", "c");`
+   * In this example, the function will be called as such: `fn("y", "z", "a", "b", "c");`
    *
    * If the `suspended` property of the `EventEmitter` or of the `Listener` is `true`, the callback
    * functions will not be executed.
@@ -278,7 +278,7 @@ export class EventEmitter {
       if (listener.suspended) return;
 
       let params = [...args];
-      if (Array.isArray(listener.args)) params = params.concat(listener.args);
+      if (Array.isArray(listener.arguments)) params = params.concat(listener.arguments);
 
       if (listener.remaining > 0) {
         results.push(listener.callback.apply(listener.context, params));
@@ -367,9 +367,9 @@ export class Listener {
    * value of `this` inside the callback function).
    * @param {number} [options.remaining=Infinity] The remaining number of times after which the
    * callback should automatically be removed.
-   * @param {array} [options.args] An array of arguments that will be passed to the callback
-   * function upon execution (as separate arguments). The array is stored in the `args` property and
-   * can be retrieved or modified as desired.
+   * @param {array} [options.arguments] An array of arguments that will be passed separately to the
+   * callback function upon execution. The array is stored in the `arguments` property and can be
+   * retrieved or modified as desired.
    *
    * @throws {TypeError} The `event` parameter must be a string or `EventEmitter.ANY_EVENT`.
    * @throws {ReferenceError} The `target` parameter is mandatory.
@@ -393,14 +393,16 @@ export class Listener {
       throw new TypeError("The 'callback' must be a function.");
     }
 
-    // Convert single value args to array
-    if (options.args !== undefined && !Array.isArray(options.args)) options.args = [options.args];
+    // Convert single value argument to array
+    if (options.arguments !== undefined && !Array.isArray(options.arguments)) {
+      options.arguments = [options.arguments];
+    }
 
     // Define default options and merge declared options into them,
     options = Object.assign({
       context: target,
       remaining: Infinity,
-      args: undefined,
+      arguments: undefined,
       duration: Infinity,
     }, options);
 
@@ -447,10 +449,10 @@ export class Listener {
     this.count = 0;
 
     /**
-     * Arguments to pass to the callback function upon execution
+     * Arguments to pass separately to the callback function upon execution
      * @type {array}
      */
-    this.args = options.args;
+    this.arguments = options.arguments;
 
     /**
      * Whether this listener is currently suspended

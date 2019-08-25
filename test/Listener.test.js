@@ -60,11 +60,11 @@ describe("Listener", function() {
       // Assert
       expect(l.context).to.equal(ee);
       expect(l.remaining).to.equal(Infinity);
-      expect(l.args).to.be.undefined;
+      expect(l.arguments).to.be.undefined;
 
     });
 
-    it("should set specified options correctly for regular events", function(done) {
+    it("should set specified options correctly for regular events", function() {
 
       // Arrange
       let evt1 = "test";
@@ -79,7 +79,7 @@ describe("Listener", function() {
         evt1,
         target,
         f,
-        {context: ctx, remaining: remaining, args: args}
+        {context: ctx, remaining: remaining, arguments: args}
       );
 
       // Assert
@@ -88,9 +88,7 @@ describe("Listener", function() {
       expect(l1.callback).to.equal(f);
       expect(l1.context).to.equal(ctx);
       expect(l1.remaining).to.equal(remaining);
-      expect(l1.args).to.equal(args);
-
-      done();
+      expect(l1.arguments).to.equal(args);
 
     });
 
@@ -109,7 +107,7 @@ describe("Listener", function() {
         evt,
         target,
         f,
-        {context: ctx, remaining: remaining, args: args}
+        {context: ctx, remaining: remaining, arguments: args}
       );
 
       // Assert
@@ -118,7 +116,7 @@ describe("Listener", function() {
       expect(l.callback).to.equal(f);
       expect(l.context).to.equal(ctx);
       expect(l.remaining).to.equal(remaining);
-      expect(l.args).to.equal(args);
+      expect(l.arguments).to.equal(args);
 
       done();
 
@@ -130,11 +128,11 @@ describe("Listener", function() {
       let args = "abc";
 
       // Act
-      let l = new Listener("test", new EventEmitter(), () => {}, {args: args});
+      let l = new Listener("test", new EventEmitter(), () => {}, {arguments: args});
 
       // Assert
-      expect(l.args).to.be.an("array");
-      expect(l.args.length).to.equal(1);
+      expect(l.arguments).to.be.an("array");
+      expect(l.arguments.length).to.equal(1);
 
     });
 
@@ -142,7 +140,7 @@ describe("Listener", function() {
 
   describe("remove()", function() {
 
-    it("should remove the listener", function(done) {
+    it("should remove the listener", function() {
 
       let ee = new EventEmitter();
 
@@ -151,15 +149,13 @@ describe("Listener", function() {
       ee.addListener("test", () => {});
       listener1.remove();
 
-      let listener2 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
-      ee.addListener(EventEmitter.ANY_EVENT, () => {});
-      ee.addListener(EventEmitter.ANY_EVENT, () => {});
-      listener2.remove();
+      // let listener2 = ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      // ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      // ee.addListener(EventEmitter.ANY_EVENT, () => {});
+      // listener2.remove();
 
       expect(ee.getListenerCount("test")).to.equal(2);
-      expect(ee.getListenerCount(EventEmitter.ANY_EVENT)).to.equal(2);
-
-      done();
+      // expect(ee.getListenerCount(EventEmitter.ANY_EVENT)).to.equal(2);
 
     });
 
