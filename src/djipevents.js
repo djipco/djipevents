@@ -302,9 +302,6 @@ export class EventEmitter {
    * To use more granular options, you must at least define the `event`. Then, you can specify the
    * callback to match or one or more of the additional options.
    *
-   * Note that, while it is also possible to use the `off()` method to achieve the exact same
-   * result, using `removeListener()` is the recommended way.
-   *
    * @param {string} [event] The event name.
    * @param {EventEmitter~callback} [callback] Only remove the listeners that match this exact
    * callback function.
@@ -315,23 +312,24 @@ export class EventEmitter {
    */
   removeListener(event, callback, options = {}) {
 
-    // Remove all listeners
-    if (!event) {
+    if (event === undefined) {
       this.map = {};
+      return;
+    } else if (!this.map[event]) {
       return;
     }
 
-    if (!this.map[event]) return;
-
     // Find listeners that do not match the criterias (those are the ones we will keep)
-    let events = this.map[event].filter(listener => {
+    let listeners = this.map[event].filter(listener => {
+
       return (callback && listener.callback !== callback) ||
         (options.remaining && options.remaining !== listener.remaining) ||
         (options.context && options.context !== listener.context);
+
     });
 
-    if (events.length) {
-      this.map[event] = events;
+    if (listeners.length) {
+      this.map[event] = listeners;
     } else {
       delete this.map[event];
     }
