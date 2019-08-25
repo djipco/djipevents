@@ -46,7 +46,7 @@ You can also use the CDN version:
 Beware that, in production, you should probably target a specific version of the library:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/djipevents@0.9.4/dist/djipevents.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/djipevents@0.9.7/dist/djipevents.iife.min.js"></script>
 
 ```
 
@@ -64,16 +64,16 @@ const EventEmitter = require("djipevents").EventEmitter;
 This library is nothing extraordinary but it does have some interesting features not necessarily 
 found in the browser's `EventTarget` or in Node.js' `EventEmitter`:
 
-  * Listeners can be set to trigger an arbitrary number of times with the `count` option;
+  * Listeners can be set to trigger an arbitrary number of times with the `remaining` option;
   * Listeners can be set to expire with the `duration` option;
   * The `emit()` method returns an array containing the return value of all callback functions;
-  * A custom value for `this` in the callback can be assigned via the `context` option;
+  * The callback function can be accessed via the `callback` property of the `Listener` object. This
+    makes it especially easy to access the bound version of functions transformed by `bind()`.
   * It is possible to listen to all events by using `EventEmitter.ANY_EVENT`.
-  * You can pass an arbitrary number of arguments to the callback function by passing additional
-   parameters to the `emit()` method. You can also pass additional arguments to the callback by 
-   using the `args` option of `addListener()`. 
+  * You can pass any number of arguments to the callback function by using the `arguments` option of
+    `addListener()`. You can also prepend even more arguments by passing them to `emit()`. 
   * The `Listener` object returned by `addListener()` has a `remove()` method that allows you to 
-  easily remove the listener.
+    easily remove the listener.
   
 ### Hidden goodies
   
