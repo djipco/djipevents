@@ -187,7 +187,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-131">line 131</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-107">line 107</a></p>
 								</div>
 							</div>
 			
@@ -233,7 +233,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-375">line 375</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-339">line 339</a></p>
 								</div>
 							</div>
 			
@@ -280,7 +280,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-179">line 179</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-155">line 155</a></p>
 								</div>
 							</div>
 			
@@ -443,15 +443,6 @@
 											</thead>
 											<tbody>
 												<tr>
-														<td><code>context</code></td>
-													<td><span class="param-type">Object</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-														<td>this</td>
-													<td class="last">
-															<p>The context to invoke the callback function in.</p>
-													</td>
-												</tr>
-												<tr>
 														<td><code>prepend</code></td>
 													<td><span class="param-type">boolean</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
@@ -482,13 +473,13 @@
 													</td>
 												</tr>
 												<tr>
-														<td><code>args</code></td>
+														<td><code>arguments</code></td>
 													<td><span class="param-type">array</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
 														<td></td>
 													<td class="last">
-															<p>An array of arguments which will be passed to the callback
-									function (as separate arguments). The array is stored in the <a href="Listener.html#args"><strong>args</strong></a>
+															<p>An array of arguments which will be passed separately to the
+									callback function. This array is stored in the <a href="Listener.html#arguments"><strong>arguments</strong></a>
 									property of the <a href="Listener.html"><strong>Listener</strong></a> object and can be retrieved or modified as
 									desired.</p>
 													</td>
@@ -542,7 +533,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-82">line 82</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-75">line 75</a></p>
 								</div>
 							</div>
 			
@@ -560,12 +551,13 @@
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Executes the callback functions of all the <code>Listener</code> objects registered for a given event. The
 			callback functions are passed the additional arguments specifed for <code>emit()</code> (if any) followed
-			by the arguments present in the <code>args</code> property of the <code>Listener</code> (if any). For example:</p>
+			by the arguments present in the <code>arguments</code> property of the <code>Listener</code> object (if any). For
+			example:</p>
 			<pre class="prettyprint source lang-javascript"><code>let myEmitter = new EventEmitter();
-			myEmitter.addListener(&quot;test&quot;, fn, {args: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]});
+			myEmitter.addListener(&quot;test&quot;, fn, {arguments: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]});
 			myEmitter.emit(&quot;test&quot;, &quot;y&quot;, &quot;z&quot;);
 			</code></pre>
-			<p>In this example, the function will be called as such:  <code>fn(&quot;y&quot;, &quot;z&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></p>
+			<p>In this example, the function will be called as such: <code>fn(&quot;y&quot;, &quot;z&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></p>
 			<p>If the <code>suspended</code> property of the <code>EventEmitter</code> or of the <code>Listener</code> is <code>true</code>, the callback
 			functions will not be executed.</p>
 			<p>This function returns an array containing the return values of each of the callbacks.</p>
@@ -639,7 +631,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-276">line 276</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-253">line 253</a></p>
 								</div>
 							</div>
 			
@@ -708,7 +700,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-243">line 243</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-219">line 219</a></p>
 								</div>
 							</div>
 			
@@ -777,7 +769,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-193">line 193</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-169">line 169</a></p>
 								</div>
 							</div>
 			
@@ -849,7 +841,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-146">line 146</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-122">line 122</a></p>
 								</div>
 							</div>
 			
@@ -870,9 +862,7 @@
 			event will be removed. You can remove global listeners by using <code>EventEmitter.ANY_EVENT</code> as the
 			first parameter.</p>
 			<p>To use more granular options, you must at least define the <code>event</code>. Then, you can specify the
-			callback to match or one or more of the additional options.</p>
-			<p>Note that, while it is also possible to use the <code>off()</code> method to achieve the exact same
-			result, using <code>removeListener()</code> is the recommended way.</p></div>
+			callback to match or one or more of the additional options.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -922,14 +912,6 @@
 											</thead>
 											<tbody>
 												<tr>
-														<td><code>context</code></td>
-													<td><span class="param-type">*</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>Only remove the listeners that have this exact context.</p>
-													</td>
-												</tr>
-												<tr>
 														<td><code>remaining</code></td>
 													<td><span class="param-type">number</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
@@ -965,7 +947,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-333">line 333</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-307">line 307</a></p>
 								</div>
 							</div>
 			
@@ -1030,7 +1012,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-210">line 210</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-186">line 186</a></p>
 								</div>
 							</div>
 			
@@ -1093,7 +1075,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-227">line 227</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-203">line 203</a></p>
 								</div>
 							</div>
 			
@@ -1108,19 +1090,16 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title typedef public collapsible-symbol">
-			<h4 id="~callback" class="typedef public"><span class="name">callback</span><span class="signature-params">( [&nbsp;<span class="signature-param">...args</span> [,&nbsp;<span class="signature-param">data</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+			<h4 id="~callback" class="typedef public"><span class="name">callback</span><span class="signature-params">( [&nbsp;<span class="signature-param">...args</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
 <dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The callback function is executed when the associated event is triggered via <code>emit()</code>. The
-			<code>emit()</code> method relays all arguments it received to the callback functions (except the first
-			one). Since <code>emit()</code> can be passed a variable number of arguments, it is up to the developer to
-			make sure the arguments match those of the associated callback. In addition, the callback
-			receives (as its last argument) the content of the listener's <code>data</code> property. This makes it
-			easy to pass data from where the listener is added to where the listener is executed.</p>
-			<p>The value of <code>this</code> inside the callback function(s) is set to the <code>context</code> option passed to
-			the <code>addListener()</code> method (if specified). By using the <code>context</code> option, it is no longer
-			necessary to explicitely bind the function.</p></div>
+			<code>emit()</code> method relays all additional arguments it received to the callback functions. Since
+			<code>emit()</code> can be passed a variable number of arguments, it is up to the developer to make sure
+			the arguments match those of the associated callback. In addition, the callback also separately
+			receives all the arguments present in the listener's <code>arguments</code> property. This makes it
+			easy to pass data from where the listener is added to where the listener is executed.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -1138,18 +1117,9 @@
 							<td><span class="param-type">*</span></td>
 								<td class="attributes">&lt;optional&gt;<br/>&lt;repeatable&gt;<br/></td>
 							<td class="last">
-									<p>A variable number of arguments matching the ones that were passed to the
-			<code>emit()</code> method (except, the first one)</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>data</code></td>
-							<td><span class="param-type">*</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-									<p>The data present in the <code>Listener</code> object's <code>data</code> property. This data can be
-			specified in the <code>options</code> of <code>addListener()</code> or added manually to the <code>Listener</code> by modifying
-			its <code>data</code> property.</p>
+									<p>A variable number of arguments matching the ones (if any) that were passed
+			to the <code>emit()</code> method (except, the first one) followed by the arguments found in the
+			listener's <code>arguments</code> array.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -1203,7 +1173,7 @@
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on August 24th 2019, 16:56:42 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on August 25th 2019, 17:43:04 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
