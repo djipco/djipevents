@@ -24,6 +24,8 @@ modules.xml
 *.ipr
 *.iml
 .vscode
+*.sublime-project
+*.sublime-workspace
 
 ### grunt ###
 .grunt
@@ -32,8 +34,6 @@ modules.xml
 *.DS_Store
 Icon?
 Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
 Desktop.ini
 $RECYCLE.BIN/
 ._*
@@ -44,6 +44,10 @@ $RECYCLE.BIN/
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+### Tests & coverage ###############################################################################
+.nyc_output
+.coverage
 
 ### Circle CI #####################################################################################
 .circleci

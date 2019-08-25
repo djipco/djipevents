@@ -11,7 +11,8 @@
     "build-cjs": "BABEL_ENV=cjs rollup --config",
     "build-esm": "BABEL_ENV=esm rollup --config",
     "build-iife": "BABEL_ENV=iife rollup --config",
-    "test": "mocha ./test/index.js --exit"
+    "test": "mocha ./test/index.js --exit",
+    "test-coverage": "nyc --reporter=text npm run test"
   },
   "keywords": [
     "addEventListener",
@@ -43,6 +44,7 @@
     "gulp-jsdoc3": "^2.0.0",
     "jsdoc-export-default-interop": "^0.3.1",
     "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-terser": "^5.0.0",
     "sinon": "^7.3.2"
