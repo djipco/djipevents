@@ -33,22 +33,16 @@ export class EventEmitter {
 
   /**
    * The callback function is executed when the associated event is triggered via `emit()`. The
-   * `emit()` method relays all arguments it received to the callback functions (except the first
-   * one). Since `emit()` can be passed a variable number of arguments, it is up to the developer to
-   * make sure the arguments match those of the associated callback. In addition, the callback
-   * receives (as its last argument) the content of the listener's `data` property. This makes it
+   * `emit()` method relays all additional arguments it received to the callback functions. Since
+   * `emit()` can be passed a variable number of arguments, it is up to the developer to make sure
+   * the arguments match those of the associated callback. In addition, the callback also separately
+   * receives all the arguments present in the listener's `arguments` property. This makes it
    * easy to pass data from where the listener is added to where the listener is executed.
    *
-   * The value of `this` inside the callback function(s) is set to the `context` option passed to
-   * the `addListener()` method (if specified). By using the `context` option, it is no longer
-   * necessary to explicitely bind the function.
-   *
    * @callback EventEmitter~callback
-   * @param {...*} [args] A variable number of arguments matching the ones that were passed to the
-   * `emit()` method (except, the first one)
-   * @param {*} [data] The data present in the `Listener` object's `data` property. This data can be
-   * specified in the `options` of `addListener()` or added manually to the `Listener` by modifying
-   * its `data` property.
+   * @param {...*} [args] A variable number of arguments matching the ones (if any) that were passed
+   * to the `emit()` method (except, the first one) followed by the arguments found in the
+   * listener's `arguments` array.
    */
 
   /**
@@ -62,7 +56,6 @@ export class EventEmitter {
    * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
-   * @param {Object} [options.context=this] The context to invoke the callback function in.
    * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
    * of the listeners array
    * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
@@ -70,8 +63,9 @@ export class EventEmitter {
    * @param {boolean} [options.remaining=Infinity] The number of times after which the callback
    * should automatically be removed.
    * @param {array} [options.arguments] An array of arguments which will be passed separately to the
-   * callback function. This array is stored in the [**args**]{@link Listener#arguments} property of
-   * the [**Listener**]{@link Listener} object and can be retrieved or modified as desired.
+   * callback function. This array is stored in the [**arguments**]{@link Listener#arguments}
+   * property of the [**Listener**]{@link Listener} object and can be retrieved or modified as
+   * desired.
    *
    * @returns {Listener} The newly created [**Listener**]{@link Listener} object.
    *
@@ -281,7 +275,8 @@ export class EventEmitter {
       if (Array.isArray(listener.arguments)) params = params.concat(listener.arguments);
 
       if (listener.remaining > 0) {
-        results.push(listener.callback.apply(listener.context, params));
+        // results.push(listener.callback.apply(listener.context, params));
+        results.push(listener.callback(...params));
         listener.count++;
       }
 
@@ -306,7 +301,6 @@ export class EventEmitter {
    * @param {EventEmitter~callback} [callback] Only remove the listeners that match this exact
    * callback function.
    * @param {Object} [options={}]
-   * @param {*} [options.context] Only remove the listeners that have this exact context.
    * @param {number} [options.remaining] Only remove the listener if it has exactly that many
    * remaining times to be executed.
    */
@@ -321,11 +315,8 @@ export class EventEmitter {
 
     // Find listeners that do not match the criterias (those are the ones we will keep)
     let listeners = this.map[event].filter(listener => {
-
       return (callback && listener.callback !== callback) ||
-        (options.remaining && options.remaining !== listener.remaining) ||
-        (options.context && options.context !== listener.context);
-
+        (options.remaining && options.remaining !== listener.remaining);
     });
 
     if (listeners.length) {
@@ -363,8 +354,6 @@ export class Listener {
    * @param {EventEmitter} target The `EventEmitter` object that the listener is attached to
    * @param {EventEmitter~callback} callback The function to call when the listener is triggered
    * @param {Object} [options={}]
-   * @param {Object} [options.context=target] The context to invoke the listener in (a.k.a. the
-   * value of `this` inside the callback function).
    * @param {number} [options.remaining=Infinity] The remaining number of times after which the
    * callback should automatically be removed.
    * @param {array} [options.arguments] An array of arguments that will be passed separately to the
@@ -400,7 +389,6 @@ export class Listener {
 
     // Define default options and merge declared options into them,
     options = Object.assign({
-      context: target,
       remaining: Infinity,
       arguments: undefined,
       duration: Infinity,
@@ -428,13 +416,6 @@ export class Listener {
      * @type {Function}
      */
     this.callback = callback;
-
-    /**
-     * The context to execute the context function in (a.k.a. the value of `this` inside the
-     * callback function)
-     * @type {Object}
-     */
-    this.context = options.context;
 
     /**
      * The remaining number of times after which the callback should automatically be removed.
@@ -466,11 +447,7 @@ export class Listener {
    * Removes the listener from its target.
    */
   remove() {
-    this.target.removeListener(
-      this.event,
-      this.callback,
-      {context: this.context, remaining: this.remaining}
-    );
+    this.target.removeListener(this.event, this.callback, {remaining: this.remaining});
   }
 
 }

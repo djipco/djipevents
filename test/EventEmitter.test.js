@@ -67,21 +67,6 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should execute the callback using the right value for 'this'", function(done) {
-
-      // Arrange
-      let ee = new EventEmitter();
-      let obj = {};
-
-      // Act & Assert
-      ee.addListener("test", function() {
-        expect(this).to.equal(obj);
-        done();
-      }, {context: obj});
-      ee.emit("test");
-
-    });
-
     it("should relay arguments passed when adding the listener to callback function ", function() {
 
       // Arrange
@@ -556,32 +541,6 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should remove listeners matching the specified event and context", function() {
-
-      // Arrange
-      let ee = new EventEmitter();
-      let cb = () => {};
-      let ctx = {};
-      ee.addListener("test1", cb, {context: ctx});
-      ee.addListener("test2", cb);
-      ee.addListener("test3", cb, {context: ctx});
-      ee.addListener("test3", cb);
-      ee.addListener(EventEmitter.ANY_EVENT, cb);
-
-      // Act
-      ee.removeListener("test1", cb, {context: ctx});
-      ee.removeListener("test3", undefined, {context: ctx});
-
-      // Assert
-      expect(ee.hasListener("test1")).to.be.false;
-      expect(ee.hasListener("test2")).to.be.true;
-      expect(ee.hasListener("test3")).to.be.true;
-      expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
-      expect(ee.getListenerCount("test1")).to.equal(0);
-      expect(ee.getListenerCount("test3")).to.equal(1);
-
-    });
-
   });
 
   describe("addListener()", function() {
@@ -603,19 +562,17 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should set default options correctly", function(done) {
+    it("should set default options correctly", function() {
 
+      // Arrange
       let ee = new EventEmitter();
+
+      // Act
       let l = ee.addListener("test", () => {});
 
-      expect(l.context).to.equal(ee);
+      // Assert
       expect(l.remaining).to.equal(Infinity);
-      expect(l.data).to.be.undefined;
-
-      let listeners = ee.getListeners("test");
-      expect(listeners[listeners.length - 1]).to.equal(l);
-
-      done();
+      expect(l.arguments).to.be.undefined;
 
     });
 

@@ -58,7 +58,6 @@ describe("Listener", function() {
       let l = new Listener("test", ee, () => {});
 
       // Assert
-      expect(l.context).to.equal(ee);
       expect(l.remaining).to.equal(Infinity);
       expect(l.arguments).to.be.undefined;
 
@@ -70,7 +69,6 @@ describe("Listener", function() {
       let evt1 = "test";
       let target = new EventEmitter();
       let f = () => {};
-      let ctx = {};
       let remaining = 23;
       let args = ["a", "b", "c"];
 
@@ -79,26 +77,24 @@ describe("Listener", function() {
         evt1,
         target,
         f,
-        {context: ctx, remaining: remaining, arguments: args}
+        {remaining: remaining, arguments: args}
       );
 
       // Assert
       expect(l1.event).to.equal(evt1);
       expect(l1.target).to.equal(target);
       expect(l1.callback).to.equal(f);
-      expect(l1.context).to.equal(ctx);
       expect(l1.remaining).to.equal(remaining);
       expect(l1.arguments).to.equal(args);
 
     });
 
-    it("should set specified options correctly for global events", function(done) {
+    it("should set specified options correctly for global events", function() {
 
       // Arrange
       let evt = EventEmitter.ANY_EVENT;
       let target = new EventEmitter();
       let f = () => {};
-      let ctx = {};
       let remaining = 23;
       let args = ["a", "b", "c"];
 
@@ -107,18 +103,15 @@ describe("Listener", function() {
         evt,
         target,
         f,
-        {context: ctx, remaining: remaining, arguments: args}
+        {remaining: remaining, arguments: args}
       );
 
       // Assert
       expect(l.event).to.equal(evt);
       expect(l.target).to.equal(target);
       expect(l.callback).to.equal(f);
-      expect(l.context).to.equal(ctx);
       expect(l.remaining).to.equal(remaining);
       expect(l.arguments).to.equal(args);
-
-      done();
 
     });
 
