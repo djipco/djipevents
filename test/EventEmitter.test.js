@@ -783,6 +783,99 @@ describe("EventEmitter", function() {
 
   });
 
+  describe("waitFor()", function() {
+
+    it("should resolve promise when event is triggered", function(done) {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      setTimeout(() => {
+        ee.emit("test");
+      }, 25);
+
+      // Act & Assert
+      ee.waitFor("test").then(done);
+
+    });
+
+    it("should resolve promise when any event is triggered if using ANY_EVENT", function(done) {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      setTimeout(() => {
+        ee.emit("test");
+      }, 25);
+
+      // Act & Assert
+      ee.waitFor(EventEmitter.ANY_EVENT).then(done);
+
+    });
+
+    it("should resolve promise when event is triggered within duration period", function(done) {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      setTimeout(() => {
+        ee.emit("test");
+      }, 25);
+
+      // Act & Assert
+      ee.waitFor("test", {duration: 50}).then(done);
+
+    });
+
+    it("should resolve within duration period if using ANY_EVENT", function(done) {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      setTimeout(() => {
+        ee.emit("test");
+      }, 25);
+
+      // Act & Assert
+      ee.waitFor(EventEmitter.ANY_EVENT, {duration: 50}).then(done);
+
+    });
+
+    it("should reject promise when event is not triggered within duration period", function(done) {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Act & Assert
+      ee.waitFor("test", {duration: 25}).catch(done);
+
+    });
+
+    it("should reject if event is not triggered within duration using ANY_EVENT", function(done) {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Act & Assert
+      ee.waitFor(EventEmitter.ANY_EVENT, {duration: 25}).catch(done);
+
+    });
+
+    it("should remove listener when event is not triggered within duration period", function(done) {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Act & Assert
+      ee.waitFor("test", {duration: 25}).catch(() => {
+        expect(ee.hasListener("test")).to.be.false;
+        done();
+      });
+
+    });
+
+  });
+
 });
 
 
