@@ -68,6 +68,8 @@ found in the browser's `EventTarget`, in Node.js' `EventEmitter` or even in othe
     the specified duration.
   * You can pass any number of arguments to the callback function by using the `arguments` option of
     `addListener()`. You can also prepend even more arguments by passing them to `emit()`. 
+  * You can set the value of `this` in the callback by using the `context` option. This saves you 
+    from using JavaScript's relatively slow `bind()` method.
   * The `Listener` object returned by `addListener()` has a `remove()` method that allows you to 
     easily remove the listener.
   * The callback function can be accessed via the `callback` property of the `Listener` object. This
