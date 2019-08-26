@@ -3599,7 +3599,7 @@ window.lunrData = {
                           },
                           "EventEmitter.html#waitFor": {
                             "ref": "EventEmitter.html#waitFor",
-                            "tf": 110
+                            "tf": 111.19047619047619
                           },
                           "EventEmitter.html#~callback": {
                             "ref": "EventEmitter.html#~callback",
@@ -3741,7 +3741,7 @@ window.lunrData = {
                       },
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
-                        "tf": 3.571428571428571
+                        "tf": 2.380952380952381
                       },
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
@@ -5608,7 +5608,7 @@ window.lunrData = {
       "name": "waitFor",
       "tags": "EventEmitter#waitFor waitFor",
       "summary": "",
-      "description": "The waitFor() method is an async method which resolves when the specified event occurs. The event can be a regular event or EventEmitter.ANY_EVENT (if you want to resolve as soon as any event is emitted). If you set the duration option, the method will wait for the specified amount of time for the promise to resolve. If it has not resolved at the end of the duration, the promise is rejected. This makes it super easy to wait for an event and timeout after a certain time if the event is not triggered."
+      "description": "The waitFor() method is an async function which resolves when the specified event occurs. The event can be a regular event or EventEmitter.ANY_EVENT (if you want to resolve as soon as any event is emitted). If you set the duration option, the method will wait for the specified amount of time for the promise to resolve. If it has not resolved at the end of the duration, the promise is rejected. This makes it super easy to wait for an event and timeout after a certain time if the event is not triggered."
     },
     "EventEmitter.html#~callback": {
       "id": "EventEmitter.html#~callback",
