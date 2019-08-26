@@ -401,10 +401,10 @@ window.lunrData = {
           "async",
           "async/await",
           "await",
-          "catch",
+          "catch(err",
           "certain",
-          "console.log(\"failur",
           "console.log(\"readi",
+          "console.log(err",
           "const",
           "durat",
           "easi",
@@ -3044,29 +3044,6 @@ window.lunrData = {
                                 "docs": {},
                                 "\"": {
                                   "docs": {},
-                                  "f": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {},
-                                      "i": {
-                                        "docs": {},
-                                        "l": {
-                                          "docs": {},
-                                          "u": {
-                                            "docs": {},
-                                            "r": {
-                                              "docs": {
-                                                "EventEmitter.html#waitFor": {
-                                                  "ref": "EventEmitter.html#waitFor",
-                                                  "tf": 1.0869565217391304
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
                                   "r": {
                                     "docs": {},
                                     "e": {
@@ -3083,6 +3060,20 @@ window.lunrData = {
                                               }
                                             }
                                           }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "e": {
+                                  "docs": {},
+                                  "r": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {
+                                        "EventEmitter.html#waitFor": {
+                                          "ref": "EventEmitter.html#waitFor",
+                                          "tf": 1.0869565217391304
                                         }
                                       }
                                     }
@@ -3215,10 +3206,22 @@ window.lunrData = {
               "c": {
                 "docs": {},
                 "h": {
-                  "docs": {
-                    "EventEmitter.html#waitFor": {
-                      "ref": "EventEmitter.html#waitFor",
-                      "tf": 1.0869565217391304
+                  "docs": {},
+                  "(": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "r": {
+                          "docs": {
+                            "EventEmitter.html#waitFor": {
+                              "ref": "EventEmitter.html#waitFor",
+                              "tf": 1.0869565217391304
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -5577,12 +5580,12 @@ window.lunrData = {
       "c",
       "call",
       "callback",
-      "catch",
+      "catch(err",
       "certain",
       "check",
       "class",
-      "console.log(\"failur",
       "console.log(\"readi",
+      "console.log(err",
       "const",
       "contain",
       "contextu",
@@ -5950,7 +5953,7 @@ window.lunrData = {
       "name": "waitFor",
       "tags": "EventEmitter#waitFor waitFor",
       "summary": "",
-      "description": "The waitFor() method is an async function which returns a promise. The promise is fulfilled when the specified event occurs. The event can be a regular event or EventEmitter.ANY_EVENT (if you want to resolve as soon as any event is emitted). // then/catch syntax const ee = new EventEmitter(); ee.waitFor(\"ready\").then(() =&gt; console.log(\"Ready!\")); // async/await syntax const ee = new EventEmitter(); await ee.waitFor(\"ready\"); console.log(\"Ready!\"); If the duration option is set, the promise will only be fulfilled if the event is emitted within the specified duration. If the event has not been fulfilled after the specified duration, the promise is rejected. This makes it super easy to wait for an event and timeout after a certain time if the event is not triggered. // then/catch syntax const ee = new EventEmitter(); ee.waitFor(\"ready\", {duration: 100}) .then(() =&gt; console.log(\"Ready!\")) .catch(() =&gt; console.log(\"Failure!\"); // async/await syntax const ee = new EventEmitter(); try { await ee.waitFor(\"ready\", {duration: 100}); console.log(\"Ready!\"); } catch() { console.log(\"Failure!\"); }"
+      "description": "The waitFor() method is an async function which returns a promise. The promise is fulfilled when the specified event occurs. The event can be a regular event or EventEmitter.ANY_EVENT (if you want to resolve as soon as any event is emitted). // then/catch syntax const ee = new EventEmitter(); ee.waitFor(\"ready\").then(() =&gt; console.log(\"Ready!\")); // async/await syntax const ee = new EventEmitter(); await ee.waitFor(\"ready\"); console.log(\"Ready!\"); If the duration option is set, the promise will only be fulfilled if the event is emitted within the specified duration. If the event has not been fulfilled after the specified duration, the promise is rejected. This makes it super easy to wait for an event and timeout after a certain time if the event is not triggered. // then/catch syntax const ee = new EventEmitter(); ee.waitFor(\"ready\", {duration: 100}) .then(() =&gt; console.log(\"Ready!\")) .catch(err =&gt; console.log(err); // async/await syntax const ee = new EventEmitter(); try { await ee.waitFor(\"ready\", {duration: 100}); console.log(\"Ready!\"); } catch(err) { console.log(err); }"
     },
     "EventEmitter.html#~callback": {
       "id": "EventEmitter.html#~callback",
