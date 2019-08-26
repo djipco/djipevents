@@ -847,7 +847,10 @@ describe("EventEmitter", function() {
       let ee = new EventEmitter();
 
       // Act & Assert
-      ee.waitFor("test", {duration: 25}).catch(done);
+      ee.waitFor(EventEmitter.ANY_EVENT, {duration: 25}).catch(err => {
+        expect(err).to.equal("The duration expired before the event was emitted.");
+        done();
+      });
 
     });
 
@@ -857,7 +860,10 @@ describe("EventEmitter", function() {
       let ee = new EventEmitter();
 
       // Act & Assert
-      ee.waitFor(EventEmitter.ANY_EVENT, {duration: 25}).catch(done);
+      ee.waitFor(EventEmitter.ANY_EVENT, {duration: 25}).catch(err => {
+        expect(err).to.equal("The duration expired before the event was emitted.");
+        done();
+      });
 
     });
 
