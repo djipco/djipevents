@@ -78,13 +78,10 @@ into) other objects.</p>
 <li><strong>ESM</strong>: ES6 module syntax for modern browsers</li>
 <li><strong>IIFE</strong>: ES5 syntax for legacy browser support (via <code>&lt;script&gt;</code> tag)</li>
 </ul>
-<p>This library is being primarily used in my own projects (<a href="https://github.com/djipco/djipav">DjipAV</a>,
-for example) and I do not necessarily intend on providing support for it. However, if you feel like
-using it, go right ahead!</p>
 <h2>Importing into project</h2>
 <h3>ES6 module syntax</h3>
 <p>This is for use in modern browsers that support the ECMAScript 6 syntax for module imports and
-exports:</p>
+exports. Going forward, this should be the preferred way to import the library:</p>
 <pre class="prettyprint source lang-javascript"><code>import {EventEmitter} from &quot;node_modules/djipevents/dist/djipevents.esm.min.js&quot;;
 </code></pre>
 <p>Note that the library (purposely) does not provide a default export. This means you have to use
@@ -99,7 +96,7 @@ approach:</p>
 
 </code></pre>
 <p>Beware that, in production, you should probably target a specific version of the library:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/djipevents@0.9.7/dist/djipevents.iife.min.js&quot;>&lt;/script>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/djipevents@0.9.9/dist/djipevents.iife.min.js&quot;>&lt;/script>
 
 </code></pre>
 <h3>CommonJS format (Node.js)</h3>
@@ -109,18 +106,21 @@ approach:</p>
 </code></pre>
 <h2>Key features</h2>
 <p>This library is nothing extraordinary but it does have some interesting features not necessarily
-found in the browser's <code>EventTarget</code> or in Node.js' <code>EventEmitter</code>:</p>
+found in the browser's <code>EventTarget</code>, in Node.js' <code>EventEmitter</code> or even in other libraries:</p>
 <ul>
 <li>Listeners can be set to trigger an arbitrary number of times with the <code>remaining</code> option;</li>
 <li>Listeners can be set to expire with the <code>duration</code> option;</li>
-<li>The <code>emit()</code> method returns an array containing the return value of all callback functions;</li>
-<li>The callback function can be accessed via the <code>callback</code> property of the <code>Listener</code> object. This
-makes it especially easy to access the bound version of functions transformed by <code>bind()</code>.</li>
 <li>It is possible to listen to all events by using <code>EventEmitter.ANY_EVENT</code>.</li>
+<li>The <code>waitFor()</code> method returns a promise that is fulfilled when an event occurs. A duration can
+also be defined so that the promise is automatically rejected if the event does not occur within
+the specified duration.</li>
 <li>You can pass any number of arguments to the callback function by using the <code>arguments</code> option of
 <code>addListener()</code>. You can also prepend even more arguments by passing them to <code>emit()</code>.</li>
 <li>The <code>Listener</code> object returned by <code>addListener()</code> has a <code>remove()</code> method that allows you to
 easily remove the listener.</li>
+<li>The callback function can be accessed via the <code>callback</code> property of the <code>Listener</code> object. This
+makes it especially easy to access bound versions of functions transformed by using <code>bind()</code>.</li>
+<li>The <code>emit()</code> method returns an array containing the return value of all callback functions;</li>
 </ul>
 <h3>Hidden goodies</h3>
 <p>As you can see in the reference, the <a href="https://djipco.github.io/djipevents/EventEmitter.html">API</a> is
@@ -138,11 +138,14 @@ same by calling <code>removeListener()</code> with no arguments.</p>
 <li>
 <p>There is no <code>prependListener()</code> method. Just use <code>addListener()</code> with the <code>prepend</code> option.</p>
 </li>
+<li>
+<p>There are no <code>on()</code> and <code>off()</code> methods either. Just use <code>addListener()</code> and <code>removeListener()</code>.
+You do use an IDE with auto-complete, right?</p>
+</li>
 </ul>
-<p>There are no <code>on()</code> and <code>off()</code> methods either. You might be wondering why. To me, <code>on()</code>, <code>off()</code>
-and <code>once()</code> only look good for a brief moment. Once you start extending or mixing in this library,
-you realize that identifiers such as <code>on</code> and <code>off</code> are collision-prone and do not really describe
-what the library is actually doing.</p>
+<p>As far as I'm concerned, <code>on()</code>,  <code>off()</code> and <code>once()</code> are very poor method names. Once you start
+extending or mixing in this library, you realize that identifiers such as <code>on</code> and <code>off</code> are
+collision-prone and do not describe properly what the method is actually doing.</p>
 <h2>API Reference</h2>
 <p>This library is quite straightforward and I did not take time to create usage examples. However, I
 did take some time to create a complete
@@ -157,7 +160,7 @@ for most to get started.</p></article>
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on August 25th 2019, 17:43:04 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on August 25th 2019, 23:38:22 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
