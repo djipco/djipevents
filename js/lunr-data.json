@@ -397,16 +397,15 @@
           "unsuspens"
         ],
         "EventEmitter.html#waitFor": [
-          "amount",
           "async",
           "certain",
           "durat",
           "easi",
           "emit",
-          "end",
           "event",
           "eventemitter#waitfor",
           "eventemitter.any_ev",
+          "fulfil",
           "function",
           "lt;async&gt",
           "make",
@@ -417,6 +416,7 @@
           "regular",
           "reject",
           "resolv",
+          "return",
           "set",
           "soon",
           "specifi",
@@ -426,7 +426,8 @@
           "trigger",
           "wait",
           "waitfor",
-          "want"
+          "want",
+          "within"
         ],
         "EventEmitter.html#~callback": [
           "ad",
@@ -761,7 +762,7 @@
                   "docs": {
                     "EventEmitter.html#waitFor": {
                       "ref": "EventEmitter.html#waitFor",
-                      "tf": 2.380952380952381
+                      "tf": 3.260869565217391
                     }
                   }
                 }
@@ -851,7 +852,7 @@
                     },
                     "EventEmitter.html#waitFor": {
                       "ref": "EventEmitter.html#waitFor",
-                      "tf": 32.14285714285714
+                      "tf": 33.69565217391305
                     },
                     "EventEmitter.html#~callback": {
                       "ref": "EventEmitter.html#~callback",
@@ -961,7 +962,7 @@
                                                 },
                                                 "EventEmitter.html#waitFor": {
                                                   "ref": "EventEmitter.html#waitFor",
-                                                  "tf": 1.1904761904761905
+                                                  "tf": 1.0869565217391304
                                                 }
                                               }
                                             }
@@ -1395,7 +1396,7 @@
                   },
                   "EventEmitter.html#waitFor": {
                     "ref": "EventEmitter.html#waitFor",
-                    "tf": 1.1904761904761905
+                    "tf": 2.1739130434782608
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
@@ -1555,23 +1556,12 @@
                 "docs": {
                   "EventEmitter.html#waitFor": {
                     "ref": "EventEmitter.html#waitFor",
-                    "tf": 1.1904761904761905
+                    "tf": 1.0869565217391304
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
                     "tf": 1.0638297872340425
                   }
-                }
-              }
-            }
-          },
-          "n": {
-            "docs": {},
-            "d": {
-              "docs": {
-                "EventEmitter.html#waitFor": {
-                  "ref": "EventEmitter.html#waitFor",
-                  "tf": 1.1904761904761905
                 }
               }
             }
@@ -2431,7 +2421,7 @@
                         },
                         "EventEmitter.html#waitFor": {
                           "ref": "EventEmitter.html#waitFor",
-                          "tf": 1.1904761904761905
+                          "tf": 1.0869565217391304
                         }
                       }
                     }
@@ -2536,6 +2526,10 @@
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
                         "tf": 3.225806451612903
+                      },
+                      "EventEmitter.html#waitFor": {
+                        "ref": "EventEmitter.html#waitFor",
+                        "tf": 1.0869565217391304
                       }
                     }
                   }
@@ -2563,7 +2557,7 @@
                     "docs": {
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
-                        "tf": 4.761904761904762
+                        "tf": 1.0869565217391304
                       }
                     }
                   }
@@ -2580,7 +2574,7 @@
                     "docs": {
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
-                        "tf": 1.1904761904761905
+                        "tf": 1.0869565217391304
                       }
                     }
                   }
@@ -3101,7 +3095,7 @@
                       "docs": {
                         "EventEmitter.html#waitFor": {
                           "ref": "EventEmitter.html#waitFor",
-                          "tf": 1.1904761904761905
+                          "tf": 1.0869565217391304
                         }
                       }
                     }
@@ -3463,26 +3457,6 @@
               }
             }
           },
-          "m": {
-            "docs": {},
-            "o": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "n": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "EventEmitter.html#waitFor": {
-                        "ref": "EventEmitter.html#waitFor",
-                        "tf": 1.1904761904761905
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "s": {
             "docs": {},
             "y": {
@@ -3493,7 +3467,7 @@
                   "docs": {
                     "EventEmitter.html#waitFor": {
                       "ref": "EventEmitter.html#waitFor",
-                      "tf": 1.1904761904761905
+                      "tf": 1.0869565217391304
                     }
                   }
                 }
@@ -3599,7 +3573,7 @@
                           },
                           "EventEmitter.html#waitFor": {
                             "ref": "EventEmitter.html#waitFor",
-                            "tf": 111.19047619047619
+                            "tf": 111.08695652173913
                           },
                           "EventEmitter.html#~callback": {
                             "ref": "EventEmitter.html#~callback",
@@ -3626,6 +3600,23 @@
                             "tf": 110
                           }
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "l": {
+              "docs": {},
+              "f": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "EventEmitter.html#waitFor": {
+                        "ref": "EventEmitter.html#waitFor",
+                        "tf": 3.260869565217391
                       }
                     }
                   }
@@ -3741,7 +3732,7 @@
                       },
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
-                        "tf": 2.380952380952381
+                        "tf": 1.0869565217391304
                       },
                       "EventEmitter.html#~callback": {
                         "ref": "EventEmitter.html#~callback",
@@ -3890,7 +3881,7 @@
                 "docs": {
                   "EventEmitter.html#waitFor": {
                     "ref": "EventEmitter.html#waitFor",
-                    "tf": 1.1904761904761905
+                    "tf": 1.0869565217391304
                   },
                   "EventEmitter.html#~callback": {
                     "ref": "EventEmitter.html#~callback",
@@ -4145,7 +4136,7 @@
                     },
                     "EventEmitter.html#waitFor": {
                       "ref": "EventEmitter.html#waitFor",
-                      "tf": 1.1904761904761905
+                      "tf": 1.0869565217391304
                     }
                   }
                 }
@@ -4172,7 +4163,7 @@
                       },
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
-                        "tf": 26.19047619047619
+                        "tf": 26.08695652173913
                       }
                     }
                   }
@@ -4331,7 +4322,7 @@
                     "docs": {
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
-                        "tf": 2.380952380952381
+                        "tf": 4.3478260869565215
                       }
                     }
                   }
@@ -4454,7 +4445,7 @@
                         },
                         "EventEmitter.html#waitFor": {
                           "ref": "EventEmitter.html#waitFor",
-                          "tf": 2.380952380952381
+                          "tf": 3.260869565217391
                         }
                       }
                     }
@@ -4552,7 +4543,7 @@
                   "docs": {
                     "EventEmitter.html#waitFor": {
                       "ref": "EventEmitter.html#waitFor",
-                      "tf": 1.1904761904761905
+                      "tf": 1.0869565217391304
                     }
                   }
                 }
@@ -4616,7 +4607,7 @@
                 },
                 "EventEmitter.html#waitFor": {
                   "ref": "EventEmitter.html#waitFor",
-                  "tf": 1.1904761904761905
+                  "tf": 1.0869565217391304
                 }
               }
             },
@@ -4681,7 +4672,7 @@
                 "docs": {
                   "EventEmitter.html#waitFor": {
                     "ref": "EventEmitter.html#waitFor",
-                    "tf": 1.1904761904761905
+                    "tf": 1.0869565217391304
                   }
                 }
               }
@@ -4745,7 +4736,7 @@
                         },
                         "EventEmitter.html#waitFor": {
                           "ref": "EventEmitter.html#waitFor",
-                          "tf": 1.1904761904761905
+                          "tf": 1.0869565217391304
                         },
                         "EventEmitter.html#~callback": {
                           "ref": "EventEmitter.html#~callback",
@@ -4805,7 +4796,7 @@
                 "docs": {
                   "EventEmitter.html#waitFor": {
                     "ref": "EventEmitter.html#waitFor",
-                    "tf": 2.380952380952381
+                    "tf": 1.0869565217391304
                   },
                   "Listener.html#count": {
                     "ref": "Listener.html#count",
@@ -4824,7 +4815,7 @@
                       "docs": {
                         "EventEmitter.html#waitFor": {
                           "ref": "EventEmitter.html#waitFor",
-                          "tf": 1.1904761904761905
+                          "tf": 1.0869565217391304
                         }
                       }
                     }
@@ -5103,7 +5094,7 @@
                   },
                   "EventEmitter.html#waitFor": {
                     "ref": "EventEmitter.html#waitFor",
-                    "tf": 1.1904761904761905
+                    "tf": 1.0869565217391304
                   }
                 }
               }
@@ -5114,7 +5105,7 @@
                 "docs": {
                   "EventEmitter.html#waitFor": {
                     "ref": "EventEmitter.html#waitFor",
-                    "tf": 2.380952380952381
+                    "tf": 1.0869565217391304
                   }
                 },
                 "f": {
@@ -5125,8 +5116,28 @@
                       "docs": {
                         "EventEmitter.html#waitFor": {
                           "ref": "EventEmitter.html#waitFor",
-                          "tf": 676.1904761904761
+                          "tf": 676.0869565217391
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "i": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "h": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "EventEmitter.html#waitFor": {
+                        "ref": "EventEmitter.html#waitFor",
+                        "tf": 1.0869565217391304
                       }
                     }
                   }
@@ -5217,7 +5228,7 @@
           }
         }
       },
-      "length": 456
+      "length": 457
     },
     "corpusTokens": [
       "abstract",
@@ -5227,7 +5238,6 @@
       "addlisten",
       "allow",
       "alon",
-      "amount",
       "any_ev",
       "arg",
       "argument",
@@ -5267,7 +5277,6 @@
       "easi",
       "emit",
       "emitt",
-      "end",
       "event",
       "eventcount",
       "eventemitt",
@@ -5294,6 +5303,7 @@
       "fn",
       "fn(\"i",
       "follow",
+      "fulfil",
       "function",
       "getlisten",
       "getlistenercount",
@@ -5416,6 +5426,7 @@
       "want",
       "whether",
       "whole",
+      "within",
       "y",
       "z"
     ],
@@ -5608,7 +5619,7 @@
       "name": "waitFor",
       "tags": "EventEmitter#waitFor waitFor",
       "summary": "",
-      "description": "The waitFor() method is an async function which resolves when the specified event occurs. The event can be a regular event or EventEmitter.ANY_EVENT (if you want to resolve as soon as any event is emitted). If you set the duration option, the method will wait for the specified amount of time for the promise to resolve. If it has not resolved at the end of the duration, the promise is rejected. This makes it super easy to wait for an event and timeout after a certain time if the event is not triggered."
+      "description": "The waitFor() method is an async function which returns a promise. The promise is fulfilled when the specified event occurs. The event can be a regular event or EventEmitter.ANY_EVENT (if you want to resolve as soon as any event is emitted). If the duration option is set, the promise will only be fulfilled if the event is emitted within the specified duration. If the event has not been fulfilled after the specified duration, the promise is rejected. This makes it super easy to wait for an event and timeout after a certain time if the event is not triggered."
     },
     "EventEmitter.html#~callback": {
       "id": "EventEmitter.html#~callback",
