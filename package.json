@@ -1,6 +1,6 @@
 {
   "name": "djipevents",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "description": "A clean and opinionated event-handling library for the browser and Node.js.",
   "main": "dist/djipevents.cjs.min.js",
   "module": "dist/djipevents.esm.min.js",
@@ -11,7 +11,7 @@
     "build-cjs": "BABEL_ENV=cjs rollup --config",
     "build-esm": "BABEL_ENV=esm rollup --config",
     "build-iife": "BABEL_ENV=iife rollup --config",
-    "test": "mocha ./test/index.js --exit",
+    "test": "mocha --require @babel/polyfill ./test/index.js --exit",
     "test-coverage": "nyc --reporter=text npm run test"
   },
   "keywords": [
@@ -26,13 +26,19 @@
     "event",
     "events",
     "listener",
+    "observer",
+    "observable",
     "publish",
-    "subscribe"
+    "subscribe",
+    "trigger"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@babel/runtime": "^7.5.5"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
