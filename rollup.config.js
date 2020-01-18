@@ -1,4 +1,6 @@
 import babel from "rollup-plugin-babel";
+// const path = require("path");
+// const license = require("rollup-plugin-license");
 import { terser } from "rollup-plugin-terser";
 
 // Global scope namespace (djipevents) for browsers
@@ -13,7 +15,40 @@ const iife = {
   },
   plugins: [
     babel(),
-    terser()
+    terser(),
+
+
+    // license({
+    //   sourcemap: true,
+    //   cwd: '.', // Default is process.cwd()
+    //
+    //   banner: {
+    //     commentStyle: 'regular', // The default
+    //
+    //     content: {
+    //       file: path.join(__dirname, 'LICENSE'),
+    //       encoding: 'utf-8', // Default is utf-8
+    //     },
+    //
+    //     // Optional, may be an object or a function returning an object.
+    //     data() {
+    //       return {
+    //         foo: 'foo',
+    //       };
+    //     },
+    //   },
+    //
+    //   thirdParty: {
+    //     includePrivate: true, // Default is false.
+    //     output: {
+    //       file: path.join(__dirname, 'dist', 'dependencies.txt'),
+    //       encoding: 'utf-8', // Default is utf-8.
+    //     },
+    //   },
+    // })
+
+
+
   ]
 };
 
@@ -26,7 +61,8 @@ const esm = {
     sourcemap: true
   },
   plugins: [
-    terser()
+    terser(),
+    // banner( {file: path.join(__dirname, "BANNER")} )
   ]
 };
 
@@ -40,7 +76,8 @@ const cjs = {
   },
   plugins: [
     babel(),
-    terser()
+    terser(),
+    // banner( {file: path.join(__dirname, "BANNER")} )
   ]
 };
 
