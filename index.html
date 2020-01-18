@@ -74,58 +74,60 @@ register, trigger and delete events. It is a mostly abstract class meant to be e
 into) other objects.</p>
 <p>It is currently available in 3 flavours:</p>
 <ul>
-<li><strong>CommonJS</strong>: ES5 syntax for Node.js</li>
-<li><strong>ESM</strong>: ES6 module syntax for modern browsers</li>
+<li><strong>ESM</strong>: native ES6 module syntax for modern browsers</li>
+<li><strong>CommonJS</strong>: ES5 syntax for Node.js (and bundlers such as Webpack)</li>
 <li><strong>IIFE</strong>: ES5 syntax for legacy browser support (via <code>&lt;script&gt;</code> tag)</li>
 </ul>
 <h2>Importing into project</h2>
-<h3>ES6 module syntax</h3>
+<h3>Native ES6 module syntax</h3>
 <p>This is for use in modern browsers that support the ECMAScript 6 syntax for module imports and
-exports. Going forward, this should be the preferred way to import the library:</p>
+exports. Going forward, this should be the preferred way to import the library (if your target
+environment supports it):</p>
 <pre class="prettyprint source lang-javascript"><code>import {EventEmitter} from &quot;node_modules/djipevents/dist/djipevents.esm.min.js&quot;;
 </code></pre>
 <p>Note that the library (purposely) does not provide a default export. This means you have to use
 curly quotes when importing.</p>
+<h3>CommonJS format (Node.js)</h3>
+<p>CommonJS is the standard in the Node.js world. It is also very popular in setups using bundlers such
+as Webpack.</p>
+<p>Even though Node.js already offers its own <code>EventEmitter</code> object, you can still use <strong>djipevents</strong>
+if you prefer its added functionalities:</p>
+<pre class="prettyprint source lang-javascript"><code>const EventEmitter = require(&quot;djipevents&quot;).EventEmitter;
+</code></pre>
 <h3>Object in global namespace (djipevents)</h3>
-<p>This is mostly for legacy-browser support. It might be easier for some as it is a very common
-approach:</p>
+<p>This is mostly for legacy-browser support and quick testing. It might be easier for some as it is a
+very common approach:</p>
 <pre class="prettyprint source lang-html"><code>&lt;script src=&quot;node_modules/djipevents/dist/djipevents.iife.min.js&quot;>&lt;/script>
 </code></pre>
 <p>You can also use the CDN version:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/djipevents/dist/djipevents.iife.min.js&quot;>&lt;/script>
-
-</code></pre>
-<p>Beware that, in production, you should probably target a specific version of the library:</p>
 <pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/djipevents@0.9.9/dist/djipevents.iife.min.js&quot;>&lt;/script>
 
-</code></pre>
-<h3>CommonJS format (Node.js)</h3>
-<p>CommonJS is the standard in the Node.js world. Even though Node.js already offers its own
-<code>EventEmitter</code> object, you can still use <strong>djipevents</strong> if you prefer its API:</p>
-<pre class="prettyprint source lang-javascript"><code>const EventEmitter = require(&quot;djipevents&quot;).EventEmitter;
 </code></pre>
 <h2>Key features</h2>
 <p>This library is nothing extraordinary but it does have some interesting features not necessarily
 found in the browser's <code>EventTarget</code>, in Node.js' <code>EventEmitter</code> or even in other libraries:</p>
 <ul>
-<li>Listeners can be set to trigger an arbitrary number of times with the <code>remaining</code> option;</li>
 <li>Listeners can be set to expire with the <code>duration</code> option;</li>
+<li>The <code>Listener</code> object returned by <code>addListener()</code> has a <code>remove()</code> method that allows you to
+easily remove the listener.</li>
+<li>Listeners can be set to trigger an arbitrary number of times with the <code>remaining</code> option;</li>
 <li>It is possible to listen to all events by using <code>EventEmitter.ANY_EVENT</code>.</li>
 <li>The <code>waitFor()</code> method returns a promise that is fulfilled when an event occurs. A duration can
 also be defined so that the promise is automatically rejected if the event does not occur within
 the specified duration.</li>
 <li>You can pass any number of arguments to the callback function by using the <code>arguments</code> option of
 <code>addListener()</code>. You can also prepend even more arguments by passing them to <code>emit()</code>.</li>
-<li>The <code>Listener</code> object returned by <code>addListener()</code> has a <code>remove()</code> method that allows you to
-easily remove the listener.</li>
+<li>You can set the value of <code>this</code> in the callback by using the <code>context</code> option. This saves you
+from using JavaScript's relatively slow <code>bind()</code> method.</li>
 <li>The callback function can be accessed via the <code>callback</code> property of the <code>Listener</code> object. This
-makes it especially easy to access bound versions of functions transformed by using <code>bind()</code>.</li>
-<li>The <code>emit()</code> method returns an array containing the return value of all callback functions;</li>
+makes it especially easy to access bound versions of functions transformed by using the
+<code>context</code> option or by manually calling <code>bind()</code>.</li>
+<li>The <code>emit()</code> method returns an array containing the return value of all the callback functions;</li>
 </ul>
 <h3>Hidden goodies</h3>
 <p>As you can see in the reference, the <a href="https://djipco.github.io/djipevents/EventEmitter.html">API</a> is
-quite lean. It is meant to be that way. That does not mean the library is less powerful than others.
-Some of the functionalities are just less glaringly obvious than with some other libraries. For
+lean. It is meant to be that way. That does not mean the library is less powerful than others. Some
+of the functionalities are just less glaringly obvious than with some other libraries. For
 example:</p>
 <ul>
 <li>
@@ -133,19 +135,20 @@ example:</p>
 same by calling <code>removeListener()</code> with no arguments.</p>
 </li>
 <li>
-<p>There is no <code>once()</code> method. Just use the <code>addListener()</code> method with the <code>remaining</code> option.</p>
+<p>There is no <code>once()</code> method, use <code>addOneTimeListener()</code>.</p>
 </li>
 <li>
 <p>There is no <code>prependListener()</code> method. Just use <code>addListener()</code> with the <code>prepend</code> option.</p>
 </li>
 <li>
-<p>There are no <code>on()</code> and <code>off()</code> methods either. Just use <code>addListener()</code> and <code>removeListener()</code>.
-You do use an IDE with auto-complete, right?</p>
+<p>There are no <code>on()</code> and <code>off()</code> methods either. Just use <code>addListener()</code> and <code>removeListener()</code>.</p>
 </li>
 </ul>
 <p>As far as I'm concerned, <code>on()</code>,  <code>off()</code> and <code>once()</code> are very poor method names. Once you start
 extending or mixing in this library, you realize that identifiers such as <code>on</code> and <code>off</code> are
-collision-prone and do not describe properly what the methods are actually doing, which is bad.</p>
+collision-prone and do not describe properly what the methods are actually doing, which is bad. It
+is true that <code>once()</code>is shorter than <code>addOneTimeListener()</code>. However, with auto-completion, this
+is irrelevant.</p>
 <h2>API Reference</h2>
 <p>This library is quite straightforward and I did not take time to create usage examples. However, I
 did take some time to create a complete
@@ -160,7 +163,7 @@ for most to get started.</p></article>
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on August 26th 2019, 10:19:06 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on January 18th 2020, 10:59:10 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
