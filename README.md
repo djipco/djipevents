@@ -46,12 +46,17 @@ very common approach:
 <script src="node_modules/djipevents/dist/djipevents.iife.min.js"></script>
 ```
 
-You can also use the CDN version:
+### CDN-Hosted Versions
+
+All three versions of the library (ES6 Module, CommonJS and Global) are available via a CDN. Here is
+the syntax for the global version:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/djipevents@0.9.9/dist/djipevents.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/djipevents@1.0.0a/dist/djipevents.iife.min.js"></script>
 
 ```
+
+For the other versions, just change `iife` for `esm` (ES6 Module) or `cjs` (CommonJS) version.
 
 ## Key features
 
