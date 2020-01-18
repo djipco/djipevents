@@ -78,14 +78,14 @@ found in the browser's `EventTarget`, in Node.js' `EventEmitter` or even in othe
 ### Hidden goodies
   
 As you can see in the reference, the [API](https://djipco.github.io/djipevents/EventEmitter.html) is 
-quite lean. It is meant to be that way. That does not mean the library is less powerful than others. 
-Some of the functionalities are just less glaringly obvious than with some other libraries. For 
+lean. It is meant to be that way. That does not mean the library is less powerful than others. Some 
+of the functionalities are just less glaringly obvious than with some other libraries. For 
 example:
 
   * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
     same by calling `removeListener()` with no arguments.
   
-  * There is no `once()` method. Just use the `addListener()` method with the `remaining` option.
+  * There is no `once()` method, use `addOneTimeListener()`.
 
   * There is no `prependListener()` method. Just use `addListener()` with the `prepend` option.
 
@@ -93,7 +93,9 @@ example:
   
 As far as I'm concerned, `on()`,  `off()` and `once()` are very poor method names. Once you start 
 extending or mixing in this library, you realize that identifiers such as `on` and `off` are 
-collision-prone and do not describe properly what the methods are actually doing, which is bad.
+collision-prone and do not describe properly what the methods are actually doing, which is bad. It 
+is true that `once()`is shorter than `addOneTimeListener()`. However, with auto-completion, this 
+is irrelevant.
 
 ## API Reference
 

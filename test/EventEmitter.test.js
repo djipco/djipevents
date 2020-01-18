@@ -684,14 +684,14 @@ describe("EventEmitter", function() {
 
   });
 
-  describe("once()", function() {
+  describe("addOneTimeListener()", function() {
 
     it("should only execute callback once", function(done) {
 
       let ee = new EventEmitter();
       let spy = sinon.spy();
 
-      ee.addListener("test", spy, {remaining: 1});
+      ee.addOneTimeListener("test", spy);
 
       ee.emit("test");
       ee.emit("test");

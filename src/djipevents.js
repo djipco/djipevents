@@ -100,6 +100,38 @@ export class EventEmitter {
   }
 
   /**
+   * Adds a one-time listener for the specified event. The listener will be executed once and then
+   * destroyed. It returns the [**Listener**]{@link Listener} object that was created and attached
+   * to the event.
+   *
+   * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
+   * as the first parameter. Note that a global listener will also be triggered by non-registered
+   * events. For example, this will trigger global listeners: `myEmitter.emit('bogus')`.
+   *
+   * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
+   * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
+   * @param {Object} [options={}]
+   * @param {Object} [options.context=this] The context to invoke the callback function in.
+   * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
+   * of the listeners array
+   * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
+   * automatically expires.
+   * @param {array} [options.arguments] An array of arguments which will be passed separately to the
+   * callback function. This array is stored in the [**arguments**]{@link Listener#arguments}
+   * property of the [**Listener**]{@link Listener} object and can be retrieved or modified as
+   * desired.
+   *
+   * @returns {Listener} The newly created [**Listener**]{@link Listener} object.
+   *
+   * @throws {TypeError} The `event` parameter must be a string or `EventEmitter.ANY_EVENT`.
+   * @throws {TypeError} The `callback` parameter must be a function.
+   */
+  addOneTimeListener(event, callback, options = {}) {
+    options.remaining = 1;
+    this.addListener(event, callback, options);
+  }
+
+  /**
    * Identifier to use when trying to add or remove a listener that should be triggered when any
    * events occur.
    *
