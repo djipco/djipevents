@@ -679,7 +679,7 @@ window.lunrData = {
                         },
                         "EventEmitter.html#hasListener": {
                           "ref": "EventEmitter.html#hasListener",
-                          "tf": 33.33333333333333
+                          "tf": 25
                         },
                         "Listener.html#suspended": {
                           "ref": "Listener.html#suspended",
@@ -930,7 +930,7 @@ window.lunrData = {
                     },
                     "EventEmitter.html#hasListener": {
                       "ref": "EventEmitter.html#hasListener",
-                      "tf": 38.17204301075268
+                      "tf": 29.838709677419356
                     },
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
@@ -1846,7 +1846,7 @@ window.lunrData = {
                           "docs": {
                             "EventEmitter.html#hasListener": {
                               "ref": "EventEmitter.html#hasListener",
-                              "tf": 683.3333333333334
+                              "tf": 675
                             }
                           }
                         }
@@ -2104,7 +2104,7 @@ window.lunrData = {
                       },
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
-                        "tf": 6.451612903225806
+                        "tf": 31.451612903225808
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
@@ -6262,7 +6262,7 @@ window.lunrData = {
     "EventEmitter.html#hasListener": {
       "id": "EventEmitter.html#hasListener",
       "kind": "function",
-      "title": "hasListener( [ event ] ) → {boolean}",
+      "title": "hasListener( [ event [, listener ] ] ) → {boolean}",
       "longname": "EventEmitter#hasListener",
       "name": "hasListener",
       "tags": "EventEmitter#hasListener hasListener",
