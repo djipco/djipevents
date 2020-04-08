@@ -150,9 +150,11 @@ export class EventEmitter {
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
    * @param {string|EventEmitter.ANY_EVENT} [event] The event to check
+   * @param {function|Listener} [listener] The actual function that was added to the event or the
+   * `Listener` object returned by `addListener()`.
    * @returns {boolean}
    */
-  hasListener(event) {
+  hasListener(event, callback) {
 
     if (event === undefined) {
 
@@ -168,8 +170,24 @@ export class EventEmitter {
 
     } else {
 
-      // Check for specific event
-      return (this.map[event] && this.map[event].length > 0) ? true : false;
+      if (this.map[event] && this.map[event].length > 0) {
+
+        if (callback instanceof Listener) {
+          let result = this.map[event].filter(listener => listener === callback);
+          return result.length > 0;
+        } else if (typeof callback === "function") {
+          let result = this.map[event].filter(listener => listener.callback === callback);
+          return result.length > 0;
+        } else if (callback != undefined) {
+          return false;
+        }
+
+        return true;
+
+      } else {
+        return false;
+      }
+
 
     }
 

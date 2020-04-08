@@ -1,4 +1,5 @@
 const EventEmitter = require("../dist/djipevents.cjs.min.js").EventEmitter;
+const Listener = require("../dist/djipevents.cjs.min.js").Listener;
 const {expect} = require("chai");
 const sinon = require("sinon");
 
@@ -435,6 +436,53 @@ describe("EventEmitter", function() {
       expect(ee.hasListener("test2")).to.be.true;
       expect(ee.hasListener("test3")).to.be.true;
       expect(ee.hasListener(EventEmitter.ANY_EVENT)).to.be.true;
+
+    });
+
+    it("should report the correct boolean value when callback is Listener", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+
+      // Act
+      let listener1 = ee.addListener("test1", () => {});
+      let listener2 = new Listener("test2", ee, () => {});
+
+      // Assert
+      expect(ee.hasListener("test1", listener1)).to.be.true;
+      expect(ee.hasListener("test1", listener2)).to.be.false;
+
+    });
+
+    it("should report the correct boolean value when callback is function", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let f1 = () => {};
+      let f2 = () => {};
+
+      // Act
+      ee.addListener("test1", f1);
+
+      // Assert
+      expect(ee.hasListener("test1", f1)).to.be.true;
+      expect(ee.hasListener("test1", f2)).to.be.false;
+
+    });
+
+    it("should report the correct boolean value even callback is invalid", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let f1 = () => {};
+
+      // Act
+      ee.addListener("test1", f1);
+
+      // Assert
+      expect(ee.hasListener("test1", null)).to.be.true;
+      expect(ee.hasListener("test1", undefined)).to.be.true;
+      expect(ee.hasListener("test1", "test")).to.be.false;
 
     });
 
