@@ -320,6 +320,7 @@ window.lunrData = {
         "EventEmitter.html#hasListener": [
           "ad",
           "boolean",
+          "callback",
           "check",
           "event",
           "eventemitter#haslisten",
@@ -2104,7 +2105,7 @@ window.lunrData = {
                       },
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
-                        "tf": 31.451612903225808
+                        "tf": 6.451612903225806
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
@@ -3352,6 +3353,10 @@ window.lunrData = {
                           "EventEmitter.html#emit": {
                             "ref": "EventEmitter.html#emit",
                             "tf": 2.941176470588235
+                          },
+                          "EventEmitter.html#hasListener": {
+                            "ref": "EventEmitter.html#hasListener",
+                            "tf": 25
                           },
                           "EventEmitter.html#removeListener": {
                             "ref": "EventEmitter.html#removeListener",
@@ -5885,7 +5890,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 512
+      "length": 513
     },
     "corpusTokens": [
       "100",
@@ -6262,7 +6267,7 @@ window.lunrData = {
     "EventEmitter.html#hasListener": {
       "id": "EventEmitter.html#hasListener",
       "kind": "function",
-      "title": "hasListener( [ event [, listener ] ] ) → {boolean}",
+      "title": "hasListener( [ event [, callback ] ] ) → {boolean}",
       "longname": "EventEmitter#hasListener",
       "name": "hasListener",
       "tags": "EventEmitter#hasListener hasListener",
