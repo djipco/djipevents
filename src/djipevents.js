@@ -8,10 +8,10 @@
 export class EventEmitter {
 
   /**
-   * @param {boolean} [suspended=false] Whether the `EventEmitter` is initially in a suspended
+   * @param {boolean} [eventsSuspended=false] Whether the `EventEmitter` is initially in a suspended
    * state (i.e. not executing callbacks).
    */
-  constructor(suspended = false) {
+  constructor(eventsSuspended = false) {
 
     /**
      * An object containing a property for each event with at least one registered listener. Each
@@ -27,7 +27,7 @@ export class EventEmitter {
      * emitter
      * @type {boolean}
      */
-    this.suspended = suspended == true ? true : false;
+    this.eventsSuspended = eventsSuspended == true ? true : false;
 
   }
 
@@ -150,8 +150,8 @@ export class EventEmitter {
    * `EventEmitter.ANY_EVENT` as the parameter.
    *
    * @param {string|EventEmitter.ANY_EVENT} [event] The event to check
-   * @param {function|Listener} [listener] The actual function that was added to the event or the
-   * `Listener` object returned by `addListener()`.
+   * @param {function|Listener} [callback] The actual function that was added to the event or the
+   * {@link Listener} object returned by `addListener()`.
    * @returns {boolean}
    */
   hasListener(event, callback) {
@@ -229,12 +229,12 @@ export class EventEmitter {
    * only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive at
    * first glance, it allows the selective suspension of global listeners while leaving other
    * liseners alone. If you truly want to suspends all callbacks for a specific `EventEmitter`,
-   * simply set its `suspended` property to `true`.
+   * simply set its `eventsSuspended` property to `true`.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event for which to suspend execution of all
    * callback functions.
    */
-  suspend(event) {
+  suspendEvent(event) {
     this.getListeners(event).forEach(listener => {
       listener.suspended = true;
     });
@@ -251,7 +251,7 @@ export class EventEmitter {
    * @param {string|EventEmitter.ANY_EVENT} event The event for which to resume execution of all
    * callback functions.
    */
-  unsuspend(event) {
+  unsuspendEvent(event) {
     this.getListeners(event).forEach(listener => {
       listener.suspended = false;
     });
@@ -285,8 +285,8 @@ export class EventEmitter {
    *
    * In this example, the function will be called as such: `fn("y", "z", "a", "b", "c");`
    *
-   * If the `suspended` property of the `EventEmitter` or of the `Listener` is `true`, the callback
-   * functions will not be executed.
+   * If the `eventsSuspended` property of the `EventEmitter` or the `suspended` property of the
+   * `Listener` is `true`, the callback functions will not be executed.
    *
    * This function returns an array containing the return values of each of the callbacks.
    *
@@ -307,7 +307,7 @@ export class EventEmitter {
       throw new TypeError("The 'event' parameter must be a string.");
     }
 
-    if (this.suspended) return;
+    if (this.eventsSuspended) return;
 
     // We collect return values from all listeners here
     let results = [];
