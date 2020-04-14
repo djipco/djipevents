@@ -90,7 +90,7 @@ export class EventEmitter {
      * @type {Object}
      * @readonly
      */
-    this.map = {};
+    this.eventMap = {};
 
     /**
      * Whether or not the execution of function callbacks is currently suspended for this whole
@@ -124,9 +124,9 @@ export class EventEmitter {
    * events. For example, this will trigger global listeners: `myEmitter.emit('bogus')`.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
-   * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
+   * @param {EventEmitter~callback} callback The callback function to execute when the event occurs.
    * @param {Object} [options={}]
-   * @param {Object} [options.context=this] The context to invoke the callback function in.
+   * @param {Object} [options.context=this] The value of `this` in the callback function.
    * @param {boolean} [options.prepend=false] Whether the listener should be added at the beginning
    * of the listeners array
    * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
@@ -157,12 +157,12 @@ export class EventEmitter {
 
     const listener = new Listener(event, this, callback, options);
 
-    if (!this.map[event]) this.map[event] = [];
+    if (!this.eventMap[event]) this.eventMap[event] = [];
 
     if (options.prepend) {
-      this.map[event].unshift(listener);
+      this.eventMap[event].unshift(listener);
     } else {
-      this.map[event].push(listener);
+      this.eventMap[event].push(listener);
     }
 
     return listener;
@@ -229,24 +229,26 @@ export class EventEmitter {
     if (event === undefined) {
 
       // Check for ANY_EVENT
-      if (this.map[EventEmitter.ANY_EVENT] &amp;&amp; this.map[EventEmitter.ANY_EVENT].length > 0) {
+      if (
+        this.eventMap[EventEmitter.ANY_EVENT] &amp;&amp; this.eventMap[EventEmitter.ANY_EVENT].length > 0
+      ) {
         return true;
       }
 
       // Check for any regular events
-      return Object.entries(this.map).some(([, value]) => {
+      return Object.entries(this.eventMap).some(([, value]) => {
         return value.length > 0;
       });
 
     } else {
 
-      if (this.map[event] &amp;&amp; this.map[event].length > 0) {
+      if (this.eventMap[event] &amp;&amp; this.eventMap[event].length > 0) {
 
         if (callback instanceof Listener) {
-          let result = this.map[event].filter(listener => listener === callback);
+          let result = this.eventMap[event].filter(listener => listener === callback);
           return result.length > 0;
         } else if (typeof callback === "function") {
-          let result = this.map[event].filter(listener => listener.callback === callback);
+          let result = this.eventMap[event].filter(listener => listener.callback === callback);
           return result.length > 0;
         } else if (callback != undefined) {
           return false;
@@ -274,7 +276,7 @@ export class EventEmitter {
    * @readonly
    */
   get eventNames() {
-    return Object.keys(this.map);
+    return Object.keys(this.eventMap);
   }
 
   /**
@@ -288,16 +290,16 @@ export class EventEmitter {
    * @returns {Listener[]} An array of `Listener` objects
    */
   getListeners(event) {
-    return this.map[event] || [];
+    return this.eventMap[event] || [];
   }
 
   /**
    * Suspends execution of all callbacks functions registered for the specified event type.
    *
    * You can suspend execution of callbacks registered with `EventEmitter.ANY_EVENT` by passing
-   * `EventEmitter.ANY_EVENT` to `suspend()`. Beware that this will not suspend all callbacks but
-   * only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive at
-   * first glance, it allows the selective suspension of global listeners while leaving other
+   * `EventEmitter.ANY_EVENT` to `suspendEvent()`. Beware that this will not suspend all callbacks
+   * but only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive
+   * at first glance, it allows the selective suspension of global listeners while leaving other
    * liseners alone. If you truly want to suspends all callbacks for a specific `EventEmitter`,
    * simply set its `eventsSuspended` property to `true`.
    *
@@ -314,9 +316,9 @@ export class EventEmitter {
    * Resumes execution of all suspended callback functions registered for the specified event type.
    *
    * You can resume execution of callbacks registered with `EventEmitter.ANY_EVENT` by passing
-   * `EventEmitter.ANY_EVENT` to `unsuspend()`. Beware that this will not resume all callbacks but
-   * only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive, it
-   * allows the selective unsuspension of global listeners while leaving other callbacks alone.
+   * `EventEmitter.ANY_EVENT` to `unsuspendEvent()`. Beware that this will not resume all callbacks
+   * but only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive,
+   * it allows the selective unsuspension of global listeners while leaving other callbacks alone.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event for which to resume execution of all
    * callback functions.
@@ -384,8 +386,8 @@ export class EventEmitter {
 
     // We must make sure that we do not have undefined otherwise concat() will add an undefined
     // entry in the array.
-    let listeners = this.map[EventEmitter.ANY_EVENT] || [];
-    if (this.map[event]) listeners = listeners.concat(this.map[event]);
+    let listeners = this.eventMap[EventEmitter.ANY_EVENT] || [];
+    if (this.eventMap[event]) listeners = listeners.concat(this.eventMap[event]);
 
     listeners.forEach(listener => {
 
@@ -428,14 +430,14 @@ export class EventEmitter {
   removeListener(event, callback, options = {}) {
 
     if (event === undefined) {
-      this.map = {};
+      this.eventMap = {};
       return;
-    } else if (!this.map[event]) {
+    } else if (!this.eventMap[event]) {
       return;
     }
 
     // Find listeners that do not match the criterias (those are the ones we will keep)
-    let listeners = this.map[event].filter(listener => {
+    let listeners = this.eventMap[event].filter(listener => {
 
       return (callback &amp;&amp; listener.callback !== callback) ||
         (options.remaining &amp;&amp; options.remaining !== listener.remaining) ||
@@ -444,9 +446,9 @@ export class EventEmitter {
     });
 
     if (listeners.length) {
-      this.map[event] = listeners;
+      this.eventMap[event] = listeners;
     } else {
-      delete this.map[event];
+      delete this.eventMap[event];
     }
 
   }
@@ -533,7 +535,7 @@ export class EventEmitter {
    * @readonly
    */
   get eventCount() {
-    return Object.keys(this.map).length;
+    return Object.keys(this.eventMap).length;
   }
 
 }
@@ -668,7 +670,7 @@ export class Listener {
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on April 11th 2020, 17:05:53 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on April 14th 2020, 19:48:39 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
