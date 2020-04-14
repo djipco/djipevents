@@ -7,15 +7,15 @@ describe("EventEmitter", function() {
 
   describe("constructor", function() {
 
-    it("should set 'suspended' property to boolean, no matter the input", function () {
+    it("should set 'eventsSuspended' property to boolean, no matter the input", function () {
 
       // Arrange
       let falsy = [undefined, false, 0, null];
       let truthy = [true, 1];
 
       // Act
-      let result1 = falsy.map(value => new EventEmitter(value).suspended);
-      let result2 = truthy.map(value => new EventEmitter(value).suspended);
+      let result1 = falsy.map(value => new EventEmitter(value).eventsSuspended);
+      let result2 = truthy.map(value => new EventEmitter(value).eventsSuspended);
 
       // Assert
       expect(result1).to.all.include(false).and.not.include(true);
@@ -188,7 +188,7 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should not execute callbacks when EventEmitter's 'suspended' is true", function () {
+    it("should not execute callbacks when EventEmitter's 'eventsSuspended' is true", function () {
 
       // Arrange
       let ee = new EventEmitter(true);
@@ -755,7 +755,7 @@ describe("EventEmitter", function() {
 
   });
 
-  describe("suspend()", function() {
+  describe("suspendEvent()", function() {
 
     it("should suspend callback execution for regular events", function(done) {
 
@@ -766,7 +766,7 @@ describe("EventEmitter", function() {
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
-      ee.suspend("test");
+      ee.suspendEvent("test");
       ee.emit("test");
       ee.emit("test");
       ee.emit("test");
@@ -785,7 +785,7 @@ describe("EventEmitter", function() {
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
-      ee.suspend(EventEmitter.ANY_EVENT);
+      ee.suspendEvent(EventEmitter.ANY_EVENT);
       ee.emit("test");
       ee.emit("test");
       ee.emit("test");
@@ -797,7 +797,7 @@ describe("EventEmitter", function() {
 
   });
 
-  describe("unsuspend()", function() {
+  describe("unsuspendEvent()", function() {
 
     it("should resume callback execution for regular events", function(done) {
 
@@ -808,10 +808,10 @@ describe("EventEmitter", function() {
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
-      ee.suspend("test");
+      ee.suspendEvent("test");
       ee.emit("test");
       ee.emit("test");
-      ee.unsuspend("test");
+      ee.unsuspendEvent("test");
       ee.emit("test");
       expect(spy.calledTwice).to.be.true;
 
@@ -828,10 +828,10 @@ describe("EventEmitter", function() {
 
       ee.emit("test");
       expect(spy.calledOnce).to.be.true;
-      ee.suspend(EventEmitter.ANY_EVENT);
+      ee.suspendEvent(EventEmitter.ANY_EVENT);
       ee.emit("test");
       ee.emit("test");
-      ee.unsuspend(EventEmitter.ANY_EVENT);
+      ee.unsuspendEvent(EventEmitter.ANY_EVENT);
       ee.emit("test");
       expect(spy.calledTwice).to.be.true;
 
@@ -842,7 +842,7 @@ describe("EventEmitter", function() {
 
   });
 
-  describe("suspended", function() {
+  describe("eventsSuspended", function() {
 
     it("should correctly suspend events", function(done) {
 
@@ -855,12 +855,12 @@ describe("EventEmitter", function() {
       let spy2 = sinon.spy(listener2, "callback");
       let spy3 = sinon.spy(listener3, "callback");
 
-      ee.suspended = true;
+      ee.eventsSuspended = true;
       ee.emit("test1");
       ee.emit("test2");
       ee.emit("test2");
 
-      ee.suspended = false;
+      ee.eventsSuspended = false;
       ee.emit("test1");
       ee.emit("test2");
       ee.emit("test2");
@@ -1037,21 +1037,21 @@ describe("EventEmitter", function() {
 // listener1.remove();
 // console.log(ee.getListeners("test"));
 
-// console.log("suspended works");
+// console.log("eventsSuspended works");
 // let ee = new EventEmitter();
 // let listener1 = ee.on("test", () => console.log("Coucou!"));
-// ee.suspended = true;
+// ee.eventsSuspended = true;
 // ee.emit("test");
 
-// console.log("suspend() works");
+// console.log("suspendEvent() works");
 // let ee = new EventEmitter();
 // let listener1 = ee.on("test", () => console.log("A"));
 // let listener2 = ee.on("test", () => console.log("B"));
 // let listener3 = ee.on("test", () => console.log("C"));
-// // ee.suspended = true;
-// ee.suspend("test");
+// // ee.eventsSuspended = true;
+// ee.suspendEvent("test");
 // ee.emit("test");
-// ee.unsuspend("test");
+// ee.unsuspendEvent("test");
 // ee.emit("test");
 
 // console.log("the result of the listener functions is properly collected");
