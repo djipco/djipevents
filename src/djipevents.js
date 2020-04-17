@@ -76,9 +76,9 @@ export class EventEmitter {
   addListener(event, callback, options = {}) {
 
     if (
-      typeof event !== "string" &&
-      !(event instanceof String) &&
-      event !== EventEmitter.ANY_EVENT
+      (typeof event === "string" && event.length < 1) ||
+      (event instanceof String && event.length < 1) ||
+      (typeof event !== "string" && !(event instanceof String) && event !== EventEmitter.ANY_EVENT)
     ) {
       throw new TypeError("The 'event' parameter must be a string or EventEmitter.ANY_EVENT.");
     }

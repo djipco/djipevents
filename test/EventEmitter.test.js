@@ -23,13 +23,13 @@ describe("EventEmitter", function() {
 
     });
 
-    it("should set 'map' property to empty object, always", function () {
+    it("should set 'eventMap' property to empty object, always", function () {
 
       // Arrange
       let ee = new EventEmitter();
 
       // Act & Assert
-      expect(ee.map).to.be.a("object").and.be.empty;
+      expect(ee.eventMap).to.be.a("object").and.be.empty;
 
     });
 
@@ -665,6 +665,23 @@ describe("EventEmitter", function() {
       expect(l.remaining).to.equal(Infinity);
       expect(l.data).to.be.undefined;
       expect(listeners[listeners.length - 1]).to.equal(l);
+
+    });
+
+    it("should throw when the event is not a string or EventEmitter.ANY_EVENT", function() {
+
+      // Arrange
+      let ee = new EventEmitter();
+      let l1 = () => {};
+
+      // Act
+
+      // Assert
+      [undefined, null, NaN, [], {}, 0, ""].forEach(value => {
+        expect(() => {
+          ee.addListener(value, l1);
+        }).to.throw(TypeError);
+      });
 
     });
 
