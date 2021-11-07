@@ -104,7 +104,7 @@ window.lunrData = {
           "event",
           "eventcount",
           "eventemitter#eventcount",
-          "eventemitter.any_eventxxx",
+          "eventemitter.any_event][eventemitter#any_ev",
           "exclud",
           "global",
           "listen",
@@ -1013,15 +1013,69 @@ window.lunrData = {
                                                   "docs": {},
                                                   "t": {
                                                     "docs": {},
-                                                    "x": {
+                                                    "]": {
                                                       "docs": {},
-                                                      "x": {
+                                                      "[": {
                                                         "docs": {},
-                                                        "x": {
-                                                          "docs": {
-                                                            "EventEmitter.html#eventCount": {
-                                                              "ref": "EventEmitter.html#eventCount",
-                                                              "tf": 3.571428571428571
+                                                        "e": {
+                                                          "docs": {},
+                                                          "v": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "n": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {},
+                                                                  "e": {
+                                                                    "docs": {},
+                                                                    "m": {
+                                                                      "docs": {},
+                                                                      "i": {
+                                                                        "docs": {},
+                                                                        "t": {
+                                                                          "docs": {},
+                                                                          "t": {
+                                                                            "docs": {},
+                                                                            "e": {
+                                                                              "docs": {},
+                                                                              "r": {
+                                                                                "docs": {},
+                                                                                "#": {
+                                                                                  "docs": {},
+                                                                                  "a": {
+                                                                                    "docs": {},
+                                                                                    "n": {
+                                                                                      "docs": {},
+                                                                                      "y": {
+                                                                                        "docs": {},
+                                                                                        "_": {
+                                                                                          "docs": {},
+                                                                                          "e": {
+                                                                                            "docs": {},
+                                                                                            "v": {
+                                                                                              "docs": {
+                                                                                                "EventEmitter.html#eventCount": {
+                                                                                                  "ref": "EventEmitter.html#eventCount",
+                                                                                                  "tf": 3.571428571428571
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
                                                             }
                                                           }
                                                         }
@@ -5514,7 +5568,7 @@ window.lunrData = {
       "eventemitter#unsuspendev",
       "eventemitter#waitfor",
       "eventemitter.any_ev",
-      "eventemitter.any_eventxxx",
+      "eventemitter.any_event][eventemitter#any_ev",
       "eventemitter~callback",
       "eventmap",
       "eventnam",
@@ -5717,7 +5771,7 @@ window.lunrData = {
       "name": "eventCount",
       "tags": "EventEmitter#eventCount eventCount",
       "summary": "",
-      "description": "The number of unique events that have registered listeners. Note: this excludes global events registered with EventEmitter.ANY_EVENTXXX because they are not tied to a specific event."
+      "description": "The number of unique events that have registered listeners. Note: this excludes global events registered with [EventEmitter.ANY_EVENT][EventEmitter#ANY_EVENT] because they are not tied to a specific event."
     },
     "EventEmitter.html#eventMap": {
       "id": "EventEmitter.html#eventMap",
