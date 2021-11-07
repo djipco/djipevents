@@ -114,6 +114,7 @@
           "number",
           "regist",
           "specif",
+          "test",
           "ti",
           "uniqu"
         ],
@@ -850,7 +851,7 @@
                     },
                     "EventEmitter.html#eventCount": {
                       "ref": "EventEmitter.html#eventCount",
-                      "tf": 10.714285714285714
+                      "tf": 6.8181818181818175
                     },
                     "EventEmitter.html#eventMap": {
                       "ref": "EventEmitter.html#eventMap",
@@ -964,7 +965,7 @@
                                                 },
                                                 "EventEmitter.html#eventCount": {
                                                   "ref": "EventEmitter.html#eventCount",
-                                                  "tf": 3.571428571428571
+                                                  "tf": 4.545454545454546
                                                 },
                                                 "EventEmitter.html#eventNames": {
                                                   "ref": "EventEmitter.html#eventNames",
@@ -1686,7 +1687,7 @@
                     "docs": {
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 3.571428571428571
+                        "tf": 2.272727272727273
                       },
                       "EventEmitter.html#eventNames": {
                         "ref": "EventEmitter.html#eventNames",
@@ -2011,7 +2012,7 @@
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 3.571428571428571
+                        "tf": 2.272727272727273
                       },
                       "EventEmitter.html#eventMap": {
                         "ref": "EventEmitter.html#eventMap",
@@ -2447,7 +2448,7 @@
                 "docs": {
                   "EventEmitter.html#eventCount": {
                     "ref": "EventEmitter.html#eventCount",
-                    "tf": 3.571428571428571
+                    "tf": 2.272727272727273
                   },
                   "EventEmitter.html#eventNames": {
                     "ref": "EventEmitter.html#eventNames",
@@ -2505,7 +2506,7 @@
                     "docs": {
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 36.9047619047619
+                        "tf": 35.6060606060606
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
@@ -2580,7 +2581,7 @@
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 7.142857142857142
+                        "tf": 4.545454545454546
                       },
                       "EventEmitter.html#eventMap": {
                         "ref": "EventEmitter.html#eventMap",
@@ -2891,7 +2892,7 @@
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 3.571428571428571
+                        "tf": 2.272727272727273
                       },
                       "EventEmitter.html#eventNames": {
                         "ref": "EventEmitter.html#eventNames",
@@ -4580,7 +4581,7 @@
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 3.571428571428571
+                        "tf": 2.272727272727273
                       },
                       "EventEmitter.html#eventNames": {
                         "ref": "EventEmitter.html#eventNames",
@@ -4972,11 +4973,25 @@
               }
             }
           },
+          "e": {
+            "docs": {},
+            "s": {
+              "docs": {},
+              "t": {
+                "docs": {
+                  "EventEmitter.html#eventCount": {
+                    "ref": "EventEmitter.html#eventCount",
+                    "tf": 15.909090909090908
+                  }
+                }
+              }
+            }
+          },
           "i": {
             "docs": {
               "EventEmitter.html#eventCount": {
                 "ref": "EventEmitter.html#eventCount",
-                "tf": 3.571428571428571
+                "tf": 2.272727272727273
               },
               "EventEmitter.html#eventNames": {
                 "ref": "EventEmitter.html#eventNames",
@@ -5179,7 +5194,7 @@
                   "docs": {
                     "EventEmitter.html#eventCount": {
                       "ref": "EventEmitter.html#eventCount",
-                      "tf": 3.571428571428571
+                      "tf": 2.272727272727273
                     },
                     "EventEmitter.html#eventNames": {
                       "ref": "EventEmitter.html#eventNames",
@@ -5427,7 +5442,7 @@
           }
         }
       },
-      "length": 483
+      "length": 484
     },
     "corpusTokens": [
       "a.k.a",
@@ -5601,6 +5616,7 @@
       "suspens",
       "symbol",
       "target",
+      "test",
       "those",
       "ti",
       "time",
@@ -5697,7 +5713,7 @@
       "name": "eventCount",
       "tags": "EventEmitter#eventCount eventCount",
       "summary": "",
-      "description": "The number of unique events that have registered listeners. Note: this excludes global events registered with EventEmitter.ANY_EVENT because they are not tied to a specific event."
+      "description": "The number of unique events that have registered listeners. test test test test test test test EventEmitter.ANY_EVENT Note: this excludes global events registered with EventEmitter.ANY_EVENT because they are not tied to a specific event."
     },
     "EventEmitter.html#eventMap": {
       "id": "EventEmitter.html#eventMap",
