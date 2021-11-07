@@ -68,6 +68,7 @@
           "emitt",
           "event",
           "eventemitt",
+          "eventemitter.any_ev",
           "execut",
           "extend",
           "function",
@@ -82,7 +83,8 @@
           "pattern",
           "provid",
           "regist",
-          "specif"
+          "specif",
+          "test"
         ],
         "EventEmitter.html#.ANY_EVENT": [
           "add",
@@ -114,7 +116,6 @@
           "number",
           "regist",
           "specif",
-          "test",
           "ti",
           "uniqu"
         ],
@@ -736,7 +737,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       }
                     }
                   }
@@ -843,7 +844,7 @@
                     },
                     "EventEmitter.html": {
                       "ref": "EventEmitter.html",
-                      "tf": 2
+                      "tf": 1.5151515151515151
                     },
                     "EventEmitter.html#.ANY_EVENT": {
                       "ref": "EventEmitter.html#.ANY_EVENT",
@@ -851,7 +852,7 @@
                     },
                     "EventEmitter.html#eventCount": {
                       "ref": "EventEmitter.html#eventCount",
-                      "tf": 6.8181818181818175
+                      "tf": 10.714285714285714
                     },
                     "EventEmitter.html#eventMap": {
                       "ref": "EventEmitter.html#eventMap",
@@ -930,7 +931,7 @@
                             "docs": {
                               "EventEmitter.html": {
                                 "ref": "EventEmitter.html",
-                                "tf": 1902
+                                "tf": 1901.5151515151515
                               },
                               "EventEmitter.html#suspendEvent": {
                                 "ref": "EventEmitter.html#suspendEvent",
@@ -959,13 +960,17 @@
                                             "docs": {},
                                             "v": {
                                               "docs": {
+                                                "EventEmitter.html": {
+                                                  "ref": "EventEmitter.html",
+                                                  "tf": 1.5151515151515151
+                                                },
                                                 "EventEmitter.html#.ANY_EVENT": {
                                                   "ref": "EventEmitter.html#.ANY_EVENT",
                                                   "tf": 1150
                                                 },
                                                 "EventEmitter.html#eventCount": {
                                                   "ref": "EventEmitter.html#eventCount",
-                                                  "tf": 4.545454545454546
+                                                  "tf": 3.571428571428571
                                                 },
                                                 "EventEmitter.html#eventNames": {
                                                   "ref": "EventEmitter.html#eventNames",
@@ -1567,7 +1572,7 @@
                 "docs": {
                   "EventEmitter.html": {
                     "ref": "EventEmitter.html",
-                    "tf": 2
+                    "tf": 1.5151515151515151
                   },
                   "EventEmitter.html#emit": {
                     "ref": "EventEmitter.html#emit",
@@ -1590,7 +1595,7 @@
                   "docs": {
                     "EventEmitter.html": {
                       "ref": "EventEmitter.html",
-                      "tf": 2
+                      "tf": 1.5151515151515151
                     },
                     "EventEmitter.html#eventNames": {
                       "ref": "EventEmitter.html#eventNames",
@@ -1617,7 +1622,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       },
                       "EventEmitter.html#eventsSuspended": {
                         "ref": "EventEmitter.html#eventsSuspended",
@@ -1670,7 +1675,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       }
                     }
                   }
@@ -1687,7 +1692,7 @@
                     "docs": {
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 2.272727272727273
+                        "tf": 3.571428571428571
                       },
                       "EventEmitter.html#eventNames": {
                         "ref": "EventEmitter.html#eventNames",
@@ -1904,7 +1909,7 @@
                           "docs": {
                             "EventEmitter.html": {
                               "ref": "EventEmitter.html",
-                              "tf": 2
+                              "tf": 1.5151515151515151
                             }
                           }
                         }
@@ -2012,7 +2017,7 @@
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 2.272727272727273
+                        "tf": 3.571428571428571
                       },
                       "EventEmitter.html#eventMap": {
                         "ref": "EventEmitter.html#eventMap",
@@ -2448,7 +2453,7 @@
                 "docs": {
                   "EventEmitter.html#eventCount": {
                     "ref": "EventEmitter.html#eventCount",
-                    "tf": 2.272727272727273
+                    "tf": 3.571428571428571
                   },
                   "EventEmitter.html#eventNames": {
                     "ref": "EventEmitter.html#eventNames",
@@ -2506,7 +2511,7 @@
                     "docs": {
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 35.6060606060606
+                        "tf": 36.9047619047619
                       },
                       "EventEmitter.html#getListenerCount": {
                         "ref": "EventEmitter.html#getListenerCount",
@@ -2577,11 +2582,11 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 4.545454545454546
+                        "tf": 7.142857142857142
                       },
                       "EventEmitter.html#eventMap": {
                         "ref": "EventEmitter.html#eventMap",
@@ -2892,7 +2897,7 @@
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 2.272727272727273
+                        "tf": 3.571428571428571
                       },
                       "EventEmitter.html#eventNames": {
                         "ref": "EventEmitter.html#eventNames",
@@ -3069,7 +3074,7 @@
                     },
                     "EventEmitter.html": {
                       "ref": "EventEmitter.html",
-                      "tf": 114
+                      "tf": 113.03030303030303
                     },
                     "Listener.html": {
                       "ref": "Listener.html",
@@ -3370,7 +3375,7 @@
                         "docs": {
                           "EventEmitter.html": {
                             "ref": "EventEmitter.html",
-                            "tf": 2
+                            "tf": 1.5151515151515151
                           }
                         }
                       }
@@ -3390,7 +3395,7 @@
                   "docs": {
                     "EventEmitter.html": {
                       "ref": "EventEmitter.html",
-                      "tf": 2
+                      "tf": 1.5151515151515151
                     },
                     "EventEmitter.html#suspendEvent": {
                       "ref": "EventEmitter.html#suspendEvent",
@@ -3849,7 +3854,7 @@
                         "docs": {
                           "EventEmitter.html": {
                             "ref": "EventEmitter.html",
-                            "tf": 2
+                            "tf": 1.5151515151515151
                           },
                           "EventEmitter.html#eventsSuspended": {
                             "ref": "EventEmitter.html#eventsSuspended",
@@ -4014,7 +4019,7 @@
                   "docs": {
                     "EventEmitter.html": {
                       "ref": "EventEmitter.html",
-                      "tf": 2
+                      "tf": 1.5151515151515151
                     }
                   }
                 }
@@ -4030,7 +4035,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       },
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
@@ -4121,7 +4126,7 @@
               "docs": {
                 "EventEmitter.html": {
                   "ref": "EventEmitter.html",
-                  "tf": 2
+                  "tf": 1.5151515151515151
                 }
               }
             }
@@ -4138,7 +4143,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       }
                     }
                   }
@@ -4208,7 +4213,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       },
                       "EventEmitter.html#eventMap": {
                         "ref": "EventEmitter.html#eventMap",
@@ -4257,7 +4262,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       }
                     }
                   }
@@ -4269,7 +4274,7 @@
             "docs": {
               "EventEmitter.html": {
                 "ref": "EventEmitter.html",
-                "tf": 2
+                "tf": 1.5151515151515151
               },
               "EventEmitter.html#eventMap": {
                 "ref": "EventEmitter.html#eventMap",
@@ -4371,7 +4376,7 @@
                       "docs": {
                         "EventEmitter.html": {
                           "ref": "EventEmitter.html",
-                          "tf": 4
+                          "tf": 3.0303030303030303
                         }
                       }
                     }
@@ -4463,7 +4468,7 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       }
                     }
                   }
@@ -4577,11 +4582,11 @@
                     "docs": {
                       "EventEmitter.html": {
                         "ref": "EventEmitter.html",
-                        "tf": 2
+                        "tf": 1.5151515151515151
                       },
                       "EventEmitter.html#eventCount": {
                         "ref": "EventEmitter.html#eventCount",
-                        "tf": 2.272727272727273
+                        "tf": 3.571428571428571
                       },
                       "EventEmitter.html#eventNames": {
                         "ref": "EventEmitter.html#eventNames",
@@ -4895,6 +4900,20 @@
         },
         "t": {
           "docs": {},
+          "e": {
+            "docs": {},
+            "s": {
+              "docs": {},
+              "t": {
+                "docs": {
+                  "EventEmitter.html": {
+                    "ref": "EventEmitter.html",
+                    "tf": 10.606060606060606
+                  }
+                }
+              }
+            }
+          },
           "r": {
             "docs": {},
             "i": {
@@ -4973,25 +4992,11 @@
               }
             }
           },
-          "e": {
-            "docs": {},
-            "s": {
-              "docs": {},
-              "t": {
-                "docs": {
-                  "EventEmitter.html#eventCount": {
-                    "ref": "EventEmitter.html#eventCount",
-                    "tf": 15.909090909090908
-                  }
-                }
-              }
-            }
-          },
           "i": {
             "docs": {
               "EventEmitter.html#eventCount": {
                 "ref": "EventEmitter.html#eventCount",
-                "tf": 2.272727272727273
+                "tf": 3.571428571428571
               },
               "EventEmitter.html#eventNames": {
                 "ref": "EventEmitter.html#eventNames",
@@ -5194,7 +5199,7 @@
                   "docs": {
                     "EventEmitter.html#eventCount": {
                       "ref": "EventEmitter.html#eventCount",
-                      "tf": 2.272727272727273
+                      "tf": 3.571428571428571
                     },
                     "EventEmitter.html#eventNames": {
                       "ref": "EventEmitter.html#eventNames",
@@ -5442,7 +5447,7 @@
           }
         }
       },
-      "length": 484
+      "length": 485
     },
     "corpusTokens": [
       "a.k.a",
@@ -5692,7 +5697,7 @@
       "name": "EventEmitter",
       "tags": "EventEmitter",
       "summary": "",
-      "description": "The EventEmitter class provides methods to implement the observable design pattern. This pattern allows one to register a function to execute when a specific event is emitted by the emitter. It is a mostly abstract class meant to be extended by (or mixed into) other objects.",
+      "description": "The EventEmitter class provides methods to implement the observable design pattern. This pattern allows one to register a function to execute when a specific event is emitted by the emitter. test test test test test test test EventEmitter.ANY_EVENT It is a mostly abstract class meant to be extended by (or mixed into) other objects.",
       "body": ""
     },
     "EventEmitter.html#.ANY_EVENT": {
@@ -5713,7 +5718,7 @@
       "name": "eventCount",
       "tags": "EventEmitter#eventCount eventCount",
       "summary": "",
-      "description": "The number of unique events that have registered listeners. test test test test test test test EventEmitter.ANY_EVENT Note: this excludes global events registered with EventEmitter.ANY_EVENT because they are not tied to a specific event."
+      "description": "The number of unique events that have registered listeners. Note: this excludes global events registered with EventEmitter.ANY_EVENT because they are not tied to a specific event."
     },
     "EventEmitter.html#eventMap": {
       "id": "EventEmitter.html#eventMap",
