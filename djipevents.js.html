@@ -74,18 +74,18 @@
  * emitter.
  *
  * It is a mostly abstract class meant to be extended by (or mixed into) other objects.
+ *
+ * @param {boolean} [eventsSuspended=false] Whether the `EventEmitter` is initially in a suspended
+ * state (i.e. not executing callbacks).
  */
 export class EventEmitter {
 
-  /**
-   * @param {boolean} [eventsSuspended=false] Whether the `EventEmitter` is initially in a suspended
-   * state (i.e. not executing callbacks).
-   */
   constructor(eventsSuspended = false) {
 
     /**
      * An object containing a property for each event with at least one registered listener. Each
-     * event property contains an array of all the `Listener` objects registered for the event.
+     * event property contains an array of all the [`Listener`](Listener) objects registered for the
+     * event.
      *
      * @type {Object}
      * @readonly
@@ -95,6 +95,7 @@ export class EventEmitter {
     /**
      * Whether or not the execution of function callbacks is currently suspended for this whole
      * emitter
+     *
      * @type {boolean}
      */
     this.eventsSuspended = eventsSuspended == true ? true : false;
@@ -102,26 +103,27 @@ export class EventEmitter {
   }
 
   /**
-   * The callback function is executed when the associated event is triggered via `emit()`. The
-   * `emit()` method relays all additional arguments it received to the callback functions. Since
-   * `emit()` can be passed a variable number of arguments, it is up to the developer to make sure
-   * the arguments match those of the associated callback. In addition, the callback also separately
-   * receives all the arguments present in the listener's `arguments` property. This makes it
-   * easy to pass data from where the listener is added to where the listener is executed.
+   * The callback function is executed when the associated event is triggered via [`emit()`](#emit).
+   * The [`emit()`](#emit) method relays all additional arguments it received to the callback
+   * functions. Since [`emit()`](#emit) can be passed a variable number of arguments, it is up to
+   * the developer to make sure the arguments match those of the associated callback. In addition,
+   * the callback also separately receives all the arguments present in the listener's
+   * [`arguments`](Listener#arguments) property. This makes it easy to pass data from where the
+   * listener is added to where the listener is executed.
    *
    * @callback EventEmitter~callback
    * @param {...*} [args] A variable number of arguments matching the ones (if any) that were passed
-   * to the `emit()` method (except, the first one) followed by the arguments found in the
-   * listener's `arguments` array.
+   * to the [`emit()`](#emit) method (except, the first one) followed by the arguments found in the
+   * listener's [`arguments`](Listener#arguments) array.
    */
 
   /**
-   * Adds a listener for the specified event. It returns the [**Listener**]{@link Listener} object
+   * Adds a listener for the specified event. It returns the [`Listener`]{@link Listener} object
    * that was created and attached to the event.
    *
-   * To attach a global listener that will be triggered for any events, use `EventEmitter.ANY_EVENT`
-   * as the first parameter. Note that a global listener will also be triggered by non-registered
-   * events. For example, this will trigger global listeners: `myEmitter.emit('bogus')`.
+   * To attach a global listener that will be triggered for any events, use
+   * [`EventEmitter.ANY_EVENT`](#ANY_EVENT) as the first parameter. Note that a global listener will
+   * also be triggered by non-registered events.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs.
@@ -138,7 +140,7 @@ export class EventEmitter {
    * property of the [**Listener**]{@link Listener} object and can be retrieved or modified as
    * desired.
    *
-   * @returns {Listener} The newly created [**Listener**]{@link Listener} object.
+   * @returns {Listener} The newly created [`Listener`]{@link Listener} object.
    *
    * @throws {TypeError} The `event` parameter must be a string or `EventEmitter.ANY_EVENT`.
    * @throws {TypeError} The `callback` parameter must be a function.
@@ -280,14 +282,16 @@ export class EventEmitter {
   }
 
   /**
-   * Returns an array of all the `Listener` objects that will be triggered for a specific event.
+   * Returns an array of all the [`Listener`]{@link Listener} objects that have been registered for
+   * a specific event.
    *
-   * Please note that global events (those added with `EventEmitter.ANY_EVENT`) are not returned for
-   * "regular" events. To get the list of global listeners, specifically use
-   * `EventEmitter.ANY_EVENT` as the parameter.
+   * Please note that global events (those added with
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}) are not returned for "regular"
+   * events. To get the list of global listeners, specifically use
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} as the parameter.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event to get listeners for
-   * @returns {Listener[]} An array of `Listener` objects
+   * @returns {Listener[]} An array of [`Listener`]{@link Listener} objects
    */
   getListeners(event) {
     return this.eventMap[event] || [];
@@ -296,12 +300,14 @@ export class EventEmitter {
   /**
    * Suspends execution of all callbacks functions registered for the specified event type.
    *
-   * You can suspend execution of callbacks registered with `EventEmitter.ANY_EVENT` by passing
-   * `EventEmitter.ANY_EVENT` to `suspendEvent()`. Beware that this will not suspend all callbacks
-   * but only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive
-   * at first glance, it allows the selective suspension of global listeners while leaving other
-   * liseners alone. If you truly want to suspends all callbacks for a specific `EventEmitter`,
-   * simply set its `eventsSuspended` property to `true`.
+   * You can suspend execution of callbacks registered with
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} by passing
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} to `suspendEvent()`. Beware that this
+   * will not suspend all callbacks but only those registered with `EventEmitter.ANY_EVENT`. While
+   * this may seem counter-intuitive at first glance, it allows the selective suspension of global
+   * listeners while leaving other liseners alone. If you truly want to suspends all callbacks for a
+   * specific [`EventEmitter`]{@link EventEmitter}, simply set its `eventsSuspended` property to
+   * `true`.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event for which to suspend execution of all
    * callback functions.
@@ -315,10 +321,12 @@ export class EventEmitter {
   /**
    * Resumes execution of all suspended callback functions registered for the specified event type.
    *
-   * You can resume execution of callbacks registered with `EventEmitter.ANY_EVENT` by passing
-   * `EventEmitter.ANY_EVENT` to `unsuspendEvent()`. Beware that this will not resume all callbacks
-   * but only those registered with `EventEmitter.ANY_EVENT`. While this may seem counter-intuitive,
-   * it allows the selective unsuspension of global listeners while leaving other callbacks alone.
+   * You can resume execution of callbacks registered with
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} by passing
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} to `unsuspendEvent()`. Beware that
+   * this will not resume all callbacks but only those registered with `EventEmitter.ANY_EVENT`.
+   * While this may seem counter-intuitive,it allows the selective unsuspension of global listeners
+   * while leaving other callbacks alone.
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event for which to resume execution of all
    * callback functions.
@@ -332,44 +340,40 @@ export class EventEmitter {
   /**
    * Returns the number of listeners registered for a specific event.
    *
-   * Please note that global events (those added with `EventEmitter.ANY_EVENT`) do not count
-   * towards the remaining number for a "regular" event. To get the number of global listeners,
-   * specifically use `EventEmitter.ANY_EVENT` as the parameter.
+   * Please note that global events (those added with
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}) do not count towards the remaining
+   * number for a "regular" event. To get the number of global listeners, specifically use
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} as the parameter.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event
-   * @returns {number} The number of listeners registered for the specified event.
+   * @param {string|EventEmitter.ANY_EVENT} event The event which is usually a string but can also
+   * be the special [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} symbol.
+   * @returns {number} An integer representing the number of listeners registered for the specified
+   * event.
    */
   getListenerCount(event) {
     return this.getListeners(event).length;
   }
 
   /**
-   * Executes the callback functions of all the `Listener` objects registered for a given event. The
-   * callback functions are passed the additional arguments specifed for `emit()` (if any) followed
-   * by the arguments present in the `arguments` property of the `Listener` object (if any). For
-   * example:
+   * Executes the callback function of all the [`Listener`]{@link Listener} objects registered for
+   * a given event. The callback functions are passed the additional arguments passed to `emit()`
+   * (if any) followed by the arguments present in the [`arguments`](Listener#arguments) property of
+   * the [`Listener`](Listener) object (if any).
    *
-   * ```javascript
-   * let myEmitter = new EventEmitter();
-   * myEmitter.addListener("test", fn, {arguments: ["a", "b", "c"]});
-   * myEmitter.emit("test", "y", "z");
-   * ```
-   *
-   * In this example, the function will be called as such: `fn("y", "z", "a", "b", "c");`
-   *
-   * If the `eventsSuspended` property of the `EventEmitter` or the `suspended` property of the
-   * `Listener` is `true`, the callback functions will not be executed.
+   * If the [`eventsSuspended`]{@link #eventsSuspended} property or the
+   * [`suspended`]{@link Listener#suspended} property of the [`Listener`]{@link Listener} is `true`,
+   * the callback functions will not be executed.
    *
    * This function returns an array containing the return values of each of the callbacks.
    *
    * It should be noted that the regular listeners are triggered first followed by the global
-   * listeners (added with `EventEmitter.ANY_EVENT`).
+   * listeners (those added with [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}).
    *
    * @param {string} event The event
    * @param {...*} args Arbitrary number of arguments to pass along to the callback functions
    *
    * @returns {Array} An array containing the return value of each of the executed listener
-   * functions
+   * functions.
    *
    * @throws {TypeError} The `event` parameter must be a string.
    */
@@ -455,45 +459,14 @@ export class EventEmitter {
 
   /**
    * The `waitFor()` method is an async function which returns a promise. The promise is fulfilled
-   * when the specified event occurs. The event can be a regular event or `EventEmitter.ANY_EVENT`
-   * (if you want to resolve as soon as any event is emitted).
-   *
-   * ```javascript
-   * // then/catch syntax
-   * const ee = new EventEmitter();
-   * ee.waitFor("ready").then(() => console.log("Ready!"));
-   * ```
-   *
-   * ```javascript
-   * // async/await syntax
-   * const ee = new EventEmitter();
-   * await ee.waitFor("ready");
-   * console.log("Ready!");
-   * ```
+   * when the specified event occurs. The event can be a regular event or
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} (if you want to resolve as soon as any
+   * event is emitted).
    *
    * If the `duration` option is set, the promise will only be fulfilled if the event is emitted
    * within the specified duration. If the event has not been fulfilled after the specified
    * duration, the promise is rejected. This makes it super easy to wait for an event and timeout
    * after a certain time if the event is not triggered.
-   *
-   * ```javascript
-   * // then/catch syntax
-   * const ee = new EventEmitter();
-   * ee.waitFor("ready", {duration: 100})
-   * .then(() => console.log("Ready!"))
-   * .catch(err => console.log(err);
-   * ```
-   *
-   * ```javascript
-   * // async/await syntax
-   * const ee = new EventEmitter();
-   * try {
-   *  await ee.waitFor("ready", {duration: 100});
-   *  console.log("Ready!");
-   * } catch(err) {
-   *   console.log(err);
-   * }
-   * ```
    *
    * @param {string|EventEmitter.ANY_EVENT} event The event to wait for
    * @param {Object} [options={}]
@@ -526,7 +499,7 @@ export class EventEmitter {
   }
 
   /**
-   * The number of unique events that have registered listeners
+   * The number of unique events that have registered listeners.
    *
    * Note: this excludes global events registered with `EventEmitter.ANY_EVENT` because they are not
    * tied to a specific event.
@@ -670,7 +643,7 @@ export class Listener {
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on April 17th 2020, 15:36:11 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on November 7th 2021, 11:16:20 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
