@@ -37,6 +37,10 @@
     "subscribe",
     "trigger"
   ],
+  "files": [
+    "/dist",
+    "/src"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.16.3",
     "gulp-jsdoc3": "^3.0.0"
