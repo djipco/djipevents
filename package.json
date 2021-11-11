@@ -1,9 +1,13 @@
 {
   "name": "djipevents",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0",
   "description": "A clean and opinionated event-handling library for the browser and Node.js.",
-  "main": "dist/djipevents.cjs.min.js",
-  "module": "dist/djipevents.esm.min.js",
+  "main": "./dist/cjs/djipevents.cjs.min.js",
+  "module": "./dist/esm/djipevents.esm.min.js",
+  "exports": {
+    "require": "./dist/cjs/djipevents.cjs.min.js",
+    "import": "./dist/esm/djipevents.esm.min.js"
+  },
   "author": "Jean-Philippe Côté <jp@djip.co>",
   "license": "MIT",
   "scripts": {

@@ -8,7 +8,7 @@ const iife = {
   input: "src/djipevents.js",
   output: {
     format: "iife",
-    file: "dist/djipevents.iife.min.js",
+    file: "dist/iife/djipevents.iife.min.js",
     exports: "named",
     name: "djipevents",
     sourcemap: true
@@ -16,7 +16,6 @@ const iife = {
   plugins: [
     babel(),
     terser(),
-
 
     // license({
     //   sourcemap: true,
@@ -47,8 +46,6 @@ const iife = {
     //   },
     // })
 
-
-
   ]
 };
 
@@ -57,7 +54,7 @@ const esm = {
   input: "src/djipevents.js",
   output: {
     format: "es",
-    file: "dist/djipevents.esm.min.js",
+    file: "dist/esm/djipevents.esm.min.js",
     sourcemap: true
   },
   plugins: [
@@ -71,7 +68,7 @@ const cjs = {
   input: "src/djipevents.js",
   output: {
     format: "cjs",
-    file: "dist/djipevents.cjs.min.js",
+    file: "dist/cjs/djipevents.cjs.min.js",
     sourcemap: true
   },
   plugins: [
