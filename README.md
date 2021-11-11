@@ -13,28 +13,43 @@ It is currently available in 3 flavours:
 
 ## Importing into project
 
-### Native ES6 module syntax
+### Native ES6 module syntax in browsers
 
 This is for use in modern browsers that support the ECMAScript 6 syntax for module imports and 
 exports. Going forward, this should be the preferred way to import the library (if your target 
 environment supports it):
 
 ```javascript
-import {EventEmitter} from "node_modules/djipevents/dist/djipevents.esm.min.js";
+import {EventEmitter} from "./node_modules/djipevents/dist/esm/djipevents.esm.min.js";
 ```
 Note that the library (purposely) does not provide a default export. This means you have to use 
 curly quotes when importing.
 
-### CommonJS format (Node.js)
+### Native ES6 module syntax in Node.js
 
-CommonJS is the standard in the Node.js world. It is also very popular in setups using bundlers such 
-as Webpack.
+Since Node.js v12 it is possible to use the "import" keyword to import external modules. In this 
+case, you can use the following syntax:
+
+```javascript
+import {EventEmitter} from "djipevents";
+```
+
+Note that, to use ES6 modules in Node.js, your `package.json` file must have the following property:
+```json
+{
+  "type": "module"
+}
+```
+
+### CommonJS format in Node.js
+
+Obviously, you can also use the traditioanl CommonJS syntax traditionnaly used in the Node.js world.
 
 Even though Node.js already offers its own `EventEmitter` object, you can still use **djipevents** 
 if you prefer its added functionalities: 
 
 ```javascript
-const EventEmitter = require("djipevents").EventEmitter;
+const {EventEmitter} = require("djipevents");
 ```
 
 ### Object in global namespace (djipevents)
@@ -43,17 +58,16 @@ This is mostly for legacy-browser support and quick testing. It might be easier 
 very common approach:
 
 ```html
-<script src="node_modules/djipevents/dist/djipevents.iife.min.js"></script>
+<script src="node_modules/djipevents/dist/iife/djipevents.iife.min.js"></script>
 ```
 
 ### CDN-Hosted Versions
 
-All three versions of the library (ES6 Module, CommonJS and Global) are available via a CDN. Here is
+All three versions of the library (ES6 Module, CommonJS and IIFE) are available via a CDN. Here is
 the syntax for the global version:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/djipevents@1.0.0a/dist/djipevents.iife.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/djipevents@2.0.0/dist/iife/djipevents.iife.min.js"></script>
 ```
 
 For the other versions, just change `iife` for `esm` (ES6 Module) or `cjs` (CommonJS) version.
@@ -84,8 +98,7 @@ found in the browser's `EventTarget`, in Node.js' `EventEmitter` or even in othe
   
 As you can see in the reference, the [API](https://djipco.github.io/djipevents/EventEmitter.html) is 
 lean. It is meant to be that way. That does not mean the library is less powerful than others. Some 
-of the functionalities are just less glaringly obvious than with some other libraries. For 
-example:
+functionalities are just less glaringly obvious than with some other libraries. For example:
 
   * While **djipevents** does not have a `removeAllEventListeners()` method, you can achieve the 
     same by calling `removeListener()` with no arguments.
