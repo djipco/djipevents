@@ -80,7 +80,7 @@
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>The <code>EventEmitter</code> class provides methods to implement the <em>observable</em> design pattern. This
 			pattern allows one to <em>register</em> a function to execute when a specific event is <em>emitted</em> by the
 			emitter.</p>
-			<p>It is a mostly abstract class meant to be extended by (or mixed into) other objects.</p></div>
+			<p>It is intended to be an abstract class meant to be extended by (or mixed into) other objects.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -158,8 +158,8 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Identifier to use when trying to add or remove a listener that should be triggered when any
-			events occur.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Identifier to use when adding or removing a listener that should be triggered when any events
+			occur.</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -187,7 +187,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-144">line 144</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-143">line 143</a></p>
 								</div>
 							</div>
 			
@@ -328,7 +328,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-215">line 215</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-214">line 214</a></p>
 								</div>
 							</div>
 			
@@ -344,8 +344,7 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Whether or not the execution of function callbacks is currently suspended for this whole
-			emitter</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Whether or not the execution of callbacks is currently suspended for this emitter.</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -373,7 +372,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-31">line 31</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-30">line 30</a></p>
 								</div>
 							</div>
 			
@@ -546,7 +545,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-79">line 79</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-78">line 78</a></p>
 								</div>
 							</div>
 			
@@ -632,7 +631,7 @@
 														<td>false</td>
 													<td class="last">
 															<p>Whether the listener should be added at the beginning
-									of the listeners array</p>
+									of the listeners array and thus executed first.</p>
 													</td>
 												</tr>
 												<tr>
@@ -707,7 +706,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-133">line 133</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-132">line 132</a></p>
 								</div>
 							</div>
 			
@@ -727,9 +726,9 @@
 			a given event. The callback functions are passed the additional arguments passed to <code>emit()</code>
 			(if any) followed by the arguments present in the <a href="Listener#arguments"><code>arguments</code></a> property of
 			the <a href="Listener"><code>Listener</code></a> object (if any).</p>
-			<p>If the <code>eventsSuspended</code> property or the
-			<a href="Listener.html#suspended"><code>suspended</code></a> property of the <a href="Listener.html"><code>Listener</code></a> is <code>true</code>,
-			the callback functions will not be executed.</p>
+			<p>If the <code>eventsSuspended</code> property is <code>true</code> or the
+			<a href="Listener.html#suspended"><code>Listener.suspended</code></a> property is <code>true</code>, the callback functions
+			will not be executed.</p>
 			<p>This function returns an array containing the return values of each of the callbacks.</p>
 			<p>It should be noted that the regular listeners are triggered first followed by the global
 			listeners (those added with <code>EventEmitter.ANY_EVENT</code>).</p></div>
@@ -801,7 +800,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-316">line 316</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-315">line 315</a></p>
 								</div>
 							</div>
 			
@@ -873,7 +872,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-289">line 289</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-288">line 288</a></p>
 								</div>
 							</div>
 			
@@ -910,7 +909,7 @@
 								<td><code>event</code></td>
 							<td><span class="param-type">string</span> | <span class="param-type"><a href="EventEmitter.html#.ANY_EVENT">EventEmitter.ANY_EVENT</a></span></td>
 							<td class="last">
-									<p>The event to get listeners for</p>
+									<p>The event to get listeners for.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -920,7 +919,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label returns-type"><span class="param-type">Array.&lt;<a href="Listener.html">Listener</a>></span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>An array of <a href="Listener.html"><code>Listener</code></a> objects</p></div>
+									<div class="form-control-static returns-description"><p>An array of <a href="Listener.html"><code>Listener</code></a> objects.</p></div>
 								</div>
 							</div>
 					</form>
@@ -944,7 +943,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-231">line 231</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-230">line 230</a></p>
 								</div>
 							</div>
 			
@@ -975,6 +974,7 @@
 							<th>Name</th>
 						<th>Type</th>
 							<th>Attributes</th>
+							<th>Default</th>
 						<th class="last">Description</th>
 					</tr>
 					</thead>
@@ -983,6 +983,7 @@
 								<td><code>event</code></td>
 							<td><span class="param-type">string</span> | <span class="param-type"><a href="EventEmitter.html#.ANY_EVENT">EventEmitter.ANY_EVENT</a></span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>(any event)</td>
 							<td class="last">
 									<p>The event to check</p>
 							</td>
@@ -991,9 +992,10 @@
 								<td><code>callback</code></td>
 							<td><span class="param-type">function</span> | <span class="param-type"><a href="Listener.html">Listener</a></span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>(any callback)</td>
 							<td class="last">
-									<p>The actual function that was added to the event or the
-			<a href="Listener.html">Listener</a> object returned by <code>addListener()</code>.</p>
+									<p>The actual function that was added to the
+			event or the <a href="Listener.html">Listener</a> object returned by <code>addListener()</code>.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -1027,7 +1029,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-163">line 163</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-162">line 162</a></p>
 								</div>
 							</div>
 			
@@ -1066,7 +1068,7 @@
 								<td><code>event</code></td>
 							<td><span class="param-type">string</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td></td>
+								<td>(any events)</td>
 							<td class="last">
 									<p>The event name.</p>
 							</td>
@@ -1075,10 +1077,10 @@
 								<td><code>callback</code></td>
 							<td><span class="param-type"><a href="EventEmitter.html#~callback">EventEmitter~callback</a></span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td></td>
+								<td>(any callbacks)</td>
 							<td class="last">
-									<p>Only remove the listeners that match this exact
-			callback function.</p>
+									<p>Only remove the listeners that match
+			this exact callback function.</p>
 							</td>
 						</tr>
 						<tr>
@@ -1093,6 +1095,7 @@
 													<th>Name</th>
 												<th>Type</th>
 													<th>Attributes</th>
+													<th>Default</th>
 												<th class="last">Description</th>
 											</tr>
 											</thead>
@@ -1101,17 +1104,20 @@
 														<td><code>context</code></td>
 													<td><span class="param-type">*</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>(any contexts)</td>
 													<td class="last">
-															<p>Only remove the listeners that have this exact context.</p>
+															<p>Only remove the listeners that have this exact
+									context.</p>
 													</td>
 												</tr>
 												<tr>
 														<td><code>remaining</code></td>
 													<td><span class="param-type">number</span></td>
 														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>(any number)</td>
 													<td class="last">
-															<p>Only remove the listener if it has exactly that many
-									remaining times to be executed.</p>
+															<p>Only remove the listener if it has exactly
+									that many remaining times to be executed.</p>
 													</td>
 												</tr>
 											</tbody>
@@ -1164,7 +1170,7 @@
 			will not suspend all callbacks but only those registered with
 			<code>EventEmitter.ANY_EVENT</code>. While this may seem counter-intuitive
 			at first glance, it allows the selective suspension of global listeners while leaving other
-			liseners alone. If you truly want to suspends all callbacks for a specific
+			listeners alone. If you truly want to suspends all callbacks for a specific
 			<a href="EventEmitter.html"><code>EventEmitter</code></a>, simply set its <code>eventsSuspended</code> property to <code>true</code>.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1208,7 +1214,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-250">line 250</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-249">line 249</a></p>
 								</div>
 							</div>
 			
@@ -1274,7 +1280,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-270">line 270</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-269">line 269</a></p>
 								</div>
 							</div>
 			
@@ -1452,7 +1458,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-35">line 35</a></p>
+									<p class="form-control-static"><a href="djipevents.js.html">djipevents.js</a>, <a href="djipevents.js.html#line-34">line 34</a></p>
 								</div>
 							</div>
 			
@@ -1473,7 +1479,7 @@
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on November 7th 2021, 11:55:06 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on November 7th 2021, 12:30:13 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
