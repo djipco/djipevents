@@ -1,7 +1,6 @@
 const gulp = require("gulp");
 const ghPages = require("gulp-gh-pages");
 const jsdoc = require("gulp-jsdoc3");
-const spawn = require("child_process").spawn;
 
 function generateDoc(cb) {
 
@@ -18,11 +17,6 @@ function publishDoc() {
     .pipe(ghPages());
 }
 
-function releaseToNpm(cb) {
-  spawn("npm", ["publish"], { stdio: "inherit" }).on("close", cb);
-}
-
 const doc = gulp.series(generateDoc, publishDoc);
 
 exports.doc = doc;
-exports.release = releaseToNpm;
