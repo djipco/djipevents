@@ -1,5 +1,5 @@
-const EventEmitter = require("../dist/djipevents.cjs.min.js").EventEmitter;
-const Listener = require("../dist/djipevents.cjs.min.js").Listener;
+const EventEmitter = require("../dist/cjs/djipevents.cjs.min.js").EventEmitter;
+const Listener = require("../dist/cjs/djipevents.cjs.min.js").Listener;
 const {expect} = require("chai");
 const sinon = require("sinon");
 
