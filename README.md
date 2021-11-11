@@ -43,7 +43,7 @@ Note that, to use ES6 modules in Node.js, your `package.json` file must have the
 
 ### CommonJS format in Node.js
 
-Obviously, you can also use the traditioanl CommonJS syntax traditionnaly used in the Node.js world.
+Obviously, you can also use the traditional CommonJS syntax traditionnaly used in the Node.js world.
 
 Even though Node.js already offers its own `EventEmitter` object, you can still use **djipevents** 
 if you prefer its added functionalities: 
