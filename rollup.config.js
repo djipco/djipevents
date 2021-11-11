@@ -1,6 +1,6 @@
 import babel from "rollup-plugin-babel";
-// const path = require("path");
-// const license = require("rollup-plugin-license");
+const path = require("path");
+const license = require("rollup-plugin-license");
 import { terser } from "rollup-plugin-terser";
 
 // Global scope namespace (djipevents) for browsers
@@ -16,36 +16,16 @@ const iife = {
   plugins: [
     babel(),
     terser(),
-
-    // license({
-    //   sourcemap: true,
-    //   cwd: '.', // Default is process.cwd()
-    //
-    //   banner: {
-    //     commentStyle: 'regular', // The default
-    //
-    //     content: {
-    //       file: path.join(__dirname, 'LICENSE'),
-    //       encoding: 'utf-8', // Default is utf-8
-    //     },
-    //
-    //     // Optional, may be an object or a function returning an object.
-    //     data() {
-    //       return {
-    //         foo: 'foo',
-    //       };
-    //     },
-    //   },
-    //
-    //   thirdParty: {
-    //     includePrivate: true, // Default is false.
-    //     output: {
-    //       file: path.join(__dirname, 'dist', 'dependencies.txt'),
-    //       encoding: 'utf-8', // Default is utf-8.
-    //     },
-    //   },
-    // })
-
+    license({
+      banner: {
+        content: {
+          file: path.join(__dirname, "BANNER.txt")
+        }
+      },
+      thirdParty: {
+        allow: "(MIT OR Apache-2.0)",
+      }
+    })
   ]
 };
 
@@ -59,7 +39,16 @@ const esm = {
   },
   plugins: [
     terser(),
-    // banner( {file: path.join(__dirname, "BANNER")} )
+    license({
+      banner: {
+        content: {
+          file: path.join(__dirname, "BANNER.txt")
+        }
+      },
+      thirdParty: {
+        allow: "(MIT OR Apache-2.0)",
+      }
+    })
   ]
 };
 
@@ -74,7 +63,16 @@ const cjs = {
   plugins: [
     babel(),
     terser(),
-    // banner( {file: path.join(__dirname, "BANNER")} )
+    license({
+      banner: {
+        content: {
+          file: path.join(__dirname, "BANNER.txt")
+        }
+      },
+      thirdParty: {
+        allow: "(MIT OR Apache-2.0)",
+      }
+    })
   ]
 };
 
