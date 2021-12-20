@@ -36,6 +36,12 @@
 			<div class="navbar-collapse collapse" id="topNavigation">
 				<ul class="nav navbar-nav">
 								<li class="dropdown">
+									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="global.html#callback">callback</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="EventEmitter.html">EventEmitter</a></li>
@@ -79,31 +85,39 @@ into) other objects.</p>
 <li><strong>IIFE</strong>: ES5 syntax for legacy browser support (via <code>&lt;script&gt;</code> tag)</li>
 </ul>
 <h2>Importing into project</h2>
-<h3>Native ES6 module syntax</h3>
+<h3>Native ES6 module syntax in browsers</h3>
 <p>This is for use in modern browsers that support the ECMAScript 6 syntax for module imports and
 exports. Going forward, this should be the preferred way to import the library (if your target
 environment supports it):</p>
-<pre class="prettyprint source lang-javascript"><code>import {EventEmitter} from &quot;node_modules/djipevents/dist/djipevents.esm.min.js&quot;;
+<pre class="prettyprint source lang-javascript"><code>import {EventEmitter} from &quot;./node_modules/djipevents/dist/esm/djipevents.esm.min.js&quot;;
 </code></pre>
 <p>Note that the library (purposely) does not provide a default export. This means you have to use
 curly quotes when importing.</p>
-<h3>CommonJS format (Node.js)</h3>
-<p>CommonJS is the standard in the Node.js world. It is also very popular in setups using bundlers such
-as Webpack.</p>
+<h3>Native ES6 module syntax in Node.js</h3>
+<p>Since Node.js v12 it is possible to use the &quot;import&quot; keyword to import external modules. In this
+case, you can use the following syntax:</p>
+<pre class="prettyprint source lang-javascript"><code>import {EventEmitter} from &quot;djipevents&quot;;
+</code></pre>
+<p>Note that, to use ES6 modules in Node.js, your <code>package.json</code> file must have the following property:</p>
+<pre class="prettyprint source lang-json"><code>{
+  &quot;type&quot;: &quot;module&quot;
+}
+</code></pre>
+<h3>CommonJS format in Node.js</h3>
+<p>Obviously, you can also use the traditional CommonJS syntax traditionnaly used in the Node.js world.</p>
 <p>Even though Node.js already offers its own <code>EventEmitter</code> object, you can still use <strong>djipevents</strong>
 if you prefer its added functionalities:</p>
-<pre class="prettyprint source lang-javascript"><code>const EventEmitter = require(&quot;djipevents&quot;).EventEmitter;
+<pre class="prettyprint source lang-javascript"><code>const {EventEmitter} = require(&quot;djipevents&quot;);
 </code></pre>
 <h3>Object in global namespace (djipevents)</h3>
 <p>This is mostly for legacy-browser support and quick testing. It might be easier for some as it is a
 very common approach:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;node_modules/djipevents/dist/djipevents.iife.min.js&quot;>&lt;/script>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;node_modules/djipevents/dist/iife/djipevents.iife.min.js&quot;>&lt;/script>
 </code></pre>
 <h3>CDN-Hosted Versions</h3>
-<p>All three versions of the library (ES6 Module, CommonJS and Global) are available via a CDN. Here is
+<p>All three versions of the library (ES6 Module, CommonJS and IIFE) are available via a CDN. Here is
 the syntax for the global version:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/djipevents@1.0.0a/dist/djipevents.iife.min.js&quot;>&lt;/script>
-
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/djipevents@2.0.0/dist/iife/djipevents.iife.min.js&quot;>&lt;/script>
 </code></pre>
 <p>For the other versions, just change <code>iife</code> for <code>esm</code> (ES6 Module) or <code>cjs</code> (CommonJS) version.</p>
 <h2>Key features</h2>
@@ -130,8 +144,7 @@ makes it especially easy to access bound versions of functions transformed by us
 <h3>Hidden goodies</h3>
 <p>As you can see in the reference, the <a href="https://djipco.github.io/djipevents/EventEmitter.html">API</a> is
 lean. It is meant to be that way. That does not mean the library is less powerful than others. Some
-of the functionalities are just less glaringly obvious than with some other libraries. For
-example:</p>
+functionalities are just less glaringly obvious than with some other libraries. For example:</p>
 <ul>
 <li>
 <p>While <strong>djipevents</strong> does not have a <code>removeAllEventListeners()</code> method, you can achieve the
@@ -166,7 +179,7 @@ for most to get started.</p></article>
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on November 7th 2021, 12:30:13 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on December 19th 2021, 21:15:17 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
