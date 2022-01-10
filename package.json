@@ -1,6 +1,6 @@
 {
   "name": "djipevents",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A clean and opinionated event-handling library for the browser and Node.js.",
   "main": "./dist/cjs/djipevents.cjs.min.js",
   "exports": {
