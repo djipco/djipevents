@@ -4,12 +4,15 @@
  * emitter.
  *
  * It is intended to be an abstract class meant to be extended by (or mixed into) other objects.
- *
- * @param {boolean} [eventsSuspended=false] Whether the `EventEmitter` is initially in a suspended
- * state (i.e. not executing callbacks).
  */
 export class EventEmitter {
 
+  /**
+   * Creates a new `EventEmitter`object.
+   *
+   * @param {boolean} [eventsSuspended=false] Whether the `EventEmitter` is initially in a suspended
+   * state (i.e. not executing callbacks).
+   */
   constructor(eventsSuspended = false) {
 
     /**
@@ -454,26 +457,30 @@ export class EventEmitter {
  * contextual information such as the event being listened to, the object the listener was attached
  * to, the callback function and so on.
  *
- * @param {string|Symbol} event The event being listened to
- * @param {EventEmitter} target The [`EventEmitter`]{@link EventEmitter} object that the listener is
- * attached to.
- * @param {EventEmitter~callback} callback The function to call when the listener is triggered
- * @param {Object} [options={}]
- * @param {Object} [options.context=target] The context to invoke the listener in (a.k.a. the
- * value of `this` inside the callback function).
- * @param {number} [options.remaining=Infinity] The remaining number of times after which the
- * callback should automatically be removed.
- * @param {array} [options.arguments] An array of arguments that will be passed separately to the
- * callback function upon execution. The array is stored in the [`arguments`]{@link #arguments}
- * property and can be retrieved or modified as desired.
- *
- * @throws {TypeError} The `event` parameter must be a string or
- * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}.
- * @throws {ReferenceError} The `target` parameter is mandatory.
- * @throws {TypeError} The `callback` must be a function.
  */
 export class Listener {
 
+  /**
+   * Creates a new `Listener` object
+   *
+   * @param {string|Symbol} event The event being listened to
+   * @param {EventEmitter} target The [`EventEmitter`]{@link EventEmitter} object that the listener
+   * is attached to.
+   * @param {EventEmitter~callback} callback The function to call when the listener is triggered
+   * @param {Object} [options={}]
+   * @param {Object} [options.context=target] The context to invoke the listener in (a.k.a. the
+   * value of `this` inside the callback function).
+   * @param {number} [options.remaining=Infinity] The remaining number of times after which the
+   * callback should automatically be removed.
+   * @param {array} [options.arguments] An array of arguments that will be passed separately to the
+   * callback function upon execution. The array is stored in the [`arguments`]{@link #arguments}
+   * property and can be retrieved or modified as desired.
+   *
+   * @throws {TypeError} The `event` parameter must be a string or
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}.
+   * @throws {ReferenceError} The `target` parameter is mandatory.
+   * @throws {TypeError} The `callback` must be a function.
+   */
   constructor(event, target, callback, options = {}) {
 
     if (
