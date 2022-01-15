@@ -65,7 +65,7 @@ export class EventEmitter {
    * of the listeners array and thus executed first.
    * @param {number} [options.duration=Infinity] The number of milliseconds before the listener
    * automatically expires.
-   * @param {boolean} [options.remaining=Infinity] The number of times after which the callback
+   * @param {number} [options.remaining=Infinity] The number of times after which the callback
    * should automatically be removed.
    * @param {array} [options.arguments] An array of arguments which will be passed separately to the
    * callback function. This array is stored in the [`arguments`]{@link Listener#arguments}
