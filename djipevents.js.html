@@ -74,12 +74,15 @@
  * emitter.
  *
  * It is intended to be an abstract class meant to be extended by (or mixed into) other objects.
- *
- * @param {boolean} [eventsSuspended=false] Whether the `EventEmitter` is initially in a suspended
- * state (i.e. not executing callbacks).
  */
 export class EventEmitter {
 
+  /**
+   * Creates a new `EventEmitter`object.
+   *
+   * @param {boolean} [eventsSuspended=false] Whether the `EventEmitter` is initially in a suspended
+   * state (i.e. not executing callbacks).
+   */
   constructor(eventsSuspended = false) {
 
     /**
@@ -124,7 +127,7 @@ export class EventEmitter {
    * [`EventEmitter.ANY_EVENT`]{@link #ANY_EVENT} as the first parameter. Note that a global
    * listener will also be triggered by non-registered events.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event to listen to.
+   * @param {string|Symbol} event The event to listen to.
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs.
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The value of `this` in the callback function.
@@ -180,7 +183,7 @@ export class EventEmitter {
    * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} as the first parameter. Note that a
    * global listener will also be triggered by non-registered events.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event to listen to
+   * @param {string|Symbol} event The event to listen to
    * @param {EventEmitter~callback} callback The callback function to execute when the event occurs
    * @param {Object} [options={}]
    * @param {Object} [options.context=this] The context to invoke the callback function in.
@@ -224,7 +227,7 @@ export class EventEmitter {
    * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}, use
    * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} as the parameter.
    *
-   * @param {string|EventEmitter.ANY_EVENT} [event=(any event)] The event to check
+   * @param {string|Symbol} [event=(any event)] The event to check
    * @param {function|Listener} [callback=(any callback)] The actual function that was added to the
    * event or the {@link Listener} object returned by `addListener()`.
    * @returns {boolean}
@@ -294,7 +297,7 @@ export class EventEmitter {
    * events. To get the list of global listeners, specifically use
    * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} as the parameter.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event to get listeners for.
+   * @param {string|Symbol} event The event to get listeners for.
    * @returns {Listener[]} An array of [`Listener`]{@link Listener} objects.
    */
   getListeners(event) {
@@ -313,8 +316,8 @@ export class EventEmitter {
    * listeners alone. If you truly want to suspends all callbacks for a specific
    * [`EventEmitter`]{@link EventEmitter}, simply set its `eventsSuspended` property to `true`.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event for which to suspend execution of all
-   * callback functions.
+   * @param {string|Symbol} event The event name (or `EventEmitter.ANY_EVENT`) for which to suspend
+   * execution of all callback functions.
    */
   suspendEvent(event) {
     this.getListeners(event).forEach(listener => {
@@ -333,8 +336,8 @@ export class EventEmitter {
    * counter-intuitive, it allows the selective unsuspension of global listeners while leaving other
    * callbacks alone.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event for which to resume execution of all
-   * callback functions.
+   * @param {string|Symbol} event The event name (or `EventEmitter.ANY_EVENT`) for which to resume
+   * execution of all callback functions.
    */
   unsuspendEvent(event) {
     this.getListeners(event).forEach(listener => {
@@ -350,8 +353,8 @@ export class EventEmitter {
    * number for a "regular" event. To get the number of global listeners, specifically use
    * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} as the parameter.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event which is usually a string but can also
-   * be the special [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} symbol.
+   * @param {string|Symbol} event The event which is usually a string but can also be the special
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT} symbol.
    * @returns {number} An integer representing the number of listeners registered for the specified
    * event.
    */
@@ -473,7 +476,7 @@ export class EventEmitter {
    * duration, the promise is rejected. This makes it super easy to wait for an event and timeout
    * after a certain time if the event is not triggered.
    *
-   * @param {string|EventEmitter.ANY_EVENT} event The event to wait for
+   * @param {string|Symbol} event The event to wait for
    * @param {Object} [options={}]
    * @param {number} [options.duration=Infinity] The number of milliseconds to wait before the
    * promise is automatically rejected.
@@ -524,26 +527,30 @@ export class EventEmitter {
  * contextual information such as the event being listened to, the object the listener was attached
  * to, the callback function and so on.
  *
- * @param {string|EventEmitter.ANY_EVENT} event The event being listened to
- * @param {EventEmitter} target The [`EventEmitter`]{@link EventEmitter} object that the listener is
- * attached to.
- * @param {EventEmitter~callback} callback The function to call when the listener is triggered
- * @param {Object} [options={}]
- * @param {Object} [options.context=target] The context to invoke the listener in (a.k.a. the
- * value of `this` inside the callback function).
- * @param {number} [options.remaining=Infinity] The remaining number of times after which the
- * callback should automatically be removed.
- * @param {array} [options.arguments] An array of arguments that will be passed separately to the
- * callback function upon execution. The array is stored in the [`arguments`]{@link #arguments}
- * property and can be retrieved or modified as desired.
- *
- * @throws {TypeError} The `event` parameter must be a string or
- * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}.
- * @throws {ReferenceError} The `target` parameter is mandatory.
- * @throws {TypeError} The `callback` must be a function.
  */
 export class Listener {
 
+  /**
+   * Creates a new `Listener` object
+   *
+   * @param {string|Symbol} event The event being listened to
+   * @param {EventEmitter} target The [`EventEmitter`]{@link EventEmitter} object that the listener
+   * is attached to.
+   * @param {EventEmitter~callback} callback The function to call when the listener is triggered
+   * @param {Object} [options={}]
+   * @param {Object} [options.context=target] The context to invoke the listener in (a.k.a. the
+   * value of `this` inside the callback function).
+   * @param {number} [options.remaining=Infinity] The remaining number of times after which the
+   * callback should automatically be removed.
+   * @param {array} [options.arguments] An array of arguments that will be passed separately to the
+   * callback function upon execution. The array is stored in the [`arguments`]{@link #arguments}
+   * property and can be retrieved or modified as desired.
+   *
+   * @throws {TypeError} The `event` parameter must be a string or
+   * [`EventEmitter.ANY_EVENT`]{@link EventEmitter#ANY_EVENT}.
+   * @throws {ReferenceError} The `target` parameter is mandatory.
+   * @throws {TypeError} The `callback` must be a function.
+   */
   constructor(event, target, callback, options = {}) {
 
     if (
@@ -650,7 +657,7 @@ export class Listener {
 	</div>
 	<footer>
 				<div class="copyright">DjipEvents is released under the MIT license.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on December 19th 2021, 21:21:50 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on January 10th 2022, 16:41:39 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
