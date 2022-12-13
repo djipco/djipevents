@@ -323,7 +323,9 @@
           "us"
         ],
         "EventEmitter.html#removeListener": [
+          "ad",
           "addit",
+          "call",
           "callback",
           "criteria",
           "defin",
@@ -336,7 +338,9 @@
           "granular",
           "listen",
           "match",
+          "method",
           "more",
+          "object",
           "on",
           "option",
           "paramet",
@@ -344,6 +348,7 @@
           "remov",
           "removelisten",
           "specifi",
+          "upon",
           "us"
         ],
         "EventEmitter.html#suspendEvent": [
@@ -763,7 +768,7 @@
                   "docs": {
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
-                      "tf": 1.4285714285714286
+                      "tf": 1.1627906976744187
                     }
                   }
                 }
@@ -882,7 +887,7 @@
                     },
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
-                      "tf": 29.285714285714285
+                      "tf": 28.488372093023255
                     },
                     "EventEmitter.html#suspendEvent": {
                       "ref": "EventEmitter.html#suspendEvent",
@@ -992,7 +997,7 @@
                                                 },
                                                 "EventEmitter.html#removeListener": {
                                                   "ref": "EventEmitter.html#removeListener",
-                                                  "tf": 1.4285714285714286
+                                                  "tf": 1.1627906976744187
                                                 },
                                                 "EventEmitter.html#suspendEvent": {
                                                   "ref": "EventEmitter.html#suspendEvent",
@@ -2042,7 +2047,7 @@
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
-                        "tf": 5.714285714285714
+                        "tf": 4.651162790697675
                       },
                       "EventEmitter.html#suspendEvent": {
                         "ref": "EventEmitter.html#suspendEvent",
@@ -2681,7 +2686,7 @@
                     },
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
-                      "tf": 5.714285714285714
+                      "tf": 4.651162790697675
                     },
                     "Listener.html#remaining": {
                       "ref": "Listener.html#remaining",
@@ -2936,7 +2941,7 @@
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
-                        "tf": 1.4285714285714286
+                        "tf": 1.1627906976744187
                       },
                       "EventEmitter.html#suspendEvent": {
                         "ref": "EventEmitter.html#suspendEvent",
@@ -3054,7 +3059,7 @@
                         "docs": {
                           "EventEmitter.html#removeListener": {
                             "ref": "EventEmitter.html#removeListener",
-                            "tf": 1.4285714285714286
+                            "tf": 1.1627906976744187
                           }
                         }
                       }
@@ -3179,7 +3184,12 @@
             "l": {
               "docs": {},
               "l": {
-                "docs": {},
+                "docs": {
+                  "EventEmitter.html#removeListener": {
+                    "ref": "EventEmitter.html#removeListener",
+                    "tf": 1.1627906976744187
+                  }
+                },
                 "b": {
                   "docs": {},
                   "a": {
@@ -3210,7 +3220,7 @@
                           },
                           "EventEmitter.html#removeListener": {
                             "ref": "EventEmitter.html#removeListener",
-                            "tf": 26.428571428571427
+                            "tf": 26.162790697674417
                           },
                           "EventEmitter.html#suspendEvent": {
                             "ref": "EventEmitter.html#suspendEvent",
@@ -3313,7 +3323,7 @@
                         "docs": {
                           "EventEmitter.html#removeListener": {
                             "ref": "EventEmitter.html#removeListener",
-                            "tf": 1.4285714285714286
+                            "tf": 1.1627906976744187
                           }
                         }
                       }
@@ -3454,6 +3464,10 @@
                 "ref": "EventEmitter.html#hasListener",
                 "tf": 1.6129032258064515
               },
+              "EventEmitter.html#removeListener": {
+                "ref": "EventEmitter.html#removeListener",
+                "tf": 2.3255813953488373
+              },
               "EventEmitter.html#~callback": {
                 "ref": "EventEmitter.html#~callback",
                 "tf": 1.0638297872340425
@@ -3547,7 +3561,7 @@
                     },
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
-                      "tf": 1.4285714285714286
+                      "tf": 1.1627906976744187
                     },
                     "EventEmitter.html#~callback": {
                       "ref": "EventEmitter.html#~callback",
@@ -3978,7 +3992,7 @@
                     },
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
-                      "tf": 1.4285714285714286
+                      "tf": 1.1627906976744187
                     },
                     "EventEmitter.html#suspendEvent": {
                       "ref": "EventEmitter.html#suspendEvent",
@@ -4043,6 +4057,10 @@
                       "EventEmitter.html#hasListener": {
                         "ref": "EventEmitter.html#hasListener",
                         "tf": 1.6129032258064515
+                      },
+                      "EventEmitter.html#removeListener": {
+                        "ref": "EventEmitter.html#removeListener",
+                        "tf": 1.1627906976744187
                       },
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
@@ -4144,7 +4162,7 @@
                   "docs": {
                     "EventEmitter.html#removeListener": {
                       "ref": "EventEmitter.html#removeListener",
-                      "tf": 2.857142857142857
+                      "tf": 2.3255813953488373
                     },
                     "EventEmitter.html#~callback": {
                       "ref": "EventEmitter.html#~callback",
@@ -4178,7 +4196,7 @@
                 "docs": {
                   "EventEmitter.html#removeListener": {
                     "ref": "EventEmitter.html#removeListener",
-                    "tf": 2.857142857142857
+                    "tf": 2.3255813953488373
                   }
                 }
               }
@@ -4220,6 +4238,10 @@
                       "EventEmitter.html#getListeners": {
                         "ref": "EventEmitter.html#getListeners",
                         "tf": 2.083333333333333
+                      },
+                      "EventEmitter.html#removeListener": {
+                        "ref": "EventEmitter.html#removeListener",
+                        "tf": 3.488372093023256
                       },
                       "Listener.html": {
                         "ref": "Listener.html",
@@ -4280,7 +4302,7 @@
               },
               "EventEmitter.html#removeListener": {
                 "ref": "EventEmitter.html#removeListener",
-                "tf": 1.4285714285714286
+                "tf": 1.1627906976744187
               }
             },
             "c": {
@@ -4333,7 +4355,7 @@
                       },
                       "EventEmitter.html#removeListener": {
                         "ref": "EventEmitter.html#removeListener",
-                        "tf": 27.857142857142858
+                        "tf": 27.325581395348838
                       },
                       "EventEmitter.html#waitFor": {
                         "ref": "EventEmitter.html#waitFor",
@@ -4402,7 +4424,7 @@
                         },
                         "EventEmitter.html#removeListener": {
                           "ref": "EventEmitter.html#removeListener",
-                          "tf": 4.285714285714286
+                          "tf": 3.488372093023256
                         }
                       }
                     }
@@ -4420,7 +4442,7 @@
                   },
                   "EventEmitter.html#removeListener": {
                     "ref": "EventEmitter.html#removeListener",
-                    "tf": 2.857142857142857
+                    "tf": 2.3255813953488373
                   },
                   "EventEmitter.html#suspendEvent": {
                     "ref": "EventEmitter.html#suspendEvent",
@@ -4611,7 +4633,7 @@
                         },
                         "EventEmitter.html#removeListener": {
                           "ref": "EventEmitter.html#removeListener",
-                          "tf": 2.857142857142857
+                          "tf": 2.3255813953488373
                         },
                         "EventEmitter.html#suspendEvent": {
                           "ref": "EventEmitter.html#suspendEvent",
@@ -5144,7 +5166,7 @@
               },
               "EventEmitter.html#removeListener": {
                 "ref": "EventEmitter.html#removeListener",
-                "tf": 2.857142857142857
+                "tf": 2.3255813953488373
               }
             }
           },
@@ -5220,6 +5242,10 @@
               "docs": {},
               "n": {
                 "docs": {
+                  "EventEmitter.html#removeListener": {
+                    "ref": "EventEmitter.html#removeListener",
+                    "tf": 1.1627906976744187
+                  },
                   "Listener.html#arguments": {
                     "ref": "Listener.html#arguments",
                     "tf": 7.142857142857142
@@ -5392,7 +5418,7 @@
           }
         }
       },
-      "length": 479
+      "length": 484
     },
     "corpusTokens": [
       "a.k.a",
@@ -5418,6 +5444,7 @@
       "bewar",
       "boolean",
       "browser",
+      "call",
       "callback",
       "certain",
       "check",
@@ -5759,7 +5786,7 @@
       "name": "removeListener",
       "tags": "EventEmitter#removeListener removeListener",
       "summary": "",
-      "description": "Removes all the listeners that match the specified criterias. If no parameters are passed, all listeners will be removed. If only the event parameter is passed, all listeners for that event will be removed. You can remove global listeners by using EventEmitter.ANY_EVENT as the first parameter. To use more granular options, you must at least define the event. Then, you can specify the callback to match or one or more of the additional options."
+      "description": "Removes all the listeners that were added to the object upon which the method is called and that match the specified criterias. If no parameters are passed, all listeners added to this object will be removed. If only the event parameter is passed, all listeners for that event will be removed from that object. You can remove global listeners by using EventEmitter.ANY_EVENT as the first parameter. To use more granular options, you must at least define the event. Then, you can specify the callback to match or one or more of the additional options."
     },
     "EventEmitter.html#suspendEvent": {
       "id": "EventEmitter.html#suspendEvent",
